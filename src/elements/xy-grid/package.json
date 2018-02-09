@@ -1,0 +1,54 @@
+{
+  "name": "@growcss/element-xy-grid",
+  "version": "0.0.0",
+  "description": "The XY Grid is huge advancement in Grids.",
+  "keywords": [
+    "behavior",
+    "breakpoint",
+    "breakpoints",
+    "inline-styles",
+    "media-queries",
+    "media-query",
+    "preact",
+    "react",
+    "styled-components",
+    "ui"
+  ],
+  "homepage": "http://growcss.com",
+  "license": "MIT",
+  "author": {
+    "name": "Daniel Bannert",
+    "email": "d.bannert@anolilab.de"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "jsnext:main": "dist/es/index.js",
+  "repository": "https://github.com/growcss/growcss.git",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "browser": "dist/umd/index.js",
+  "dependencies": {
+    "@growcss/behavior-media-queries": "0.0.0",
+    "@growcss/utils-remcalc": "0.0.0",
+    "prop-types": "^15.6.0",
+    "strip-units": "0.0.1",
+    "styled-components": "^3.1.5"
+  },
+  "devDependencies": {
+    "jest": "^22.0.3"
+  },
+  "peerDependencies": {
+    "preact": "^8.0",
+    "react": "^16.0",
+    "styled-components": "^3.0"
+  },
+  "engines": {
+    "node": "^9.3.0"
+  },
+  "moduleName": "xy-grid"
+}

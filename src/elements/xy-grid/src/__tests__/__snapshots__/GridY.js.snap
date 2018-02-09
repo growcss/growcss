@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the style output of GridY 1`] = `
+<XYGridElement
+  alignX="left"
+  gridDirection="vertical"
+  gridHeight="500px"
+  gutters={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".0"
+    vertical={true}
+  >
+    test
+  </Cell>
+</XYGridElement>
+`;

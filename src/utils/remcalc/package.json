@@ -1,0 +1,43 @@
+{
+  "name": "@growcss/utils-remcalc",
+  "version": "0.0.0",
+  "description": "Converts one or more pixel values into matching rem values.",
+  "keywords": [
+    "inline-styles",
+    "rem",
+    "rem-calc",
+    "remcalc",
+    "sass",
+    "utils"
+  ],
+  "homepage": "http://growcss.com",
+  "license": "MIT",
+  "author": {
+    "name": "Daniel Bannert",
+    "email": "d.bannert@anolilab.de"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "jsnext:main": "dist/es/index.js",
+  "repository": "https://github.com/growcss/growcss.git",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "node test/test.js"
+  },
+  "browser": "dist/umd/index.js",
+  "dependencies": {
+    "strip-units": "0.0.1"
+  },
+  "devDependencies": {
+    "jest": "^22.0.3"
+  },
+  "peerDependencies": {},
+  "engines": {
+    "node": "^9.3.0"
+  },
+  "moduleName": "remcalc"
+}

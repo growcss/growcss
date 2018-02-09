@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`cell align 1`] = `
+<CellElement
+  align="top"
+  gridColumns={12}
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  vertical={false}
+>
+  test
+</CellElement>
+`;
+
+exports[`cell auto layout with margin gutter 1`] = `
+<CellElement
+  cellType="auto"
+  gridColumns={12}
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  gutterType="margin"
+  vertical={false}
+>
+  test
+</CellElement>
+`;
+
+exports[`cell auto layout with padding gutter 1`] = `
+<CellElement
+  cellType="auto"
+  gridColumns={12}
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  gutterType="padding"
+  vertical={false}
+>
+  test
+</CellElement>
+`;
+
+exports[`cell base layout 1`] = `
+<CellElement
+  gridColumns={12}
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  vertical={false}
+>
+  test
+</CellElement>
+`;
+
+exports[`cell offset 1`] = `
+<CellElement
+  gridColumns={12}
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  smallOffset={1}
+  vertical={false}
+>
+  test
+</CellElement>
+`;
+
+exports[`cell shrink layout 1`] = `
+<CellElement
+  cellType="shrink"
+  gridColumns={12}
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  vertical={false}
+>
+  test
+</CellElement>
+`;
+
+exports[`cell with 6 small layout 1`] = `
+<CellElement
+  gridColumns={12}
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  small={6}
+  vertical={false}
+>
+  test
+</CellElement>
+`;

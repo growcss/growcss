@@ -1,0 +1,35 @@
+language: node_js
+
+dist: trusty
+
+node_js:
+  - 9
+
+before_install:
+  - node --version && yarn --version
+  - yarn global add lerna
+  - yarn install
+  - lerna bootstrap --parallel
+  - yarn run build
+
+script:
+  - yarn lint
+  - yarn run test
+
+matrix:
+  fast_finish: true
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+    - bower_components
+
+# Gitter notifications
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/e0a2c5381a9eb60c459d
+    on_success: change
+    on_failure: always
+    on_start: false

@@ -1,0 +1,35 @@
+// babel-env-disable
+{
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "env",
+          {
+            "debug": false,
+            "modules": "commonjs"
+          }
+        ],
+        "flow",
+        "react-app"
+      ],
+      "plugins": [
+        "flow-react-proptypes",
+        "babel-plugin-styled-components",
+        "polished"
+      ]
+    },
+    "production": {
+      "presets": [
+        "env",
+        "flow",
+        "react-app"
+      ],
+      "plugins": [
+        "flow-react-proptypes",
+        "babel-plugin-styled-components",
+        "polished"
+      ]
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "lerna": "2.8.0",
+  "packages": [
+    "src/behaviors/*",
+    "src/components/*"
+  ],
+  "commands": {
+    "publish": {
+      "ignore": [
+        "src",
+        "__tests__"
+      ],
+      "allowBranch": "master"
+    }
+  },
+  "changelog": {
+    "repo": "growcss/growcss",
+    "labels": {
+      "PR: Spec Compliancy": ":eyeglasses: Spec Compliancy",
+      "PR: Breaking Change": ":boom: Breaking Change",
+      "PR: New Feature": ":rocket: New Feature",
+      "PR: Bug Fix": ":bug: Bug Fix",
+      "PR: Polish": ":nail_care: Polish",
+      "PR: Docs": ":memo: Documentation",
+      "PR: Internal": ":house: Internal"
+    },
+    "cacheDir": ".changelog"
+  },
+  "version": "0.0.0",
+  "npmClient": "yarn",
+  "npmClientArgs": [
+    "--no-lockfile"
+  ],
+  "useWorkspaces": true
+}

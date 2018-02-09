@@ -1,0 +1,10 @@
+npm-debug.log
+lerna-debug.log
+yarn-error.log
+
+node_modules
+coverage
+dist
+storybook-static
+
+bundle-stats.html
