@@ -22,16 +22,12 @@ Instead of '...', what I saw was that '...' happened instead.
 
 Mark with as [x] to select. Leave as [ ] to unselect.
 
-Desktop:
-- [ ] Chrome
-- [ ] Firefox
-- [ ] Safari 8
-- [ ] Opera
-- [ ] IE 10+
-- [ ] IE 11
-- [ ] EDGE
+Desktop (please complete the following information):
+ - OS: [e.g. iOS]
+ - Browser [e.g. chrome, safari]
+ - Version [e.g. 22]
 
-- [ ] Smartphone (please complete the following information):
+Smartphone (please complete the following information):
  - Device: [e.g. iPhone6]
  - OS: [e.g. iOS8.1]
  - Browser [e.g. stock browser, safari]
@@ -48,16 +44,8 @@ Please copy paste the backtrace here if available
 Add any image that might be helpful to understand the problem
 
 ### Version
-<!--
-`Polymer.version` will show the version for Polymer
-`bower ls` or `npm ls` will show the version of webcomponents.js or webcomponents-lite.js
--->
+
 - GrowCss: vX.X.X
-<!--
- Remove this if you use the same versions as GrowCss
--->
-- Polymer: vX.X.X
-- webcomponents: vX.X.X
 
 ### Solution
 
