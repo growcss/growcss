@@ -5,7 +5,7 @@ exports[`the style output of GridY 1`] = `
   alignX="left"
   gridDirection="vertical"
   gridHeight="500px"
-  gutters={
+  gutterSizes={
     Object {
       "medium": "30px",
       "small": "20px",

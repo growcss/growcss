@@ -1,32 +1,18 @@
 //@flow
 import React, { Component } from 'react';
-import remCalc from '@growcss/utils-remcalc';
+import remCalc from '@growcss/util-remcalc';
 import { Gutters as DefaultGutters } from './Gutters';
 import { GridContainerElement } from '../styled/GridContainerElement';
-import type { GuttersType } from '../types';
+import type { GridContainerType } from '../types';
 
-type GridContainerProps = {
-  children: any,
-  type?: string,
-  width?: string | number,
-  gutterSizes?: string | number | GuttersType,
-};
-
-export default class GridContainer extends Component<GridContainerProps>
-{
+export default class GridContainer extends Component<GridContainerType> {
   static defaultProps = {
     width: remCalc(1200),
     gutterSizes: DefaultGutters,
   };
 
   render() {
-    const {
-      type,
-      children,
-      width,
-      gutterSizes,
-      ...other
-    } = this.props;
+    const { type, children, width, gutterSizes, ...other } = this.props;
 
     let maxWidth = width;
     let gutter = gutterSizes;
@@ -40,7 +26,12 @@ export default class GridContainer extends Component<GridContainerProps>
     }
 
     return (
-      <GridContainerElement maxWidth={maxWidth} gutterSizes={gutter} type={type} {...other}>
+      <GridContainerElement
+        maxWidth={maxWidth}
+        gutterSizes={gutter}
+        type={type}
+        {...other}
+      >
         {children}
       </GridContainerElement>
     );

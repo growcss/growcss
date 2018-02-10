@@ -1,11 +1,16 @@
 [ignore]
-
-[include]
-
-[libs]
-
-[lints]
+<PROJECT_ROOT>/flow-typed/**/*.js
+<PROJECT_ROOT>/coverage
+<PROJECT_ROOT>/build/*
+<PROJECT_ROOT>/.storybook
+<PROJECT_ROOT>/storybook-static
+.*/node_modules/.*
+.*/dist/.*
+.*/__tests__/.*
+.*/stories/*
+.*\rollup.config.js
 
 [options]
-
-[strict]
+module.name_mapper='^@growcss/behavior-\(.*\)$' -> '<PROJECT_ROOT>/src/behaviors/\1/src/index.js'
+module.name_mapper='^@growcss/element\(.*\)$' -> '<PROJECT_ROOT>/src/elements/\1/src/index.js'
+module.name_mapper='^@growcss/util-\(.*\)$' -> '<PROJECT_ROOT>/src/utils/\1/src/index.js'

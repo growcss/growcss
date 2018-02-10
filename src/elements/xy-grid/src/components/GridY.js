@@ -1,20 +1,10 @@
 //@flow
-import React, { Component } from "react";
-import { XYGridElement } from '../styled/XYGridElement';
-import type { GuttersType } from '../types';
+import React, { Component } from 'react';
 import { Gutters as DefaultGutters } from './Gutters';
+import { XYGridElement } from '../styled/XYGridElement';
+import type { GridYType } from '../types';
 
-type GridYType = {
-  children: Object,
-  height: string,
-  gutterSizes?: string | number | GuttersType,
-  gutterType?: string,
-  alignX?: string,
-  alignY?: string,
-};
-
-export default class GridY extends Component<GridYType>
-{
+export default class GridY extends Component<GridYType> {
   static defaultProps = {
     gutterSizes: DefaultGutters,
     alignX: 'left',
@@ -31,19 +21,24 @@ export default class GridY extends Component<GridYType>
       ...other
     } = this.props;
 
-    const cells = React.Children.map(children, (thisArg) => {
-      return React.cloneElement(
-        thisArg,
-        {
-          vertical: true,
-          gutterType,
-          gutterSizes
-        }
-      );
+    const cells = React.Children.map(children, thisArg => {
+      return React.cloneElement(thisArg, {
+        vertical: true,
+        gutterType,
+        gutterSizes,
+      });
     });
 
     return (
-      <XYGridElement gridDirection='vertical' gutterSizes={gutterSizes} gridHeight={height} alignX={alignX} alignY={alignY} {...other} wrap>
+      <XYGridElement
+        gridDirection="vertical"
+        gutterSizes={gutterSizes}
+        gridHeight={height}
+        alignX={alignX}
+        alignY={alignY}
+        {...other}
+        wrap
+      >
         {cells}
       </XYGridElement>
     );

@@ -23,10 +23,10 @@ export const Cell = (
   outputGutter: boolean = true,
   gutters: number | GuttersType = DefaultGutters,
   gutterType: string = 'margin',
-  gutterPosition: Array<string>  = ['right', 'left'],
+  gutterPosition: Array<string> = ['right', 'left'],
   breakpoint: string = 'small',
   vertical: boolean = false,
-): Array<string> => {
+) => {
   let gutter;
 
   if (typeof gutters === 'object' && breakpoint in gutters) {
@@ -34,9 +34,12 @@ export const Cell = (
   } else if (typeof gutters === 'number') {
     gutter = gutters;
   } else {
-    const value = typeof gutters === 'object' ? JSON.stringify(gutters) : gutters;
+    const value =
+      typeof gutters === 'object' ? JSON.stringify(gutters) : gutters;
 
-    throw new Error(`No gutters were found in "${value}" for "breakpoint: ${breakpoint}", cell was not generated.`);
+    throw new Error(
+      `No gutters were found in "${value}" for "breakpoint: ${breakpoint}", cell was not generated.`,
+    );
   }
 
   let css = [CellBase(size)];
@@ -53,4 +56,3 @@ export const Cell = (
 
   return css;
 };
-

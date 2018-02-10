@@ -6,8 +6,8 @@ import { CellStatic } from './CellStatic';
 export const BreakpointCell = (
   n: number,
   breakpoint: string,
-  vertical: boolean
-): Array<string> => {
+  vertical: boolean,
+) => {
   if (n === 0) {
     return [];
   }
@@ -16,5 +16,12 @@ export const BreakpointCell = (
     return [];
   }
 
-  return mediaquery(breakpoint)`${CellStatic(n, false, DefaultGutters, 'margin', breakpoint, vertical)}`;
+  return mediaquery(breakpoint)`${CellStatic(
+    n,
+    false,
+    DefaultGutters,
+    'margin',
+    breakpoint,
+    vertical,
+  )}`;
 };

@@ -56,11 +56,11 @@ const generateDpiMediaQuery = (
  *
  * @return {null | string}
  */
-const getRuleTemplate = (
+export default function(
   value: string,
   breakpoints: BreakpointsType = DefaultBreakpoints,
   hidpibreakpoints: HidpiBreakpointsType = HidpiBreakpoints,
-): string => {
+): string {
   const split = value.split(' ');
   // Web standard Pixels per inch. (1ddpx / $std-web-dpi) = 1dpi
   // See https://www.w3.org/TR/css-values-3/#absolute-lengths
@@ -88,7 +88,8 @@ const getRuleTemplate = (
   }
 
   // Since NaN is the only JavaScript value that is treated as unequal to itself (DON`T REMOVE the +bp !== +bp check)
-  if (+bp !== +bp) { // eslint-disable-line no-self-compare
+  if (+bp !== +bp) {
+    // eslint-disable-line no-self-compare
     if (bp in breakpoints) {
       name = bp;
       bp = breakpoints[name];
@@ -123,7 +124,6 @@ const getRuleTemplate = (
 
   // Only 'only' and 'down' have a max limit.
   if (direction === 'only' || direction === 'down') {
-
     if (name === null) {
       if (hidpi === true) {
         bpMax = stripUnits(bp);
@@ -146,6 +146,4 @@ const getRuleTemplate = (
   }
 
   return strBreakpointJoin(bpMin, bpMax);
-};
-
-export default getRuleTemplate;
+}

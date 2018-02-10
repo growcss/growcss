@@ -10,10 +10,10 @@
     "delete": "             yarn run delete:modules && yarn run delete:build",
     "delete:build": "       lerna exec -- rimraf dist",
     "delete:modules": "     lerna exec -- rimraf node_modules",
-    "flow": "               flow check",
+    "flow": "               flow check --show-all-errors",
     "flow:watch": "         flow-watch",
-    "lint": "               eslint --print-config .eslintrc | eslint-config-prettier-check && eslint '**/*.js'",
-    "lint:fix": "           eslint --fix '**/*.js'",
+    "lint": "               eslint --print-config .eslintrc | eslint-config-prettier-check && eslint 'src/**/**/*.js' && yarn run flow",
+    "lint:fix": "           eslint --fix 'src/**/**/*.js'",
     "storybook": "          NODE_ENV=production start-storybook -p 6006",
     "storybook-build": "    NODE_ENV=production build-storybook",
     "test": "               NODE_ENV=test jest",
@@ -119,7 +119,15 @@
     }
   },
   "lint-staged": {
-    "*.{js, jsx}": [
+    "src/behaviors/**/src/*.{js, jsx}": [
+      "prettier --write",
+      "git add"
+    ],
+    "src/elements/**/src/*.{js, jsx}": [
+      "prettier --write",
+      "git add"
+    ],
+    "src/utils/**/src/*.{js, jsx}": [
       "prettier --write",
       "git add"
     ]

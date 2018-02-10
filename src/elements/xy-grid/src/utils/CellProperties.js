@@ -1,5 +1,5 @@
 //@flow
-import remCalc from '@growcss/utils-remcalc';
+import remCalc from '@growcss/util-remcalc';
 import { CellSize } from './CellSize';
 
 /**
@@ -11,18 +11,26 @@ import { CellSize } from './CellSize';
  *
  * @return {string}
  */
-export const CellProperties = (size: string | number, marginGutter: string | number, vertical: boolean): string => {
+export const CellProperties = (
+  size: string | number,
+  marginGutter: string | number,
+  vertical: boolean,
+): string => {
   const direction: string = vertical ? 'height' : 'width';
 
   if (size === 'full') {
-    const val = (marginGutter === 0 ? '100%' : `calc(100% - ${remCalc(marginGutter)})`);
+    const val =
+      marginGutter === 0 ? '100%' : `calc(100% - ${remCalc(marginGutter)})`;
 
     return `${direction}: ${val};`;
   } else if (size === 'auto' || size === 'shrink') {
     return `${direction}: auto;`;
   }
 
-  const val = marginGutter === 0 ? CellSize(size) : `calc(${CellSize(size)} - ${remCalc(marginGutter)})`;
+  const val =
+    marginGutter === 0
+      ? CellSize(size)
+      : `calc(${CellSize(size)} - ${remCalc(marginGutter)})`;
 
   return `${direction}: ${val};`;
 };

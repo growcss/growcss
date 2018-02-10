@@ -1,6 +1,6 @@
 //@flow
 import mediaquery from '@growcss/behavior-media-queries';
-import remCalc from '@growcss/utils-remcalc';
+import remCalc from '@growcss/util-remcalc';
 import type { GuttersType } from '../types';
 
 const stripUnits = require('strip-units');
@@ -9,7 +9,7 @@ const cssBuilder = (
   gutter: string | number,
   negative: boolean,
   gutterType: string,
-  gutterPosition: Array<string>
+  gutterPosition: Array<string>,
 ): string => {
   let negativeBoolean = negative;
   let operator = negativeBoolean === true ? '-' : '';
@@ -49,14 +49,24 @@ export const Gutters = (
   gutterType: string = 'margin',
   gutterPosition: Array<string> = ['right', 'left'],
   negative: boolean = false,
-): Array<string> => {
+) => {
   // Output our margin gutters.
   if (typeof gutters === 'object') {
     const strings = [];
 
     for (const key in gutters) {
-      if (typeof gutters[key] === 'number' || typeof gutters[key] === 'string') {
-        strings.push(mediaquery(key)`${cssBuilder(gutters[key], negative, gutterType, gutterPosition)}`);
+      if (
+        typeof gutters[key] === 'number' ||
+        typeof gutters[key] === 'string'
+      ) {
+        strings.push(
+          mediaquery(key)`${cssBuilder(
+            gutters[key],
+            negative,
+            gutterType,
+            gutterPosition,
+          )}`,
+        );
       }
     }
 

@@ -1,5 +1,5 @@
 {
-  "name": "@growcss/utils-remcalc",
+  "name": "@growcss/util-remcalc",
   "version": "0.0.0",
   "description": "Converts one or more pixel values into matching rem values.",
   "keywords": [
