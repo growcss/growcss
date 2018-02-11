@@ -88,8 +88,8 @@ export default function(
   }
 
   // Since NaN is the only JavaScript value that is treated as unequal to itself (DON`T REMOVE the +bp !== +bp check)
+  // eslint-disable-next-line no-self-compare
   if (+bp !== +bp) {
-    // eslint-disable-line no-self-compare
     if (bp in breakpoints) {
       name = bp;
       bp = breakpoints[name];
