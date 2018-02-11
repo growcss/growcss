@@ -1,0 +1,247 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Auto Sizing Cell will take up the remaining space 1`] = `
+<XYGridElement
+  alignX="left"
+  className="gc-gridx"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".0"
+    small={4}
+    vertical={false}
+  >
+    4 cells
+  </Cell>
+  <Cell
+    cellType="auto"
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".1"
+    vertical={false}
+  >
+    Whatever's left!
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots Auto Sizing Multiple expanding cells will share the leftover space equally. 1`] = `
+<XYGridElement
+  alignX="left"
+  className="gc-gridx"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".0"
+    small={4}
+    vertical={false}
+  >
+    4 cell
+  </Cell>
+  <Cell
+    cellType="auto"
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".1"
+    vertical={false}
+  >
+    Whatever's left!
+  </Cell>
+  <Cell
+    cellType="auto"
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".2"
+    vertical={false}
+  >
+    Whatever's left!
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots Auto Sizing Shrink means it will only take up the space its contents need 1`] = `
+<XYGridElement
+  alignX="left"
+  className="gc-gridx"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    cellType="shrink"
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".0"
+    vertical={false}
+  >
+    Shrink!
+  </Cell>
+  <Cell
+    cellType="auto"
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".1"
+    vertical={false}
+  >
+    Expand!
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots Auto Sizing To switch back to the auto behavior from a percentage or shrink behavior 1`] = `
+<XYGridElement
+  alignX="left"
+  className="gc-gridx"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".0"
+    large="auto"
+    vertical={false}
+  >
+    One
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".1"
+    large="auto"
+    vertical={false}
+  >
+    Two
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".2"
+    large="auto"
+    vertical={false}
+  >
+    Three
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".3"
+    large="auto"
+    vertical={false}
+  >
+    Four
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".4"
+    large="auto"
+    vertical={false}
+  >
+    Five
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".5"
+    large="auto"
+    vertical={false}
+  >
+    Six
+  </Cell>
+</XYGridElement>
+`;

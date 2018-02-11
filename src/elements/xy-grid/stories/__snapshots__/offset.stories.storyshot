@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Offset Add offset of 2 to large cell 1`] = `
+<XYGridElement
+  alignX="left"
+  className="gc-gridx"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="margin"
+    key=".0"
+    largeOffset={2}
+    small={4}
+    vertical={false}
+  >
+    Offset 2 on large
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="margin"
+    key=".1"
+    small={4}
+    vertical={false}
+  >
+    4 cells
+  </Cell>
+</XYGridElement>
+`;
