@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`the style output of GridY 1`] = `
+exports[`Storyshots GridY Basic Margin gutter 1`] = `
 <XYGridElement
   alignX="left"
   className="gc-gridy"
@@ -23,9 +23,28 @@ exports[`the style output of GridY 1`] = `
       }
     }
     key=".0"
+    large={2}
+    medium={8}
+    small={6}
     vertical={true}
   >
-    test
+    6/8/2 cells
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".1"
+    large={10}
+    medium={8}
+    small={6}
+    vertical={true}
+  >
+    6/4/10 cells
   </Cell>
 </XYGridElement>
 `;

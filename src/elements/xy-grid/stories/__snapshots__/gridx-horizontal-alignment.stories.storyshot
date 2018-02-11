@@ -1,66 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`the style output of GridX 1`] = `
-<XYGridElement
-  alignX="left"
-  className="gc-gridx"
-  gridDirection="horizontal"
-  gutterSizes={
-    Object {
-      "medium": "30px",
-      "small": "20px",
-    }
-  }
-  wrap={true}
->
-  <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-    key=".0"
-    vertical={false}
-  >
-    test
-  </Cell>
-</XYGridElement>
-`;
-
-exports[`the style output of GridX with alignment to bottom 1`] = `
-<XYGridElement
-  alignX="left"
-  alignY="bottom"
-  className="gc-gridx"
-  gridDirection="horizontal"
-  gutterSizes={
-    Object {
-      "medium": "30px",
-      "small": "20px",
-    }
-  }
-  wrap={true}
->
-  <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-    gutterType="padding"
-    key=".0"
-    vertical={false}
-  >
-    test
-  </Cell>
-</XYGridElement>
-`;
-
-exports[`the style output of GridX with alignment to center 1`] = `
+exports[`Storyshots GridX Horizontal Alignment alignX center 1`] = `
 <XYGridElement
   alignX="center"
   className="gc-gridx"
@@ -83,14 +23,30 @@ exports[`the style output of GridX with alignment to center 1`] = `
     }
     gutterType="padding"
     key=".0"
+    small={4}
     vertical={false}
   >
-    test
+    Aligned to
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".1"
+    small={4}
+    vertical={false}
+  >
+    the center
   </Cell>
 </XYGridElement>
 `;
 
-exports[`the style output of GridX with alignment to justify 1`] = `
+exports[`Storyshots GridX Horizontal Alignment alignX justify 1`] = `
 <XYGridElement
   alignX="justify"
   className="gc-gridx"
@@ -113,17 +69,32 @@ exports[`the style output of GridX with alignment to justify 1`] = `
     }
     gutterType="padding"
     key=".0"
+    small={4}
     vertical={false}
   >
-    test
+    Aligned to
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".1"
+    small={4}
+    vertical={false}
+  >
+    the justify
   </Cell>
 </XYGridElement>
 `;
 
-exports[`the style output of GridX with alignment to middle 1`] = `
+exports[`Storyshots GridX Horizontal Alignment alignX left 1`] = `
 <XYGridElement
   alignX="left"
-  alignY="middle"
   className="gc-gridx"
   gridDirection="horizontal"
   gutterSizes={
@@ -144,14 +115,30 @@ exports[`the style output of GridX with alignment to middle 1`] = `
     }
     gutterType="padding"
     key=".0"
+    small={4}
     vertical={false}
   >
-    test
+    Aligned to
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".1"
+    small={4}
+    vertical={false}
+  >
+    the left
   </Cell>
 </XYGridElement>
 `;
 
-exports[`the style output of GridX with alignment to right 1`] = `
+exports[`Storyshots GridX Horizontal Alignment alignX right 1`] = `
 <XYGridElement
   alignX="right"
   className="gc-gridx"
@@ -174,14 +161,30 @@ exports[`the style output of GridX with alignment to right 1`] = `
     }
     gutterType="padding"
     key=".0"
+    small={4}
     vertical={false}
   >
-    test
+    Aligned to
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".1"
+    small={4}
+    vertical={false}
+  >
+    the right
   </Cell>
 </XYGridElement>
 `;
 
-exports[`the style output of GridX with alignment to spaced 1`] = `
+exports[`Storyshots GridX Horizontal Alignment alignX spaced 1`] = `
 <XYGridElement
   alignX="spaced"
   className="gc-gridx"
@@ -204,27 +207,11 @@ exports[`the style output of GridX with alignment to spaced 1`] = `
     }
     gutterType="padding"
     key=".0"
+    small={4}
     vertical={false}
   >
-    test
+    Aligned to
   </Cell>
-</XYGridElement>
-`;
-
-exports[`the style output of GridX with alignment to stretch 1`] = `
-<XYGridElement
-  alignX="left"
-  alignY="stretch"
-  className="gc-gridx"
-  gridDirection="horizontal"
-  gutterSizes={
-    Object {
-      "medium": "30px",
-      "small": "20px",
-    }
-  }
-  wrap={true}
->
   <Cell
     gridColumns={12}
     gutterSizes={
@@ -234,41 +221,11 @@ exports[`the style output of GridX with alignment to stretch 1`] = `
       }
     }
     gutterType="padding"
-    key=".0"
+    key=".1"
+    small={4}
     vertical={false}
   >
-    test
-  </Cell>
-</XYGridElement>
-`;
-
-exports[`the style output of GridX with alignment to top 1`] = `
-<XYGridElement
-  alignX="left"
-  alignY="top"
-  className="gc-gridx"
-  gridDirection="horizontal"
-  gutterSizes={
-    Object {
-      "medium": "30px",
-      "small": "20px",
-    }
-  }
-  wrap={true}
->
-  <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-    gutterType="padding"
-    key=".0"
-    vertical={false}
-  >
-    test
+    the spaced
   </Cell>
 </XYGridElement>
 `;

@@ -113,11 +113,11 @@
   version "3.3.12"
   resolved "https://registry.yarnpkg.com/@storybook/addon-options/-/addon-options-3.3.12.tgz#d0f19936c2ca8ed4e900cf68760db4eeda24ce16"
 
-"@storybook/addon-storyshots@^3.3.11":
-  version "3.3.12"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-storyshots/-/addon-storyshots-3.3.12.tgz#42961a134b0231c0a41c133d9b556e63d50c0b3e"
+"@storybook/addon-storyshots@^3.3.13":
+  version "3.3.13"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-storyshots/-/addon-storyshots-3.3.13.tgz#a441565e0f8fc550d87658209d2ded8f238c1c28"
   dependencies:
-    "@storybook/channels" "^3.3.12"
+    "@storybook/channels" "^3.3.13"
     babel-runtime "^6.26.0"
     glob "^7.1.2"
     global "^4.3.2"
@@ -140,6 +140,10 @@
 "@storybook/channels@^3.3.12":
   version "3.3.12"
   resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-3.3.12.tgz#aa4106888971f9e689511093b0e6f2b569973a09"
+
+"@storybook/channels@^3.3.13":
+  version "3.3.13"
+  resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-3.3.13.tgz#892b80c89329198096761f4f3ddf11d9b252fc61"
 
 "@storybook/client-logger@^3.3.12":
   version "3.3.12"
@@ -5463,7 +5467,7 @@ jest-worker@^22.2.0:
   dependencies:
     merge-stream "^1.0.1"
 
-jest@^22.0.3, jest@^22.1.4:
+jest@^22.1.4:
   version "22.2.1"
   resolved "https://registry.yarnpkg.com/jest/-/jest-22.2.1.tgz#fb6524d35bd02968afe3b17f330d6f7207846147"
   dependencies:

@@ -1,13 +1,9 @@
 {
-  "name": "@growcss/element-xy-grid",
+  "name": "@growcss/element-well",
   "version": "0.0.0",
   "description": "The XY Grid is huge advancement in Grids.",
   "keywords": [
-    "grid",
-    "gridx",
-    "gridy",
-    "xy-grid",
-    "flex",
+    "well",
     "preact",
     "react",
     "styled-components",
@@ -36,8 +32,10 @@
     "@growcss/util-remcalc": "0.0.0",
     "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
-    "strip-units": "0.0.1",
     "styled-components": "^3.1.5"
+  },
+  "devDependencies": {
+    "@growcss/element-xy-grid": "0.0.0"
   },
   "peerDependencies": {
     "preact": "^8.0",

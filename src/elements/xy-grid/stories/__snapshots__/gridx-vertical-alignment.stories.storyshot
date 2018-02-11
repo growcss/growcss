@@ -1,35 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`the style output of GridX 1`] = `
-<XYGridElement
-  alignX="left"
-  className="gc-gridx"
-  gridDirection="horizontal"
-  gutterSizes={
-    Object {
-      "medium": "30px",
-      "small": "20px",
-    }
-  }
-  wrap={true}
->
-  <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-    key=".0"
-    vertical={false}
-  >
-    test
-  </Cell>
-</XYGridElement>
-`;
-
-exports[`the style output of GridX with alignment to bottom 1`] = `
+exports[`Storyshots GridX Vertical Alignment alignY bottom 1`] = `
 <XYGridElement
   alignX="left"
   alignY="bottom"
@@ -53,26 +24,11 @@ exports[`the style output of GridX with alignment to bottom 1`] = `
     }
     gutterType="padding"
     key=".0"
+    small={4}
     vertical={false}
   >
-    test
+    I'm at the bottom
   </Cell>
-</XYGridElement>
-`;
-
-exports[`the style output of GridX with alignment to center 1`] = `
-<XYGridElement
-  alignX="center"
-  className="gc-gridx"
-  gridDirection="horizontal"
-  gutterSizes={
-    Object {
-      "medium": "30px",
-      "small": "20px",
-    }
-  }
-  wrap={true}
->
   <Cell
     gridColumns={12}
     gutterSizes={
@@ -82,45 +38,16 @@ exports[`the style output of GridX with alignment to center 1`] = `
       }
     }
     gutterType="padding"
-    key=".0"
+    key=".1"
+    small={4}
     vertical={false}
   >
-    test
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, tempora. Impedit eius officia possimus laudantium? Molestiae eaque, sapiente atque doloremque placeat! In sint, fugiat saepe sunt dolore tempore amet cupiditate.
   </Cell>
 </XYGridElement>
 `;
 
-exports[`the style output of GridX with alignment to justify 1`] = `
-<XYGridElement
-  alignX="justify"
-  className="gc-gridx"
-  gridDirection="horizontal"
-  gutterSizes={
-    Object {
-      "medium": "30px",
-      "small": "20px",
-    }
-  }
-  wrap={true}
->
-  <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-    gutterType="padding"
-    key=".0"
-    vertical={false}
-  >
-    test
-  </Cell>
-</XYGridElement>
-`;
-
-exports[`the style output of GridX with alignment to middle 1`] = `
+exports[`Storyshots GridX Vertical Alignment alignY middle 1`] = `
 <XYGridElement
   alignX="left"
   alignY="middle"
@@ -144,26 +71,11 @@ exports[`the style output of GridX with alignment to middle 1`] = `
     }
     gutterType="padding"
     key=".0"
+    small={4}
     vertical={false}
   >
-    test
+    I'm in the middle
   </Cell>
-</XYGridElement>
-`;
-
-exports[`the style output of GridX with alignment to right 1`] = `
-<XYGridElement
-  alignX="right"
-  className="gc-gridx"
-  gridDirection="horizontal"
-  gutterSizes={
-    Object {
-      "medium": "30px",
-      "small": "20px",
-    }
-  }
-  wrap={true}
->
   <Cell
     gridColumns={12}
     gutterSizes={
@@ -173,45 +85,16 @@ exports[`the style output of GridX with alignment to right 1`] = `
       }
     }
     gutterType="padding"
-    key=".0"
+    key=".1"
+    small={4}
     vertical={false}
   >
-    test
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, tempora. Impedit eius officia possimus laudantium? Molestiae eaque, sapiente atque doloremque placeat! In sint, fugiat saepe sunt dolore tempore amet cupiditate.
   </Cell>
 </XYGridElement>
 `;
 
-exports[`the style output of GridX with alignment to spaced 1`] = `
-<XYGridElement
-  alignX="spaced"
-  className="gc-gridx"
-  gridDirection="horizontal"
-  gutterSizes={
-    Object {
-      "medium": "30px",
-      "small": "20px",
-    }
-  }
-  wrap={true}
->
-  <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-    gutterType="padding"
-    key=".0"
-    vertical={false}
-  >
-    test
-  </Cell>
-</XYGridElement>
-`;
-
-exports[`the style output of GridX with alignment to stretch 1`] = `
+exports[`Storyshots GridX Vertical Alignment alignY stretch 1`] = `
 <XYGridElement
   alignX="left"
   alignY="stretch"
@@ -235,14 +118,30 @@ exports[`the style output of GridX with alignment to stretch 1`] = `
     }
     gutterType="padding"
     key=".0"
+    small={4}
     vertical={false}
   >
-    test
+    These cells have the same height
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".1"
+    small={4}
+    vertical={false}
+  >
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, tempora. Impedit eius officia possimus laudantium? Molestiae eaque, sapiente atque doloremque placeat! In sint, fugiat saepe sunt dolore tempore amet cupiditate.
   </Cell>
 </XYGridElement>
 `;
 
-exports[`the style output of GridX with alignment to top 1`] = `
+exports[`Storyshots GridX Vertical Alignment aligny top 1`] = `
 <XYGridElement
   alignX="left"
   alignY="top"
@@ -266,9 +165,25 @@ exports[`the style output of GridX with alignment to top 1`] = `
     }
     gutterType="padding"
     key=".0"
+    small={4}
     vertical={false}
   >
-    test
+    I'm at the top (default)
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".1"
+    small={4}
+    vertical={false}
+  >
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, tempora. Impedit eius officia possimus laudantium? Molestiae eaque, sapiente atque doloremque placeat! In sint, fugiat saepe sunt dolore tempore amet cupiditate.
   </Cell>
 </XYGridElement>
 `;
