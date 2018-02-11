@@ -35,6 +35,7 @@
   "dependencies": {
     "@growcss/behavior-media-queries": "0.0.0",
     "@growcss/util-remcalc": "0.0.0",
+    "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
     "strip-units": "0.0.1",
     "styled-components": "^3.1.5"

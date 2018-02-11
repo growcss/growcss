@@ -1,5 +1,6 @@
 //@flow
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import remCalc from '@growcss/util-remcalc';
 import { Gutters as DefaultGutters } from './Gutters';
 import { GridContainerElement } from '../styled/GridContainerElement';
@@ -12,7 +13,14 @@ export default class GridContainer extends Component<GridContainerType> {
   };
 
   render() {
-    const { type, children, width, gutterSizes, ...other } = this.props;
+    const {
+      type,
+      children,
+      width,
+      gutterSizes,
+      ...other
+    } = this.props;
+    const className = classNames('gc-grid-container');
 
     let maxWidth = width;
     let gutter = gutterSizes;
@@ -27,6 +35,7 @@ export default class GridContainer extends Component<GridContainerType> {
 
     return (
       <GridContainerElement
+        className={className}
         maxWidth={maxWidth}
         gutterSizes={gutter}
         type={type}

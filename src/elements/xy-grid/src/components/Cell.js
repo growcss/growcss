@@ -1,5 +1,6 @@
 //@flow
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import { Gutters as DefaultGutters } from './Gutters';
 import { CellElement } from '../styled/CellElement';
 import type { CellType } from '../types';
@@ -32,9 +33,11 @@ export default class Cell extends Component<CellType> {
       align,
       ...other
     } = this.props;
+    const className = classNames('gc-cell');
 
     return (
       <CellElement
+        className={className}
         gridColumns={gridColumns}
         cellType={cellType}
         gutterType={gutterType}

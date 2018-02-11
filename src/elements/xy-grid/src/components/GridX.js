@@ -1,5 +1,6 @@
 //@flow
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import { Gutters as DefaultGutters } from './Gutters';
 import { XYGridElement } from '../styled/XYGridElement';
 import type { GridXType } from '../types';
@@ -19,6 +20,7 @@ export default class GridX extends Component<GridXType> {
       alignY,
       ...other
     } = this.props;
+    const className = classNames('gc-gridx');
 
     const cells = React.Children.map(children, thisArg => {
       return React.cloneElement(thisArg, {
@@ -30,6 +32,7 @@ export default class GridX extends Component<GridXType> {
 
     return (
       <XYGridElement
+        className={className}
         gridDirection="horizontal"
         gutterSizes={gutterSizes}
         alignX={alignX}
