@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://growcss.com" target="_blank">
-        <img src="">
+        <img src=".github/growcss.png?raw=true" height="100">
     </a>
     <br>
     <br>

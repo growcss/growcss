@@ -3,6 +3,7 @@
 exports[`the style output of GridX 1`] = `
 <XYGridElement
   alignX="left"
+  className="gc-gridx"
   gridDirection="horizontal"
   gutterSizes={
     Object {
@@ -32,6 +33,7 @@ exports[`the style output of GridX with alignment to bottom 1`] = `
 <XYGridElement
   alignX="left"
   alignY="bottom"
+  className="gc-gridx"
   gridDirection="horizontal"
   gutterSizes={
     Object {
@@ -61,6 +63,7 @@ exports[`the style output of GridX with alignment to bottom 1`] = `
 exports[`the style output of GridX with alignment to center 1`] = `
 <XYGridElement
   alignX="center"
+  className="gc-gridx"
   gridDirection="horizontal"
   gutterSizes={
     Object {
@@ -90,6 +93,7 @@ exports[`the style output of GridX with alignment to center 1`] = `
 exports[`the style output of GridX with alignment to justify 1`] = `
 <XYGridElement
   alignX="justify"
+  className="gc-gridx"
   gridDirection="horizontal"
   gutterSizes={
     Object {
@@ -120,6 +124,7 @@ exports[`the style output of GridX with alignment to middle 1`] = `
 <XYGridElement
   alignX="left"
   alignY="middle"
+  className="gc-gridx"
   gridDirection="horizontal"
   gutterSizes={
     Object {
@@ -149,6 +154,7 @@ exports[`the style output of GridX with alignment to middle 1`] = `
 exports[`the style output of GridX with alignment to right 1`] = `
 <XYGridElement
   alignX="right"
+  className="gc-gridx"
   gridDirection="horizontal"
   gutterSizes={
     Object {
@@ -178,6 +184,7 @@ exports[`the style output of GridX with alignment to right 1`] = `
 exports[`the style output of GridX with alignment to spaced 1`] = `
 <XYGridElement
   alignX="spaced"
+  className="gc-gridx"
   gridDirection="horizontal"
   gutterSizes={
     Object {
@@ -208,6 +215,7 @@ exports[`the style output of GridX with alignment to stretch 1`] = `
 <XYGridElement
   alignX="left"
   alignY="stretch"
+  className="gc-gridx"
   gridDirection="horizontal"
   gutterSizes={
     Object {
@@ -238,6 +246,7 @@ exports[`the style output of GridX with alignment to top 1`] = `
 <XYGridElement
   alignX="left"
   alignY="top"
+  className="gc-gridx"
   gridDirection="horizontal"
   gutterSizes={
     Object {

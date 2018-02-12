@@ -3,6 +3,7 @@
 exports[`the style output of GridY 1`] = `
 <XYGridElement
   alignX="left"
+  className="gc-gridy"
   gridDirection="vertical"
   gridHeight="500px"
   gutterSizes={
