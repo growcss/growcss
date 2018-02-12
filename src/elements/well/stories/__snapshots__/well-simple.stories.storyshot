@@ -1,7 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Simple Well Default well element with text 1`] = `
+exports[`Storyshots Well Simple Default well element with text 1`] = `
 <WellElement
   className="gc-well"
-/>
+  gutterSizes={
+    Object {
+      "medium": Array [
+        "40px",
+        "0",
+      ],
+      "small": Array [
+        "20px",
+        "0",
+      ],
+    }
+  }
+  minHeight="5rem"
+>
+  test
+</WellElement>
 `;
