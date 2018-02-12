@@ -121,15 +121,15 @@
     }
   },
   "lint-staged": {
-    "src/behaviors/**/src/*.{js, jsx}": [
+    "src/behaviors/**/src/**/*.{js, jsx}": [
       "prettier --write",
       "git add"
     ],
-    "src/elements/**/src/*.{js, jsx}": [
+    "src/elements/**/src/**/*.{js, jsx}": [
       "prettier --write",
       "git add"
     ],
-    "src/utils/**/src/*.{js, jsx}": [
+    "src/utils/**/src/**/*.{js, jsx}": [
       "prettier --write",
       "git add"
     ]
