@@ -1,17 +1,15 @@
 {
-  "name": "@growcss/element-xy-grid",
+  "name": "@growcss/element-image",
   "version": "0.0.0",
-  "description": "The XY Grid is huge advancement in Grids.",
+  "description": "Image element with sizing and preloading options.",
   "keywords": [
-    "flex",
-    "grid",
-    "gridx",
-    "gridy",
+    "image",
+    "lazy",
+    "lazy loading",
     "preact",
     "react",
     "styled-components",
-    "ui",
-    "xy-grid"
+    "ui"
   ],
   "homepage": "http://growcss.com",
   "license": "MIT",
@@ -33,10 +31,8 @@
   "browser": "dist/umd/index.js",
   "dependencies": {
     "@growcss/behavior-media-queries": "0.0.0",
-    "@growcss/util-remcalc": "0.0.0",
     "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
-    "strip-units": "0.0.1",
     "styled-components": "^3.1.5"
   },
   "peerDependencies": {
@@ -46,5 +42,5 @@
   "engines": {
     "node": "^9.3.0"
   },
-  "moduleName": "gc-xy-grid"
+  "moduleName": "gc-image"
 }

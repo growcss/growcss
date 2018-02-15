@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image load small image if no preview image is set 1`] = `
+<div>
+  <ImageElement
+    Crossorigin="anonymous"
+    backgroundImages={Object {}}
+    className="gc-image preview"
+    src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/400x/mountain.jpg"
+  />
+  <ImageElement
+    backgroundImages={Object {}}
+    className="gc-image"
+    innerRef={[Function]}
+  />
+</div>
+`;

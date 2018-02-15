@@ -2,15 +2,6 @@
 
 exports[`Storyshots Well Background Images Well with background images 1`] = `
 <WellElement
-  backgroundImages={
-    Object {
-      "large": "https://dummyimage.com/1024x768/000/fff",
-      "medium": "https://dummyimage.com/600x400/000/fff",
-      "small": "https://dummyimage.com/320x200/000/fff",
-      "xlarge": "https://dummyimage.com/1280x800/000/fff",
-      "xxlarge": "https://dummyimage.com/1440x900/000/fff",
-    }
-  }
   className="gc-well has-background-images"
   gutterSizes={
     Object {
@@ -25,5 +16,23 @@ exports[`Storyshots Well Background Images Well with background images 1`] = `
     }
   }
   minHeight="5rem"
-/>
+>
+  <Image
+    backgroundImages={
+      Object {
+        "large": "https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/1024x/mountain.jpg",
+        "medium": "https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/600x/mountain.jpg",
+        "small": "https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/400x/mountain.jpg",
+        "xlarge": "https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/1280x/mountain.jpg",
+        "xxlarge": "https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/mountain.jpg ",
+      }
+    }
+    previewImage="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/32x/-/grayscale/-/quality/lightest/mountain.jpg"
+  />
+  <section
+    className="gc-well-content"
+  >
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+  </section>
+</WellElement>
 `;

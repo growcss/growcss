@@ -16,7 +16,5 @@ exports[`Storyshots Well Simple Default well element with text 1`] = `
     }
   }
   minHeight="5rem"
->
-  test
-</WellElement>
+/>
 `;
