@@ -1,17 +1,29 @@
 //@flow
-import React, { Component } from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import { Breakpoints as DefaultBreakpoints } from './Breakpoints';
-import type { ImageType } from '../types';
+import { AspectRatioPlaceholder } from '../styled/AspectRatioPlaceholder';
+import { FigureElement } from '../styled/FigureElement';
 import { ImageElement } from '../styled/ImageElement';
-import { ImagesType } from '../types';
+import { PreviewElement } from '../styled/PreviewElement';
+import type { ImageType, ImagesType } from '../types';
 import type { StateType } from '../states';
 
-export default class LazyImage extends Component<ImageType, StateType> {
-  constructor(props: Object) {
+const stripUnits = require('strip-units');
+
+export default class LazyImage extends React.Component<ImageType, StateType> {
+  static defaultProps: ImageType;
+  /**
+   * The first found source img url.
+   */
+  src: string;
+  srcSet: string;
+  imgElement: React.Node;
+
+  constructor(props: ImageType) {
     super(props);
 
-    const { src, srcSet } = LazyImage.parseImageSources(props.backgroundImages);
+    const { src, srcSet } = LazyImage.parseImageSources(this.props.backgroundImages);
 
     this.src = src;
     this.srcSet = srcSet;
@@ -45,11 +57,13 @@ export default class LazyImage extends Component<ImageType, StateType> {
     for (const image in list) {
       if (
         typeof image === 'string' &&
-        DefaultBreakpoints[image] !== undefined
+        typeof DefaultBreakpoints[image] === 'string'
       ) {
         srcSet += `${list[image]} ${DefaultBreakpoints[image]},`;
       }
     }
+
+    srcSet = srcSet.slice(0, -1);
 
     return {
       src,
@@ -58,30 +72,20 @@ export default class LazyImage extends Component<ImageType, StateType> {
   }
 
   render() {
-    const { previewImage, sizes, ...others } = this.props;
-    const classNamePreview = classNames(['gc-image', 'preview']);
-    const classNameImage = classNames({
-      'gc-image': true,
-      reveal: this.state.imageLoaded,
+    const { children, previewImage, height, width, alt } = this.props;
+    const className = classNames({
+      loaded: this.state.imageLoaded
     });
 
     return (
-      <div>
-        <ImageElement
-          src={previewImage || this.src}
-          className={classNamePreview}
-          Crossorigin="anonymous"
-          {...others}
-        />
-        <ImageElement
-          className={classNameImage}
-          innerRef={img => {
-            this.imgElement = img;
-          }}
-          Sizes={sizes}
-          {...others}
-        />
-      </div>
+      <FigureElement className='gc-image'>
+        <AspectRatioPlaceholder>
+          <div style={{paddingBottom: `${(stripUnits(height)/stripUnits(width)) * 100}%` }} />
+          <PreviewElement src={previewImage || this.src} crossorigin='anonymous' alt={alt}/>
+          <ImageElement className={className} innerRef={img => { this.imgElement = img; }} alt={alt}/>
+        </AspectRatioPlaceholder>
+        {children}
+      </FigureElement>
     );
   }
 }

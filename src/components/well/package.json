@@ -1,7 +1,7 @@
 {
-  "name": "@growcss/element-well",
+  "name": "@growcss/component-well",
   "version": "0.0.0",
-  "description": "The XY Grid is huge advancement in Grids.",
+  "description": "",
   "keywords": [
     "preact",
     "react",

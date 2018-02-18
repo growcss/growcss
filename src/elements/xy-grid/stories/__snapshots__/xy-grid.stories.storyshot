@@ -1,0 +1,1111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots XY-Grid Grid cell will take up the remaining space 1`] = `
+<XYGridElement
+  alignX="left"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".0"
+    small={4}
+    vertical={false}
+  >
+    4 cells
+  </Cell>
+  <Cell
+    cellType="auto"
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".1"
+    vertical={false}
+  >
+    Whatever's left!
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid Grid cell with self align types 1`] = `
+<XYGridElement
+  alignX="left"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    align="bottom"
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".0"
+    small={3}
+    vertical={false}
+  >
+    Align bottom
+  </Cell>
+  <Cell
+    align="middle"
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".1"
+    small={3}
+    vertical={false}
+  >
+    Align middle
+  </Cell>
+  <Cell
+    align="stretch"
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".2"
+    small={3}
+    vertical={false}
+  >
+    Align stretch
+  </Cell>
+  <Cell
+    align="top"
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".3"
+    small={3}
+    vertical={false}
+  >
+    Align top. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non harum laborum cum voluptate vel, eius adipisci similique dignissimos nobis at excepturi incidunt fugit molestiae quaerat, consequuntur porro temporibus. Nisi, ex?
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid GridX central alignment with alignX center and alignY middle 1`] = `
+<GridX
+  alignX="center"
+  alignY="middle"
+  className="xy-gridstories__CustomGridX-hwVLja cTSELK"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  gutterType="padding"
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    small={4}
+    vertical={false}
+  >
+    I am in the center-middle
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    small={4}
+    vertical={false}
+  >
+    I am also centrally located
+  </Cell>
+</GridX>
+`;
+
+exports[`Storyshots XY-Grid GridX gutter type with margin 1`] = `
+<XYGridElement
+  alignX="left"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="margin"
+    key=".0"
+    large={4}
+    medium={6}
+    vertical={false}
+  >
+    12/6/4 cells
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="margin"
+    key=".1"
+    large={8}
+    medium={6}
+    vertical={false}
+  >
+    12/6/8 cells
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid GridX gutter type with padding 1`] = `
+<XYGridElement
+  alignX="left"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".0"
+    large={4}
+    medium={6}
+    vertical={false}
+  >
+    12/6/4 cells
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".1"
+    large={8}
+    medium={6}
+    vertical={false}
+  >
+    12/6/8 cells
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid GridX horizontal center alignment 1`] = `
+<XYGridElement
+  alignX="center"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".0"
+    small={4}
+    vertical={false}
+  >
+    Aligned to
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".1"
+    small={4}
+    vertical={false}
+  >
+    the center
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid GridX horizontal default left alignment 1`] = `
+<XYGridElement
+  alignX="left"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".0"
+    small={4}
+    vertical={false}
+  >
+    Aligned to
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".1"
+    small={4}
+    vertical={false}
+  >
+    the left
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid GridX horizontal justify alignment 1`] = `
+<XYGridElement
+  alignX="justify"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".0"
+    small={4}
+    vertical={false}
+  >
+    Aligned to
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".1"
+    small={4}
+    vertical={false}
+  >
+    the justify
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid GridX horizontal right alignment 1`] = `
+<XYGridElement
+  alignX="right"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".0"
+    small={4}
+    vertical={false}
+  >
+    Aligned to
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".1"
+    small={4}
+    vertical={false}
+  >
+    the right
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid GridX horizontal spaced alignment 1`] = `
+<XYGridElement
+  alignX="spaced"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".0"
+    small={4}
+    vertical={false}
+  >
+    Aligned to
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".1"
+    small={4}
+    vertical={false}
+  >
+    the spaced
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid GridX vertical bottom alignment 1`] = `
+<XYGridElement
+  alignX="left"
+  alignY="bottom"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".0"
+    small={4}
+    vertical={false}
+  >
+    I'm at the bottom
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".1"
+    small={4}
+    vertical={false}
+  >
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, tempora. Impedit eius officia possimus laudantium? Molestiae eaque, sapiente atque doloremque placeat! In sint, fugiat saepe sunt dolore tempore amet cupiditate.
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid GridX vertical middle alignment 1`] = `
+<XYGridElement
+  alignX="left"
+  alignY="middle"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".0"
+    small={4}
+    vertical={false}
+  >
+    I'm in the middle
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".1"
+    small={4}
+    vertical={false}
+  >
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, tempora. Impedit eius officia possimus laudantium? Molestiae eaque, sapiente atque doloremque placeat! In sint, fugiat saepe sunt dolore tempore amet cupiditate.
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid GridX vertical stretch alignment 1`] = `
+<XYGridElement
+  alignX="left"
+  alignY="stretch"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".0"
+    small={4}
+    vertical={false}
+  >
+    These cells have the same height
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".1"
+    small={4}
+    vertical={false}
+  >
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, tempora. Impedit eius officia possimus laudantium? Molestiae eaque, sapiente atque doloremque placeat! In sint, fugiat saepe sunt dolore tempore amet cupiditate.
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid GridX vertical top alignment 1`] = `
+<XYGridElement
+  alignX="left"
+  alignY="top"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".0"
+    small={4}
+    vertical={false}
+  >
+    I'm at the top (default)
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".1"
+    small={4}
+    vertical={false}
+  >
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, tempora. Impedit eius officia possimus laudantium? Molestiae eaque, sapiente atque doloremque placeat! In sint, fugiat saepe sunt dolore tempore amet cupiditate.
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid GridX with 6/8/2 and 6/4/10 cells 1`] = `
+<XYGridElement
+  alignX="left"
+  className="gc-grid-y"
+  gridDirection="vertical"
+  gridHeight="500px"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".0"
+    large={2}
+    medium={8}
+    small={6}
+    vertical={true}
+  >
+    6/8/2 cells
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".1"
+    large={10}
+    medium={8}
+    small={6}
+    vertical={true}
+  >
+    6/4/10 cells
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid GridX with 12/6/4 and 12/6/8 cells 1`] = `
+<XYGridElement
+  alignX="left"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".0"
+    large={4}
+    medium={6}
+    vertical={false}
+  >
+    12/6/4 cells
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".1"
+    large={8}
+    medium={6}
+    vertical={false}
+  >
+    12/6/8 cells
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid GridX with a full width cell 1`] = `
+<XYGridElement
+  alignX="left"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".0"
+    vertical={false}
+  >
+    full width cell
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".1"
+    vertical={false}
+  >
+    full width cell
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid GridX with offset of 2 to a large cell 1`] = `
+<XYGridElement
+  alignX="left"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="margin"
+    key=".0"
+    largeOffset={2}
+    small={4}
+    vertical={false}
+  >
+    Offset 2 on large
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="margin"
+    key=".1"
+    small={4}
+    vertical={false}
+  >
+    4 cells
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid GridX with two 6 small cells 1`] = `
+<XYGridElement
+  alignX="left"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".0"
+    small={6}
+    vertical={false}
+  >
+    6 cells
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".1"
+    small={6}
+    vertical={false}
+  >
+    6 cells
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid Multiple expanding cells will share the leftover space equally. 1`] = `
+<XYGridElement
+  alignX="left"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".0"
+    small={4}
+    vertical={false}
+  >
+    4 cell
+  </Cell>
+  <Cell
+    cellType="auto"
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".1"
+    vertical={false}
+  >
+    Whatever's left!
+  </Cell>
+  <Cell
+    cellType="auto"
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".2"
+    vertical={false}
+  >
+    Whatever's left!
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid Shrink means it will only take up the space its contents need 1`] = `
+<XYGridElement
+  alignX="left"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    cellType="shrink"
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".0"
+    vertical={false}
+  >
+    Shrink!
+  </Cell>
+  <Cell
+    cellType="auto"
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".1"
+    vertical={false}
+  >
+    Expand!
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid To switch back to the auto behavior from a percentage or shrink behavior 1`] = `
+<XYGridElement
+  alignX="left"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".0"
+    large="auto"
+    vertical={false}
+  >
+    One
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".1"
+    large="auto"
+    vertical={false}
+  >
+    Two
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".2"
+    large="auto"
+    vertical={false}
+  >
+    Three
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".3"
+    large="auto"
+    vertical={false}
+  >
+    Four
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".4"
+    large="auto"
+    vertical={false}
+  >
+    Five
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".5"
+    large="auto"
+    vertical={false}
+  >
+    Six
+  </Cell>
+</XYGridElement>
+`;

@@ -1,5 +1,5 @@
 //@flow
-import React from 'react';
+import * as React from 'react';
 import GridY from '../components/GridY';
 import 'jest-styled-components'
 import Cell from '../components/Cell';

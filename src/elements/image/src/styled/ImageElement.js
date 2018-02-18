@@ -7,27 +7,26 @@ const animation = keyframes`
 `;
 
 export const ImageElement = styled.img`
-  background-position: 50%;
-  background-size: cover;
-
-  height: 100%;
-  width: 100%;
-  max-width: none;
-
   display: block;
   border: 0 none;
 
-  position: absolute;
-  left: 0;
-  top: 0;
+  visibility: hidden;
+  opacity: 0;
+  backface-visibility: hidden;
 
-  &.reveal {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  &.loaded {
     will-change: transform, opacity;
     animation: ${animation} 1s ease-out;
-  }
-
-  &.preview {
-    filter: blur(2vw);
-    transform: scale(1.05);
+    visibility: visible;
+    opacity: 1;
   }
 `;

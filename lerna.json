@@ -2,7 +2,9 @@
   "lerna": "2.8.0",
   "packages": [
     "src/behaviors/*",
-    "src/components/*"
+    "src/components/*",
+    "src/elements/*",
+    "src/utils/*"
   ],
   "commands": {
     "publish": {

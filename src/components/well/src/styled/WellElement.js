@@ -4,6 +4,7 @@ import mediaquery, {
   Breakpoints as DefaultBreakpoints,
 } from '@growcss/behavior-media-queries';
 import remCalc from '@growcss/util-remcalc';
+import Image from '@growcss/element-image';
 
 const BreakpointGutterCss = gutterSizes => {
   let breakpoints = [];
@@ -35,10 +36,9 @@ export const WellElement = styled.section`
   overflow: hidden;
   outline: none;
 
-  ${props =>
-    BreakpointGutterCss(
-      props.theme.gutterSizes || props.gutterSizes,
-    )} +&WellElement {
+  ${props => BreakpointGutterCss(props.theme.gutterSizes || props.gutterSizes)}
+
+  +&WellElement {
     margin-top: 0;
   }
 
@@ -51,6 +51,12 @@ export const WellElement = styled.section`
   }
 
   &.has-background-images {
+    ${Image} img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
+
     .gc-well-content {
       width: 100%;
       height: 100%;
@@ -60,6 +66,7 @@ export const WellElement = styled.section`
       left: 0;
       z-index: 2;
     }
+
     .gc-well-image-curtain {
       background: black;
       position: absolute;
@@ -67,7 +74,7 @@ export const WellElement = styled.section`
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: 1;
+      z-index: 2;
       opacity: 0.5;
     }
   }

@@ -3,46 +3,55 @@ import { setOptions } from '@storybook/addon-options';
 
 // Option defaults:
 setOptions({
+
   /**
    * name to display in the top left corner
    * @type {String}
    */
   name: 'GrowCss',
+
   /**
    * URL for name in top left corner to link to
    * @type {String}
    */
   url: '#',
+
   /**
    * show story component as full screen
    * @type {Boolean}
    */
   goFullScreen: false,
+
   /**
    * display panel that shows a list of stories
    * @type {Boolean}
    */
   showStoriesPanel: true,
+
   /**
    * display panel that shows addon configurations
    * @type {Boolean}
    */
-  showAddonPanel: true,
+  showAddonPanel: false,
+
   /**
    * display floating search box to search through stories
    * @type {Boolean}
    */
   showSearchBox: false,
+
   /**
    * show addon panel as a vertical panel on the right
    * @type {Boolean}
    */
   addonPanelInRight: false,
+
   /**
    * sorts stories
    * @type {Boolean}
    */
   sortStoriesByKind: false,
+
   /**
    * regex for finding the hierarchy separator
    * @example:
@@ -53,6 +62,7 @@ setOptions({
    * @type {Regex}
    */
   hierarchySeparator: null,
+
   /**
    * regex for finding the hierarchy root separator
    * @example:
@@ -61,11 +71,13 @@ setOptions({
    * @type {Regex}
    */
   hierarchyRootSeparator: null,
+
   /**
    * sidebar tree animations
    * @type {Boolean}
    */
   sidebarAnimations: true,
+
   /**
    * id to select an addon panel
    * @type {String}
@@ -74,10 +86,10 @@ setOptions({
 });
 
 // automatically import all files ending in *.stories.js
-const req = require.context('../src/elements', true, /.stories.js$/);
+const stories = require.context('../src', true, /.stories.js$/);
 
 function loadStories() {
-  req.keys().forEach(filename => req(filename));
+  stories.keys().forEach(filename => stories(filename));
 }
 
 configure(loadStories, module);
