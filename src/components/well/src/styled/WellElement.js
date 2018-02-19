@@ -6,7 +6,7 @@ import mediaquery, {
 import remCalc from '@growcss/util-remcalc';
 import Image from '@growcss/element-image';
 
-const BreakpointGutterCss = gutterSizes => {
+const BreakpointGutterCss = (gutterSizes, callback) => {
   let breakpoints = [];
   let lastBreakpoint;
 
@@ -17,9 +17,7 @@ const BreakpointGutterCss = gutterSizes => {
       }
 
       breakpoints = breakpoints.concat(
-        mediaquery(breakpoint)`margin: ${remCalc(
-          gutterSizes[lastBreakpoint],
-        )};padding: ${remCalc(gutterSizes[lastBreakpoint])};`,
+        mediaquery(breakpoint)`${callback(remCalc(gutterSizes[lastBreakpoint],))}`,
       );
     }
   }
@@ -36,7 +34,7 @@ export const WellElement = styled.section`
   overflow: hidden;
   outline: none;
 
-  ${props => BreakpointGutterCss(props.theme.gutterSizes || props.gutterSizes)}
+  ${props => BreakpointGutterCss(props.theme.gutterSizes || props.gutterSizes, (size) => { return `margin: ${size};padding: ${size};` })}
 
   +&WellElement {
     margin-top: 0;
@@ -51,10 +49,8 @@ export const WellElement = styled.section`
   }
 
   &.has-background-images {
-    ${Image} img {
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
+    .gc-well-image {
+      ${props => BreakpointGutterCss(props.theme.gutterSizes || props.gutterSizes, (size) => { return `margin: -${size};` })}
     }
 
     .gc-well-content {

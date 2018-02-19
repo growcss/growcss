@@ -16,17 +16,11 @@ export default class Well extends React.Component<WellType, StateType> {
 
   well: Object;
 
-  constructor(props: WellType) {
-    super(props);
-
-    this.state = { loadedContentHeight: 0, loadedContentWidth: 0 };
-  }
-
   renderBackgroundImage(backgroundImages: ImagesType, previewImage?: string, alt: string) {
     if (backgroundImages !== undefined) {
       return <Image
-        height={this.state.loadedContentHeight}
-        width={this.state.loadedContentWidth}
+        height={40}
+        width={80}
         backgroundImages={backgroundImages}
         previewImage={previewImage}
         alt={alt}
@@ -34,12 +28,6 @@ export default class Well extends React.Component<WellType, StateType> {
     }
 
     return null;
-  }
-
-  componentDidMount() {
-    const height = this.well.clientHeight;
-
-    this.setState({ loadedContentHeight: height, loadedContentWidth: height });
   }
 
   render() {
