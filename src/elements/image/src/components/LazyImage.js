@@ -84,7 +84,14 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
   }
 
   render() {
-    const { children, previewImage, height, width, alt } = this.props;
+    const {
+      children,
+      previewImage,
+      height,
+      width,
+      alt,
+      crossorigin,
+    } = this.props;
     const className = classNames({ loaded: this.state.imageLoaded });
 
     return (
@@ -107,6 +114,7 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
               this.imgElement = img;
             }}
             alt={alt}
+            crossorigin={crossorigin}
           />
         </AspectRatioPlaceholder>
         {children}

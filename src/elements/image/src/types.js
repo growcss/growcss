@@ -10,6 +10,7 @@ export type ImageType = {
   height: string | number,
   width: string | number,
   alt: string,
+  crossorigin?: string,
   previewImage?: string,
   children?: Figcaption,
 };
