@@ -7,11 +7,10 @@ import type { ImageType } from '../types';
 export default class Image extends Component<ImageType> {
   render() {
     const { backgroundImages, previewImage, height, width, alt } = this.props;
-    const className = classNames('gc-well-image-curtain');
 
     return (
-      <div>
-        <div className={className} />
+      <div className={classNames('gc-well-image')}>
+        <div className={classNames('gc-well-image-curtain')} />
         <DefaultImage
           backgroundImages={backgroundImages}
           height={height}
