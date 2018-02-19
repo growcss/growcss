@@ -36,13 +36,6 @@ export const commonPlugins = [
   commonjs({
     // All of our own sources will be ES6 modules, so only node_modules need to be resolved with cjs
     include: 'node_modules/**',
-    // namedExports: {
-    //   // The commonjs plugin can't figure out the exports of some modules, so if rollup gives warnings like:
-    //   // ⚠️   'render' is not exported by 'node_modules/react-dom/index.js'
-    //   // Just add the mentioned file / export here
-    //   'node_modules/react-dom/index.js': ['render'],
-    //   'node_modules/react/react.js': ['Component', 'Children'],
-    // },
   }),
 ];
 
