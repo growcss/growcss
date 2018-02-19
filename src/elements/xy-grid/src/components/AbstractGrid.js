@@ -14,7 +14,7 @@ export default class AbstractGrid extends Component<GridType> {
   /**
    * Setting for getting a gridy or gridx type.
    *
-   * @
+   * @param {boolean} vertical
    */
   vertical: boolean;
 
