@@ -1,7 +1,7 @@
 //@flow
-import React from 'react';
+import * as React from 'react';
 import Cell from '../components/Cell';
-import 'jest-styled-components'
+import 'jest-styled-components';
 
 test('cell base layout', () => {
   const wrapper = shallow(<Cell>test</Cell>);
@@ -14,7 +14,11 @@ test('cell base layout', () => {
 });
 
 test('cell auto layout with padding gutter', () => {
-  const wrapper = shallow(<Cell cellType='auto' gutterType='padding'>test</Cell>);
+  const wrapper = shallow(
+    <Cell cellType="auto" gutterType="padding">
+      test
+    </Cell>,
+  );
 
   expect(wrapper).toMatchSnapshot();
   expect(wrapper).toHaveStyleRule('flex', '1 1 0px');
@@ -25,7 +29,11 @@ test('cell auto layout with padding gutter', () => {
 });
 
 test('cell auto layout with margin gutter', () => {
-  const wrapper = shallow(<Cell cellType='auto' gutterType='margin'>test</Cell>);
+  const wrapper = shallow(
+    <Cell cellType="auto" gutterType="margin">
+      test
+    </Cell>,
+  );
 
   expect(wrapper).toMatchSnapshot();
   expect(wrapper).toHaveStyleRule('flex', '1 1 0px');
@@ -35,7 +43,7 @@ test('cell auto layout with margin gutter', () => {
 });
 
 test('cell shrink layout', () => {
-  const wrapper = shallow(<Cell cellType='shrink'>test</Cell>);
+  const wrapper = shallow(<Cell cellType="shrink">test</Cell>);
 
   expect(wrapper).toMatchSnapshot();
   expect(wrapper).toHaveStyleRule('flex', '0 0 auto');
@@ -56,7 +64,7 @@ test('cell with 6 small layout', () => {
 });
 
 test('cell align', () => {
-  const wrapper = shallow(<Cell align='top'>test</Cell>);
+  const wrapper = shallow(<Cell align="top">test</Cell>);
 
   expect(wrapper).toMatchSnapshot();
   expect(wrapper).toHaveStyleRule('flex', '0 0 auto');

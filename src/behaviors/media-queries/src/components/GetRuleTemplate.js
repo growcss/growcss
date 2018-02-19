@@ -1,7 +1,7 @@
 //@flow
 import { Breakpoints as DefaultBreakpoints } from './Breakpoints';
 import { HidpiBreakpoints } from './HidpiBreakpoints';
-import { mapNext, mapNextNumber, toEm, strBreakpointJoin } from './utils';
+import { mapNext, mapNextNumber, toEm, strBreakpointJoin } from '../utils';
 import type { BreakpointsType, HidpiBreakpointsType } from '../types';
 
 const warning = require('warning');

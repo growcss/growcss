@@ -1,11 +1,15 @@
 //@flow
-import React from 'react';
+import * as React from 'react';
 import GridX from '../components/GridX';
 import Cell from '../components/Cell';
-import 'jest-styled-components'
+import 'jest-styled-components';
 
 test('the style output of GridX', () => {
-  const wrapper = shallow(<GridX><Cell>test</Cell></GridX>);
+  const wrapper = shallow(
+    <GridX>
+      <Cell>test</Cell>
+    </GridX>,
+  );
 
   expect(wrapper).toMatchSnapshot();
   expect(wrapper).toHaveStyleRule('display', 'flex');
@@ -16,7 +20,11 @@ test('the style output of GridX', () => {
 });
 
 test('the style output of GridX with alignment to right', () => {
-  const wrapper = shallow(<GridX gutterType='padding' alignX='right'><Cell>test</Cell></GridX>);
+  const wrapper = shallow(
+    <GridX gutterType="padding" alignX="right">
+      <Cell>test</Cell>
+    </GridX>,
+  );
 
   expect(wrapper).toMatchSnapshot();
   expect(wrapper).toHaveStyleRule('display', 'flex');
@@ -27,7 +35,11 @@ test('the style output of GridX with alignment to right', () => {
 });
 
 test('the style output of GridX with alignment to center', () => {
-  const wrapper = shallow(<GridX gutterType='padding' alignX='center'><Cell>test</Cell></GridX>);
+  const wrapper = shallow(
+    <GridX gutterType="padding" alignX="center">
+      <Cell>test</Cell>
+    </GridX>,
+  );
 
   expect(wrapper).toMatchSnapshot();
   expect(wrapper).toHaveStyleRule('display', 'flex');
@@ -38,7 +50,11 @@ test('the style output of GridX with alignment to center', () => {
 });
 
 test('the style output of GridX with alignment to justify', () => {
-  const wrapper = shallow(<GridX gutterType='padding' alignX='justify'><Cell>test</Cell></GridX>);
+  const wrapper = shallow(
+    <GridX gutterType="padding" alignX="justify">
+      <Cell>test</Cell>
+    </GridX>,
+  );
 
   expect(wrapper).toMatchSnapshot();
   expect(wrapper).toHaveStyleRule('display', 'flex');
@@ -49,7 +65,11 @@ test('the style output of GridX with alignment to justify', () => {
 });
 
 test('the style output of GridX with alignment to spaced', () => {
-  const wrapper = shallow(<GridX gutterType='padding' alignX='spaced'><Cell>test</Cell></GridX>);
+  const wrapper = shallow(
+    <GridX gutterType="padding" alignX="spaced">
+      <Cell>test</Cell>
+    </GridX>,
+  );
 
   expect(wrapper).toMatchSnapshot();
   expect(wrapper).toHaveStyleRule('display', 'flex');
@@ -60,7 +80,11 @@ test('the style output of GridX with alignment to spaced', () => {
 });
 
 test('the style output of GridX with alignment to top', () => {
-  const wrapper = shallow(<GridX gutterType='padding' alignY='top'><Cell>test</Cell></GridX>);
+  const wrapper = shallow(
+    <GridX gutterType="padding" alignY="top">
+      <Cell>test</Cell>
+    </GridX>,
+  );
 
   expect(wrapper).toMatchSnapshot();
   expect(wrapper).toHaveStyleRule('display', 'flex');
@@ -71,7 +95,11 @@ test('the style output of GridX with alignment to top', () => {
 });
 
 test('the style output of GridX with alignment to middle', () => {
-  const wrapper = shallow(<GridX gutterType='padding' alignY='middle'><Cell>test</Cell></GridX>);
+  const wrapper = shallow(
+    <GridX gutterType="padding" alignY="middle">
+      <Cell>test</Cell>
+    </GridX>,
+  );
 
   expect(wrapper).toMatchSnapshot();
   expect(wrapper).toHaveStyleRule('display', 'flex');
@@ -82,7 +110,11 @@ test('the style output of GridX with alignment to middle', () => {
 });
 
 test('the style output of GridX with alignment to bottom', () => {
-  const wrapper = shallow(<GridX gutterType='padding' alignY='bottom'><Cell>test</Cell></GridX>);
+  const wrapper = shallow(
+    <GridX gutterType="padding" alignY="bottom">
+      <Cell>test</Cell>
+    </GridX>,
+  );
 
   expect(wrapper).toMatchSnapshot();
   expect(wrapper).toHaveStyleRule('display', 'flex');
@@ -93,7 +125,11 @@ test('the style output of GridX with alignment to bottom', () => {
 });
 
 test('the style output of GridX with alignment to stretch', () => {
-  const wrapper = shallow(<GridX gutterType='padding' alignY='stretch'><Cell>test</Cell></GridX>);
+  const wrapper = shallow(
+    <GridX gutterType="padding" alignY="stretch">
+      <Cell>test</Cell>
+    </GridX>,
+  );
 
   expect(wrapper).toMatchSnapshot();
   expect(wrapper).toHaveStyleRule('display', 'flex');

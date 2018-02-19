@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Image Image with a preview url 1`] = `
+<FigureElement
+  className="gc-image"
+>
+  <AspectRatioPlaceholder>
+    <div
+      style={
+        Object {
+          "paddingBottom": "25%",
+        }
+      }
+    />
+    <PreviewElement
+      alt="test"
+      className="preview"
+      crossorigin="anonymous"
+      src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/32x/-/grayscale/-/quality/lightest/mountain.jpg"
+    />
+    <ImageElement
+      alt="test"
+      className=""
+      innerRef={[Function]}
+    />
+  </AspectRatioPlaceholder>
+</FigureElement>
+`;
+
+exports[`Storyshots Image Image with figcaption 1`] = `
+<FigureElement
+  className="gc-image"
+>
+  <AspectRatioPlaceholder>
+    <div
+      style={
+        Object {
+          "paddingBottom": "25%",
+        }
+      }
+    />
+    <PreviewElement
+      alt="test"
+      className="preview"
+      crossorigin="anonymous"
+      src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/32x/-/grayscale/-/quality/lightest/mountain.jpg"
+    />
+    <ImageElement
+      alt="test"
+      className=""
+      innerRef={[Function]}
+    />
+  </AspectRatioPlaceholder>
+  <Component>
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+  </Component>
+</FigureElement>
+`;
+
+exports[`Storyshots Image Image with figcaption to the right 1`] = `
+<FigureElement
+  className="gc-image"
+>
+  <AspectRatioPlaceholder>
+    <div
+      style={
+        Object {
+          "paddingBottom": "25%",
+        }
+      }
+    />
+    <PreviewElement
+      alt="test"
+      className="preview"
+      crossorigin="anonymous"
+      src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/32x/-/grayscale/-/quality/lightest/mountain.jpg"
+    />
+    <ImageElement
+      alt="test"
+      className=""
+      innerRef={[Function]}
+    />
+  </AspectRatioPlaceholder>
+  <Component
+    align="right"
+  >
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+  </Component>
+</FigureElement>
+`;
+
+exports[`Storyshots Image Simple image 1`] = `
+<FigureElement
+  className="gc-image"
+>
+  <AspectRatioPlaceholder>
+    <div
+      style={
+        Object {
+          "paddingBottom": "25%",
+        }
+      }
+    />
+    <PreviewElement
+      alt="test"
+      className="preview"
+      crossorigin="anonymous"
+      src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/300x/mountain.jpg"
+    />
+    <ImageElement
+      alt="test"
+      className=""
+      innerRef={[Function]}
+    />
+  </AspectRatioPlaceholder>
+</FigureElement>
+`;
