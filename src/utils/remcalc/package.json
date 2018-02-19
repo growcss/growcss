@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "description": "Converts one or more pixel values into matching rem values.",
   "keywords": [
-    "inline-styles",
     "rem",
     "rem-calc",
     "remcalc",
@@ -31,9 +30,6 @@
   "browser": "dist/umd/index.js",
   "dependencies": {
     "strip-units": "0.0.1"
-  },
-  "devDependencies": {
-    "jest": "^22.0.3"
   },
   "peerDependencies": {},
   "engines": {

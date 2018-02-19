@@ -38,5 +38,8 @@ describe('Rem Calculator', () => {
     expect(remcalc(['1px', '2px', '3px', '4px'])).toBe(
       '0.0625rem 0.125rem 0.1875rem 0.25rem',
     );
+    expect(remcalc(['0', '2px', '3px', '4px'])).toBe(
+      '0 0.125rem 0.1875rem 0.25rem',
+    );
   });
 });

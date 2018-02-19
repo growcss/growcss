@@ -1,11 +1,11 @@
 //@flow
-import React, { Component } from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import { Gutters as DefaultGutters } from './Gutters';
 import { CellElement } from '../styled/CellElement';
 import type { CellType } from '../types';
 
-export default class Cell extends Component<CellType> {
+export default class Cell extends React.Component<CellType> {
   static defaultProps = {
     gridColumns: 12,
     gutterSizes: DefaultGutters,

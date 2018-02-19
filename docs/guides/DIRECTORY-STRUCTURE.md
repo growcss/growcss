@@ -40,6 +40,7 @@ The dist directory contains the bundles we ship to our NPM package. We ship both
       └─ dist
         ├─ cjs
         ├─ esm
+        ├─ umd
         └─ package.json
 ```
 

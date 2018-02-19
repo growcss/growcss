@@ -38,11 +38,8 @@
     "styled-components": "^3.1.5",
     "warning": "^3.0.0"
   },
-  "devDependencies": {
-    "jest": "^22.0.3"
-  },
   "peerDependencies": {
-    "styled-components": "^3.0.2"
+    "styled-components": "^3.1"
   },
   "engines": {
     "node": "^9.3.0"

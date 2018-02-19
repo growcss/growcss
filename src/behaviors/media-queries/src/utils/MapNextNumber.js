@@ -1,5 +1,5 @@
 //@flow
-import type { BreakpointsType } from '../../types';
+import type { BreakpointsType } from '../types';
 
 /**
  * Find the next number in object.
