@@ -31,6 +31,8 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
    */
   imgElement: HTMLImageElement;
 
+  state = { imageLoaded: false };
+
   constructor(props: ImageType) {
     super(props);
 
@@ -40,7 +42,6 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
 
     this.src = src;
     this.srcSet = srcSet;
-    this.state = { imageLoaded: false };
   }
 
   componentDidMount() {

@@ -1,0 +1,44 @@
+{
+  "name": "@growcss/breadcrumbs",
+  "version": "0.0.0",
+  "description": "A component used for navigation, with each item acting as a link.",
+  "keywords": [
+    "image",
+    "lazy",
+    "lazy loading",
+    "preact",
+    "react",
+    "styled-components",
+    "ui"
+  ],
+  "homepage": "http://growcss.com",
+  "license": "MIT",
+  "author": {
+    "name": "Daniel Bannert",
+    "email": "d.bannert@anolilab.de"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "jsnext:main": "dist/es/index.js",
+  "repository": "https://github.com/growcss/growcss.git",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "browser": "dist/umd/index.js",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "styled-components": "^3.1.5"
+  },
+  "peerDependencies": {
+    "preact": "^8.0",
+    "react": "^16.0"
+  },
+  "engines": {
+    "node": "^9.3.0"
+  },
+  "moduleName": "gc-image"
+}
