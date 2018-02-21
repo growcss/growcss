@@ -3,7 +3,6 @@
   "packages": [
     "src/behaviors/*",
     "src/components/*",
-    "src/elements/*",
     "src/utils/*"
   ],
   "commands": {

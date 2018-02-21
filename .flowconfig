@@ -12,6 +12,5 @@
 
 [options]
 module.name_mapper='^@growcss/behavior-\(.*\)$' -> '<PROJECT_ROOT>/src/behaviors/\1/src/index.js'
-module.name_mapper='^@growcss/component-\(.*\)$' -> '<PROJECT_ROOT>/src/elements/\1/src/index.js'
-module.name_mapper='^@growcss/element-\(.*\)$' -> '<PROJECT_ROOT>/src/elements/\1/src/index.js'
+module.name_mapper='^@growcss/\(.*\)$' -> '<PROJECT_ROOT>/src/components/\1/src/index.js'
 module.name_mapper='^@growcss/util-\(.*\)$' -> '<PROJECT_ROOT>/src/utils/\1/src/index.js'

@@ -120,7 +120,7 @@
       "prettier --write",
       "git add"
     ],
-    "src/elements/**/src/**/*.{js, jsx}": [
+    "src/components/**/src/**/*.{js, jsx}": [
       "prettier --write",
       "git add"
     ],
@@ -132,7 +132,6 @@
   "workspaces": [
     "src/behaviors/*",
     "src/components/*",
-    "src/elements/*",
     "src/utils/*"
   ]
 }
