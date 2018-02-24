@@ -1,10 +1,13 @@
 //@flow
 import * as React from 'react';
 import type { BreadcrumbType } from '../types';
-import type { StateType } from '../states';
+import type { BreadcrumbsStateType } from '../states';
 import BreadcrumbsStateless from './BreadcrumbsStateless';
 
-export default class Breadcrumbs extends React.Component<BreadcrumbType, StateType> {
+export default class Breadcrumbs extends React.Component<
+  BreadcrumbType,
+  BreadcrumbsStateType,
+> {
   static defaultProps = {
     children: null,
   };
