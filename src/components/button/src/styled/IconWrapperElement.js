@@ -1,19 +1,28 @@
 // @flow
 import * as React from 'react';
 import styled from 'styled-components';
+import { Button as ButtonStyle, getStyle } from '@growcss/theme';
+import remCalc from '@growcss/util-remcalc';
 import type { IconWrapperElementType } from '../types';
-import { getThemeStyle } from '../utils/getThemeStyle';
 
-const getMargin = props => {
+const getMarginStyle = props => {
   if (props.spacing === 'none') {
-    return 0;
+    return 'margin: 0';
   }
 
-  if (props.isOnlyChild) {
-    return `0 -${getThemeStyle(props, 'button', 'gridSize') / 4}px`;
+  let margin = 0;
+
+  const size = getStyle(props, ButtonStyle, 'gridSize');
+
+  if (props.isOnlyChild && size !== null) {
+    margin = `0 -${remCalc(size / 4)}`;
   }
 
-  return `0 ${getThemeStyle(props, 'button', 'gridSize') / 2}px`;
+  if (size !== null) {
+    margin = `0 ${remCalc(size / 2)}`;
+  }
+
+  return `margin: ${margin}`;
 };
 
 const IconWrapperElement = styled.div`
@@ -22,7 +31,9 @@ const IconWrapperElement = styled.div`
   flex-shrink: 0;
   line-height: 0;
   font-size: 0;
-  margin: ${props => getMargin(props)};
+
+  ${props => getMarginStyle(props)};
+
   user-select: none;
 `;
 

@@ -2,12 +2,13 @@
 import Color from './base/Color';
 
 const Button = {
+  moduleName: 'button',
   gridSize: 8,
-  borderRadius: 1,
+  borderRadius: 3,
   fontSize: 14,
   fallback: {
-    background: '',
-    color: '',
+    background: Color.white,
+    color: Color.grey,
     textDecoration: 'none',
   },
   theme: {
@@ -48,7 +49,7 @@ const Button = {
     },
     success: {
       background: {
-        default: '',
+        default: Color.success,
         hover: '',
         active: '',
         disabled: '',
@@ -84,7 +85,7 @@ const Button = {
     },
     warning: {
       background: {
-        default: '',
+        default: Color.warning,
         hover: '',
         active: '',
         disabled: '',
@@ -101,7 +102,7 @@ const Button = {
     },
     danger: {
       background: {
-        default: '',
+        default: Color.alert,
         hover: '',
         active: '',
         disabled: '',
@@ -111,7 +112,7 @@ const Button = {
         focus: '',
       },
       color: {
-        default: '',
+        default: Color.white,
         disabled: '',
         selected: '',
       },

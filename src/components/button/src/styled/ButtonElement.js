@@ -1,8 +1,23 @@
 // @flow
 import styled, { css } from 'styled-components';
-import { Button as ButtonStyle } from '@growcss/theme';
-import { getThemeStyle } from '../utils/getThemeStyle';
-import type { ButtonAppearances } from '../types';
+import { Button as ButtonStyle, getStyle } from '@growcss/theme';
+import remCalc from '@growcss/util-remcalc';
+
+const getState = ({ disabled, isActive, isFocus, isHover, isSelected }) => {
+  if (disabled) {
+    return 'disabled';
+  } else if (isSelected) {
+    return 'selected';
+  } else if (isActive) {
+    return 'active';
+  } else if (isHover) {
+    return 'hover';
+  } else if (isFocus) {
+    return 'focus';
+  }
+
+  return 'default';
+};
 
 const getHeight = props => {
   let multiply = 4;
@@ -11,15 +26,23 @@ const getHeight = props => {
     multiply = 3;
   }
 
-  return `${getThemeStyle(props, 'button', 'gridSize') *
-    multiply /
-    getThemeStyle(props, 'button', 'fontSize')}em`;
+  const gridSize = getStyle(props, ButtonStyle, 'gridSize');
+  const fontSize = getStyle(props, ButtonStyle, 'fontSize');
+
+  if ([gridSize, fontSize].includes(null)) {
+    throw new Error('');
+  }
+
+  // $FlowFixMe
+  return `${gridSize * multiply / fontSize}em`;
 };
 
 const getCursor = props => {
   if (props.isHover) {
     return 'pointer';
-  } else if (props.disabled) {
+  }
+
+  if (props.disabled) {
     return 'not-allowed';
   }
 
@@ -54,34 +77,30 @@ const getVerticalAlign = props => {
   return 'middle';
 };
 
-const getState = ({ disabled, isActive, isFocus, isHover, isSelected }) => {
-  if (disabled) {
-    return 'disabled';
-  } else if (isSelected) {
-    return 'selected';
-  } else if (isActive) {
-    return 'active';
-  } else if (isHover) {
-    return 'hover';
-  } else if (isFocus) {
-    return 'focus';
+const getPaddingStyle = props => {
+  const style = getStyle(props, ButtonStyle, 'gridSize');
+
+  let padding = 0;
+
+  if (props.spacing !== 'none' && style !== null) {
+    padding = `0 ${remCalc(style)}`;
   }
 
-  return 'default';
+  return `padding: ${padding};`;
 };
 
 const getButtonAppearanceTheme = props => {
-  const { appearance } = props;
   const state = getState(props);
+  const { appearance } = props;
   const { fallback } = ButtonStyle;
-  const textDecorationHover = getThemeStyle(
+  const textDecorationHover = getStyle(
     props,
-    'button',
+    ButtonStyle,
     `theme.${appearance}.textDecoration.${state}`,
   );
-  const boxShadowColor = getThemeStyle(
+  const boxShadowColor = getStyle(
     props,
-    'button',
+    ButtonStyle,
     `theme.${appearance}.boxShadowColor.${state}`,
   );
   const boxShadow = boxShadowColor
@@ -91,14 +110,14 @@ const getButtonAppearanceTheme = props => {
     : null;
 
   return css`
-    color: ${getThemeStyle(
+    color: ${getStyle(
       props,
-      'button',
+      ButtonStyle,
       `theme.${appearance}.color.${state}`,
     ) || fallback.color};
-    background: ${getThemeStyle(
+    background: ${getStyle(
       props,
-      'button',
+      ButtonStyle,
       `theme.${appearance}.background.${state}`,
     ) || fallback.background};
     text-decoration: ${textDecorationHover || fallback.textDecoration};
@@ -120,6 +139,7 @@ export const ButtonElement = styled.button`
     props.spacing === 'none' ? 'inherit' : getHeight(props)};
 
   border-width: 0;
+  border-radius: ${props => getStyle(props, ButtonStyle, 'borderRadius')}px;
 
   cursor: ${props => getCursor(props)};
   outline: none !important;
@@ -132,10 +152,7 @@ export const ButtonElement = styled.button`
   font-style: normal;
 
   margin: 0;
-  padding: ${props =>
-    props.spacing !== 'none'
-      ? `0 ${getThemeStyle(props, 'button', 'gridSize')}px`
-      : 0};
+  ${props => getPaddingStyle(props)};
 
   transition: ${props => getTransition(props)};
   transition-duration: ${props => getTransitionDuration(props)};
