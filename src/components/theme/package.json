@@ -1,14 +1,14 @@
 {
-  "name": "@growcss/button",
+  "name": "@growcss/theme",
   "version": "0.0.0",
-  "description": "A component used for navigation, with each item acting as a link.",
+  "description": "The Growcss theme framework, helpers, and the ADG color palette.",
   "keywords": [
-    "image",
-    "lazy",
-    "lazy loading",
+    "color",
+    "growcss",
     "preact",
     "react",
     "styled-components",
+    "theme",
     "ui"
   ],
   "homepage": "http://growcss.com",
@@ -30,13 +30,11 @@
   },
   "browser": "dist/umd/index.js",
   "dependencies": {
-    "@growcss/theme": "0.0.0",
     "@growcss/util-remcalc": "0.0.0",
-    "classnames": "^2.2.5",
-    "styled-components": "^3.1.5"
+    "hex-rgba": "^1.0.2"
   },
   "devDependencies": {
-    "@growcss/xy-grid": "0.0.0"
+    "styled-components": "^3.1.5"
   },
   "peerDependencies": {
     "preact": "^8.0",
@@ -47,5 +45,5 @@
   "engines": {
     "node": "^9.3.0"
   },
-  "moduleName": "gc-image"
+  "moduleName": "theme-growcss"
 }

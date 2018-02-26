@@ -12,7 +12,6 @@ Current maintainers of growcss are:
 
 If you'll have any questions, feel free to mention us or use emails from our profiles to contact us.
 
-
 ## How you can help
 
 You're welcomed to:
@@ -24,7 +23,6 @@ You're welcomed to:
 - suggest new features and enhancements;
 - write, rewrite, fix and enhance docs;
 - contribute in other ways if you'd like.
-
 
 ### Pull-requests
 

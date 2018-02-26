@@ -2,17 +2,18 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import type { IconWrapperElementType } from '../types';
+import { getThemeStyle } from '../utils/getThemeStyle';
 
-const getMargin = (props: IconWrapperElementType) => {
+const getMargin = props => {
   if (props.spacing === 'none') {
     return 0;
   }
 
   if (props.isOnlyChild) {
-    return `0 -2px`;
+    return `0 -${getThemeStyle(props, 'button', 'gridSize') / 4}px`;
   }
 
-  return `0 4px`;
+  return `0 ${getThemeStyle(props, 'button', 'gridSize') / 2}px`;
 };
 
 const IconWrapperElement = styled.div`

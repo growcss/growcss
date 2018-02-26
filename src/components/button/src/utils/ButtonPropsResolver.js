@@ -1,7 +1,6 @@
 // @flow
 import type { ButtonType } from '../types';
 import type { ButtonState } from '../states';
-import { Button } from '../components/Button';
 
 export default class ButtonPropsResolver {
   static getAppearanceProps = (props: ButtonType, state: ButtonState) => {
@@ -38,7 +37,7 @@ export default class ButtonPropsResolver {
     };
   };
 
-  static getInteractionProps = (component: Button) => {
+  static getInteractionProps = (component: any) => {
     const {
       onBlur,
       onFocus,
@@ -62,11 +61,13 @@ export default class ButtonPropsResolver {
     };
   };
 
-  static getButtonProps = (component: Button) => {
+  static getButtonProps = (component: any) => {
     const { props, state } = component;
 
     const defaultProps = {
       id: props.id,
+      appearance: props.appearance,
+      size: props.size,
       ...ButtonPropsResolver.getAppearanceProps(props, state),
       ...ButtonPropsResolver.getInteractionProps(component),
     };

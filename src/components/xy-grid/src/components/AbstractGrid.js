@@ -1,11 +1,11 @@
 //@flow
-import React, { Component } from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import { Gutters as DefaultGutters } from './Gutters';
 import { XYGridElement } from '../styled/XYGridElement';
 import type { GridType, GuttersType } from '../types';
 
-export default class AbstractGrid extends Component<GridType> {
+export default class AbstractGrid extends React.Component<GridType> {
   static defaultProps = {
     gutterSizes: DefaultGutters,
     alignX: 'left',
@@ -16,7 +16,7 @@ export default class AbstractGrid extends Component<GridType> {
    *
    * @param {boolean} vertical
    */
-  vertical: boolean;
+  isVertical: boolean;
 
   /**
    *
@@ -32,7 +32,7 @@ export default class AbstractGrid extends Component<GridType> {
   ) {
     return React.Children.map(children, thisArg => {
       return React.cloneElement(thisArg, {
-        vertical: this.vertical,
+        vertical: this.isVertical,
         gutterType,
         gutterSizes,
       });
