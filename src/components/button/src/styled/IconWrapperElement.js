@@ -31,10 +31,8 @@ const IconWrapperElement = styled.div`
   flex-shrink: 0;
   line-height: 0;
   font-size: 0;
-
-  ${props => getMarginStyle(props)};
-
   user-select: none;
+  ${props => getMarginStyle(props)};
 `;
 
 export default (props: IconWrapperElementType) => (

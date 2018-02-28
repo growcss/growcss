@@ -12,8 +12,9 @@
     "delete:modules": "     lerna exec -- rimraf node_modules",
     "flow": "               flow check --show-all-errors",
     "flow:watch": "         flow-watch",
-    "lint": "               eslint --print-config .eslintrc | eslint-config-prettier-check && eslint 'src/**/**/*.js' && yarn run flow",
-    "lint:fix": "           eslint --fix 'src/**/**/*.js'",
+    "lint": "               eslint --print-config .eslintrc | eslint-config-prettier-check && eslint 'src/**/**/*.js' && yarn run flow && yarn run lint:css",
+    "lint:css": "           stylelint 'src/**/**/*.js'",
+    "lint:js:fix": "        eslint --fix 'src/**/**/*.js'",
     "storybook": "          cross-env NODE_ENV=production start-storybook -p 6006",
     "storybook-build": "    cross-env NODE_ENV=production build-storybook",
     "test": "               cross-env NODE_ENV=test jest",
@@ -95,7 +96,9 @@
     "sinon": "^4.3.0",
     "sort-package-json": "^1.7.1",
     "styled-components": "^3.1.6",
-    "styled-theming": "^2.2.0"
+    "styled-theming": "^2.2.0",
+    "stylelint": "^9.1.1",
+    "stylelint-config-growcss": "^1.0.0"
   },
   "engines": {
     "node": "^9.3.0",

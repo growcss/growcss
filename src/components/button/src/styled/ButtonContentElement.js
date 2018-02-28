@@ -23,13 +23,11 @@ const ButtonContentElement = styled.span`
   align-items: ${props => getAlignment(props.followsIcon)};
   align-self: ${props => getAlignment(props.followsIcon)};
   flex: 1 1 auto;
-
-  ${props => getMarginStyle(props)};
-
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  ${props => getMarginStyle(props)};
 `;
 
 export default (props: ButtonContentElementType) => (

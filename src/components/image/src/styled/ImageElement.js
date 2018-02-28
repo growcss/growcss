@@ -9,15 +9,12 @@ const animation = keyframes`
 export const ImageElement = styled.img`
   display: block;
   border: 0 none;
-
   visibility: hidden;
   opacity: 0;
   backface-visibility: hidden;
-
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-
   position: absolute;
   top: 0;
   left: 0;
