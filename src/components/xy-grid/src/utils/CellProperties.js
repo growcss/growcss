@@ -19,8 +19,7 @@ export const CellProperties = (
   const direction: string = vertical ? 'height' : 'width';
 
   if (size === 'full') {
-    const val =
-      marginGutter === 0 ? '100%' : `calc(100% - ${remCalc(marginGutter)})`;
+    const val = marginGutter === 0 ? '100%' : `calc(100% - ${remCalc(marginGutter)})`;
 
     return `${direction}: ${val};`;
   } else if (size === 'auto' || size === 'shrink') {
@@ -28,9 +27,7 @@ export const CellProperties = (
   }
 
   const val =
-    marginGutter === 0
-      ? CellSize(size)
-      : `calc(${CellSize(size)} - ${remCalc(marginGutter)})`;
+    marginGutter === 0 ? CellSize(size) : `calc(${CellSize(size)} - ${remCalc(marginGutter)})`;
 
   return `${direction}: ${val};`;
 };

@@ -1,4 +1,4 @@
-// @flow
+//@flow
 import styled, { css } from 'styled-components';
 import { Button as ButtonStyle, getStyle } from '@growcss/theme';
 import remCalc from '@growcss/util-remcalc';
@@ -108,16 +108,8 @@ const getButtonAppearanceTheme = props => {
         box-shadow: 0 0 0 2px ${boxShadowColor};
       `
     : null;
-  const buttonColor = getStyle(
-    props,
-    ButtonStyle,
-    `theme.${appearance}.color.${state}`,
-  );
-  const buttonBg = getStyle(
-    props,
-    ButtonStyle,
-    `theme.${appearance}.background.${state}`,
-  );
+  const buttonColor = getStyle(props, ButtonStyle, `theme.${appearance}.color.${state}`);
+  const buttonBg = getStyle(props, ButtonStyle, `theme.${appearance}.background.${state}`);
 
   return css`
     color: ${buttonColor || fallback.color};
@@ -138,10 +130,7 @@ export const ButtonElement = styled.button`
   width: ${props => (props.fit ? '100%' : 'auto')};
   max-width: 100%;
   height: ${props => getHeight(props)};
-  /* stylelint-disable */
-  line-height: ${props =>
-    props.spacing === 'none' ? 'inherit' : getHeight(props)};
-  /* stylelint-enable */
+  line-height: ${props => (props.spacing === 'none' ? 'inherit' : getHeight(props))};
   border-width: 0;
   border-radius: ${props => getStyle(props, ButtonStyle, 'borderRadius')}px;
   cursor: ${props => getCursor(props)};

@@ -23,12 +23,9 @@ const generateDpiMediaQuery = (
 ): string => {
   // Generate values in DPI instead of DPPX for an IE9-11/Opera mini compatibility.
   // See https://caniuse.com/#feat=css-media-resolution
-  const bpMinDpi =
-    bpMin !== null ? `${stripUnits(bpMin) * stdWebDpi}dpi` : bpMin;
+  const bpMinDpi = bpMin !== null ? `${stripUnits(bpMin) * stdWebDpi}dpi` : bpMin;
   const bpMaxDpi =
-    bpMax !== null
-      ? `${parseFloat(stripUnits(bpMax) * stdWebDpi).toFixed(0)}dpi`
-      : bpMax;
+    bpMax !== null ? `${parseFloat(stripUnits(bpMax) * stdWebDpi).toFixed(0)}dpi` : bpMax;
 
   let template = strBreakpointJoin(
     bpMin,
@@ -41,10 +38,7 @@ const generateDpiMediaQuery = (
     template += ', ';
   }
 
-  return (
-    template +
-    strBreakpointJoin(bpMinDpi, bpMaxDpi, 'min-resolution', 'max-resolution')
-  );
+  return template + strBreakpointJoin(bpMinDpi, bpMaxDpi, 'min-resolution', 'max-resolution');
 };
 
 /**
@@ -107,9 +101,7 @@ export default function(
     }
 
     if (name === null && direction === 'only') {
-      throw new Error(
-        'breakpoint: Only named media queries can have an "only" range.',
-      );
+      throw new Error('breakpoint: Only named media queries can have an "only" range.');
     }
   }
 

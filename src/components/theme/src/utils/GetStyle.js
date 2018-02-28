@@ -1,4 +1,4 @@
-// @flow
+//@flow
 const fetchFromObject = (obj, prop: string) => {
   if (typeof obj === 'undefined') {
     return null;
@@ -7,10 +7,7 @@ const fetchFromObject = (obj, prop: string) => {
   const index = prop.indexOf('.');
 
   if (index > -1) {
-    return fetchFromObject(
-      obj[prop.substring(0, index)],
-      prop.substr(index + 1),
-    );
+    return fetchFromObject(obj[prop.substring(0, index)], prop.substr(index + 1));
   }
 
   return obj[prop];
@@ -34,10 +31,7 @@ const getStyle = (
 
   let style = fetchFromObject(defaultTheme, key);
 
-  if (
-    propsTheme !== null &&
-    propsTheme[defaultTheme.moduleName] !== undefined
-  ) {
+  if (propsTheme !== null && propsTheme[defaultTheme.moduleName] !== undefined) {
     style = fetchFromObject(propsTheme[defaultTheme.moduleName], key);
   }
 

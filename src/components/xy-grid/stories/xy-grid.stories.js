@@ -25,7 +25,7 @@ storiesOf('XY-Grid', module)
       <Cell medium={6} large={4}>12/6/4 cells</Cell>
       <Cell medium={6} large={8}>12/6/8 cells</Cell>
     </GridX>
-  )).add('GridX with 6/8/2 and 6/4/10 cells', () => (
+  )).add('GridY with 6/8/2 and 6/4/10 cells', () => (
     <GridY height='500px'>
       <Cell small={6} medium={8} large={2}>6/8/2 cells</Cell>
       <Cell small={6} medium={8} large={10}>6/4/10 cells</Cell>
@@ -95,30 +95,30 @@ storiesOf('XY-Grid', module)
       <Cell small={4}>I am in the center-middle</Cell>
       <Cell small={4}>I am also centrally located</Cell>
     </CustomGridX>
-  )).add('Grid cell with self align types', () => (
+  )).add('GridX cell with self align types', () => (
     <GridX gutterType='padding'>
       <Cell small={3} align='bottom'>Align bottom</Cell>
       <Cell small={3} align='middle'>Align middle</Cell>
       <Cell small={3} align='stretch'>Align stretch</Cell>
       <Cell small={3} align='top'>Align top. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non harum laborum cum voluptate vel, eius adipisci similique dignissimos nobis at excepturi incidunt fugit molestiae quaerat, consequuntur porro temporibus. Nisi, ex?</Cell>
     </GridX>
-  )).add('Grid cell will take up the remaining space', () => (
+  )).add('GridX cell will take up the remaining space', () => (
     <GridX>
       <Cell small={4}>4 cells</Cell>
       <Cell cellType='auto'>Whatever's left!</Cell>
     </GridX>
-  )).add('Multiple expanding cells will share the leftover space equally.', () => (
+  )).add('GridX Multiple expanding cells will share the leftover space equally.', () => (
     <GridX>
       <Cell small={4}>4 cell</Cell>
       <Cell cellType='auto'>Whatever's left!</Cell>
       <Cell cellType='auto'>Whatever's left!</Cell>
     </GridX>
-  )).add('Shrink means it will only take up the space its contents need', () => (
+  )).add('GridX Shrink means it will only take up the space its contents need', () => (
     <GridX>
       <Cell cellType='shrink'>Shrink!</Cell>
       <Cell cellType='auto'>Expand!</Cell>
     </GridX>
-  )).add('To switch back to the auto behavior from a percentage or shrink behavior', () => (
+  )).add('GridX To switch back to the auto behavior from a percentage or shrink behavior', () => (
     <GridX>
       <Cell large='auto'>One</Cell>
       <Cell large='auto'>Two</Cell>
@@ -126,5 +126,20 @@ storiesOf('XY-Grid', module)
       <Cell large='auto'>Four</Cell>
       <Cell large='auto'>Five</Cell>
       <Cell large='auto'>Six</Cell>
+    </GridX>
+  )).add('GridX with gutter type padding and auto/shrink with static widths', () => (
+    <GridX gutterType='padding'>
+      <Cell cellType='shrink' medium='auto' large={7}>Shrink, medium:auto, large:7</Cell>
+      <Cell cellType='auto' medium='shrink' large={5}>Auto, medium:shrink, large:5</Cell>
+    </GridX>
+  )).add('GridX with gutter type margin and auto/shrink with static widths', () => (
+    <GridX gutterType='margin'>
+      <Cell cellType='shrink' medium={6} large={12}>Shrink, medium:6, large:12</Cell>
+      <Cell cellType='auto' medium={6} large={12}>Auto, medium:6, large:12</Cell>
+    </GridX>
+  )).add('GridX without paddings/margins and auto/shrink with static widths', () => (
+    <GridX gutterType='padding'>
+      <Cell medium='auto' large={12}>medium:auto, large:12</Cell>
+      <Cell medium='shrink' large={12}>medium:shrink, large:12</Cell>
     </GridX>
   ));

@@ -1,4 +1,4 @@
-// @flow
+//@flow
 import * as React from 'react';
 import { ButtonGroupElement } from '../styled/ButtonGroupElement';
 import { ButtonGroupItemElement } from '../styled/ButtonGroupItemElement';

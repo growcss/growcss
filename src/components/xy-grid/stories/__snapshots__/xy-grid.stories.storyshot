@@ -1,6 +1,208 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots XY-Grid Grid cell will take up the remaining space 1`] = `
+exports[`Storyshots XY-Grid GridX Multiple expanding cells will share the leftover space equally. 1`] = `
+<XYGridElement
+  alignX="left"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".0"
+    small={4}
+    vertical={false}
+  >
+    4 cell
+  </Cell>
+  <Cell
+    cellType="auto"
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".1"
+    vertical={false}
+  >
+    Whatever's left!
+  </Cell>
+  <Cell
+    cellType="auto"
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".2"
+    vertical={false}
+  >
+    Whatever's left!
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid GridX Shrink means it will only take up the space its contents need 1`] = `
+<XYGridElement
+  alignX="left"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    cellType="shrink"
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".0"
+    vertical={false}
+  >
+    Shrink!
+  </Cell>
+  <Cell
+    cellType="auto"
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".1"
+    vertical={false}
+  >
+    Expand!
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid GridX To switch back to the auto behavior from a percentage or shrink behavior 1`] = `
+<XYGridElement
+  alignX="left"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".0"
+    large="auto"
+    vertical={false}
+  >
+    One
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".1"
+    large="auto"
+    vertical={false}
+  >
+    Two
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".2"
+    large="auto"
+    vertical={false}
+  >
+    Three
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".3"
+    large="auto"
+    vertical={false}
+  >
+    Four
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".4"
+    large="auto"
+    vertical={false}
+  >
+    Five
+  </Cell>
+  <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    key=".5"
+    large="auto"
+    vertical={false}
+  >
+    Six
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid GridX cell will take up the remaining space 1`] = `
 <XYGridElement
   alignX="left"
   className="gc-grid-x"
@@ -44,7 +246,7 @@ exports[`Storyshots XY-Grid Grid cell will take up the remaining space 1`] = `
 </XYGridElement>
 `;
 
-exports[`Storyshots XY-Grid Grid cell with self align types 1`] = `
+exports[`Storyshots XY-Grid GridX cell with self align types 1`] = `
 <XYGridElement
   alignX="left"
   className="gc-grid-x"
@@ -680,55 +882,6 @@ exports[`Storyshots XY-Grid GridX vertical top alignment 1`] = `
 </XYGridElement>
 `;
 
-exports[`Storyshots XY-Grid GridX with 6/8/2 and 6/4/10 cells 1`] = `
-<XYGridElement
-  alignX="left"
-  className="gc-grid-y"
-  gridDirection="vertical"
-  gridHeight="500px"
-  gutterSizes={
-    Object {
-      "medium": "30px",
-      "small": "20px",
-    }
-  }
-  wrap={true}
->
-  <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-    key=".0"
-    large={2}
-    medium={8}
-    small={6}
-    vertical={true}
-  >
-    6/8/2 cells
-  </Cell>
-  <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-    key=".1"
-    large={10}
-    medium={8}
-    small={6}
-    vertical={true}
-  >
-    6/4/10 cells
-  </Cell>
-</XYGridElement>
-`;
-
 exports[`Storyshots XY-Grid GridX with 12/6/4 and 12/6/8 cells 1`] = `
 <XYGridElement
   alignX="left"
@@ -813,6 +966,106 @@ exports[`Storyshots XY-Grid GridX with a full width cell 1`] = `
     vertical={false}
   >
     full width cell
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid GridX with gutter type margin and auto/shrink with static widths 1`] = `
+<XYGridElement
+  alignX="left"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    cellType="shrink"
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="margin"
+    key=".0"
+    large={12}
+    medium={6}
+    vertical={false}
+  >
+    Shrink, medium:6, large:12
+  </Cell>
+  <Cell
+    cellType="auto"
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="margin"
+    key=".1"
+    large={12}
+    medium={6}
+    vertical={false}
+  >
+    Auto, medium:6, large:12
+  </Cell>
+</XYGridElement>
+`;
+
+exports[`Storyshots XY-Grid GridX with gutter type padding and auto/shrink with static widths 1`] = `
+<XYGridElement
+  alignX="left"
+  className="gc-grid-x"
+  gridDirection="horizontal"
+  gutterSizes={
+    Object {
+      "medium": "30px",
+      "small": "20px",
+    }
+  }
+  wrap={true}
+>
+  <Cell
+    cellType="shrink"
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".0"
+    large={7}
+    medium="auto"
+    vertical={false}
+  >
+    Shrink, medium:auto, large:7
+  </Cell>
+  <Cell
+    cellType="auto"
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+    gutterType="padding"
+    key=".1"
+    large={5}
+    medium="shrink"
+    vertical={false}
+  >
+    Auto, medium:shrink, large:5
   </Cell>
 </XYGridElement>
 `;
@@ -908,7 +1161,7 @@ exports[`Storyshots XY-Grid GridX with two 6 small cells 1`] = `
 </XYGridElement>
 `;
 
-exports[`Storyshots XY-Grid Multiple expanding cells will share the leftover space equally. 1`] = `
+exports[`Storyshots XY-Grid GridX without paddings/margins and auto/shrink with static widths 1`] = `
 <XYGridElement
   alignX="left"
   className="gc-grid-x"
@@ -929,14 +1182,15 @@ exports[`Storyshots XY-Grid Multiple expanding cells will share the leftover spa
         "small": "20px",
       }
     }
+    gutterType="padding"
     key=".0"
-    small={4}
+    large={12}
+    medium="auto"
     vertical={false}
   >
-    4 cell
+    medium:auto, large:12
   </Cell>
   <Cell
-    cellType="auto"
     gridColumns={12}
     gutterSizes={
       Object {
@@ -944,77 +1198,23 @@ exports[`Storyshots XY-Grid Multiple expanding cells will share the leftover spa
         "small": "20px",
       }
     }
+    gutterType="padding"
     key=".1"
+    large={12}
+    medium="shrink"
     vertical={false}
   >
-    Whatever's left!
-  </Cell>
-  <Cell
-    cellType="auto"
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-    key=".2"
-    vertical={false}
-  >
-    Whatever's left!
+    medium:shrink, large:12
   </Cell>
 </XYGridElement>
 `;
 
-exports[`Storyshots XY-Grid Shrink means it will only take up the space its contents need 1`] = `
+exports[`Storyshots XY-Grid GridY with 6/8/2 and 6/4/10 cells 1`] = `
 <XYGridElement
   alignX="left"
-  className="gc-grid-x"
-  gridDirection="horizontal"
-  gutterSizes={
-    Object {
-      "medium": "30px",
-      "small": "20px",
-    }
-  }
-  wrap={true}
->
-  <Cell
-    cellType="shrink"
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-    key=".0"
-    vertical={false}
-  >
-    Shrink!
-  </Cell>
-  <Cell
-    cellType="auto"
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-    key=".1"
-    vertical={false}
-  >
-    Expand!
-  </Cell>
-</XYGridElement>
-`;
-
-exports[`Storyshots XY-Grid To switch back to the auto behavior from a percentage or shrink behavior 1`] = `
-<XYGridElement
-  alignX="left"
-  className="gc-grid-x"
-  gridDirection="horizontal"
+  className="gc-grid-y"
+  gridDirection="vertical"
+  gridHeight="500px"
   gutterSizes={
     Object {
       "medium": "30px",
@@ -1032,10 +1232,12 @@ exports[`Storyshots XY-Grid To switch back to the auto behavior from a percentag
       }
     }
     key=".0"
-    large="auto"
-    vertical={false}
+    large={2}
+    medium={8}
+    small={6}
+    vertical={true}
   >
-    One
+    6/8/2 cells
   </Cell>
   <Cell
     gridColumns={12}
@@ -1046,66 +1248,12 @@ exports[`Storyshots XY-Grid To switch back to the auto behavior from a percentag
       }
     }
     key=".1"
-    large="auto"
-    vertical={false}
+    large={10}
+    medium={8}
+    small={6}
+    vertical={true}
   >
-    Two
-  </Cell>
-  <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-    key=".2"
-    large="auto"
-    vertical={false}
-  >
-    Three
-  </Cell>
-  <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-    key=".3"
-    large="auto"
-    vertical={false}
-  >
-    Four
-  </Cell>
-  <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-    key=".4"
-    large="auto"
-    vertical={false}
-  >
-    Five
-  </Cell>
-  <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-    key=".5"
-    large="auto"
-    vertical={false}
-  >
-    Six
+    6/4/10 cells
   </Cell>
 </XYGridElement>
 `;

@@ -16,7 +16,7 @@ export const strBreakpointJoin = (
   min: null | number | string,
   max: null | number | string,
   minName: string = 'min-width',
-  maxName: string = 'max-width'
+  maxName: string = 'max-width',
 ): string => {
   const delimiter: string = ' and ';
   let str = '';

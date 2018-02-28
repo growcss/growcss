@@ -14,7 +14,7 @@
     "flow:watch": "         flow-watch",
     "lint": "               eslint --print-config .eslintrc | eslint-config-prettier-check && eslint 'src/**/**/*.js' && yarn run flow && yarn run lint:css",
     "lint:css": "           stylelint 'src/**/**/*.js'",
-    "lint:js:fix": "        eslint --fix 'src/**/**/*.js'",
+    "lint:js:fix": "        eslint --fix 'src/**/**/*.js' && prettier --write 'src/**/**/src/**/*.{js, jsx}'",
     "storybook": "          cross-env NODE_ENV=production start-storybook -p 6006",
     "storybook-build": "    cross-env NODE_ENV=production build-storybook",
     "test": "               cross-env NODE_ENV=test jest",

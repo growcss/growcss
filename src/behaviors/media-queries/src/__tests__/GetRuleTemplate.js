@@ -56,7 +56,9 @@ describe('Breakpoint (Named Down Range)', () => {
  */
 describe('Breakpoint (Retina)', () => {
   it('Creates a x2 HiDPI range out of the retina alias breakpoint', () => {
-    expect(GetRuleTemplate('retina')).toBe('(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)');
+    expect(GetRuleTemplate('retina')).toBe(
+      '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)',
+    );
   });
 });
 
@@ -84,25 +86,35 @@ describe('Breakpoint (HIDPI Default/Up Range)', () => {
 
 describe('Breakpoint (HIDPI Only Range)', () => {
   it('Creates a x1.5 HiDPI only range out of a x1.5 HiDPI breakpoint', () => {
-    expect(GetRuleTemplate('hidpi-1-5 only')).toBe('(-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 1.98958), (min-resolution: 144dpi) and (max-resolution: 191dpi)');
+    expect(GetRuleTemplate('hidpi-1-5 only')).toBe(
+      '(-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 1.98958), (min-resolution: 144dpi) and (max-resolution: 191dpi)',
+    );
   });
 
   it('Creates a x2 HiDPI only range out of a x2 HiDPI breakpoint', () => {
-    expect(GetRuleTemplate('hidpi-2 only')).toBe('(-webkit-min-device-pixel-ratio: 2) and (-webkit-max-device-pixel-ratio: 2.98958), (min-resolution: 192dpi) and (max-resolution: 287dpi)');
+    expect(GetRuleTemplate('hidpi-2 only')).toBe(
+      '(-webkit-min-device-pixel-ratio: 2) and (-webkit-max-device-pixel-ratio: 2.98958), (min-resolution: 192dpi) and (max-resolution: 287dpi)',
+    );
   });
 
   it('Creates an up range if the HiDPI breakpoint is the highest', () => {
-    expect(GetRuleTemplate('hidpi-3 only')).toBe('(-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi)');
+    expect(GetRuleTemplate('hidpi-3 only')).toBe(
+      '(-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi)',
+    );
   });
 });
 
 describe('Breakpoint (HIDPI Only Range)', () => {
   it('Creates a x1.5 HiDPI down range out of a x1.5 HiDPI breakpoint', () => {
-    expect(GetRuleTemplate('hidpi-1-5 down')).toBe('(-webkit-max-device-pixel-ratio: 1.98958), (max-resolution: 191dpi)');
+    expect(GetRuleTemplate('hidpi-1-5 down')).toBe(
+      '(-webkit-max-device-pixel-ratio: 1.98958), (max-resolution: 191dpi)',
+    );
   });
 
   it('Creates a x2 HiDPI down range out of a x2 HiDPI breakpoint', () => {
-    expect(GetRuleTemplate('hidpi-2 down')).toBe('(-webkit-max-device-pixel-ratio: 2.98958), (max-resolution: 287dpi)');
+    expect(GetRuleTemplate('hidpi-2 down')).toBe(
+      '(-webkit-max-device-pixel-ratio: 2.98958), (max-resolution: 287dpi)',
+    );
   });
 
   it('Skips media query creation for highest HiDPI breakpoint down', () => {

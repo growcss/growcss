@@ -11,6 +11,6 @@ export const HidpiBreakpoints: HidpiBreakpointsType = {
   'hidpi-1': 1,
   'hidpi-1-5': 1.5,
   'hidpi-2': 2,
-  'retina': 2,
+  retina: 2,
   'hidpi-3': 3,
 };

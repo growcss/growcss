@@ -13,13 +13,7 @@ export default class GridContainer extends Component<GridContainerType> {
   };
 
   render() {
-    const {
-      type,
-      children,
-      width,
-      gutterSizes,
-      ...other
-    } = this.props;
+    const { type, children, width, gutterSizes, ...other } = this.props;
     const className = classNames('gc-grid-container');
 
     let maxWidth = width;

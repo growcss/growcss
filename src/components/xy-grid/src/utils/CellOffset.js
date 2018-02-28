@@ -31,10 +31,7 @@ export const CellOffset = (
 
   if (gutters[breakpoint] === undefined) {
     for (const breakpointName in breakpoints) {
-      if (
-        typeof breakpointName === 'string' &&
-        gutters[breakpointName] !== undefined
-      ) {
+      if (typeof breakpointName === 'string' && gutters[breakpointName] !== undefined) {
         lastBreakpointName = breakpointName;
       }
     }
@@ -43,8 +40,7 @@ export const CellOffset = (
   }
 
   const gutter = remCalc(stripUnits(gutters[lastBreakpointName]) / 2);
-  const gutterSize =
-    gutterType === 'margin' ? `calc(${CellSize(n)} + ${gutter})` : CellSize(n);
+  const gutterSize = gutterType === 'margin' ? `calc(${CellSize(n)} + ${gutter})` : CellSize(n);
   const css = `margin-${direction}: ${gutterSize};`;
 
   return mediaquery(breakpoint, breakpoints)`${css}`;

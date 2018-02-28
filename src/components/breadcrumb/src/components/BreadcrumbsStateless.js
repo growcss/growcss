@@ -4,9 +4,7 @@ import classNames from 'classnames';
 import type { BreadcrumbsStatelessType } from '../types';
 import EllipsisItem from './EllipsisItem';
 
-export default class BreadcrumbsStateless extends React.Component<
-  BreadcrumbsStatelessType,
-> {
+export default class BreadcrumbsStateless extends React.Component<BreadcrumbsStatelessType> {
   static defaultProps = {
     isExpanded: false,
     children: null,
@@ -42,8 +40,7 @@ export default class BreadcrumbsStateless extends React.Component<
     return (
       <nav ariaLabel={ariaLabel}>
         <div className={classNames('gc-breadcrumbs')}>
-          {isExpanded ||
-          (maxItems && React.Children.toArray(children).length <= maxItems)
+          {isExpanded || (maxItems && React.Children.toArray(children).length <= maxItems)
             ? this.renderAllItems()
             : this.renderFirstAndLast()}
         </div>

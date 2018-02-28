@@ -1,4 +1,4 @@
-// @flow
+//@flow
 import type { ButtonType } from '../types';
 import type { ButtonState } from '../states';
 
@@ -38,14 +38,7 @@ export default class ButtonPropsResolver {
   };
 
   static getInteractionProps = (component: any) => {
-    const {
-      onBlur,
-      onFocus,
-      onMouseDown,
-      onMouseEnter,
-      onMouseLeave,
-      onMouseUp,
-    } = component;
+    const { onBlur, onFocus, onMouseDown, onMouseEnter, onMouseLeave, onMouseUp } = component;
 
     const { onClick, tabIndex } = component.props;
 

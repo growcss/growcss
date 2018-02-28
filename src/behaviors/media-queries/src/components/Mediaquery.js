@@ -26,6 +26,7 @@ export default (
     if (regex.exec(template) !== null) {
       return css`
         @media ${template} {
+          /* prettier-ignore */
           ${css(...args)}
         }
       `;

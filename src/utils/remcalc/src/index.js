@@ -16,7 +16,7 @@ const toRem = (value: string | number, base: number): string => {
   if (typeof value === 'string') {
     if (value.includes('em')) {
       rem = `${stripUnits(value)}rem`;
-    } else if (! value.includes('rem')) {
+    } else if (!value.includes('rem')) {
       rem = `${stripUnits(value) / base}rem`;
     }
   } else {
@@ -37,10 +37,7 @@ const toRem = (value: string | number, base: number): string => {
  *
  * @return {string}
  */
-export default (
-  values: string | number | Array<string | number>,
-  base: number | string = 16,
-) => {
+export default (values: string | number | Array<string | number>, base: number | string = 16) => {
   let baseRem: number = stripUnits(base);
 
   if (typeof base === 'string') {

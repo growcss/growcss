@@ -1,4 +1,4 @@
-// @flow
+//@flow
 import Color from './base/Color';
 
 const Button = {

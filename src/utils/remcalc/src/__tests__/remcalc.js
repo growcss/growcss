@@ -35,11 +35,7 @@ describe('Convert To Rem with changed base value', () => {
 describe('Rem Calculator', () => {
   it('Converts an arbitrary number of values into rem equivalents', () => {
     expect(remcalc([8, 16, 32, 64])).toBe('0.5rem 1rem 2rem 4rem');
-    expect(remcalc(['1px', '2px', '3px', '4px'])).toBe(
-      '0.0625rem 0.125rem 0.1875rem 0.25rem',
-    );
-    expect(remcalc(['0', '2px', '3px', '4px'])).toBe(
-      '0 0.125rem 0.1875rem 0.25rem',
-    );
+    expect(remcalc(['1px', '2px', '3px', '4px'])).toBe('0.0625rem 0.125rem 0.1875rem 0.25rem');
+    expect(remcalc(['0', '2px', '3px', '4px'])).toBe('0 0.125rem 0.1875rem 0.25rem');
   });
 });

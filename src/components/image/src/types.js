@@ -1,4 +1,4 @@
-// @flow
+//@flow
 import { Figcaption } from './index';
 
 export type ImagesType = { [string]: string };

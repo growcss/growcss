@@ -43,21 +43,11 @@ export default class AbstractGrid extends React.Component<GridType> {
    * @inheritdoc
    */
   render() {
-    const {
-      children,
-      gutterSizes,
-      gutterType,
-      alignX,
-      alignY,
-      height,
-      ...other
-    } = this.props;
-    const className = classNames(
-      `gc-grid-${this.vertical === true ? 'y' : 'x'}`,
-    );
-    const direction = this.vertical === true ? 'vertical' : 'horizontal';
+    const { children, gutterSizes, gutterType, alignX, alignY, height, ...other } = this.props;
+    const className = classNames(`gc-grid-${this.isVertical === true ? 'y' : 'x'}`);
+    const direction = this.isVertical === true ? 'vertical' : 'horizontal';
 
-    if (this.vertical === true && height === undefined) {
+    if (this.isVertical === true && height === undefined) {
       throw new Error('');
     }
 

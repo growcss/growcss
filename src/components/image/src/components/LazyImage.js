@@ -36,9 +36,7 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
   constructor(props: ImageType) {
     super(props);
 
-    const { src, srcSet } = LazyImage.parseBackgroundImages(
-      this.props.backgroundImages,
-    );
+    const { src, srcSet } = LazyImage.parseBackgroundImages(this.props.backgroundImages);
 
     this.src = src;
     this.srcSet = srcSet;
@@ -68,10 +66,7 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
     let srcSet = '';
 
     for (const image in list) {
-      if (
-        typeof image === 'string' &&
-        typeof DefaultBreakpoints[image] === 'string'
-      ) {
+      if (typeof image === 'string' && typeof DefaultBreakpoints[image] === 'string') {
         srcSet += `${list[image]} ${DefaultBreakpoints[image]},`;
       }
     }
@@ -85,14 +80,7 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
   }
 
   render() {
-    const {
-      children,
-      previewImage,
-      height,
-      width,
-      alt,
-      crossorigin,
-    } = this.props;
+    const { children, previewImage, height, width, alt, crossorigin } = this.props;
     const className = classNames({ loaded: this.state.imageLoaded });
 
     return (

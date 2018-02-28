@@ -1,4 +1,4 @@
-// @flow
+//@flow
 import * as React from 'react';
 import classNames from 'classnames';
 import type { ButtonType } from '../types';
@@ -96,31 +96,19 @@ export default class Button extends React.Component<ButtonType, ButtonState> {
 
     return (
       <StyledComponent className={classes} innerRef={innerRef} {...buttonProps}>
-        <ButtonWrapperElement
-          onClick={this.onInnerClick}
-          fit={!!shouldFitContainer}
-        >
+        <ButtonWrapperElement onClick={this.onInnerClick} fit={!!shouldFitContainer}>
           {iconBefore ? (
-            <IconWrapperElement
-              spacing={buttonProps.spacing}
-              isOnlyChild={iconIsOnlyChild}
-            >
+            <IconWrapperElement spacing={buttonProps.spacing} isOnlyChild={iconIsOnlyChild}>
               {iconBefore}
             </IconWrapperElement>
           ) : null}
           {children ? (
-            <ButtonContentElement
-              followsIcon={!!iconBefore}
-              spacing={buttonProps.spacing}
-            >
+            <ButtonContentElement followsIcon={!!iconBefore} spacing={buttonProps.spacing}>
               {children}
             </ButtonContentElement>
           ) : null}
           {iconAfter ? (
-            <IconWrapperElement
-              spacing={buttonProps.spacing}
-              isOnlyChild={iconIsOnlyChild}
-            >
+            <IconWrapperElement spacing={buttonProps.spacing} isOnlyChild={iconIsOnlyChild}>
               {iconAfter}
             </IconWrapperElement>
           ) : null}

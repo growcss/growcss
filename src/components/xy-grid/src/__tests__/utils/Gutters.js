@@ -6,13 +6,7 @@ describe('Gutters (margin and padding with breakpoints)', () => {
   it('Converts a gutter named breakpoint to value and a wrapped media-query value', () => {
     expect(Gutters(DefaultGutter)).toEqual([
       ['margin-right: 0.625rem;margin-left: 0.625rem;'],
-      [
-        '@media ',
-        '(min-width: 40em)',
-        '{',
-        'margin-right: 0.9375rem;margin-left: 0.9375rem;',
-        '}',
-      ],
+      ['@media ', '(min-width: 40em)', '{', 'margin-right: 0.9375rem;margin-left: 0.9375rem;', '}'],
     ]);
   });
 
@@ -32,14 +26,10 @@ describe('Gutters (margin and padding with breakpoints)', () => {
 
 describe('Gutters (margin and padding with number)', () => {
   it('Converts a gutter number to margin styles', () => {
-    expect(Gutters(20)).toEqual([
-      'margin-right: 0.625rem;margin-left: 0.625rem;',
-    ]);
+    expect(Gutters(20)).toEqual(['margin-right: 0.625rem;margin-left: 0.625rem;']);
   });
   it('Converts a gutter number to padding styles', () => {
-    expect(Gutters(0, 'padding')).toEqual([
-      'padding-right: 0;padding-left: 0;',
-    ]);
+    expect(Gutters(0, 'padding')).toEqual(['padding-right: 0;padding-left: 0;']);
   });
 });
 
@@ -53,8 +43,6 @@ describe('Gutters with negative option', () => {
       'margin-right: -0.625rem;margin-left: -0.625rem;',
     ]);
 
-    expect(Gutters(-20, 'padding', ['left'], true)).toEqual([
-      'margin-left: -0.625rem;',
-    ]);
+    expect(Gutters(-20, 'padding', ['left'], true)).toEqual(['margin-left: -0.625rem;']);
   });
 });

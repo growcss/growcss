@@ -18,15 +18,21 @@ test('GridElementAlign should return the right vertical alignment css', () => {
 });
 
 test('GridElementAlign should throw a error if horizontal alignment dont exists', () => {
-  expect(() => { return GridElementAlign('test'); }).toThrow();
+  expect(() => {
+    return GridElementAlign('test');
+  }).toThrow();
 });
 
 test('GridElementAlign should throw a error if vertical alignment dont exists', () => {
-  expect(() => { return GridElementAlign(null, 'test'); }).toThrow();
+  expect(() => {
+    return GridElementAlign(null, 'test');
+  }).toThrow();
 });
 
 test('CellElementAlign should throw a error if vertical alignment dont exists', () => {
-  expect(() => { return CellElementAlign('test'); }).toThrow();
+  expect(() => {
+    return CellElementAlign('test');
+  }).toThrow();
 });
 
 test('CellElementAlign should return the right vertical alignment css', () => {

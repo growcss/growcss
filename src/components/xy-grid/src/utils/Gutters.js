@@ -55,17 +55,9 @@ export const Gutters = (
     const strings = [];
 
     for (const key in gutters) {
-      if (
-        typeof gutters[key] === 'number' ||
-        typeof gutters[key] === 'string'
-      ) {
+      if (typeof gutters[key] === 'number' || typeof gutters[key] === 'string') {
         strings.push(
-          mediaquery(key)`${cssBuilder(
-            gutters[key],
-            negative,
-            gutterType,
-            gutterPosition,
-          )}`,
+          mediaquery(key)`${cssBuilder(gutters[key], negative, gutterType, gutterPosition)}`,
         );
       }
     }
