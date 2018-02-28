@@ -2,8 +2,15 @@
 import styled, { keyframes } from 'styled-components';
 
 const animation = keyframes`
-  0% { transform: scale(1.05); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(1.05);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 `;
 
 export const ImageElement = styled.img`

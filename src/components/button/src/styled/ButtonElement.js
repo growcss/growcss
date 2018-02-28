@@ -108,25 +108,28 @@ const getButtonAppearanceTheme = props => {
         box-shadow: 0 0 0 2px ${boxShadowColor};
       `
     : null;
+  const buttonColor = getStyle(
+    props,
+    ButtonStyle,
+    `theme.${appearance}.color.${state}`,
+  );
+  const buttonBg = getStyle(
+    props,
+    ButtonStyle,
+    `theme.${appearance}.background.${state}`,
+  );
 
   return css`
-    color: ${getStyle(
-      props,
-      ButtonStyle,
-      `theme.${appearance}.color.${state}`,
-    ) || fallback.color};
-    background: ${getStyle(
-      props,
-      ButtonStyle,
-      `theme.${appearance}.background.${state}`,
-    ) || fallback.background};
+    color: ${buttonColor || fallback.color};
+    background: ${buttonBg || fallback.background};
     text-decoration: ${textDecorationHover || fallback.textDecoration};
-
+    /* stylelint-disable */
     ${boxShadow} &::-moz-focus-inner {
       border: 0;
       margin: 0;
       padding: 0;
     }
+    /* stylelint-enable */
   `;
 };
 
@@ -135,32 +138,26 @@ export const ButtonElement = styled.button`
   width: ${props => (props.fit ? '100%' : 'auto')};
   max-width: 100%;
   height: ${props => getHeight(props)};
+  /* stylelint-disable */
   line-height: ${props =>
     props.spacing === 'none' ? 'inherit' : getHeight(props)};
-
+  /* stylelint-enable */
   border-width: 0;
   border-radius: ${props => getStyle(props, ButtonStyle, 'borderRadius')}px;
-
   cursor: ${props => getCursor(props)};
   outline: none !important;
-
   align-items: baseline;
   box-sizing: border-box;
   display: inline-flex;
-
   font-size: inherit;
   font-style: normal;
-
   margin: 0;
-  ${props => getPaddingStyle(props)};
-
   transition: ${props => getTransition(props)};
   transition-duration: ${props => getTransitionDuration(props)};
-
   vertical-align: ${props => getVerticalAlign(props)};
   pointer-events: auto;
   text-align: center;
   white-space: nowrap;
-
+  ${props => getPaddingStyle(props)};
   ${props => getButtonAppearanceTheme(props)};
 `;
