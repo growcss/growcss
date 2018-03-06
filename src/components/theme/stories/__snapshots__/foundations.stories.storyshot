@@ -1,6 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Foundations Color 1`] = `<div />`;
+exports[`Storyshots Foundations Color 1`] = `
+<div>
+  <h1>
+    Material Design Colors
+  </h1>
+  <ColorTable />
+</div>
+`;
 
 exports[`Storyshots Foundations Typography 1`] = `
 <div>

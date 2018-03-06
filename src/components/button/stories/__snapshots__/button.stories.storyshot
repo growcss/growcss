@@ -65,23 +65,5 @@ Array [
       }
     }
   />,
-  <GridX
-    alignX="left"
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-  />,
-  <GridX
-    alignX="left"
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-  />,
 ]
 `;
