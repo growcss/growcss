@@ -12,10 +12,15 @@ const appearances = [
   'warning',
   'danger',
   'link',
-  'subtle',
-  'subtle-link',
 ];
-const selectableAppearances = ['default', 'primary'];
+const selectableAppearances = [
+  'default',
+  'primary',
+  'success',
+  'info',
+  'warning',
+  'danger',
+];
 
 class Buttons extends React.Component {
   render() {

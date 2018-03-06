@@ -1,13 +1,13 @@
 //@flow
 import * as React from 'react';
 
-export type GuttersType = { [string]: string };
+export type GuttersSizes = { [string]: string };
 
 export type CellType = {
   children: any,
   gridColumns?: number,
   vertical?: boolean,
-  gutterSizes?: string | number | GuttersType,
+  gutterSizes?: string | number | GuttersSizes,
   cellType?: string,
   gutterType?: string,
   small?: number | string,
@@ -26,16 +26,16 @@ export type CellType = {
 export type GridType =
   | {
       children: CellType | React.ChildrenArray<CellType>,
-      gutterSizes?: string | number | GuttersType,
-      gutterType?: string,
+      gutterSizes?: string | number | GuttersSizes,
+      gutterType?: 'padding' | 'margin',
       alignX?: string,
       alignY?: string,
     }
   | {
       children: CellType | React.ChildrenArray<CellType>,
       height: string,
-      gutterSizes?: string | number | GuttersType,
-      gutterType?: string,
+      gutterSizes?: string | number | GuttersSizes,
+      gutterType?: 'padding' | 'margin',
       alignX?: string,
       alignY?: string,
     };
@@ -44,5 +44,5 @@ export type GridContainerType = {
   children: GridType | React.ChildrenArray<GridType>,
   type?: string,
   width?: string | number,
-  gutterSizes?: string | number | GuttersType,
+  gutterSizes?: string | number | GuttersSizes,
 };

@@ -48,7 +48,6 @@ export type ButtonType = {
   ariaHaspopup?: boolean,
   children?: React.Node | string,
   className?: string,
-  component?: Func | React.Node | Class<*>,
   form?: string,
   href?: string,
   iconAfter?: React.Element<*>,

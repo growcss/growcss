@@ -27,7 +27,7 @@ export default class AbstractGrid extends React.Component<GridType> {
    */
   renderCellChildren(
     children: any,
-    gutterType?: string,
+    gutterType?: 'padding' | 'margin',
     gutterSizes?: string | number | GuttersType,
   ) {
     return React.Children.map(children, thisArg => {
