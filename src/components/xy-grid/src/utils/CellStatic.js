@@ -1,7 +1,7 @@
 //@flow
 import { Gutters } from './Gutters';
 import { Gutters as DefaultGutters } from '../components/Gutters';
-import type { GuttersType } from '../types';
+import type { GuttersSizesType } from '../types';
 import { CellProperties } from './CellProperties';
 
 /**
@@ -9,7 +9,7 @@ import { CellProperties } from './CellProperties';
  *
  * @param {string | number}      size           The size of your cell. Can be `full` (default) for 100% width, `auto` to use up available space and `shrink` to use up only required space.
  * @param {boolean}              outputGutter   Whether or not to output gutters.
- * @param {number | GuttersType} gutters        array or number value for gutters.
+ * @param {number | GuttersSizesType} gutters        array or number value for gutters.
  * @param {string}               gutterType
  * @param {string}               breakpoint     The name of the breakpoint size in your gutters array to get the size from.
  * @param {boolean}              vertical       Set to true to output vertical (height) styles rather than widths.
@@ -19,7 +19,7 @@ import { CellProperties } from './CellProperties';
 export const CellStatic = (
   size: string | number = 'full',
   outputGutter: boolean = true,
-  gutters: number | GuttersType = DefaultGutters,
+  gutters: number | GuttersSizesType = DefaultGutters,
   gutterType: string = 'margin',
   breakpoint: string = 'small',
   vertical: boolean = false,

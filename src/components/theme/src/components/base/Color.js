@@ -280,10 +280,10 @@ const BaseColor = {
 
 const Color = {
   primary: BaseColor.amber400,
-  secondary: '#1C2329',
+  secondary: BaseColor.amber400,
   info: BaseColor.blue400,
   success: BaseColor.lightGreen500,
-  warning: BaseColor.yellow600,
+  warning: BaseColor.yellow700,
   danger: BaseColor.red500,
 };
 

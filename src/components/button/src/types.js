@@ -8,9 +8,7 @@ export type ButtonAppearances =
   | 'info'
   | 'warning'
   | 'danger'
-  | 'link'
-  | 'subtle'
-  | 'subtle-link';
+  | 'link';
 export type ButtonShape = 'circle' | 'circle-outline';
 export type ButtonSize = 'tiny' | 'small' | 'default' | 'large';
 
@@ -62,4 +60,5 @@ export type ButtonType = {
   target?: string,
   type?: 'button' | 'submit',
   shouldFitContainer?: boolean,
+  ghost?: boolean,
 };

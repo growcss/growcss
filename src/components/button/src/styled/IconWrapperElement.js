@@ -27,10 +27,8 @@ const getMarginStyle = props => {
 
 const IconWrapperElement = styled.div`
   align-self: center;
-  display: flex;
   flex-shrink: 0;
   line-height: 0;
-  font-size: 0;
   user-select: none;
   ${props => getMarginStyle(props)};
 `;

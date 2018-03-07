@@ -77,14 +77,13 @@ export default class Button extends React.Component<ButtonType, ButtonState> {
       shape,
       size,
       appearance,
-      ghost,
+      ...others
     } = this.props;
 
     const classes = classNames('gc-button', className, {
       'gc-button--shape': shape,
-      [`gc-button--${appearance}`]: appearance,
-      [`gc-button--${size}`]: size,
-      'gc-button--ghost': ghost,
+      [`gc-button--${appearance || 'default'}`]: appearance,
+      [`gc-button--${size || 'default'}`]: size,
     });
     const buttonProps = ButtonPropsResolver.getButtonProps(this);
     const StyledComponent = this.getStyledComponent();
@@ -95,7 +94,7 @@ export default class Button extends React.Component<ButtonType, ButtonState> {
     );
 
     return (
-      <StyledComponent className={classes} innerRef={innerRef} {...buttonProps}>
+      <StyledComponent className={classes} innerRef={innerRef} {...buttonProps} {...others}>
         <ButtonWrapperElement onClick={this.onInnerClick} fit={!!shouldFitContainer}>
           {iconBefore ? (
             <IconWrapperElement spacing={buttonProps.spacing} isOnlyChild={iconIsOnlyChild}>

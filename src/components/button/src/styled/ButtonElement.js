@@ -38,15 +38,17 @@ const getHeight = props => {
 };
 
 const getCursor = props => {
+  let cursor = 'default';
+
   if (props.isHover) {
-    return 'pointer';
+    cursor = 'pointer';
   }
 
   if (props.disabled) {
-    return 'not-allowed';
+    cursor = 'not-allowed';
   }
 
-  return 'default';
+  return cursor;
 };
 
 const getTransition = props => {

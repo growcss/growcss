@@ -1,7 +1,6 @@
 //@flow
 import Color from './base/Color';
-
-const hex2rgba = require('hex-rgba');
+import { Hsl2Hsla } from '../utils/HslToHsla';
 
 const disabled = {
   background: Color.grey100,
@@ -23,12 +22,12 @@ const Button = {
       background: {
         default: Color.grey200,
         hover: Color.grey100,
-        active: hex2rgba(Color.primary, 40),
+        active: Hsl2Hsla(Color.primary, '.4'),
         disabled: disabled.background,
-        selected: hex2rgba(Color.primary, 65),
+        selected: Hsl2Hsla(Color.primary, '.65'),
       },
       boxShadowColor: {
-        focus: hex2rgba(Color.grey200, 60),
+        focus: Hsl2Hsla(Color.grey200, '.6'),
       },
       color: {
         default: Color.grey400,
@@ -43,10 +42,10 @@ const Button = {
         hover: Color.amber300,
         active: Color.primary,
         disabled: disabled.background,
-        selected: hex2rgba(Color.primary, 65),
+        selected: Hsl2Hsla(Color.primary, '.65'),
       },
       boxShadowColor: {
-        focus: hex2rgba(Color.amber300, 60),
+        focus: '',
       },
       color: {
         default: Color.white,
@@ -59,13 +58,13 @@ const Button = {
     success: {
       background: {
         default: Color.success,
-        hover: Color.green400,
+        hover: Color.lightGreen400,
         active: Color.success,
         disabled: disabled.background,
-        selected: Color.green600,
+        selected: Color.lightGreen600,
       },
       boxShadowColor: {
-        focus: hex2rgba(Color.green300, 60),
+        focus: '',
       },
       color: {
         default: Color.white,
@@ -84,7 +83,7 @@ const Button = {
         selected: Color.blue500,
       },
       boxShadowColor: {
-        focus: hex2rgba(Color.blue300, 60),
+        focus: '',
       },
       color: {
         default: Color.white,
@@ -97,10 +96,10 @@ const Button = {
     warning: {
       background: {
         default: Color.warning,
-        hover: Color.yellow400,
+        hover: Color.yellow600,
         active: Color.warning,
         disabled: disabled.background,
-        selected: Color.yellow600,
+        selected: Color.yellow800,
       },
       boxShadowColor: {
         focus: '',

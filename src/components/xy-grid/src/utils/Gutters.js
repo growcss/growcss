@@ -1,7 +1,7 @@
 //@flow
 import mediaquery from '@growcss/behavior-media-queries';
 import remCalc from '@growcss/util-remcalc';
-import type { GuttersType } from '../types';
+import type { GuttersSizesType } from '../types';
 
 const stripUnits = require('strip-units');
 
@@ -37,7 +37,7 @@ const cssBuilder = (
 /**
  * Create gutters for a cell/container.
  *
- * @param {string | number | GuttersType} gutters
+ * @param {string | number | GuttersSizesType} gutters
  * @param {string}               gutterType
  * @param {Array<string>}        gutterPosition
  * @param {boolean}              negative
@@ -45,7 +45,7 @@ const cssBuilder = (
  * @return {Array<string>}
  */
 export const Gutters = (
-  gutters: string | number | GuttersType,
+  gutters: string | number | GuttersSizesType,
   gutterType: string = 'margin',
   gutterPosition: Array<string> = ['right', 'left'],
   negative: boolean = false,
