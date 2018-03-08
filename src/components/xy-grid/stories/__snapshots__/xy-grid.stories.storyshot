@@ -14,13 +14,6 @@ exports[`Storyshots XY-Grid GridX Multiple expanding cells will share the leftov
   wrap={true}
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".0"
     small={4}
     vertical={false}
@@ -29,13 +22,6 @@ exports[`Storyshots XY-Grid GridX Multiple expanding cells will share the leftov
   </Cell>
   <Cell
     cellType="auto"
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".1"
     vertical={false}
   >
@@ -43,13 +29,6 @@ exports[`Storyshots XY-Grid GridX Multiple expanding cells will share the leftov
   </Cell>
   <Cell
     cellType="auto"
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".2"
     vertical={false}
   >
@@ -73,13 +52,6 @@ exports[`Storyshots XY-Grid GridX Shrink means it will only take up the space it
 >
   <Cell
     cellType="shrink"
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".0"
     vertical={false}
   >
@@ -87,13 +59,6 @@ exports[`Storyshots XY-Grid GridX Shrink means it will only take up the space it
   </Cell>
   <Cell
     cellType="auto"
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".1"
     vertical={false}
   >
@@ -116,13 +81,6 @@ exports[`Storyshots XY-Grid GridX To switch back to the auto behavior from a per
   wrap={true}
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".0"
     large="auto"
     vertical={false}
@@ -130,13 +88,6 @@ exports[`Storyshots XY-Grid GridX To switch back to the auto behavior from a per
     One
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".1"
     large="auto"
     vertical={false}
@@ -144,13 +95,6 @@ exports[`Storyshots XY-Grid GridX To switch back to the auto behavior from a per
     Two
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".2"
     large="auto"
     vertical={false}
@@ -158,13 +102,6 @@ exports[`Storyshots XY-Grid GridX To switch back to the auto behavior from a per
     Three
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".3"
     large="auto"
     vertical={false}
@@ -172,13 +109,6 @@ exports[`Storyshots XY-Grid GridX To switch back to the auto behavior from a per
     Four
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".4"
     large="auto"
     vertical={false}
@@ -186,13 +116,6 @@ exports[`Storyshots XY-Grid GridX To switch back to the auto behavior from a per
     Five
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".5"
     large="auto"
     vertical={false}
@@ -216,13 +139,6 @@ exports[`Storyshots XY-Grid GridX cell will take up the remaining space 1`] = `
   wrap={true}
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".0"
     small={4}
     vertical={false}
@@ -231,13 +147,6 @@ exports[`Storyshots XY-Grid GridX cell will take up the remaining space 1`] = `
   </Cell>
   <Cell
     cellType="auto"
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".1"
     vertical={false}
   >
@@ -261,13 +170,6 @@ exports[`Storyshots XY-Grid GridX cell with self align types 1`] = `
 >
   <Cell
     align="bottom"
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".0"
     small={3}
@@ -277,13 +179,6 @@ exports[`Storyshots XY-Grid GridX cell with self align types 1`] = `
   </Cell>
   <Cell
     align="middle"
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".1"
     small={3}
@@ -293,13 +188,6 @@ exports[`Storyshots XY-Grid GridX cell with self align types 1`] = `
   </Cell>
   <Cell
     align="stretch"
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".2"
     small={3}
@@ -309,13 +197,6 @@ exports[`Storyshots XY-Grid GridX cell with self align types 1`] = `
   </Cell>
   <Cell
     align="top"
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".3"
     small={3}
@@ -331,35 +212,15 @@ exports[`Storyshots XY-Grid GridX central alignment with alignX center and align
   alignX="center"
   alignY="middle"
   className="xy-gridstories__CustomGridX-hwVLja cTSELK"
-  gutterSizes={
-    Object {
-      "medium": "30px",
-      "small": "20px",
-    }
-  }
   gutterType="padding"
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     small={4}
     vertical={false}
   >
     I am in the center-middle
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     small={4}
     vertical={false}
   >
@@ -382,13 +243,6 @@ exports[`Storyshots XY-Grid GridX gutter type with margin 1`] = `
   wrap={true}
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="margin"
     key=".0"
     large={4}
@@ -398,13 +252,6 @@ exports[`Storyshots XY-Grid GridX gutter type with margin 1`] = `
     12/6/4 cells
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="margin"
     key=".1"
     large={8}
@@ -430,13 +277,6 @@ exports[`Storyshots XY-Grid GridX gutter type with padding 1`] = `
   wrap={true}
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".0"
     large={4}
@@ -446,13 +286,6 @@ exports[`Storyshots XY-Grid GridX gutter type with padding 1`] = `
     12/6/4 cells
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".1"
     large={8}
@@ -478,13 +311,6 @@ exports[`Storyshots XY-Grid GridX horizontal center alignment 1`] = `
   wrap={true}
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".0"
     small={4}
@@ -493,13 +319,6 @@ exports[`Storyshots XY-Grid GridX horizontal center alignment 1`] = `
     Aligned to
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".1"
     small={4}
@@ -524,13 +343,6 @@ exports[`Storyshots XY-Grid GridX horizontal default left alignment 1`] = `
   wrap={true}
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".0"
     small={4}
@@ -539,13 +351,6 @@ exports[`Storyshots XY-Grid GridX horizontal default left alignment 1`] = `
     Aligned to
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".1"
     small={4}
@@ -570,13 +375,6 @@ exports[`Storyshots XY-Grid GridX horizontal justify alignment 1`] = `
   wrap={true}
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".0"
     small={4}
@@ -585,13 +383,6 @@ exports[`Storyshots XY-Grid GridX horizontal justify alignment 1`] = `
     Aligned to
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".1"
     small={4}
@@ -616,13 +407,6 @@ exports[`Storyshots XY-Grid GridX horizontal right alignment 1`] = `
   wrap={true}
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".0"
     small={4}
@@ -631,13 +415,6 @@ exports[`Storyshots XY-Grid GridX horizontal right alignment 1`] = `
     Aligned to
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".1"
     small={4}
@@ -662,13 +439,6 @@ exports[`Storyshots XY-Grid GridX horizontal spaced alignment 1`] = `
   wrap={true}
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".0"
     small={4}
@@ -677,13 +447,6 @@ exports[`Storyshots XY-Grid GridX horizontal spaced alignment 1`] = `
     Aligned to
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".1"
     small={4}
@@ -709,13 +472,6 @@ exports[`Storyshots XY-Grid GridX vertical bottom alignment 1`] = `
   wrap={true}
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".0"
     small={4}
@@ -724,13 +480,6 @@ exports[`Storyshots XY-Grid GridX vertical bottom alignment 1`] = `
     I'm at the bottom
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".1"
     small={4}
@@ -756,13 +505,6 @@ exports[`Storyshots XY-Grid GridX vertical middle alignment 1`] = `
   wrap={true}
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".0"
     small={4}
@@ -771,13 +513,6 @@ exports[`Storyshots XY-Grid GridX vertical middle alignment 1`] = `
     I'm in the middle
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".1"
     small={4}
@@ -803,13 +538,6 @@ exports[`Storyshots XY-Grid GridX vertical stretch alignment 1`] = `
   wrap={true}
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".0"
     small={4}
@@ -818,13 +546,6 @@ exports[`Storyshots XY-Grid GridX vertical stretch alignment 1`] = `
     These cells have the same height
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".1"
     small={4}
@@ -850,13 +571,6 @@ exports[`Storyshots XY-Grid GridX vertical top alignment 1`] = `
   wrap={true}
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".0"
     small={4}
@@ -865,13 +579,6 @@ exports[`Storyshots XY-Grid GridX vertical top alignment 1`] = `
     I'm at the top (default)
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".1"
     small={4}
@@ -896,13 +603,6 @@ exports[`Storyshots XY-Grid GridX with 12/6/4 and 12/6/8 cells 1`] = `
   wrap={true}
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".0"
     large={4}
     medium={6}
@@ -911,13 +611,6 @@ exports[`Storyshots XY-Grid GridX with 12/6/4 and 12/6/8 cells 1`] = `
     12/6/4 cells
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".1"
     large={8}
     medium={6}
@@ -942,26 +635,12 @@ exports[`Storyshots XY-Grid GridX with a full width cell 1`] = `
   wrap={true}
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".0"
     vertical={false}
   >
     full width cell
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".1"
     vertical={false}
   >
@@ -985,13 +664,6 @@ exports[`Storyshots XY-Grid GridX with gutter type margin and auto/shrink with s
 >
   <Cell
     cellType="shrink"
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="margin"
     key=".0"
     large={12}
@@ -1002,13 +674,6 @@ exports[`Storyshots XY-Grid GridX with gutter type margin and auto/shrink with s
   </Cell>
   <Cell
     cellType="auto"
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="margin"
     key=".1"
     large={12}
@@ -1035,13 +700,6 @@ exports[`Storyshots XY-Grid GridX with gutter type padding and auto/shrink with 
 >
   <Cell
     cellType="shrink"
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".0"
     large={7}
@@ -1052,13 +710,6 @@ exports[`Storyshots XY-Grid GridX with gutter type padding and auto/shrink with 
   </Cell>
   <Cell
     cellType="auto"
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".1"
     large={5}
@@ -1084,13 +735,6 @@ exports[`Storyshots XY-Grid GridX with offset of 2 to a large cell 1`] = `
   wrap={true}
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="margin"
     key=".0"
     largeOffset={2}
@@ -1100,13 +744,6 @@ exports[`Storyshots XY-Grid GridX with offset of 2 to a large cell 1`] = `
     Offset 2 on large
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="margin"
     key=".1"
     small={4}
@@ -1131,13 +768,6 @@ exports[`Storyshots XY-Grid GridX with two 6 small cells 1`] = `
   wrap={true}
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".0"
     small={6}
     vertical={false}
@@ -1145,13 +775,6 @@ exports[`Storyshots XY-Grid GridX with two 6 small cells 1`] = `
     6 cells
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".1"
     small={6}
     vertical={false}
@@ -1175,13 +798,6 @@ exports[`Storyshots XY-Grid GridX without paddings/margins and auto/shrink with 
   wrap={true}
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".0"
     large={12}
@@ -1191,13 +807,6 @@ exports[`Storyshots XY-Grid GridX without paddings/margins and auto/shrink with 
     medium:auto, large:12
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     gutterType="padding"
     key=".1"
     large={12}
@@ -1224,13 +833,6 @@ exports[`Storyshots XY-Grid GridY with 6/8/2 and 6/4/10 cells 1`] = `
   wrap={true}
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".0"
     large={2}
     medium={8}
@@ -1240,13 +842,6 @@ exports[`Storyshots XY-Grid GridY with 6/8/2 and 6/4/10 cells 1`] = `
     6/8/2 cells
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".1"
     large={10}
     medium={8}

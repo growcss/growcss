@@ -48,7 +48,7 @@ export default class AbstractGrid extends React.Component<GridType> {
     const direction = this.isVertical === true ? 'vertical' : 'horizontal';
 
     if (this.isVertical === true && height === undefined) {
-      throw new Error('');
+      throw new Error('height value is missing on GridY.');
     }
 
     return (

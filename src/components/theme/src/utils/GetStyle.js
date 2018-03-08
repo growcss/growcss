@@ -32,7 +32,11 @@ const getStyle = (
   let style = fetchFromObject(defaultTheme, key);
 
   if (propsTheme !== null && propsTheme[defaultTheme.moduleName] !== undefined) {
-    style = fetchFromObject(propsTheme[defaultTheme.moduleName], key);
+    const themed = fetchFromObject(propsTheme[defaultTheme.moduleName], key);
+
+    if (themed !== undefined) {
+      style = themed;
+    }
   }
 
   return style;

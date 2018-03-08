@@ -2,55 +2,41 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { GridX, Cell } from '@growcss/xy-grid';
+import { Color } from '@growcss/theme';
+import { ThemeProvider } from 'styled-components';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import faCoffee from '@fortawesome/fontawesome-free-solid/faCoffee'
-import exclamation from '@fortawesome/fontawesome-free-solid/faExclamation'
-import arrowDown from '@fortawesome/fontawesome-free-solid/faArrowDown'
+import faCoffee from '@fortawesome/fontawesome-free-solid/faCoffee';
+import exclamation from '@fortawesome/fontawesome-free-solid/faExclamation';
+import arrowDown from '@fortawesome/fontawesome-free-solid/faArrowDown';
 import { Button, ButtonGroup } from '../src';
-
-const appearances = [
-  'default',
-  'primary',
-  'success',
-  'info',
-  'warning',
-  'danger',
-  'link',
-];
-const selectableAppearances = [
-  'default',
-  'primary',
-  'success',
-  'info',
-  'warning',
-  'danger',
-];
-
-class Buttons extends React.Component {
-  render() {
-    return (
-      appearances.map(a => (
-        <GridX>
-          <Cell small={4}>
-            <Button appearance={a}>{a}</Button>
-          </Cell>
-          <Cell small={4}>
-            <Button appearance={a} isDisabled>Disabled</Button>
-          </Cell>
-          <Cell small={4}>
-            {selectableAppearances.includes(a) ? (
-              <Button appearance={a} isSelected>
-                Selected
-              </Button>
-            ) : null}
-          </Cell>
-        </GridX>
-      ))
-    );
-  }
-}
+import Buttons from './Components/Buttons';
+import ButtonsPerformance from './Components/ButtonsPerformance';
 
 const Icon = <FontAwesomeIcon icon={faCoffee} />;
+
+const theme = {
+  button: {
+    theme: {
+      primary: {
+        background: {
+          default: Color.deepPurple300,
+          hover: Color.deepPurple200,
+          active: Color.deepPurple300,
+          disabled: Color.grey100,
+          selected: Color.deepPurple400,
+        },
+        boxShadowColor: {
+          focus: Color.grey100,
+        },
+        color: {
+          default: Color.white,
+          disabled: Color.grey300,
+          selected: Color.white
+        },
+      },
+    },
+  },
+};
 
 storiesOf('Button', module)
   .add('Button appearances', () => (<Buttons/>))
@@ -90,9 +76,27 @@ storiesOf('Button', module)
         <Button iconAfter={Icon}>Icon After</Button>
       </Cell>
       <Cell style={{paddingTop: '10px'}}>
+        <Button href="//github.com/growcss/growcss">with href attribute</Button>
+      </Cell>
+      <Cell style={{paddingTop: '10px'}}>
+        <Button href="//github.com/growcss/growcss">with href attribute + no target</Button>
+      </Cell>
+      <Cell style={{paddingTop: '10px'}}>
+        <Button href="//github.com/growcss/growcss" iconBefore={<FontAwesomeIcon icon={exclamation} />}>with href attribute + icon</Button>
+      </Cell>
+      <Cell style={{paddingTop: '10px'}}>
+        <Button href="//github.com/growcss/growcss" iconBefore={<FontAwesomeIcon icon={exclamation} />} target="_blank">with href attribute + icon +  target</Button>
+      </Cell>
+      <Cell style={{paddingTop: '10px'}}>
         <Button inline={false} shouldFitContainer>
           Fit Container
         </Button>
+      </Cell>
+      <Cell style={{paddingTop: '10px'}}>
+        <Button iconBefore={<FontAwesomeIcon icon={exclamation} />} shouldFitContainer>Button with should fit container and before icon</Button>
+      </Cell>
+      <Cell style={{paddingTop: '10px'}}>
+        <Button iconAfter={<FontAwesomeIcon icon={exclamation} />} shouldFitContainer>Button with should fit container and after icon</Button>
       </Cell>
     </GridX>
   )).add('Button spacing', () => (
@@ -120,9 +124,25 @@ storiesOf('Button', module)
   ))
   .add('Button truncation', () => (
     <div style={{width: '190px'}}>
-      <Button appearance="primary" iconBefore={<FontAwesomeIcon icon={exclamation} />} style={{width: '30px'}}>exclamation</Button>
-      <Button appearance="primary">I am wider than my parent</Button>
-      <Button appearance="primary" iconBefore={<FontAwesomeIcon icon={exclamation} />}>I am wider than my parent</Button>
-      <Button appearance="primary" iconAfter={<FontAwesomeIcon icon={arrowDown} />}>I am wider than my parent</Button>
+      <Button iconBefore={<FontAwesomeIcon icon={exclamation} />} style={{width: '30px'}}>exclamation</Button>
+      <Button>I am wider than my parent</Button>
+      <Button iconBefore={<FontAwesomeIcon icon={exclamation} />}>I am wider than my parent</Button>
+      <Button iconAfter={<FontAwesomeIcon icon={arrowDown} />}>I am wider than my parent</Button>
     </div>
+  ))
+  .add('Button theming', () => (
+    <ThemeProvider theme={ theme }>
+      <ButtonGroup>
+        <Button appearance='primary'>Button</Button>
+        <Button appearance='primary' isDisabled>
+          Disabled button
+        </Button>
+        <Button appearance='primary' isSelected>
+          Selected
+        </Button>
+      </ButtonGroup>
+    </ThemeProvider>
+  ))
+  .add('Button Performance', () => (
+    <ButtonsPerformance/>
   ));

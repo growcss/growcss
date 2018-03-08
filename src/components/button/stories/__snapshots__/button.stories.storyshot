@@ -1,70 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots Button Button Performance 1`] = `<ButtonsPerformance />`;
+
 exports[`Storyshots Button Button appearances 1`] = `
 Array [
-  <GridX
-    alignX="left"
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-  />,
-  <GridX
-    alignX="left"
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-  />,
-  <GridX
-    alignX="left"
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-  />,
-  <GridX
-    alignX="left"
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-  />,
-  <GridX
-    alignX="left"
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-  />,
-  <GridX
-    alignX="left"
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-  />,
-  <GridX
-    alignX="left"
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-  />,
+  <GridX />,
+  <GridX />,
+  <GridX />,
+  <GridX />,
+  <GridX />,
+  <GridX />,
+  <GridX />,
 ]
 `;
 
@@ -82,67 +28,41 @@ exports[`Storyshots Button Button group 1`] = `
   wrap={true}
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".0"
     vertical={false}
   >
     <ButtonGroup>
       <Button
-        appearance="default"
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
-        spacing="default"
-        type="button"
       >
         First Button
       </Button>
       <Button
-        appearance="default"
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
-        spacing="default"
-        type="button"
       >
         Second Button
       </Button>
       <Button
-        appearance="default"
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
-        spacing="default"
-        type="button"
       >
         Button Tertius
       </Button>
       <Button
-        appearance="default"
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
-        spacing="default"
-        type="button"
       >
         Fourth Button
       </Button>
     </ButtonGroup>
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".1"
     style={
       Object {
@@ -157,18 +77,13 @@ exports[`Storyshots Button Button group 1`] = `
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
-        spacing="default"
-        type="button"
       >
         Alpha
       </Button>
       <Button
-        appearance="default"
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
-        spacing="default"
-        type="button"
       >
         Beta
       </Button>
@@ -177,8 +92,6 @@ exports[`Storyshots Button Button group 1`] = `
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
-        spacing="default"
-        type="button"
       >
         Delta
       </Button>
@@ -187,21 +100,12 @@ exports[`Storyshots Button Button group 1`] = `
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
-        spacing="default"
-        type="button"
       >
         Delta
       </Button>
     </ButtonGroup>
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".2"
     style={
       Object {
@@ -214,32 +118,23 @@ exports[`Storyshots Button Button group 1`] = `
       appearance="link"
     >
       <Button
-        appearance="default"
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
-        spacing="default"
-        type="button"
       >
         Vuejs
       </Button>
       <Button
-        appearance="default"
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
-        spacing="default"
-        type="button"
       >
         Angular
       </Button>
       <Button
-        appearance="default"
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
-        spacing="default"
-        type="button"
       >
         React
       </Button>
@@ -262,18 +157,10 @@ exports[`Storyshots Button Button options 1`] = `
   wrap={true}
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".0"
     vertical={false}
   >
     <Button
-      appearance="default"
       iconBefore={
         <FontAwesomeIcon$1
           border={false}
@@ -308,20 +195,11 @@ exports[`Storyshots Button Button options 1`] = `
       isDisabled={false}
       isSelected={false}
       shouldFitContainer={false}
-      spacing="default"
-      type="button"
     >
       Icon Before
     </Button>
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".1"
     style={
       Object {
@@ -331,7 +209,6 @@ exports[`Storyshots Button Button options 1`] = `
     vertical={false}
   >
     <Button
-      appearance="default"
       iconAfter={
         <FontAwesomeIcon$1
           border={false}
@@ -366,20 +243,11 @@ exports[`Storyshots Button Button options 1`] = `
       isDisabled={false}
       isSelected={false}
       shouldFitContainer={false}
-      spacing="default"
-      type="button"
     >
       Icon After
     </Button>
   </Cell>
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".2"
     style={
       Object {
@@ -389,15 +257,243 @@ exports[`Storyshots Button Button options 1`] = `
     vertical={false}
   >
     <Button
-      appearance="default"
+      href="//github.com/growcss/growcss"
+      isDisabled={false}
+      isSelected={false}
+      shouldFitContainer={false}
+    >
+      with href attribute
+    </Button>
+  </Cell>
+  <Cell
+    key=".3"
+    style={
+      Object {
+        "paddingTop": "10px",
+      }
+    }
+    vertical={false}
+  >
+    <Button
+      href="//github.com/growcss/growcss"
+      isDisabled={false}
+      isSelected={false}
+      shouldFitContainer={false}
+    >
+      with href attribute + no target
+    </Button>
+  </Cell>
+  <Cell
+    key=".4"
+    style={
+      Object {
+        "paddingTop": "10px",
+      }
+    }
+    vertical={false}
+  >
+    <Button
+      href="//github.com/growcss/growcss"
+      iconBefore={
+        <FontAwesomeIcon$1
+          border={false}
+          className=""
+          fixedWidth={false}
+          flip={null}
+          icon={
+            Object {
+              "icon": Array [
+                192,
+                512,
+                Array [],
+                "f12a",
+                "M176 432c0 44.112-35.888 80-80 80s-80-35.888-80-80 35.888-80 80-80 80 35.888 80 80zM25.26 25.199l13.6 272C39.499 309.972 50.041 320 62.83 320h66.34c12.789 0 23.331-10.028 23.97-22.801l13.6-272C167.425 11.49 156.496 0 142.77 0H49.23C35.504 0 24.575 11.49 25.26 25.199z",
+              ],
+              "iconName": "exclamation",
+              "prefix": "fas",
+            }
+          }
+          listItem={false}
+          mask={null}
+          name=""
+          pull={null}
+          pulse={false}
+          rotation={null}
+          size={null}
+          spin={false}
+          symbol={false}
+          transform={null}
+        />
+      }
+      isDisabled={false}
+      isSelected={false}
+      shouldFitContainer={false}
+    >
+      with href attribute + icon
+    </Button>
+  </Cell>
+  <Cell
+    key=".5"
+    style={
+      Object {
+        "paddingTop": "10px",
+      }
+    }
+    vertical={false}
+  >
+    <Button
+      href="//github.com/growcss/growcss"
+      iconBefore={
+        <FontAwesomeIcon$1
+          border={false}
+          className=""
+          fixedWidth={false}
+          flip={null}
+          icon={
+            Object {
+              "icon": Array [
+                192,
+                512,
+                Array [],
+                "f12a",
+                "M176 432c0 44.112-35.888 80-80 80s-80-35.888-80-80 35.888-80 80-80 80 35.888 80 80zM25.26 25.199l13.6 272C39.499 309.972 50.041 320 62.83 320h66.34c12.789 0 23.331-10.028 23.97-22.801l13.6-272C167.425 11.49 156.496 0 142.77 0H49.23C35.504 0 24.575 11.49 25.26 25.199z",
+              ],
+              "iconName": "exclamation",
+              "prefix": "fas",
+            }
+          }
+          listItem={false}
+          mask={null}
+          name=""
+          pull={null}
+          pulse={false}
+          rotation={null}
+          size={null}
+          spin={false}
+          symbol={false}
+          transform={null}
+        />
+      }
+      isDisabled={false}
+      isSelected={false}
+      shouldFitContainer={false}
+      target="_blank"
+    >
+      with href attribute + icon +  target
+    </Button>
+  </Cell>
+  <Cell
+    key=".6"
+    style={
+      Object {
+        "paddingTop": "10px",
+      }
+    }
+    vertical={false}
+  >
+    <Button
       inline={false}
       isDisabled={false}
       isSelected={false}
       shouldFitContainer={true}
-      spacing="default"
-      type="button"
     >
       Fit Container
+    </Button>
+  </Cell>
+  <Cell
+    key=".7"
+    style={
+      Object {
+        "paddingTop": "10px",
+      }
+    }
+    vertical={false}
+  >
+    <Button
+      iconBefore={
+        <FontAwesomeIcon$1
+          border={false}
+          className=""
+          fixedWidth={false}
+          flip={null}
+          icon={
+            Object {
+              "icon": Array [
+                192,
+                512,
+                Array [],
+                "f12a",
+                "M176 432c0 44.112-35.888 80-80 80s-80-35.888-80-80 35.888-80 80-80 80 35.888 80 80zM25.26 25.199l13.6 272C39.499 309.972 50.041 320 62.83 320h66.34c12.789 0 23.331-10.028 23.97-22.801l13.6-272C167.425 11.49 156.496 0 142.77 0H49.23C35.504 0 24.575 11.49 25.26 25.199z",
+              ],
+              "iconName": "exclamation",
+              "prefix": "fas",
+            }
+          }
+          listItem={false}
+          mask={null}
+          name=""
+          pull={null}
+          pulse={false}
+          rotation={null}
+          size={null}
+          spin={false}
+          symbol={false}
+          transform={null}
+        />
+      }
+      isDisabled={false}
+      isSelected={false}
+      shouldFitContainer={true}
+    >
+      Button with should fit container and before icon
+    </Button>
+  </Cell>
+  <Cell
+    key=".8"
+    style={
+      Object {
+        "paddingTop": "10px",
+      }
+    }
+    vertical={false}
+  >
+    <Button
+      iconAfter={
+        <FontAwesomeIcon$1
+          border={false}
+          className=""
+          fixedWidth={false}
+          flip={null}
+          icon={
+            Object {
+              "icon": Array [
+                192,
+                512,
+                Array [],
+                "f12a",
+                "M176 432c0 44.112-35.888 80-80 80s-80-35.888-80-80 35.888-80 80-80 80 35.888 80 80zM25.26 25.199l13.6 272C39.499 309.972 50.041 320 62.83 320h66.34c12.789 0 23.331-10.028 23.97-22.801l13.6-272C167.425 11.49 156.496 0 142.77 0H49.23C35.504 0 24.575 11.49 25.26 25.199z",
+              ],
+              "iconName": "exclamation",
+              "prefix": "fas",
+            }
+          }
+          listItem={false}
+          mask={null}
+          name=""
+          pull={null}
+          pulse={false}
+          rotation={null}
+          size={null}
+          spin={false}
+          symbol={false}
+          transform={null}
+        />
+      }
+      isDisabled={false}
+      isSelected={false}
+      shouldFitContainer={true}
+    >
+      Button with should fit container and after icon
     </Button>
   </Cell>
 </XYGridElement>
@@ -405,77 +501,35 @@ exports[`Storyshots Button Button options 1`] = `
 
 exports[`Storyshots Button Button spacing 1`] = `
 <div>
-  <GridX
-    alignX="left"
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-  >
+  <GridX>
     <Cell
-      gridColumns={12}
-      gutterSizes={
-        Object {
-          "medium": "30px",
-          "small": "20px",
-        }
-      }
       small={6}
       vertical={false}
     >
       <Button
-        appearance="default"
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
-        spacing="default"
-        type="button"
       >
         Default
       </Button>
     </Cell>
     <Cell
-      gridColumns={12}
-      gutterSizes={
-        Object {
-          "medium": "30px",
-          "small": "20px",
-        }
-      }
       small={6}
       vertical={false}
     >
       <Button
-        appearance="default"
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
         spacing="compact"
-        type="button"
       >
         Compact
       </Button>
     </Cell>
   </GridX>
-  <GridX
-    alignX="left"
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
-  >
+  <GridX>
     <Cell
-      gridColumns={12}
-      gutterSizes={
-        Object {
-          "medium": "30px",
-          "small": "20px",
-        }
-      }
       small={4}
       vertical={false}
     >
@@ -484,20 +538,11 @@ exports[`Storyshots Button Button spacing 1`] = `
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
-        spacing="default"
-        type="button"
       >
         Default
       </Button>
     </Cell>
     <Cell
-      gridColumns={12}
-      gutterSizes={
-        Object {
-          "medium": "30px",
-          "small": "20px",
-        }
-      }
       small={4}
       vertical={false}
     >
@@ -507,19 +552,11 @@ exports[`Storyshots Button Button spacing 1`] = `
         isSelected={false}
         shouldFitContainer={false}
         spacing="compact"
-        type="button"
       >
         Compact
       </Button>
     </Cell>
     <Cell
-      gridColumns={12}
-      gutterSizes={
-        Object {
-          "medium": "30px",
-          "small": "20px",
-        }
-      }
       small={4}
       vertical={false}
     >
@@ -529,11 +566,176 @@ exports[`Storyshots Button Button spacing 1`] = `
         isSelected={false}
         shouldFitContainer={false}
         spacing="none"
-        type="button"
       >
         None
       </Button>
     </Cell>
   </GridX>
+</div>
+`;
+
+exports[`Storyshots Button Button theming 1`] = `
+<ButtonGroup>
+  <Button
+    appearance="primary"
+    isDisabled={false}
+    isSelected={false}
+    shouldFitContainer={false}
+  >
+    Button
+  </Button>
+  <Button
+    appearance="primary"
+    isDisabled={true}
+    isSelected={false}
+    shouldFitContainer={false}
+  >
+    Disabled button
+  </Button>
+  <Button
+    appearance="primary"
+    isDisabled={false}
+    isSelected={true}
+    shouldFitContainer={false}
+  >
+    Selected
+  </Button>
+</ButtonGroup>
+`;
+
+exports[`Storyshots Button Button truncation 1`] = `
+<div
+  style={
+    Object {
+      "width": "190px",
+    }
+  }
+>
+  <Button
+    iconBefore={
+      <FontAwesomeIcon$1
+        border={false}
+        className=""
+        fixedWidth={false}
+        flip={null}
+        icon={
+          Object {
+            "icon": Array [
+              192,
+              512,
+              Array [],
+              "f12a",
+              "M176 432c0 44.112-35.888 80-80 80s-80-35.888-80-80 35.888-80 80-80 80 35.888 80 80zM25.26 25.199l13.6 272C39.499 309.972 50.041 320 62.83 320h66.34c12.789 0 23.331-10.028 23.97-22.801l13.6-272C167.425 11.49 156.496 0 142.77 0H49.23C35.504 0 24.575 11.49 25.26 25.199z",
+            ],
+            "iconName": "exclamation",
+            "prefix": "fas",
+          }
+        }
+        listItem={false}
+        mask={null}
+        name=""
+        pull={null}
+        pulse={false}
+        rotation={null}
+        size={null}
+        spin={false}
+        symbol={false}
+        transform={null}
+      />
+    }
+    isDisabled={false}
+    isSelected={false}
+    shouldFitContainer={false}
+    style={
+      Object {
+        "width": "30px",
+      }
+    }
+  >
+    exclamation
+  </Button>
+  <Button
+    isDisabled={false}
+    isSelected={false}
+    shouldFitContainer={false}
+  >
+    I am wider than my parent
+  </Button>
+  <Button
+    iconBefore={
+      <FontAwesomeIcon$1
+        border={false}
+        className=""
+        fixedWidth={false}
+        flip={null}
+        icon={
+          Object {
+            "icon": Array [
+              192,
+              512,
+              Array [],
+              "f12a",
+              "M176 432c0 44.112-35.888 80-80 80s-80-35.888-80-80 35.888-80 80-80 80 35.888 80 80zM25.26 25.199l13.6 272C39.499 309.972 50.041 320 62.83 320h66.34c12.789 0 23.331-10.028 23.97-22.801l13.6-272C167.425 11.49 156.496 0 142.77 0H49.23C35.504 0 24.575 11.49 25.26 25.199z",
+            ],
+            "iconName": "exclamation",
+            "prefix": "fas",
+          }
+        }
+        listItem={false}
+        mask={null}
+        name=""
+        pull={null}
+        pulse={false}
+        rotation={null}
+        size={null}
+        spin={false}
+        symbol={false}
+        transform={null}
+      />
+    }
+    isDisabled={false}
+    isSelected={false}
+    shouldFitContainer={false}
+  >
+    I am wider than my parent
+  </Button>
+  <Button
+    iconAfter={
+      <FontAwesomeIcon$1
+        border={false}
+        className=""
+        fixedWidth={false}
+        flip={null}
+        icon={
+          Object {
+            "icon": Array [
+              448,
+              512,
+              Array [],
+              "f063",
+              "M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z",
+            ],
+            "iconName": "arrow-down",
+            "prefix": "fas",
+          }
+        }
+        listItem={false}
+        mask={null}
+        name=""
+        pull={null}
+        pulse={false}
+        rotation={null}
+        size={null}
+        spin={false}
+        symbol={false}
+        transform={null}
+      />
+    }
+    isDisabled={false}
+    isSelected={false}
+    shouldFitContainer={false}
+  >
+    I am wider than my parent
+  </Button>
 </div>
 `;

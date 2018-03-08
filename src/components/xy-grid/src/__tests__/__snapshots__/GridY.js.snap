@@ -15,13 +15,6 @@ exports[`the style output of GridY 1`] = `
   wrap={true}
 >
   <Cell
-    gridColumns={12}
-    gutterSizes={
-      Object {
-        "medium": "30px",
-        "small": "20px",
-      }
-    }
     key=".0"
     vertical={true}
   >

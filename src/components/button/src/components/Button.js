@@ -77,7 +77,6 @@ export default class Button extends React.Component<ButtonType, ButtonState> {
       shape,
       size,
       appearance,
-      ...others
     } = this.props;
 
     const classes = classNames('gc-button', className, {
@@ -94,7 +93,7 @@ export default class Button extends React.Component<ButtonType, ButtonState> {
     );
 
     return (
-      <StyledComponent className={classes} innerRef={innerRef} {...buttonProps} {...others}>
+      <StyledComponent className={classes} innerRef={innerRef} {...buttonProps}>
         <ButtonWrapperElement onClick={this.onInnerClick} fit={!!shouldFitContainer}>
           {iconBefore ? (
             <IconWrapperElement spacing={buttonProps.spacing} isOnlyChild={iconIsOnlyChild}>

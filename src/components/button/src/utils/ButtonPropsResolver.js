@@ -65,13 +65,6 @@ export default class ButtonPropsResolver {
       ...ButtonPropsResolver.getInteractionProps(component),
     };
 
-    if (props.component) {
-      return {
-        ...props,
-        ...defaultProps,
-      };
-    }
-
     if (props.href) {
       if (props.isDisabled) {
         return defaultProps;

@@ -23,22 +23,14 @@ export type CellType = {
   align?: string,
 };
 
-export type GridType =
-  | {
-      children: CellType | React.ChildrenArray<CellType>,
-      gutterSizes?: string | number | GuttersSizesType,
-      gutterType?: 'padding' | 'margin',
-      alignX?: string,
-      alignY?: string,
-    }
-  | {
-      children: CellType | React.ChildrenArray<CellType>,
-      height: string,
-      gutterSizes?: string | number | GuttersSizesType,
-      gutterType?: 'padding' | 'margin',
-      alignX?: string,
-      alignY?: string,
-    };
+export type GridType = {
+  children: CellType | React.ChildrenArray<CellType>,
+  height?: string,
+  gutterSizes?: string | number | GuttersSizesType,
+  gutterType?: 'padding' | 'margin',
+  alignX?: string,
+  alignY?: string,
+};
 
 export type GridContainerType = {
   children: GridType | React.ChildrenArray<GridType>,

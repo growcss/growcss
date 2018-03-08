@@ -27,7 +27,7 @@ export type IconWrapperElementType = {
 };
 
 export type ButtonGroupType = {
-  appearance?: ButtonAppearances,
+  appearance?: ButtonAppearances | string,
   children: React.ChildrenArray<*>,
 };
 
@@ -38,7 +38,7 @@ export type ButtonWrapperType = {
 };
 
 export type ButtonType = {
-  appearance?: ButtonAppearances,
+  appearance?: ButtonAppearances | string,
   shape?: ButtonShape,
   size?: ButtonSize,
   ariaControls?: string,
