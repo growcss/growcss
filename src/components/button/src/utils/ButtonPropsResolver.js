@@ -4,7 +4,7 @@ import type { ButtonState } from '../states';
 
 export default class ButtonPropsResolver {
   static getAppearanceProps = (props: ButtonType, state: ButtonState) => {
-    const { isDisabled, isSelected, spacing, shouldFitContainer } = props;
+    const { isDisabled, isSelected, spacing, shouldFitContainer, displayType } = props;
 
     const { isActive, isFocus, isHover } = state;
 
@@ -16,6 +16,7 @@ export default class ButtonPropsResolver {
       isSelected,
       spacing,
       fit: shouldFitContainer,
+      displayType,
     };
   };
 

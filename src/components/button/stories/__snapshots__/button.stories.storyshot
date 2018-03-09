@@ -575,32 +575,81 @@ exports[`Storyshots Button Button spacing 1`] = `
 `;
 
 exports[`Storyshots Button Button theming 1`] = `
-<ButtonGroup>
-  <Button
-    appearance="primary"
-    isDisabled={false}
-    isSelected={false}
-    shouldFitContainer={false}
+<div>
+  <ThemeProvider
+    theme={
+      Object {
+        "button": Object {
+          "theme": Object {
+            "primary": Object {
+              "background": Object {
+                "active": "hsl(261.79999999999995, 46.8%, 63.1%)",
+                "default": "hsl(261.79999999999995, 46.8%, 63.1%)",
+                "disabled": "hsl(0, 0%, 96.1%)",
+                "hover": "hsl(261.29999999999995, 46.3%, 73.7%)",
+                "selected": "hsl(261.9, 46.7%, 55.1%)",
+              },
+              "boxShadowColor": Object {
+                "focus": "hsl(0, 0%, 96.1%)",
+              },
+              "color": Object {
+                "default": "hsl(0, 0%, 100%)",
+                "disabled": "hsl(0, 0%, 87.8%)",
+                "selected": "hsl(0, 0%, 100%)",
+              },
+            },
+          },
+        },
+      }
+    }
   >
-    Button
-  </Button>
-  <Button
-    appearance="primary"
-    isDisabled={true}
-    isSelected={false}
-    shouldFitContainer={false}
+    <ButtonGroup>
+      <Button
+        appearance="primary"
+        isDisabled={false}
+        isSelected={false}
+        shouldFitContainer={false}
+      >
+        Button
+      </Button>
+      <Button
+        appearance="primary"
+        isDisabled={true}
+        isSelected={false}
+        shouldFitContainer={false}
+      >
+        Disabled button
+      </Button>
+      <Button
+        appearance="primary"
+        isDisabled={false}
+        isSelected={true}
+        shouldFitContainer={false}
+      >
+        Selected
+      </Button>
+    </ButtonGroup>
+  </ThemeProvider>
+  <div
+    style={
+      Object {
+        "background": "hsl(0, 0%, 87.8%)",
+        "marginTop": "10px",
+        "padding": "20px",
+      }
+    }
   >
-    Disabled button
-  </Button>
-  <Button
-    appearance="primary"
-    isDisabled={false}
-    isSelected={true}
-    shouldFitContainer={false}
-  >
-    Selected
-  </Button>
-</ButtonGroup>
+    <Button
+      appearance="danger"
+      displayType="ghost"
+      isDisabled={false}
+      isSelected={false}
+      shouldFitContainer={false}
+    >
+      A Ghost button
+    </Button>
+  </div>
+</div>
 `;
 
 exports[`Storyshots Button Button truncation 1`] = `

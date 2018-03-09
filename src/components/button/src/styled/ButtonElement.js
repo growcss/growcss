@@ -93,7 +93,7 @@ const getPaddingStyle = props => {
 
 const getButtonAppearanceTheme = props => {
   const state = getState(props);
-  const { appearance } = props;
+  const { appearance, displayType } = props;
   const { fallback } = ButtonStyle;
   const textDecorationHover = getStyle(
     props,
@@ -111,12 +111,19 @@ const getButtonAppearanceTheme = props => {
       `
     : null;
   const buttonColor = getStyle(props, ButtonStyle, `theme.${appearance}.color.${state}`);
-  const buttonBg = getStyle(props, ButtonStyle, `theme.${appearance}.background.${state}`);
+  let background = getStyle(props, ButtonStyle, `theme.${appearance}.background.${state}`);
+  let ghostBorder = '0';
+
+  if (displayType === 'ghost' || displayType === 'dashed') {
+    ghostBorder = `1px ${background} solid`;
+    background = 'transparent';
+  }
 
   return css`
     color: ${buttonColor || fallback.color};
-    background: ${buttonBg || fallback.background};
+    background: ${background || fallback.background};
     text-decoration: ${textDecorationHover || fallback.textDecoration};
+    border: ${ghostBorder};
     /* stylelint-disable */
     ${boxShadow} &::-moz-focus-inner {
       border: 0;

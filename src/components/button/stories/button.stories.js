@@ -131,17 +131,22 @@ storiesOf('Button', module)
     </div>
   ))
   .add('Button theming', () => (
-    <ThemeProvider theme={ theme }>
-      <ButtonGroup>
-        <Button appearance='primary'>Button</Button>
-        <Button appearance='primary' isDisabled>
-          Disabled button
-        </Button>
-        <Button appearance='primary' isSelected>
-          Selected
-        </Button>
-      </ButtonGroup>
-    </ThemeProvider>
+    <div>
+      <ThemeProvider theme={ theme }>
+        <ButtonGroup>
+          <Button appearance='primary'>Button</Button>
+          <Button appearance='primary' isDisabled>
+            Disabled button
+          </Button>
+          <Button appearance='primary' isSelected>
+            Selected
+          </Button>
+        </ButtonGroup>
+      </ThemeProvider>
+      <div style={{background: Color.grey300, marginTop: '10px', padding: '20px'}}>
+        <Button displayType='ghost' appearance='danger'>A Ghost button</Button>
+      </div>
+    </div>
   ))
   .add('Button Performance', () => (
     <ButtonsPerformance/>
