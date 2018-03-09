@@ -22,6 +22,10 @@ export default class ButtonPropsResolver {
   static getLinkElementProps = (props: ButtonType) => {
     const { href, target } = props;
 
+    if (target === '_blank') {
+      return { href, target, rel: 'noopener noreferrer' };
+    }
+
     return { href, target };
   };
 

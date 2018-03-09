@@ -9,6 +9,7 @@ export type ButtonAppearances =
   | 'warning'
   | 'danger'
   | 'link';
+export type ButtonDisplayType = 'default' | 'ghost' | 'dashed';
 export type ButtonShape = 'circle' | 'circle-outline';
 export type ButtonSize = 'tiny' | 'small' | 'default' | 'large';
 
@@ -41,13 +42,13 @@ export type ButtonType = {
   appearance?: ButtonAppearances | string,
   shape?: ButtonShape,
   size?: ButtonSize,
+  displayType?: ButtonDisplayType,
   ariaControls?: string,
   ariaExpanded?: boolean,
   ariaHaspopup?: boolean,
   children?: React.Node | string,
   className?: string,
   form?: string,
-  href?: string,
   iconAfter?: React.Element<*>,
   iconBefore?: React.Element<*>,
   innerRef?: Func,
@@ -57,8 +58,8 @@ export type ButtonType = {
   onClick?: Func,
   spacing?: 'compact' | 'default' | 'none',
   tabIndex?: number,
+  href?: string,
   target?: string,
   type?: 'button' | 'submit',
   shouldFitContainer?: boolean,
-  ghost?: boolean,
 };

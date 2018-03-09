@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "bootstrap": "          lerna bootstrap --parallel",
-    "build": "              yarn run delete && lerna exec -- sort-package-json && NODE_ENV=production lerna run build --parallel",
+    "build": "              yarn run delete && lerna exec -- sort-package-json && cross-env NODE_ENV=production lerna run build --parallel",
     "changelog": "          lerna-changelog",
     "precommit": "          lint-staged",
     "delete": "             yarn run delete:modules && yarn run delete:build",
