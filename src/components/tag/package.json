@@ -1,0 +1,45 @@
+{
+  "name": "@growcss/tag",
+  "version": "0.0.0",
+  "description": "Tag element with optional remove button. Allows to tag content (e.g. Blogpost categories).",
+  "keywords": [
+    "tag",
+    "pill",
+    "preact",
+    "react",
+    "styled-components",
+    "ui"
+  ],
+  "homepage": "http://growcss.com",
+  "license": "MIT",
+  "author": {
+    "name": "Joerg Simon",
+    "email": "j@smn.io"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "jsnext:main": "dist/es/index.js",
+  "repository": "https://github.com/growcss/growcss.git",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "browser": "dist/umd/index.js",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "prop-types": "^15.6.0",
+    "strip-units": "0.0.1",
+    "styled-components": "^3.1.5"
+  },
+  "peerDependencies": {
+    "preact": "^8.0",
+    "react": "^16.0"
+  },
+  "engines": {
+    "node": "^9.3.0"
+  },
+  "moduleName": "gc-image"
+}
