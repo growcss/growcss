@@ -10,8 +10,6 @@ export type ButtonAppearances =
   | 'danger'
   | 'link';
 export type ButtonDisplayType = 'default' | 'ghost' | 'dashed';
-export type ButtonShape = 'circle' | 'circle-outline';
-export type ButtonSize = 'tiny' | 'small' | 'default' | 'large';
 
 type Func = () => any;
 
@@ -40,8 +38,6 @@ export type ButtonWrapperType = {
 
 export type ButtonType = {
   appearance?: ButtonAppearances | string,
-  shape?: ButtonShape,
-  size?: ButtonSize,
   displayType?: ButtonDisplayType,
   ariaControls?: string,
   ariaExpanded?: boolean,

@@ -14,6 +14,13 @@ exports[`the style output of GridX 1`] = `
   wrap={true}
 >
   <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
     key=".0"
     vertical={false}
   >
@@ -37,6 +44,13 @@ exports[`the style output of GridX with alignment to bottom 1`] = `
   wrap={true}
 >
   <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
     gutterType="padding"
     key=".0"
     vertical={false}
@@ -60,6 +74,13 @@ exports[`the style output of GridX with alignment to center 1`] = `
   wrap={true}
 >
   <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
     gutterType="padding"
     key=".0"
     vertical={false}
@@ -83,6 +104,13 @@ exports[`the style output of GridX with alignment to justify 1`] = `
   wrap={true}
 >
   <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
     gutterType="padding"
     key=".0"
     vertical={false}
@@ -107,6 +135,13 @@ exports[`the style output of GridX with alignment to middle 1`] = `
   wrap={true}
 >
   <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
     gutterType="padding"
     key=".0"
     vertical={false}
@@ -130,6 +165,13 @@ exports[`the style output of GridX with alignment to right 1`] = `
   wrap={true}
 >
   <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
     gutterType="padding"
     key=".0"
     vertical={false}
@@ -153,6 +195,13 @@ exports[`the style output of GridX with alignment to spaced 1`] = `
   wrap={true}
 >
   <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
     gutterType="padding"
     key=".0"
     vertical={false}
@@ -177,6 +226,13 @@ exports[`the style output of GridX with alignment to stretch 1`] = `
   wrap={true}
 >
   <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
     gutterType="padding"
     key=".0"
     vertical={false}
@@ -201,6 +257,13 @@ exports[`the style output of GridX with alignment to top 1`] = `
   wrap={true}
 >
   <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
     gutterType="padding"
     key=".0"
     vertical={false}

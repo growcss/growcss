@@ -11,7 +11,7 @@ const Button = {
   moduleName: 'button',
   gridSize: 8,
   borderRadius: 3,
-  fontSize: 14,
+  fontSize: 15,
   fallback: {
     background: Color.grey200,
     color: Color.grey400,

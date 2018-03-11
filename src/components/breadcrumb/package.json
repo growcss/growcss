@@ -30,6 +30,9 @@
   },
   "browser": "dist/umd/index.js",
   "dependencies": {
+    "@growcss/button": "0.0.0",
+    "@growcss/theme": "0.0.0",
+    "@growcss/util-remcalc": "0.0.0",
     "classnames": "^2.2.5",
     "styled-components": "^3.1.5"
   },
@@ -42,5 +45,5 @@
   "engines": {
     "node": "^9.3.0"
   },
-  "moduleName": "gc-image"
+  "moduleName": "gc-breadcrumb"
 }

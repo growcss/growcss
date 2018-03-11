@@ -12,6 +12,9 @@ export default class Cell extends React.Component<CellType> {
     vertical: false,
   };
 
+  /**
+   * @inheritdoc
+   */
   render() {
     const {
       children,

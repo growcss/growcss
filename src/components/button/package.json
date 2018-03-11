@@ -50,5 +50,5 @@
   "engines": {
     "node": "^9.3.0"
   },
-  "moduleName": "gc-image"
+  "moduleName": "gc-button"
 }

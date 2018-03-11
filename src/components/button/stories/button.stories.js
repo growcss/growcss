@@ -143,9 +143,22 @@ storiesOf('Button', module)
           </Button>
         </ButtonGroup>
       </ThemeProvider>
-      <div style={{background: Color.grey300, marginTop: '10px', padding: '20px'}}>
-        <Button displayType='ghost' appearance='danger'>A Ghost button</Button>
-      </div>
+      <br/>
+      <ButtonGroup style={{background: Color.grey600, marginTop: '10px', padding: '20px'}}>
+        <Button displayType='ghost' appearance="primary">A primary ghost button</Button>
+        <Button displayType='ghost' appearance="default">A default ghost button</Button>
+        <Button displayType='ghost' appearance="warning">A warning ghost button</Button>
+        <Button displayType='ghost' appearance='danger'>A danger ghost button</Button>
+        <Button displayType='ghost' appearance="link">A link ghost button</Button>
+      </ButtonGroup>
+      <br/>
+      <ButtonGroup style={{background: Color.grey600, marginTop: '10px', padding: '20px'}}>
+        <Button displayType='dashed' appearance="primary">A primary dashed button</Button>
+        <Button displayType='dashed' appearance="default">A default dashed button</Button>
+        <Button displayType='dashed' appearance="warning">A warning dashed button</Button>
+        <Button displayType='dashed' appearance='danger'>A danger dashed button</Button>
+        <Button displayType='dashed' appearance="link">A link dashed button</Button>
+      </ButtonGroup>
     </div>
   ))
   .add('Button Performance', () => (

@@ -6,10 +6,10 @@ import type { ButtonGroupType } from '../types';
 
 export default class ButtonGroup extends React.Component<ButtonGroupType> {
   render() {
-    const { appearance, children } = this.props;
+    const { appearance, children, ...other } = this.props;
 
     return (
-      <ButtonGroupElement>
+      <ButtonGroupElement {...other}>
         {React.Children.map(children, (child, idx) => {
           if (child === null || child === false) {
             return child;

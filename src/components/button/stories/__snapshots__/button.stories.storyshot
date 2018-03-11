@@ -4,13 +4,69 @@ exports[`Storyshots Button Button Performance 1`] = `<ButtonsPerformance />`;
 
 exports[`Storyshots Button Button appearances 1`] = `
 Array [
-  <GridX />,
-  <GridX />,
-  <GridX />,
-  <GridX />,
-  <GridX />,
-  <GridX />,
-  <GridX />,
+  <GridX
+    alignX="left"
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+  />,
+  <GridX
+    alignX="left"
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+  />,
+  <GridX
+    alignX="left"
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+  />,
+  <GridX
+    alignX="left"
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+  />,
+  <GridX
+    alignX="left"
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+  />,
+  <GridX
+    alignX="left"
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+  />,
+  <GridX
+    alignX="left"
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+  />,
 ]
 `;
 
@@ -28,41 +84,67 @@ exports[`Storyshots Button Button group 1`] = `
   wrap={true}
 >
   <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
     key=".0"
     vertical={false}
   >
     <ButtonGroup>
       <Button
+        appearance="default"
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
+        spacing="default"
+        type="button"
       >
         First Button
       </Button>
       <Button
+        appearance="default"
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
+        spacing="default"
+        type="button"
       >
         Second Button
       </Button>
       <Button
+        appearance="default"
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
+        spacing="default"
+        type="button"
       >
         Button Tertius
       </Button>
       <Button
+        appearance="default"
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
+        spacing="default"
+        type="button"
       >
         Fourth Button
       </Button>
     </ButtonGroup>
   </Cell>
   <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
     key=".1"
     style={
       Object {
@@ -77,13 +159,18 @@ exports[`Storyshots Button Button group 1`] = `
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
+        spacing="default"
+        type="button"
       >
         Alpha
       </Button>
       <Button
+        appearance="default"
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
+        spacing="default"
+        type="button"
       >
         Beta
       </Button>
@@ -92,6 +179,8 @@ exports[`Storyshots Button Button group 1`] = `
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
+        spacing="default"
+        type="button"
       >
         Delta
       </Button>
@@ -100,12 +189,21 @@ exports[`Storyshots Button Button group 1`] = `
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
+        spacing="default"
+        type="button"
       >
         Delta
       </Button>
     </ButtonGroup>
   </Cell>
   <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
     key=".2"
     style={
       Object {
@@ -118,23 +216,32 @@ exports[`Storyshots Button Button group 1`] = `
       appearance="link"
     >
       <Button
+        appearance="default"
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
+        spacing="default"
+        type="button"
       >
         Vuejs
       </Button>
       <Button
+        appearance="default"
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
+        spacing="default"
+        type="button"
       >
         Angular
       </Button>
       <Button
+        appearance="default"
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
+        spacing="default"
+        type="button"
       >
         React
       </Button>
@@ -157,10 +264,18 @@ exports[`Storyshots Button Button options 1`] = `
   wrap={true}
 >
   <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
     key=".0"
     vertical={false}
   >
     <Button
+      appearance="default"
       iconBefore={
         <FontAwesomeIcon$1
           border={false}
@@ -195,11 +310,20 @@ exports[`Storyshots Button Button options 1`] = `
       isDisabled={false}
       isSelected={false}
       shouldFitContainer={false}
+      spacing="default"
+      type="button"
     >
       Icon Before
     </Button>
   </Cell>
   <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
     key=".1"
     style={
       Object {
@@ -209,6 +333,7 @@ exports[`Storyshots Button Button options 1`] = `
     vertical={false}
   >
     <Button
+      appearance="default"
       iconAfter={
         <FontAwesomeIcon$1
           border={false}
@@ -243,11 +368,20 @@ exports[`Storyshots Button Button options 1`] = `
       isDisabled={false}
       isSelected={false}
       shouldFitContainer={false}
+      spacing="default"
+      type="button"
     >
       Icon After
     </Button>
   </Cell>
   <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
     key=".2"
     style={
       Object {
@@ -257,15 +391,25 @@ exports[`Storyshots Button Button options 1`] = `
     vertical={false}
   >
     <Button
+      appearance="default"
       href="//github.com/growcss/growcss"
       isDisabled={false}
       isSelected={false}
       shouldFitContainer={false}
+      spacing="default"
+      type="button"
     >
       with href attribute
     </Button>
   </Cell>
   <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
     key=".3"
     style={
       Object {
@@ -275,15 +419,25 @@ exports[`Storyshots Button Button options 1`] = `
     vertical={false}
   >
     <Button
+      appearance="default"
       href="//github.com/growcss/growcss"
       isDisabled={false}
       isSelected={false}
       shouldFitContainer={false}
+      spacing="default"
+      type="button"
     >
       with href attribute + no target
     </Button>
   </Cell>
   <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
     key=".4"
     style={
       Object {
@@ -293,6 +447,7 @@ exports[`Storyshots Button Button options 1`] = `
     vertical={false}
   >
     <Button
+      appearance="default"
       href="//github.com/growcss/growcss"
       iconBefore={
         <FontAwesomeIcon$1
@@ -328,11 +483,20 @@ exports[`Storyshots Button Button options 1`] = `
       isDisabled={false}
       isSelected={false}
       shouldFitContainer={false}
+      spacing="default"
+      type="button"
     >
       with href attribute + icon
     </Button>
   </Cell>
   <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
     key=".5"
     style={
       Object {
@@ -342,6 +506,7 @@ exports[`Storyshots Button Button options 1`] = `
     vertical={false}
   >
     <Button
+      appearance="default"
       href="//github.com/growcss/growcss"
       iconBefore={
         <FontAwesomeIcon$1
@@ -377,12 +542,21 @@ exports[`Storyshots Button Button options 1`] = `
       isDisabled={false}
       isSelected={false}
       shouldFitContainer={false}
+      spacing="default"
       target="_blank"
+      type="button"
     >
       with href attribute + icon +  target
     </Button>
   </Cell>
   <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
     key=".6"
     style={
       Object {
@@ -392,15 +566,25 @@ exports[`Storyshots Button Button options 1`] = `
     vertical={false}
   >
     <Button
+      appearance="default"
       inline={false}
       isDisabled={false}
       isSelected={false}
       shouldFitContainer={true}
+      spacing="default"
+      type="button"
     >
       Fit Container
     </Button>
   </Cell>
   <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
     key=".7"
     style={
       Object {
@@ -410,6 +594,7 @@ exports[`Storyshots Button Button options 1`] = `
     vertical={false}
   >
     <Button
+      appearance="default"
       iconBefore={
         <FontAwesomeIcon$1
           border={false}
@@ -444,11 +629,20 @@ exports[`Storyshots Button Button options 1`] = `
       isDisabled={false}
       isSelected={false}
       shouldFitContainer={true}
+      spacing="default"
+      type="button"
     >
       Button with should fit container and before icon
     </Button>
   </Cell>
   <Cell
+    gridColumns={12}
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
     key=".8"
     style={
       Object {
@@ -458,6 +652,7 @@ exports[`Storyshots Button Button options 1`] = `
     vertical={false}
   >
     <Button
+      appearance="default"
       iconAfter={
         <FontAwesomeIcon$1
           border={false}
@@ -492,6 +687,8 @@ exports[`Storyshots Button Button options 1`] = `
       isDisabled={false}
       isSelected={false}
       shouldFitContainer={true}
+      spacing="default"
+      type="button"
     >
       Button with should fit container and after icon
     </Button>
@@ -501,35 +698,77 @@ exports[`Storyshots Button Button options 1`] = `
 
 exports[`Storyshots Button Button spacing 1`] = `
 <div>
-  <GridX>
+  <GridX
+    alignX="left"
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+  >
     <Cell
+      gridColumns={12}
+      gutterSizes={
+        Object {
+          "medium": "30px",
+          "small": "20px",
+        }
+      }
       small={6}
       vertical={false}
     >
       <Button
+        appearance="default"
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
+        spacing="default"
+        type="button"
       >
         Default
       </Button>
     </Cell>
     <Cell
+      gridColumns={12}
+      gutterSizes={
+        Object {
+          "medium": "30px",
+          "small": "20px",
+        }
+      }
       small={6}
       vertical={false}
     >
       <Button
+        appearance="default"
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
         spacing="compact"
+        type="button"
       >
         Compact
       </Button>
     </Cell>
   </GridX>
-  <GridX>
+  <GridX
+    alignX="left"
+    gutterSizes={
+      Object {
+        "medium": "30px",
+        "small": "20px",
+      }
+    }
+  >
     <Cell
+      gridColumns={12}
+      gutterSizes={
+        Object {
+          "medium": "30px",
+          "small": "20px",
+        }
+      }
       small={4}
       vertical={false}
     >
@@ -538,11 +777,20 @@ exports[`Storyshots Button Button spacing 1`] = `
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
+        spacing="default"
+        type="button"
       >
         Default
       </Button>
     </Cell>
     <Cell
+      gridColumns={12}
+      gutterSizes={
+        Object {
+          "medium": "30px",
+          "small": "20px",
+        }
+      }
       small={4}
       vertical={false}
     >
@@ -552,11 +800,19 @@ exports[`Storyshots Button Button spacing 1`] = `
         isSelected={false}
         shouldFitContainer={false}
         spacing="compact"
+        type="button"
       >
         Compact
       </Button>
     </Cell>
     <Cell
+      gridColumns={12}
+      gutterSizes={
+        Object {
+          "medium": "30px",
+          "small": "20px",
+        }
+      }
       small={4}
       vertical={false}
     >
@@ -566,6 +822,7 @@ exports[`Storyshots Button Button spacing 1`] = `
         isSelected={false}
         shouldFitContainer={false}
         spacing="none"
+        type="button"
       >
         None
       </Button>
@@ -609,6 +866,8 @@ exports[`Storyshots Button Button theming 1`] = `
         isDisabled={false}
         isSelected={false}
         shouldFitContainer={false}
+        spacing="default"
+        type="button"
       >
         Button
       </Button>
@@ -617,6 +876,8 @@ exports[`Storyshots Button Button theming 1`] = `
         isDisabled={true}
         isSelected={false}
         shouldFitContainer={false}
+        spacing="default"
+        type="button"
       >
         Disabled button
       </Button>
@@ -625,30 +886,145 @@ exports[`Storyshots Button Button theming 1`] = `
         isDisabled={false}
         isSelected={true}
         shouldFitContainer={false}
+        spacing="default"
+        type="button"
       >
         Selected
       </Button>
     </ButtonGroup>
   </ThemeProvider>
-  <div
+  <br />
+  <ButtonGroup
     style={
       Object {
-        "background": "hsl(0, 0%, 87.8%)",
+        "background": "hsl(0, 0%, 45.9%)",
         "marginTop": "10px",
         "padding": "20px",
       }
     }
   >
     <Button
+      appearance="primary"
+      displayType="ghost"
+      isDisabled={false}
+      isSelected={false}
+      shouldFitContainer={false}
+      spacing="default"
+      type="button"
+    >
+      A primary ghost button
+    </Button>
+    <Button
+      appearance="default"
+      displayType="ghost"
+      isDisabled={false}
+      isSelected={false}
+      shouldFitContainer={false}
+      spacing="default"
+      type="button"
+    >
+      A default ghost button
+    </Button>
+    <Button
+      appearance="warning"
+      displayType="ghost"
+      isDisabled={false}
+      isSelected={false}
+      shouldFitContainer={false}
+      spacing="default"
+      type="button"
+    >
+      A warning ghost button
+    </Button>
+    <Button
       appearance="danger"
       displayType="ghost"
       isDisabled={false}
       isSelected={false}
       shouldFitContainer={false}
+      spacing="default"
+      type="button"
     >
-      A Ghost button
+      A danger ghost button
     </Button>
-  </div>
+    <Button
+      appearance="link"
+      displayType="ghost"
+      isDisabled={false}
+      isSelected={false}
+      shouldFitContainer={false}
+      spacing="default"
+      type="button"
+    >
+      A link ghost button
+    </Button>
+  </ButtonGroup>
+  <br />
+  <ButtonGroup
+    style={
+      Object {
+        "background": "hsl(0, 0%, 45.9%)",
+        "marginTop": "10px",
+        "padding": "20px",
+      }
+    }
+  >
+    <Button
+      appearance="primary"
+      displayType="dashed"
+      isDisabled={false}
+      isSelected={false}
+      shouldFitContainer={false}
+      spacing="default"
+      type="button"
+    >
+      A primary dashed button
+    </Button>
+    <Button
+      appearance="default"
+      displayType="dashed"
+      isDisabled={false}
+      isSelected={false}
+      shouldFitContainer={false}
+      spacing="default"
+      type="button"
+    >
+      A default dashed button
+    </Button>
+    <Button
+      appearance="warning"
+      displayType="dashed"
+      isDisabled={false}
+      isSelected={false}
+      shouldFitContainer={false}
+      spacing="default"
+      type="button"
+    >
+      A warning dashed button
+    </Button>
+    <Button
+      appearance="danger"
+      displayType="dashed"
+      isDisabled={false}
+      isSelected={false}
+      shouldFitContainer={false}
+      spacing="default"
+      type="button"
+    >
+      A danger dashed button
+    </Button>
+    <Button
+      appearance="link"
+      displayType="dashed"
+      isDisabled={false}
+      isSelected={false}
+      shouldFitContainer={false}
+      spacing="default"
+      type="button"
+    >
+      A link dashed button
+    </Button>
+  </ButtonGroup>
 </div>
 `;
 
@@ -661,6 +1037,7 @@ exports[`Storyshots Button Button truncation 1`] = `
   }
 >
   <Button
+    appearance="default"
     iconBefore={
       <FontAwesomeIcon$1
         border={false}
@@ -695,22 +1072,28 @@ exports[`Storyshots Button Button truncation 1`] = `
     isDisabled={false}
     isSelected={false}
     shouldFitContainer={false}
+    spacing="default"
     style={
       Object {
         "width": "30px",
       }
     }
+    type="button"
   >
     exclamation
   </Button>
   <Button
+    appearance="default"
     isDisabled={false}
     isSelected={false}
     shouldFitContainer={false}
+    spacing="default"
+    type="button"
   >
     I am wider than my parent
   </Button>
   <Button
+    appearance="default"
     iconBefore={
       <FontAwesomeIcon$1
         border={false}
@@ -745,10 +1128,13 @@ exports[`Storyshots Button Button truncation 1`] = `
     isDisabled={false}
     isSelected={false}
     shouldFitContainer={false}
+    spacing="default"
+    type="button"
   >
     I am wider than my parent
   </Button>
   <Button
+    appearance="default"
     iconAfter={
       <FontAwesomeIcon$1
         border={false}
@@ -783,6 +1169,8 @@ exports[`Storyshots Button Button truncation 1`] = `
     isDisabled={false}
     isSelected={false}
     shouldFitContainer={false}
+    spacing="default"
+    type="button"
   >
     I am wider than my parent
   </Button>

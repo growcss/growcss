@@ -74,15 +74,11 @@ export default class Button extends React.Component<ButtonType, ButtonState> {
       innerRef,
       shouldFitContainer,
       className,
-      shape,
-      size,
       appearance,
     } = this.props;
 
     const classes = classNames('gc-button', className, {
-      'gc-button--shape': shape,
       [`gc-button--${appearance || 'default'}`]: appearance,
-      [`gc-button--${size || 'default'}`]: size,
     });
     const buttonProps = ButtonPropsResolver.getButtonProps(this);
     const StyledComponent = this.getStyledComponent();

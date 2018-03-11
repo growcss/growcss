@@ -3,7 +3,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { Gutters as DefaultGutters } from './Gutters';
 import { XYGridElement } from '../styled/XYGridElement';
-import type { GridType, GuttersSizesType } from '../types';
+import type { CellType, GridType, GuttersSizesType } from '../types';
 
 export default class AbstractGrid extends React.Component<GridType> {
   static defaultProps = {
@@ -20,13 +20,14 @@ export default class AbstractGrid extends React.Component<GridType> {
 
   /**
    *
-   * @param children
-   * @param gutterType
-   * @param gutterSizes
+   * @param {CellType}                           children
+   * @param {'padding' | 'margin'}               gutterType
+   * @param {string | number | GuttersSizesType} gutterSizes
+   *
    * @return {Object}
    */
   renderCellChildren(
-    children: any,
+    children: CellType,
     gutterType?: 'padding' | 'margin',
     gutterSizes?: string | number | GuttersSizesType,
   ) {

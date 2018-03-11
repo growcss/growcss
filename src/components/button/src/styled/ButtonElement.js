@@ -30,7 +30,7 @@ const getHeight = props => {
   const fontSize = getStyle(props, ButtonStyle, 'fontSize');
 
   if ([gridSize, fontSize].includes(null)) {
-    throw new Error('');
+    throw new Error("Grid size and font size can't be null.");
   }
 
   // $FlowFixMe
@@ -79,7 +79,7 @@ const getVerticalAlign = props => {
   return 'middle';
 };
 
-const getPaddingStyle = props => {
+const getPadding = props => {
   const style = getStyle(props, ButtonStyle, 'gridSize');
 
   let padding = 0;
@@ -91,9 +91,38 @@ const getPaddingStyle = props => {
   return `padding: ${padding};`;
 };
 
-const getButtonAppearanceTheme = props => {
+const getButtonStyle = props => {
   const state = getState(props);
   const { appearance, displayType } = props;
+  const { fallback } = ButtonStyle;
+  const background =
+    getStyle(props, ButtonStyle, `theme.${appearance}.background.${state}`) || fallback.background;
+  const buttonColor = getStyle(props, ButtonStyle, `theme.${appearance}.color.${state}`);
+
+  if (background !== 'none' && (displayType === 'ghost' || displayType === 'dashed')) {
+    let borderStyle = 'solid';
+
+    if (displayType === 'dashed') {
+      borderStyle = 'dashed';
+    }
+
+    return css`
+      border: 1px ${borderStyle} ${background};
+      background: transparent;
+      color: ${background};
+    `;
+  }
+
+  return css`
+    border-width: 0;
+    background: ${background};
+    color: ${buttonColor || fallback.color};
+  `;
+};
+
+const getButtonAppearanceTheme = props => {
+  const state = getState(props);
+  const { appearance } = props;
   const { fallback } = ButtonStyle;
   const textDecorationHover = getStyle(
     props,
@@ -110,20 +139,10 @@ const getButtonAppearanceTheme = props => {
         box-shadow: 0 0 0 2px ${boxShadowColor};
       `
     : null;
-  const buttonColor = getStyle(props, ButtonStyle, `theme.${appearance}.color.${state}`);
-  let background = getStyle(props, ButtonStyle, `theme.${appearance}.background.${state}`);
-  let ghostBorder = '0';
-
-  if (displayType === 'ghost' || displayType === 'dashed') {
-    ghostBorder = `1px ${background} solid`;
-    background = 'transparent';
-  }
 
   return css`
-    color: ${buttonColor || fallback.color};
-    background: ${background || fallback.background};
     text-decoration: ${textDecorationHover || fallback.textDecoration};
-    border: ${ghostBorder};
+    ${getButtonStyle(props)};
     /* stylelint-disable */
     ${boxShadow} &::-moz-focus-inner {
       border: 0;
@@ -140,7 +159,6 @@ export const ButtonElement = styled.button`
   max-width: 100%;
   height: ${props => getHeight(props)};
   line-height: ${props => (props.spacing === 'none' ? 'inherit' : getHeight(props))};
-  border-width: 0;
   border-radius: ${props => getStyle(props, ButtonStyle, 'borderRadius')}px;
   cursor: ${props => getCursor(props)};
   outline: none !important;
@@ -156,6 +174,6 @@ export const ButtonElement = styled.button`
   pointer-events: auto;
   text-align: center;
   white-space: nowrap;
-  ${props => getPaddingStyle(props)};
+  ${props => getPadding(props)};
   ${props => getButtonAppearanceTheme(props)};
 `;
