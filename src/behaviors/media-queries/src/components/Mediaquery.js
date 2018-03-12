@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import { css } from 'styled-components';
 import { Breakpoints as DefaultBreakpoints } from './Breakpoints';
 import { HidpiBreakpoints } from './HidpiBreakpoints';

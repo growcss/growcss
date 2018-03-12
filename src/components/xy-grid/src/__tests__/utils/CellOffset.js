@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import { CellOffset } from '../../utils/CellOffset';
 
 test('calculate the cell offset', () => {

@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { GridX, Cell } from '@growcss/xy-grid';

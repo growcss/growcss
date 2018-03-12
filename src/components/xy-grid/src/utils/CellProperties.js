@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import remCalc from '@growcss/util-remcalc';
 import { CellSize } from './CellSize';
 

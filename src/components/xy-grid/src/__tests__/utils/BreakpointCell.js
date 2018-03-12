@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import { BreakpointCell } from '../../utils/BreakpointCell';
 
 describe('Test the BreakpointCell output', () => {

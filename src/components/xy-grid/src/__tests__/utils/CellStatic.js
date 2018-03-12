@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import { CellStatic } from '../../utils/CellStatic';
 import { Gutters } from '../../components/Gutters';
 

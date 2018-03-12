@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import mediaquery from '../index';
 
 describe('Styled components test', () => {

@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import * as React from 'react';
 import sinon from 'sinon';
 import 'jest-styled-components';

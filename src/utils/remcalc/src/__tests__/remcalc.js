@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import remcalc from '../index';
 
 describe('Convert To Rem', () => {

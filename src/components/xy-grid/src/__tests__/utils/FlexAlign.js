@@ -1,4 +1,4 @@
-//@flow
+// @flow
 
 import { CellElementAlign, GridElementAlign } from '../../utils/FlexAlign';
 

@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import { CellSize } from '../../utils/CellSize';
 
 describe('cellsize should always return a percent value', () => {

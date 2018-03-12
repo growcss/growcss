@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import { Breakpoints as DefaultBreakpoints } from './Breakpoints';
 import { HidpiBreakpoints } from './HidpiBreakpoints';
 import { mapNext, mapNextNumber, toEm, strBreakpointJoin } from '../utils';

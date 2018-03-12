@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import { GetRuleTemplate } from '../index';
 
 describe('Breakpoint (Named Default/Up Range)', () => {

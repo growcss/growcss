@@ -1,4 +1,4 @@
-//@flow
+// @flow
 const flexAlign = {
   top: 'flex-start',
   bottom: 'flex-end',

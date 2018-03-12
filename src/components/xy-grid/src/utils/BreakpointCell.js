@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import mediaquery from '@growcss/behavior-media-queries';
 import { Gutters as DefaultGutters } from '../components/Gutters';
 import { CellStatic } from './CellStatic';

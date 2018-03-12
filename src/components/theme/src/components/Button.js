@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import Color from './base/Color';
 import { Hsl2Hsla } from '../utils/HslToHsla';
 

@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import * as React from 'react';
 import type { BreadcrumbType } from '../types';
 import type { BreadcrumbsStateType } from '../states';

@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import styled, { keyframes } from 'styled-components';
 
 const animation = keyframes`

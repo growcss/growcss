@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import mediaquery, { Breakpoints } from '@growcss/behavior-media-queries';
 import type { BreakpointsType } from '@growcss/behavior-media-queries';
 import remCalc from '@growcss/util-remcalc';

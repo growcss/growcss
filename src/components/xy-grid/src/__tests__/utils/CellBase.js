@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import { CellBase } from '../../utils/CellBase';
 
 describe('Return the base style of a cell', () => {

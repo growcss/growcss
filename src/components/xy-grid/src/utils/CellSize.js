@@ -1,4 +1,4 @@
-//@flow
+// @flow
 /**
  * Calculate the percentage size of a cell.
  *

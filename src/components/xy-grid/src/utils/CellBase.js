@@ -1,4 +1,4 @@
-//@flow
+// @flow
 /**
  * Sets base flex properties for cells.
  *

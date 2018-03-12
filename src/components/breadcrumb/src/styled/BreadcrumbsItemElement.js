@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import styled from 'styled-components';
 
 export const BreadcrumbsItemElement = styled.div`

@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Color from '../src/components/base/Color';

@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import mediaquery from '@growcss/behavior-media-queries';
 import remCalc from '@growcss/util-remcalc';
 import type { GuttersSizesType } from '../types';

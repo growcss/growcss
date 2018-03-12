@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import styled from 'styled-components';
 import mediaquery, { Breakpoints as DefaultBreakpoints } from '@growcss/behavior-media-queries';
 import { CellStatic } from '../utils/CellStatic';

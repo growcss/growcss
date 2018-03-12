@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import type { ButtonType } from '../types';
 import type { ButtonState } from '../states';
 

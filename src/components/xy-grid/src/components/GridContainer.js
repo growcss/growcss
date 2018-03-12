@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import remCalc from '@growcss/util-remcalc';

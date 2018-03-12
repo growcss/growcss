@@ -1,4 +1,4 @@
-//@flow
+// @flow
 export { default } from './components/Mediaquery';
 export { default as GetRuleTemplate } from './components/GetRuleTemplate';
 export { Breakpoints } from './components/Breakpoints';

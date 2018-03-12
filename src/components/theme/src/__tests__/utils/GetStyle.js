@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import getStyle from '../../utils/GetStyle';
 
 test('get style from theme prop', () => {

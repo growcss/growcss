@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React from 'react';
 import { Button } from '../../src';
 import { GridX, Cell } from '@growcss/xy-grid';

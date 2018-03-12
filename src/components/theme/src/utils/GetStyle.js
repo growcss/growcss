@@ -1,4 +1,4 @@
-//@flow
+// @flow
 const fetchFromObject = (obj, prop: string) => {
   if (typeof obj === 'undefined') {
     return null;

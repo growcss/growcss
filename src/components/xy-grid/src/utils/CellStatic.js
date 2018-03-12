@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import { Gutters } from './Gutters';
 import { Gutters as DefaultGutters } from '../components/Gutters';
 import type { GuttersSizesType } from '../types';

@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import * as React from 'react';
 import GridContainer from '../components/GridContainer';
 import 'jest-styled-components';

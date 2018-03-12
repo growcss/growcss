@@ -1,4 +1,4 @@
-//@flow
+// @flow
 const stripUnits = require('strip-units');
 
 /**

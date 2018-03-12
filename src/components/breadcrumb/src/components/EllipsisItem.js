@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React, { Component } from 'react';
 import type { EllipsisItemType } from '../types';
 import { SeparatorElement } from '../styled/SeparatorElement';

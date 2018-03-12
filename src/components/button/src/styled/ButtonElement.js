@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import styled, { css } from 'styled-components';
 import { Button as ButtonStyle, getStyle } from '@growcss/theme';
 import remCalc from '@growcss/util-remcalc';

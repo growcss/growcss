@@ -1,4 +1,4 @@
-//@flow
+// @flow
 
 const BaseColor = {
   white: 'hsl(0, 0%, 100%)',
