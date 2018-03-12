@@ -20,14 +20,14 @@ export default class AbstractGrid extends React.Component<GridType> {
 
   /**
    *
-   * @param {CellType}                           children
+   * @param {any}                                children
    * @param {'padding' | 'margin'}               gutterType
    * @param {string | number | GuttersSizesType} gutterSizes
    *
    * @return {Object}
    */
   renderCellChildren(
-    children: CellType,
+    children: any,
     gutterType?: 'padding' | 'margin',
     gutterSizes?: string | number | GuttersSizesType,
   ) {
