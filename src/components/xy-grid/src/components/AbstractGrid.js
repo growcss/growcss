@@ -3,7 +3,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { Gutters as DefaultGutters } from './Gutters';
 import { XYGridElement } from '../styled/XYGridElement';
-import type { CellType, GridType, GuttersSizesType } from '../types';
+import type { GridType, GuttersSizesType } from '../types';
 
 export default class AbstractGrid extends React.Component<GridType> {
   static defaultProps = {
