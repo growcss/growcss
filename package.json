@@ -82,6 +82,7 @@
     "react-deprecate": "^0.1.0",
     "react-dom": "^16.2.0",
     "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "react-test-renderer": "^16.2.0",
     "rimraf": "^2.6.2",
     "rollup": "^0.56.4",

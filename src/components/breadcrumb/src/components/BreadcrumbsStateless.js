@@ -38,7 +38,7 @@ export default class BreadcrumbsStateless extends React.Component<BreadcrumbsSta
     const { children, isExpanded, maxItems, ariaLabel } = this.props;
 
     return (
-      <nav ariaLabel={ariaLabel}>
+      <nav aria-label={ariaLabel}>
         <div className={classNames('gc-breadcrumbs')}>
           {isExpanded || (maxItems && React.Children.toArray(children).length <= maxItems)
             ? this.renderAllItems()
