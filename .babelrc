@@ -16,7 +16,6 @@
       "plugins": [
         "flow-react-proptypes",
         "babel-plugin-styled-components",
-        "polished"
       ]
     },
     "production": {
@@ -28,7 +27,6 @@
       "plugins": [
         "flow-react-proptypes",
         "babel-plugin-styled-components",
-        "polished"
       ]
     }
   }

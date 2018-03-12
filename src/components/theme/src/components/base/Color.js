@@ -1,5 +1,4 @@
 // @flow
-
 const BaseColor = {
   white: 'hsl(0, 0%, 100%)',
   black: 'hsl(0, 0%, 0%)',
@@ -279,6 +278,7 @@ const BaseColor = {
 };
 
 const Color = {
+  font: BaseColor.grey300,
   primary: BaseColor.amber400,
   secondary: BaseColor.amber400,
   info: BaseColor.blue400,

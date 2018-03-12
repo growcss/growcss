@@ -30,7 +30,7 @@ export const commonPlugins = [
     exclude: 'node_modules/**',
     babelrc: false,
     presets: [['env', { modules: false }], 'flow', 'react-app'],
-    plugins: ['external-helpers', 'transform-flow-strip-types', 'babel-plugin-styled-components', 'polished'],
+    plugins: ['external-helpers', 'transform-flow-strip-types', 'babel-plugin-styled-components'],
   }),
   sourceMaps(),
   commonjs({

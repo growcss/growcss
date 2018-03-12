@@ -1,12 +1,11 @@
 // @flow
 import styled from 'styled-components';
+import { Breadcrumbs as BreadcrumbsStyle, getStyle } from '@growcss/theme';
 
 export const BreadcrumbsItemElement = styled.div`
   display: flex;
   flex-direction: row;
-  height: 1em;
-  line-height: 1em;
-  padding: 0 1px;
+  padding: 0 ${props => getStyle(props, BreadcrumbsStyle, 'gridSize') || 8 / 2};
   box-sizing: border-box;
   max-width: 100%;
 `;

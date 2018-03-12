@@ -20,13 +20,13 @@ const fetchFromObject = (obj, prop: string) => {
  * @param {{moduleName: string, [string]: any}} defaultTheme
  * @param {string}                              key
  *
- * @return {*}
+ * @return {string|number|null}
  */
 const getStyle = (
   props: { [string]: any },
   defaultTheme: { moduleName: string, [string]: any },
   key: string,
-) => {
+): string | number | null => {
   const propsTheme = props.theme !== undefined ? props.theme : null;
 
   let style = fetchFromObject(defaultTheme, key);

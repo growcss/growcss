@@ -1,6 +1,7 @@
 // @flow
 import Color from './base/Color';
 import { Hsl2Hsla } from '../utils/HslToHsla';
+import Typography from './base/Typography';
 
 const disabled = {
   background: Color.grey100,
@@ -11,7 +12,7 @@ const Button = {
   moduleName: 'button',
   gridSize: 8,
   borderRadius: 3,
-  fontSize: 15,
+  fontSize: Typography.body.fontSize,
   fallback: {
     background: Color.grey200,
     color: Color.grey400,

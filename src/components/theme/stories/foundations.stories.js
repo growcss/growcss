@@ -3,7 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Color from '../src/components/base/Color';
 
-class ColorTable extends React.Component<any> {
+class ColorTable extends React.Component {
   render() {
     const trContents = {
       '50': [],

@@ -1,5 +1,5 @@
 // @flow
-import Button from '@growcss/button';
+import { Button } from '@growcss/button';
 import styled, { css } from 'styled-components';
 
 export const ButtonElement = styled(Button)`

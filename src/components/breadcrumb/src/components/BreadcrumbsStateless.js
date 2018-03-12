@@ -8,7 +8,7 @@ export default class BreadcrumbsStateless extends React.Component<BreadcrumbsSta
   static defaultProps = {
     isExpanded: false,
     children: null,
-    maxItems: 0,
+    maxItems: 8,
     separator: '/',
   };
 
