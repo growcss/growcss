@@ -36,7 +36,7 @@ export default class BreadcrumbsItem extends React.Component<
   }
 
   updateOverflow() {
-    // const { truncationWidth } = this.props;
+    const { truncationWidth } = this.props;
     // const button = this.button;
     // if (truncationWidth && button) {
     //   // We need to find the DOM node for the button component in order to measure its size.
@@ -52,7 +52,7 @@ export default class BreadcrumbsItem extends React.Component<
     //   }
     //   return overflow;
     // }
-    // return false;
+    return truncationWidth || false;
   }
 
   renderButton = () => {

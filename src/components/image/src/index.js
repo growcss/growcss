@@ -1,3 +1,3 @@
 // @flow
 export { default as Image } from './components/LazyImage';
-export { default as Figcaption } from './styled/FigcaptionElement';
+export { FigcaptionElement as Figcaption } from './styled/FigcaptionElement';

@@ -1,16 +1,25 @@
 // @flow
-const fetchFromObject = (obj, prop: string) => {
-  if (typeof obj === 'undefined') {
+
+/**
+ * Get value from object with doted key.
+ *
+ * @param {Object} object
+ * @param {string} prop
+ *
+ * @return {string|number|null}
+ */
+const fetchFromObject = (object, prop: string) => {
+  if (typeof object === 'undefined') {
     return null;
   }
 
   const index = prop.indexOf('.');
 
   if (index > -1) {
-    return fetchFromObject(obj[prop.substring(0, index)], prop.substr(index + 1));
+    return fetchFromObject(object[prop.substring(0, index)], prop.substr(index + 1));
   }
 
-  return obj[prop];
+  return object[prop];
 };
 
 /**
@@ -20,22 +29,26 @@ const fetchFromObject = (obj, prop: string) => {
  * @param {{moduleName: string, [string]: any}} defaultTheme
  * @param {string}                              key
  *
- * @return {string|number|null}
+ * @return {string|number}
  */
 const getStyle = (
   props: { [string]: any },
   defaultTheme: { moduleName: string, [string]: any },
   key: string,
-): string | number | null => {
+): string | number => {
   const propsTheme = props.theme !== undefined ? props.theme : null;
+  const style = fetchFromObject(defaultTheme, key);
 
-  let style = fetchFromObject(defaultTheme, key);
+  if (style === null) {
+    throw new Error();
+  }
 
   if (propsTheme !== null && propsTheme[defaultTheme.moduleName] !== undefined) {
-    const themed = fetchFromObject(propsTheme[defaultTheme.moduleName], key);
+    const object = Object.assign({}, defaultTheme, propsTheme[defaultTheme.moduleName]);
+    const themed = fetchFromObject(object, key);
 
-    if (themed !== undefined) {
-      style = themed;
+    if (themed !== null) {
+      return themed;
     }
   }
 

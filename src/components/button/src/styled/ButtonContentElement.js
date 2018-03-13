@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import type { ComponentType } from 'react';
 import styled from 'styled-components';
 import { Button as ButtonStyle, getStyle } from '@growcss/theme';
 import remCalc from '@growcss/util-remcalc';
@@ -19,7 +19,7 @@ const getMarginStyle = props => {
   return `margin: ${margin}`;
 };
 
-const ButtonContentElement = styled.span`
+export const ButtonContentElement: ComponentType<ButtonContentElementType> = styled.span`
   align-items: ${props => getAlignment(props.followsIcon)};
   align-self: ${props => getAlignment(props.followsIcon)};
   flex: 1 1 auto;
@@ -29,7 +29,3 @@ const ButtonContentElement = styled.span`
   white-space: nowrap;
   ${props => getMarginStyle(props)};
 `;
-
-export default (props: ButtonContentElementType) => (
-  <ButtonContentElement {...props}>{props.children}</ButtonContentElement>
-);

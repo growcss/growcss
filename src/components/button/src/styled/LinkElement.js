@@ -1,7 +1,9 @@
 // @flow
 import styled from 'styled-components';
+import GetButtonStyles from '../utils/GetButtonStyles';
 
-// Target the <a> here to override a:hover specificity.
 export const LinkElement = styled.a`
-  color: black;
+  a& {
+    ${GetButtonStyles};
+  }
 `;

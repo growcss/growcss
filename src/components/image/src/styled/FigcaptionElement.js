@@ -1,9 +1,9 @@
 // @flow
-import React from 'react';
+import type { ComponentType } from 'react';
 import styled from 'styled-components';
 import type { FigcaptionType } from '../types';
 
-const FigcaptionElement = styled.figcaption`
+export const FigcaptionElement: ComponentType<FigcaptionType> = styled.figcaption`
   position: relative;
   left: 0;
   width: 100%;
@@ -12,5 +12,3 @@ const FigcaptionElement = styled.figcaption`
   text-align: ${props => props.align || 'center'};
   margin: 10px auto 0;
 `;
-
-export default (props: FigcaptionType) => <FigcaptionElement {...props} />;

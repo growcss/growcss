@@ -6,9 +6,9 @@ import type { ButtonState } from '../states';
 import { SpanElement } from '../styled/SpanElement';
 import { LinkElement } from '../styled/LinkElement';
 import { ButtonElement } from '../styled/ButtonElement';
-import ButtonContentElement from '../styled/ButtonContentElement';
-import ButtonWrapperElement from '../styled/ButtonWrapperElement';
-import IconWrapperElement from '../styled/IconWrapperElement';
+import { ButtonContentElement } from '../styled/ButtonContentElement';
+import { ButtonWrapperElement } from '../styled/ButtonWrapperElement';
+import { IconWrapperElement } from '../styled/IconWrapperElement';
 import ButtonPropsResolver from '../utils/ButtonPropsResolver';
 
 export default class Button extends React.Component<ButtonType, ButtonState> {

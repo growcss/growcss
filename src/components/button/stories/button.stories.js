@@ -20,7 +20,7 @@ const theme = {
       primary: {
         background: {
           default: Color.deepPurple300,
-          hover: Color.deepPurple200,
+          hover: Color.deepPurple400,
           active: Color.deepPurple300,
           disabled: Color.grey100,
           selected: Color.deepPurple400,
@@ -30,6 +30,7 @@ const theme = {
         },
         color: {
           default: Color.white,
+          hover: Color.white,
           disabled: Color.grey300,
           selected: Color.white
         },
