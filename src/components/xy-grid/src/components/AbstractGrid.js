@@ -60,7 +60,7 @@ export default class AbstractGrid extends React.Component<GridType> {
         alignX={alignX}
         alignY={alignY}
         gridHeight={height}
-        wrap
+        wrap="true"
         {...other}
       >
         {this.renderCellChildren(children, gutterType, gutterSizes)}

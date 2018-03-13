@@ -15,7 +15,24 @@
       ],
       "plugins": [
         "flow-react-proptypes",
-        "babel-plugin-styled-components",
+        "babel-plugin-styled-components"
+      ]
+    },
+    "development": {
+      "presets": [
+        [
+          "env",
+          {
+            "debug": false,
+            "modules": "commonjs"
+          }
+        ],
+        "flow",
+        "react-app"
+      ],
+      "plugins": [
+        "flow-react-proptypes",
+        "babel-plugin-styled-components"
       ]
     },
     "production": {
@@ -26,7 +43,7 @@
       ],
       "plugins": [
         "flow-react-proptypes",
-        "babel-plugin-styled-components",
+        "babel-plugin-styled-components"
       ]
     }
   }

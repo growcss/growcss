@@ -33,7 +33,7 @@ export type BreadcrumbsItemType = {
   href?: string,
   iconBefore?: Node,
   iconAfter?: Node,
-  text: string,
+  children: string,
   truncationWidth?: number,
   target?: '_blank' | '_parent' | '_self' | '_top' | '',
 };

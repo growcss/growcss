@@ -3,6 +3,8 @@ import styled, { css } from 'styled-components';
 import { Button as ButtonStyle, getStyle } from '@growcss/theme';
 import remCalc from '@growcss/util-remcalc';
 
+const stripUnits = require('strip-units');
+
 const getState = ({ disabled, isActive, isFocus, isHover, isSelected }) => {
   if (disabled) {
     return 'disabled';
@@ -33,8 +35,7 @@ const getHeight = props => {
     throw new Error("Grid size and font size can't be null.");
   }
 
-  // $FlowFixMe
-  return `${gridSize * multiply / fontSize}em`;
+  return `${gridSize * multiply / stripUnits(fontSize)}em`;
 };
 
 const getCursor = props => {

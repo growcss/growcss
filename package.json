@@ -5,6 +5,7 @@
   "scripts": {
     "bootstrap": "          lerna bootstrap --parallel",
     "build": "              yarn run delete && lerna exec -- sort-package-json && cross-env NODE_ENV=production lerna run build --parallel",
+    "build:dev": "          yarn run delete && lerna exec -- sort-package-json && cross-env NODE_ENV=development lerna run build --parallel",
     "changelog": "          lerna-changelog",
     "precommit": "          lint-staged",
     "delete": "             yarn run delete:modules && yarn run delete:build",
@@ -15,7 +16,7 @@
     "lint": "               eslint --print-config .eslintrc | eslint-config-prettier-check && eslint 'src/**/**/*.js' && yarn run flow && yarn run lint:css",
     "lint:css": "           stylelint 'src/**/**/*.js'",
     "lint:js:fix": "        eslint --fix 'src/**/**/*.js' && prettier --write 'src/**/**/src/**/*.{js, jsx}'",
-    "storybook": "          cross-env NODE_ENV=test start-storybook -p 6006",
+    "storybook": "          cross-env NODE_ENV=development start-storybook -p 6006",
     "storybook-build": "    cross-env NODE_ENV=production build-storybook",
     "test": "               cross-env NODE_ENV=test jest",
     "test:ci": "            yarn run test --coverage -- --runInBand",

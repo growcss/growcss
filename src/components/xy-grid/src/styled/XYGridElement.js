@@ -11,7 +11,7 @@ const getFlexFlowValues = props => {
     values += 'column';
   }
 
-  if (props.wrap) {
+  if (props.wrap === 'true') {
     values += ' wrap';
   } else {
     values += ' nowrap';

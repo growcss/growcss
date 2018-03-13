@@ -12,7 +12,7 @@ const Button = {
   moduleName: 'button',
   gridSize: 8,
   borderRadius: 3,
-  fontSize: Typography.body.fontSize,
+  fontSize: Typography.large.body.fontSize,
   fallback: {
     background: Color.grey200,
     color: Color.grey400,

@@ -8,7 +8,7 @@ const Breadcrumbs = {
     separator: Color.grey200,
   },
   gridSize: 8,
-  fontSize: Typography.body.fontSize,
+  fontSize: Typography.large.body.fontSize,
 };
 
 export default Breadcrumbs;

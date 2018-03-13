@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Breadcrumbs, BreadcrumbsItem } from '../../theme/src';
+import { Breadcrumbs, BreadcrumbsItem } from '../src';
 
 storiesOf('Breadcrumbs', module)
   .add('Basic', () => (

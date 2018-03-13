@@ -5,10 +5,6 @@ import type { BreadcrumbsStateType } from '../states';
 import BreadcrumbsStateless from './BreadcrumbsStateless';
 
 export default class Breadcrumbs extends React.Component<BreadcrumbType, BreadcrumbsStateType> {
-  static defaultProps = {
-    children: null,
-  };
-
   state = { isExpanded: false };
 
   expand = () => this.setState({ isExpanded: true });

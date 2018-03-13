@@ -39,6 +39,20 @@ export const commonPlugins = [
   }),
 ];
 
+if (env === 'production') {
+  commonPlugins.concat(
+    uglify({
+      sourceMap: true,
+      compress: {
+        pure_getters: true,
+        unsafe: true,
+        unsafe_comps: true,
+        warnings: false
+      }
+    })
+  );
+}
+
 export const configBase = {
   input: 'src/index.js',
   external: ['react'].concat(
@@ -57,15 +71,6 @@ export const umdConfig = Object.assign({}, configBase, {
     globals: {},
   },
   plugins: configBase.plugins.concat(
-    uglify({
-      sourceMap: true,
-      compress: {
-        pure_getters: true,
-        unsafe: true,
-        unsafe_comps: true,
-        warnings: false
-      }
-    }),
     visualizer({ filename: './bundle-stats.html' }),
   ),
 });
