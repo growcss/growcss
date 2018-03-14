@@ -9220,10 +9220,6 @@ styled-components@^3.2.0, styled-components@^3.2.1:
     stylis-rule-sheet "^0.0.8"
     supports-color "^3.2.3"
 
-styled-theming@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/styled-theming/-/styled-theming-2.2.0.tgz#3084e43d40eaab4bc11ebafd3de04e3622fee37e"
-
 stylelint-config-growcss@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/stylelint-config-growcss/-/stylelint-config-growcss-1.0.1.tgz#d837775eca2b7d440f12de6cd4c07ab352794f47"

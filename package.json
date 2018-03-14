@@ -96,7 +96,6 @@
     "sinon": "^4.4.3",
     "sort-package-json": "^1.11.0",
     "styled-components": "^3.2.1",
-    "styled-theming": "^2.2.0",
     "stylelint": "^9.1.1",
     "stylelint-config-growcss": "^1.0.1"
   },
