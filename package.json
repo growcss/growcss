@@ -6,7 +6,6 @@
     "bootstrap": "                 lerna bootstrap",
     "build": "                     yarn run delete && lerna exec -- sort-package-json && NODE_ENV=production lerna run build --parallel",
     "changelog": "                 lerna-changelog",
-    "precommit": "                 lint-staged",
     "delete": "                    yarn run delete:modules && yarn run delete:build",
     "delete:build": "              lerna exec -- rimraf dist",
     "delete:modules": "            lerna clean --yes",
@@ -169,5 +168,10 @@
   ],
   "jest-junit": {
     "output": "test-reports/junit.xml"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
