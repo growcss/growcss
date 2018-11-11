@@ -6,5 +6,8 @@ node_modules
 coverage
 dist
 storybook-static
+.docz
+.rpt2_cache
+test-reports
 
 bundle-stats.html

@@ -1,13 +1,13 @@
 {
   "lerna": "2.8.0",
   "packages": [
-    "src/behaviors/*",
-    "src/components/*",
-    "src/utils/*"
+    "packages/behaviors/*",
+    "packages/components/*",
+    "packages/utils/*"
   ],
-  "commands": {
+  "command": {
     "publish": {
-      "ignore": [
+      "ignoreChanges": [
         "src",
         "__tests__"
       ],

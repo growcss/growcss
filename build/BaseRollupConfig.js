@@ -1,19 +1,20 @@
-/* eslint-disable flowtype/require-valid-file-annotation, no-console, import/extensions */
 import nodeResolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
 import json from 'rollup-plugin-json';
-import uglify from 'rollup-plugin-uglify';
+import { uglify } from 'rollup-plugin-uglify';
 import replace from 'rollup-plugin-replace';
 import visualizer from 'rollup-plugin-visualizer';
 import sourceMaps from 'rollup-plugin-sourcemaps';
 import globals from 'rollup-plugin-node-globals';
 import 'babel-polyfill';
+import typescript from 'rollup-plugin-typescript2';
 
 const pkg = require(`${__dirname}/package.json`);
 const env = process.env.NODE_ENV;
 
 export const commonPlugins = [
+  typescript(),
   json(),
   globals(),
   replace({
@@ -40,7 +41,7 @@ export const commonPlugins = [
 ];
 
 export const configBase = {
-  input: 'src/index.js',
+  input: 'src/index.ts',
   external: ['react'].concat(
     Object.keys(pkg.dependencies),
   ),
@@ -58,7 +59,7 @@ export const umdConfig = Object.assign({}, configBase, {
   },
   plugins: configBase.plugins.concat(
     uglify({
-      sourceMap: true,
+      sourcemap: true,
       compress: {
         pure_getters: true,
         unsafe: true,

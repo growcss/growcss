@@ -1,0 +1,50 @@
+{
+  "name": "@growcss/xy-grid",
+  "version": "0.0.0",
+  "description": "The XY Grid is huge advancement in Grids.",
+  "keywords": [
+    "flex",
+    "grid",
+    "gridx",
+    "gridy",
+    "preact",
+    "react",
+    "styled-components",
+    "ui",
+    "xy-grid"
+  ],
+  "homepage": "http://growcss.com",
+  "repository": "https://github.com/growcss/growcss.git",
+  "license": "MIT",
+  "author": {
+    "name": "Daniel Bannert",
+    "email": "d.bannert@anolilab.de"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "jsnext:main": "dist/es/index.js",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "browser": "dist/umd/index.js",
+  "dependencies": {
+    "@growcss/behavior-media-queries": "0.0.0",
+    "@growcss/util-remcalc": "0.0.0",
+    "classnames": "^2.2.5",
+    "prop-types": "^15.6.0",
+    "strip-units": "0.0.1",
+    "styled-components": "^4.0.1"
+  },
+  "peerDependencies": {
+    "preact": "^8.0",
+    "react": "^16.0"
+  },
+  "engines": {
+    "node": "^9.10.0"
+  },
+  "moduleName": "gc-xy-grid"
+}

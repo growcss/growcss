@@ -8,7 +8,7 @@ setOptions({
    * name to display in the top left corner
    * @type {String}
    */
-  name: 'GrowCss',
+  name: 'growcss',
 
   /**
    * URL for name in top left corner to link to
@@ -85,8 +85,8 @@ setOptions({
   selectedAddonPanel: undefined, // The order of addons in the "Addon panel" is the same as you import them in 'addons.js'. The first panel will be opened by default as you run Storybook
 });
 
-// automatically import all files ending in *.stories.js
-const stories = require.context('../src', true, /.stories.js$/);
+// automatically import all files ending with *.stories.js
+const stories = require.context('../packages', true, /\.stories\.js$/);
 
 function loadStories() {
   stories.keys().forEach(filename => stories(filename));

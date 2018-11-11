@@ -1,13 +1,10 @@
 {
   "extends": [
     "airbnb",
-    "prettier",
-    "plugin:flowtype/recommended"
+    "prettier"
   ],
   "plugins": [
     "compat",
-    "flowtype",
-    "jest",
     "prettier",
     "jsx-a11y"
   ],
@@ -15,13 +12,20 @@
   "rules": {
     "import/no-extraneous-dependencies": ["error", {
       "devDependencies": [
-        "**/__tests__/**/*.js"
+        "**/__tests__/**/*.js",
+        "**/examples/**/*.js"
       ]
     }],
     "import/no-unresolved": ["off"],
     "import/prefer-default-export": "off",
+    "import/extensions": ["error", "never", {
+      "json": "always"
+    }],
 
+    "no-labels": "off",
     "no-restricted-syntax": "off",
+    "no-underscore-dangle": "off",
+    "no-use-before-define": "off",
 
     "arrow-body-style": "off",
 
@@ -36,22 +40,9 @@
     "react/jsx-filename-extension": "off",
     "react/require-default-props": "off",
 
-    "flowtype/require-valid-file-annotation": [2, "always", { "annotationStyle": "line" }],
-    "flowtype/define-flow-type": 1,
-
-    "jest/no-disabled-tests": "warn",
-    "jest/no-focused-tests": "error",
-    "jest/no-identical-title": "error",
-    "jest/valid-expect": "error",
-
     // Rules below are all added to remove conflicts with prettier. DO NOT REMOVE
     "react/jsx-indent": "off",
     "arrow-parens": "off",
-    "flowtype/generic-spacing": "off",
-    "flowtype/space-after-type-colon": "off",
-    "flowtype/space-before-generic-bracket": "off",
-    "flowtype/space-before-type-colon": "off",
-    "flowtype/union-intersection-spacing": "off",
     "react/jsx-closing-tag-location": "off",
     "react/jsx-closing-bracket-location": "off",
     "react/jsx-curly-spacing": "off",
@@ -61,18 +52,12 @@
     "react/jsx-max-props-per-line": "off",
     "react/jsx-tag-spacing": "off",
     "react/jsx-wrap-multilines": "off",
-    "react/prefer-stateless-function": "off"
+    "react/prefer-stateless-function": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-props-no-multi-spaces": "off"
   },
   "env" : {
     "browser": true
-  },
-  "overrides": [
-    {
-      "files": ["**/__tests__/**/*.js", "**/*.test.js"],
-      "env": {
-        "jest": true
-      }
-    }
-  ]
+  }
 }
 

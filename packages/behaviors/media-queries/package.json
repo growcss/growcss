@@ -1,0 +1,48 @@
+{
+  "name": "@growcss/behavior-media-queries",
+  "version": "0.0.0",
+  "description": "A library that provides utility functions for dealing with media queries with styled-components support.",
+  "keywords": [
+    "behavior",
+    "breakpoint",
+    "breakpoints",
+    "inline-styles",
+    "media-queries",
+    "media-query",
+    "preact",
+    "react",
+    "styled-components",
+    "ui"
+  ],
+  "homepage": "http://growcss.com",
+  "repository": "https://github.com/growcss/growcss.git",
+  "license": "MIT",
+  "author": {
+    "name": "Daniel Bannert",
+    "email": "d.bannert@anolilab.de"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "jsnext:main": "dist/es/index.js",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "browser": "dist/umd/index.js",
+  "dependencies": {
+    "strip-units": "0.0.1",
+    "styled-components": "^4.0.3",
+    "warning": "^3.0.0"
+  },
+  "peerDependencies": {
+    "styled-components": "^4.0"
+  },
+  "engines": {
+    "node": "^9.10.0"
+  },
+  "moduleName": "mediaquery"
+}
