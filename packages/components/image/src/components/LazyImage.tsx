@@ -118,11 +118,12 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
           <PreviewElement
             className={classNames('preview')}
             src={previewImage || this.src}
-            crossorigin="anonymous"
+            crossOrigin="anonymous"
             alt={alt}
           />
           <ImageElement
             className={className}
+            // @ts-ignore
             innerRef={img => {
               this.imgElement = img;
             }}

@@ -1,7 +1,15 @@
 import styled from 'styled-components';
 import { GridElementAlign } from '../utils/FlexAlign';
 
-export const XYGridElement = styled.div`
+export type XYGridElementProps = {
+    gridDirection: string | undefined
+    wrap: boolean
+    gridHeight: string
+    alignX: string | null | undefined
+    alignY: string | null | undefined
+}
+
+export const XYGridElement = styled.div<XYGridElementProps>`
   display: flex;
   flex-flow: ${props => props.gridDirection === 'horizontal' ? 'row' : 'column'} ${props => props.wrap ? 'wrap' : 'nowrap'};
 

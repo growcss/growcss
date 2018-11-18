@@ -24,12 +24,12 @@ const generateDpiMediaQuery = (
     bpMin !== null ? `${stripUnits(bpMin) * stdWebDpi}dpi` : bpMin;
   const bpMaxDpi =
     bpMax !== null
-      ? `${parseFloat(stripUnits(bpMax) * stdWebDpi).toFixed(0)}dpi`
+      ? `${parseFloat(`${stripUnits(bpMax) * stdWebDpi}`).toFixed(0)}dpi`
       : bpMax;
 
   let template = strBreakpointJoin(
     bpMin,
-    parseFloat(bpMax).toFixed(5),
+    parseFloat(`${bpMax}`).toFixed(5),
     '-webkit-min-device-pixel-ratio',
     '-webkit-max-device-pixel-ratio',
   );
@@ -66,15 +66,15 @@ export default function(
   const direction = split.length > 1 ? split[1] : 'up';
 
   // Size or keyword
-  let bp = split[0];
+  let bp: string = split[0];
   // Value of the following breakpoint
-  let bpNext = null;
+  let bpNext: null|number = null;
   // Value for min-width media queries
-  let bpMin = null;
+  let bpMin: null|number|string = null;
   // Value for max-width media queries
-  let bpMax = null;
+  let bpMax: null|number|string = null;
   // If named, name of the breakpoint
-  let name = null;
+  let name: null|string = null;
   // If the breakpoint is a HiDPI breakpoint
   let hidpi = false;
 
@@ -94,7 +94,7 @@ export default function(
     } else if (bp in hidpibreakpoints) {
       name = bp;
       bp = hidpibreakpoints[name];
-      bpNext = mapNextNumber(hidpibreakpoints, bp);
+      bpNext = mapNextNumber(hidpibreakpoints, +bp);
       hidpi = true;
     } else {
       warning(
@@ -112,7 +112,7 @@ export default function(
 
   // Only 'only' and 'up' have a min limit.
   if (direction === 'only' || direction === 'up') {
-    if (hidpi === true) {
+    if (hidpi) {
       bpMin = stripUnits(bp);
     } else {
       bpMin = toEm(bp);
@@ -122,14 +122,14 @@ export default function(
   // Only 'only' and 'down' have a max limit.
   if (direction === 'only' || direction === 'down') {
     if (name === null) {
-      if (hidpi === true) {
+      if (hidpi) {
         bpMax = stripUnits(bp);
       } else {
         bpMax = toEm(bp);
       }
     } else if (bpNext !== null) {
       // If the breakpoint is named, the max limit is the following breakpoint - 1px.
-      if (hidpi === true) {
+      if (hidpi) {
         bpMax = bpNext - 1 / stdWebDpi;
       } else {
         bpMax = `${stripUnits(toEm(bpNext)) - 1 / 16}em`;
@@ -138,7 +138,7 @@ export default function(
   }
 
   // Generate the media query string from min and max limits.
-  if (hidpi === true) {
+  if (hidpi) {
     return generateDpiMediaQuery(bpMin, stdWebDpi, bpMax);
   }
 

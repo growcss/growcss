@@ -60,7 +60,12 @@ const ResponsiveCellCss = (props) => {
   return css;
 };
 
-export const CellElement = styled.div`
+export type CellElementProps = {
+    gutterType: string | undefined
+    align: string | null | undefined
+}
+
+export const CellElement = styled.div<CellElementProps>`
   ${props => ResponsiveCellCss(props)}
   ${props => BreakpointGutterCss(props)}
   ${props => CellOffsetCss(props)}

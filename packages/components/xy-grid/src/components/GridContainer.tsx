@@ -5,15 +5,20 @@ import { Gutters as DefaultGutters, GuttersProps } from './Gutters';
 import { GridContainerElement } from '../styled/GridContainerElement';
 import { GridProps } from './AbstractGrid';
 
-export interface GridContainerProps {
+export type GridContainerProps = {
     children: React.Component<GridProps>[],
     type?: string,
     width?: string | number,
     gutterSizes?: string | number | GuttersProps,
 }
 
+type GridContainerDefaultProps = {
+  width: string | number,
+  gutterSizes: GuttersProps
+}
+
 export default class GridContainer extends Component<GridContainerProps> {
-  static defaultProps = {
+  static defaultProps: GridContainerDefaultProps = {
     width: remCalc(1200),
     gutterSizes: DefaultGutters,
   };
@@ -42,8 +47,8 @@ export default class GridContainer extends Component<GridContainerProps> {
     return (
       <GridContainerElement
         className={className}
-        maxWidth={maxWidth}
-        gutterSizes={gutter}
+        maxWidth={maxWidth!}
+        gutterSizes={gutter!}
         type={type}
         {...other}
       >

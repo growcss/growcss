@@ -6,7 +6,7 @@ import { BreakpointsProps } from './../components/Breakpoints';
  * @param {BreakpointsProps} breakpoints
  * @param {string}           key
  *
- * @return {number}
+ * @return {null|number}
  */
 export const mapNext = (breakpoints: BreakpointsProps, key: string): number | null => {
   const keys: string[] = Object.keys(breakpoints);

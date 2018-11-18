@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import {css, InterpolationFunction, ThemeProps} from 'styled-components';
 import { Breakpoints as DefaultBreakpoints, BreakpointsProps } from './Breakpoints';
 import { HidpiBreakpoints, HidpiBreakpointsProps } from './HidpiBreakpoints';
 import GetRuleTemplate from './GetRuleTemplate';
@@ -17,18 +17,20 @@ export default (
   breakpoints: BreakpointsProps = DefaultBreakpoints,
   hidpiBreakpoints: HidpiBreakpointsProps = HidpiBreakpoints,
 ) => {
-  return (...args: any[]) => {
+  return (...args: InterpolationFunction<ThemeProps<any>>[]) => {
     const template = GetRuleTemplate(value, breakpoints, hidpiBreakpoints);
     const regex = /\(.*\)/;
 
     if (regex.exec(template) !== null) {
       return css`
         @media ${template} {
+          // @ts-ignore
           ${css(...args)}
         }
       `;
     }
 
+    // @ts-ignore
     return css(...args);
   };
 };
