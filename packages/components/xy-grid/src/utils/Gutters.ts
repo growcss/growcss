@@ -10,7 +10,7 @@ const cssBuilder = (
   gutterPosition: Array<string>,
 ): string => {
   let negativeBoolean = negative;
-  let operator = negativeBoolean === true ? '-' : '';
+  let operator = negativeBoolean ? '-' : '';
 
   const rem = remCalc(stripUnits(gutter) / 2);
 
@@ -21,7 +21,7 @@ const cssBuilder = (
   }
 
   // If we have declared negative gutters, force type to `margin.
-  const gType = negativeBoolean === true ? 'margin' : gutterType;
+  const gType = negativeBoolean ? 'margin' : gutterType;
 
   let css = '';
 
@@ -50,21 +50,14 @@ export const Gutters = (
 ) => {
   // Output our margin gutters.
   if (typeof gutters === 'object') {
-    const strings = [];
+    const strings: string[] = [];
 
     for (const key in gutters) {
       if (
         typeof gutters[key] === 'number' ||
         typeof gutters[key] === 'string'
       ) {
-        strings.push(
-          mediaquery(key)`${cssBuilder(
-            gutters[key],
-            negative,
-            gutterType,
-            gutterPosition,
-          )}`,
-        );
+        strings.push(mediaquery(key)`${cssBuilder(gutters[key], negative, gutterType, gutterPosition)}`);
       }
     }
 

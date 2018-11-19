@@ -1,9 +1,5 @@
 export interface BreakpointsProps {
-    small: number,
-    medium: number,
-    large: number,
-    xlarge: number,
-    xxlarge: number,
+    [key: string]: number
 }
 
 /**

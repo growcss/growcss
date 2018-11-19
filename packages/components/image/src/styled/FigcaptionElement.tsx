@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export interface FigcaptionProps {
+export type FigcaptionProps = {
     align: 'start' | 'left' | 'end' | 'right' | 'center',
 }
 

@@ -7,7 +7,7 @@ import { CellProps } from './Cell';
 export interface GridProps {
     children: React.Component<CellProps>[],
     height: string,
-    gutterSizes?: string | number | GuttersProps,
+    gutterSizes?: GuttersProps,
     gutterType?: string,
     alignX?: string,
     alignY?: string,
@@ -29,18 +29,18 @@ export default class AbstractGrid extends Component<GridProps> {
   /**
    * Renders the child elements.
    *
-   * @param {React.Component<CellProps>[]}   children
-   * @param {null | string}                  gutterType
-   * @param {string | number | GuttersProps} gutterSizes
+   * @param {React.Component<CellProps>[]} children
+   * @param {undefined | string}           gutterType
+   * @param {GuttersProps}                 gutterSizes
    *
    * @return {Object}
    */
   renderCellChildren(
     children: React.Component<CellProps>[],
     gutterType?: string,
-    gutterSizes?: string | number | GuttersProps,
+    gutterSizes?: GuttersProps,
   ) {
-    return React.Children.map(children, thisArg => {
+    return React.Children.map(children, (thisArg: React.ReactElement<CellProps>) => {
       return React.cloneElement(thisArg, {
         vertical: this.vertical,
         gutterType,
@@ -75,7 +75,6 @@ export default class AbstractGrid extends Component<GridProps> {
       <XYGridElement
         className={className}
         gridDirection={direction}
-        gutterSizes={gutterSizes}
         alignX={alignX}
         alignY={alignY}
         gridHeight={height}

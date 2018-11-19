@@ -48,7 +48,7 @@ export const Cell = (
     css.push(CellProperties(size, 0, vertical));
   }
 
-  if (outputGutter === true) {
+  if (outputGutter) {
     css = css.concat(Gutters(gutter, gutterType, gutterPosition));
   }
 

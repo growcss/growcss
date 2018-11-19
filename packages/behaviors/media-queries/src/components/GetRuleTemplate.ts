@@ -66,15 +66,15 @@ export default function(
   const direction = split.length > 1 ? split[1] : 'up';
 
   // Size or keyword
-  let bp: string = split[0];
+  let bp: string | number = split[0];
   // Value of the following breakpoint
-  let bpNext: null|number = null;
+  let bpNext: null | number = null;
   // Value for min-width media queries
-  let bpMin: null|number|string = null;
+  let bpMin: null | number | string = null;
   // Value for max-width media queries
-  let bpMax: null|number|string = null;
+  let bpMax: null | number | string = null;
   // If named, name of the breakpoint
-  let name: null|string = null;
+  let name: null | string = null;
   // If the breakpoint is a HiDPI breakpoint
   let hidpi = false;
 

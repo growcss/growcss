@@ -1,29 +1,24 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Gutters as DefaultGutters } from './Gutters';
+import { Gutters as DefaultGutters, GuttersProps } from './Gutters';
 import { CellElement } from '../styled/CellElement';
+import { BreakpointsProps } from '@growcss/image/src/components/Breakpoints';
 
 export interface CellProps {
-    children: React.Node,
-    gridColumns?: number,
-    vertical?: boolean,
-    gutterSizes?: string | number | GuttersType,
-    cellType?: string,
-    gutterType?: string,
-    small?: number | string,
-    smallOffset?: number,
-    medium?: number | string,
-    mediumOffset?: number,
-    large?: number | string,
-    largeOffset?: number,
-    xlarge?: number | string,
-    xlargeOffset?: number,
-    xxlarge?: number | string,
-    xxlargeOffset?: number,
-    align?: string,
+  children: React.Component<CellProps>[],
+  gridColumns?: number,
+  vertical?: boolean,
+  gutterSizes?: GuttersProps,
+  cellType?: string,
+  gutterType?: string,
+  align?: string,
 }
 
-export default class Cell extends React.Component<CellProps> {
+export interface OffsetProps {
+  [key: string]: number | undefined
+}
+
+export default class Cell extends React.Component<CellProps & BreakpointsProps & OffsetProps> {
   static defaultProps = {
     gridColumns: 12,
     gutterSizes: DefaultGutters,
@@ -38,16 +33,6 @@ export default class Cell extends React.Component<CellProps> {
       gutterType,
       gutterSizes,
       vertical,
-      small,
-      smallOffset,
-      medium,
-      mediumOffset,
-      large,
-      largeOffset,
-      xlarge,
-      xlargeOffset,
-      xxlarge,
-      xxlargeOffset,
       align,
       ...other
     } = this.props;
@@ -56,21 +41,11 @@ export default class Cell extends React.Component<CellProps> {
     return (
       <CellElement
         className={className}
-        gridColumns={gridColumns}
+        gridColumns={gridColumns!}
         cellType={cellType}
         gutterType={gutterType}
-        gutterSizes={gutterSizes}
-        vertical={vertical}
-        small={small}
-        smallOffset={smallOffset}
-        medium={medium}
-        mediumOffset={mediumOffset}
-        large={large}
-        largeOffset={largeOffset}
-        xlarge={xlarge}
-        xlargeOffset={xlargeOffset}
-        xxlarge={xxlarge}
-        xxlargeOffset={xxlargeOffset}
+        gutterSizes={gutterSizes!}
+        vertical={vertical!}
         align={align}
         {...other}
       >

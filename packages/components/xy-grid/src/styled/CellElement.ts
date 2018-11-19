@@ -4,9 +4,16 @@ import { CellStatic } from '../utils/CellStatic';
 import { CellBase } from '../utils/CellBase';
 import { CellOffset } from '../utils/CellOffset';
 import { CellElementAlign } from '../utils/FlexAlign';
+import { GuttersProps } from '..';
 
-const BreakpointGutterCss = (props) => {
-  let breakpoints = [];
+type GutterCssProps = {
+  gutterSizes: GuttersProps
+  gutterType: string | undefined
+  vertical: boolean
+}
+
+const BreakpointGutterCss = (props: GutterCssProps) => {
+  let breakpoints: string[] = [];
   let lastBreakpoint;
 
   for(const breakpoint in DefaultBreakpoints) {
@@ -28,20 +35,29 @@ const BreakpointGutterCss = (props) => {
   return breakpoints;
 };
 
-const CellOffsetCss = (props) => {
+type CellOffsetCssProps = {
+  [key: string]: number
+} & GutterCssProps
+
+const CellOffsetCss = (props: CellOffsetCssProps) => {
   let css = [];
 
   for(const breakpoint in DefaultBreakpoints) {
     if (props[`${breakpoint}Offset`] !== undefined) {
-      css = css.concat(CellOffset(props[`${breakpoint}Offset`], breakpoint, (props.gutterType || 'padding'), props.vertical, props.gutterSizes));
+      css = css.concat(CellOffset(props[`${breakpoint}Offset`], breakpoint, (props.gutterType || 'padding'), props.vertical, false, props.gutterSizes));
     }
   }
 
   return css;
 };
 
-const ResponsiveCellCss = (props) => {
-  let css = [];
+type ResponsiveCellCssProps = {
+  cellType: string | undefined
+  gridColumns: number
+} & GutterCssProps
+
+const ResponsiveCellCss = (props: ResponsiveCellCssProps) => {
+  let css: string[] = [];
   const types = ['auto', 'full', 'grow', 'shrink'];
   const hasGutterType = props.gutterType !== undefined;
 
@@ -63,9 +79,9 @@ const ResponsiveCellCss = (props) => {
 export type CellElementProps = {
     gutterType: string | undefined
     align: string | null | undefined
-}
+} & ResponsiveCellCssProps & CellOffsetCssProps
 
-export const CellElement = styled.div<CellElementProps>`
+export const CellElement = styled.div<CellElementProps & any>`
   ${props => ResponsiveCellCss(props)}
   ${props => BreakpointGutterCss(props)}
   ${props => CellOffsetCss(props)}

@@ -16,9 +16,9 @@ export const CellOffset = (
 ) => {
   let direction;
 
-  if (vertical === true) {
+  if (vertical) {
     direction = 'top';
-  } else if (rtl === true) {
+  } else if (rtl) {
     direction = 'right';
   } else {
     direction = 'left';

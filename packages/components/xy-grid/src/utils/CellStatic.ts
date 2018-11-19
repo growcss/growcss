@@ -7,8 +7,8 @@ import { CellProperties } from './CellProperties';
  *
  * @param {string | number}      size           The size of your cell. Can be `full` (default) for 100% width, `auto` to use up available space and `shrink` to use up only required space.
  * @param {boolean}              outputGutter   Whether or not to output gutters.
- * @param {number | GuttersProps} gutters        array or number value for gutters.
- * @param {string}               gutterType
+ * @param {GuttersProps} gutters                Array of gutter values.
+ * @param {string}               gutterType     The gutter type padding or margin.
  * @param {string}               breakpoint     The name of the breakpoint size in your gutters array to get the size from.
  * @param {boolean}              vertical       Set to true to output vertical (height) styles rather than widths.
  *
@@ -17,7 +17,7 @@ import { CellProperties } from './CellProperties';
 export const CellStatic = (
   size: string | number = 'full',
   outputGutter: boolean = true,
-  gutters: number | GuttersProps = DefaultGutters,
+  gutters: GuttersProps = DefaultGutters,
   gutterType: string = 'margin',
   breakpoint: string = 'small',
   vertical: boolean = false,
@@ -30,19 +30,18 @@ export const CellStatic = (
   } else if (typeof gutters === 'number') {
     gutter = gutters;
   } else {
-    const value =
-      typeof gutters === 'object' ? JSON.stringify(gutters) : gutters;
+    const value = typeof gutters === 'object' ? JSON.stringify(gutters) : gutters;
 
     throw new Error(
       `No gutters were found in "${value}" for "breakpoint: ${breakpoint}", cell was not generated.`,
     );
   }
 
-  if (vertical === true) {
+  if (vertical) {
     gutterPosition = ['top', 'bottom'];
   }
 
-  let css = [];
+  let css: string[] = [];
 
   if (gutterType === 'margin') {
     css.push(CellProperties(size, gutter, vertical));
@@ -50,7 +49,7 @@ export const CellStatic = (
     css.push(CellProperties(size, 0, vertical));
   }
 
-  if (outputGutter === true) {
+  if (outputGutter) {
     css = css.concat(Gutters(gutter, gutterType, gutterPosition));
   }
 
