@@ -1,6 +1,7 @@
 import * as React from 'react';
 import GridContainer from '../components/GridContainer';
 import 'jest-styled-components';
+import { shallow } from 'enzyme';
 
 test('if the container is centered and have a max-width of 75rem', () => {
   const wrapper = shallow(<GridContainer>test</GridContainer>);

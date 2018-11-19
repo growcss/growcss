@@ -2,50 +2,54 @@
 const { CHANGED_PACKAGES, COVERAGE_PACKAGES, TEST_ONLY_PATTERN } = process.env;
 
 const config = {
-    testMatch: [`${__dirname}/**/__tests__/**/*.(js|tsx|ts)`],
-    transform: {
-        '^.+\\.(ts|tsx)?$': 'ts-jest',
-        '^.+\\.js$': 'babel-jest'
+  preset: 'ts-jest/presets/js-with-babel',
+  testMatch: [`${__dirname}/**/__tests__/**/*.(js|tsx|ts)`],
+  moduleFileExtensions: [
+    'js',
+    'json',
+    'jsx',
+    'ts',
+    'tsx'
+  ],
+  modulePathIgnorePatterns: [
+    './node_modules',
+    '/dist/'
+  ],
+  // don't transform any files under node_modules except @growcss/* and react-syntax-highlighter (it
+  // uses dynamic imports which are not valid in node)
+  transformIgnorePatterns: [
+    '\\/node_modules\\/(?!@growcss|react-syntax-highlighter)',
+  ],
+  setupFiles: [
+    './build/jest-config/index.js'
+  ],
+  setupTestFrameworkScriptFile: `${__dirname}/jestFrameworkSetup.js`,
+  snapshotSerializers: [
+    'enzyme-to-json/serializer'
+  ],
+  globals: {
+    'ts-jest': {
+      tsConfig: './tsconfig.jest.json',
+      babelConfig: true,
     },
-    moduleFileExtensions: [
-        'ts',
-        'tsx',
-        'js',
-        'jsx',
-        'json'
-    ],
-    modulePathIgnorePatterns: ['./node_modules', '/dist/'],
-    // don't transform any files under node_modules except @growcss/* and react-syntax-highlighter (it
-    // uses dynamic imports which are not valid in node)
-    transformIgnorePatterns: [
-        '\\/node_modules\\/(?!@growcss|react-syntax-highlighter)',
-    ],
-    setupFiles: [
-        './build/jest-config/index.js'
-    ],
-    setupTestFrameworkScriptFile: `${__dirname}/jestFrameworkSetup.js`,
-    snapshotSerializers: [
-        'enzyme-to-json/serializer'
-    ],
-    globals: {
-        'ts-jest': {
-            // tsConfigFile: './tsconfig.jest.json',
-            skipBabel: true,
-        },
-        '__DEV__': true
-    },
-    reporters: [
-        'default',
-        'jest-junit',
-    ],
-    testEnvironmentOptions: {
-        // Need this to have jsdom loading images.
-        resources: 'usable',
-    },
-    coverageReporters: ['lcov', 'html', 'text-summary'],
-    collectCoverage: false,
-    collectCoverageFrom: [],
-    coverageThreshold: {},
+    '__DEV__': true
+  },
+  reporters: [
+    'default',
+    'jest-junit',
+  ],
+  testEnvironmentOptions: {
+    // Need this to have jsdom loading images.
+    resources: 'usable',
+  },
+  coverageReporters: [
+    'lcov',
+    'html',
+    'text-summary'
+  ],
+  collectCoverage: false,
+  collectCoverageFrom: [],
+  coverageThreshold: {},
 };
 
 // If the CHANGED_PACKAGES variable is set, we parse it to get an array of changed packages and only

@@ -1,6 +1,4 @@
-import initStoryshots, {
-  getSnapshotFileName,
-} from '@storybook/addon-storyshots';
+import initStoryshots, { getSnapshotFileName } from '@storybook/addon-storyshots';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 

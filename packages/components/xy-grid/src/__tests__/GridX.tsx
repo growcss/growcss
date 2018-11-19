@@ -2,6 +2,7 @@ import * as React from 'react';
 import GridX from '../components/GridX';
 import Cell from '../components/Cell';
 import 'jest-styled-components';
+import { shallow } from 'enzyme';
 
 test('the style output of GridX', () => {
   const wrapper = shallow(

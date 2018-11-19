@@ -2,6 +2,7 @@ import * as React from 'react';
 import sinon from 'sinon';
 import 'jest-styled-components';
 import LazyImage from '../components/LazyImage';
+import {shallow} from 'enzyme';
 
 const { axe } = require('jest-axe');
 

@@ -1,4 +1,4 @@
-module.exports = {
+{
   "env": {
     "test": {
       "presets": [
@@ -12,7 +12,8 @@ module.exports = {
         "@babel/preset-react"
       ],
       "plugins": [
-        "babel-plugin-styled-components",
+        "@babel/plugin-transform-regenerator",
+        "babel-plugin-styled-components"
       ]
     },
     "production": {
@@ -21,8 +22,9 @@ module.exports = {
         "@babel/preset-react"
       ],
       "plugins": [
-        "babel-plugin-styled-components",
+        "@babel/plugin-transform-regenerator",
+        "babel-plugin-styled-components"
       ]
     }
   }
-};
+}

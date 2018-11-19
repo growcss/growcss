@@ -2,6 +2,7 @@ import * as React from 'react';
 import GridY from '../components/GridY';
 import 'jest-styled-components';
 import Cell from '../components/Cell';
+import { shallow } from 'enzyme';
 
 test('the style output of GridY', () => {
   const wrapper = shallow(

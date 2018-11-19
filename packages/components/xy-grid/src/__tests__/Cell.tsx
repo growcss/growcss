@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Cell from '../components/Cell';
 import 'jest-styled-components';
+import { shallow } from 'enzyme';
 
 test('cell base layout', () => {
   const wrapper = shallow(<Cell>test</Cell>);
