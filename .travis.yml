@@ -1,9 +1,14 @@
-language: node_js
-
 dist: trusty
+sudo: false
+language: node_js
 
 node_js:
   - 9.10.0
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
 
 before_install:
   - node --version && yarn --version
@@ -16,13 +21,22 @@ before_script:
   - yarn run build
 
 script:
-  - yarn lint
   - yarn run test
 
-matrix:
+jobs:
   fast_finish: true
 
-cache:
-  yarn: true
-  directories:
-    - node_modules
+  include:
+    - stage: Test
+    - stage: Test
+      node_js:
+        - 10
+
+    - stage: Coding standard
+      script:
+        - yarn lint
+
+notifications:
+  email:
+    on_success: never
+    on_failure: change
