@@ -14,7 +14,8 @@
       "plugins": [
         "@babel/plugin-transform-regenerator",
         "babel-plugin-styled-components",
-        "require-context-hook"
+        "require-context-hook",
+        "polished"
       ]
     },
     "production": {
@@ -24,7 +25,8 @@
       ],
       "plugins": [
         "@babel/plugin-transform-regenerator",
-        "babel-plugin-styled-components"
+        "babel-plugin-styled-components",
+        "polished"
       ]
     }
   }

@@ -1,4 +1,4 @@
-const stripUnits = require('strip-units');
+import stripUnit from 'polished/lib/helpers/stripUnit';
 
 /**
  * Converts a pixel value to matching rem value. *Any* value passed, regardless of unit, is assumed to be a pixel value.
@@ -14,12 +14,12 @@ const toRem = (value: string | number, base: number): string => {
 
   if (typeof value === 'string') {
     if (value.includes('em')) {
-      rem = `${stripUnits(value)}rem`;
+      rem = `${stripUnit(value)}rem`;
     } else if (! value.includes('rem')) {
-      rem = `${stripUnits(value) / base}rem`;
+      rem = `${stripUnit(value) / base}rem`;
     }
   } else {
-    rem = `${stripUnits(value) / base}rem`;
+    rem = `${stripUnit(value) / base}rem`;
   }
 
   if (rem === '0rem' || rem === 'nullrem' || value === '0rem') {
@@ -40,16 +40,16 @@ export default (
   values: string | number | Array<string | number>,
   base: number | string = 16,
 ) => {
-  let baseRem: number = stripUnits(base);
+  let baseRem: number = stripUnit(base);
 
   if (typeof base === 'string') {
     // If the base font size is a %, then multiply it by 16px
     // This is because 100% font size = 16px in most all browsers
     if (base.includes('%')) {
-      baseRem = stripUnits(base) / 100 * 16;
+      baseRem = stripUnit(base) / 100 * 16;
     } else if (base.includes('rem')) {
       // Using rem as base allows correct scaling
-      baseRem = stripUnits(base) * 16;
+      baseRem = stripUnit(base) * 16;
     }
   }
 

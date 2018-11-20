@@ -1,4 +1,6 @@
-{
+var restrictedGlobals = require('confusing-browser-globals');
+
+module.exports = {
   "extends": [
     "airbnb",
     "prettier"
@@ -40,6 +42,8 @@
     "react/jsx-filename-extension": "off",
     "react/require-default-props": "off",
 
+    'no-restricted-globals': ['error'].concat(restrictedGlobals),
+
     // Rules below are all added to remove conflicts with prettier. DO NOT REMOVE
     "react/jsx-indent": "off",
     "arrow-parens": "off",
@@ -59,5 +63,4 @@
   "env" : {
     "browser": true
   }
-}
-
+};

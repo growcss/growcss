@@ -28,8 +28,8 @@
     "test": "node test/test.js"
   },
   "browser": "dist/umd/index.js",
-  "dependencies": {
-    "strip-units": "0.0.1"
+  "devDependencies": {
+    "polished": "^2.3.0"
   },
   "peerDependencies": {},
   "engines": {

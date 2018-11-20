@@ -1,9 +1,10 @@
 import { Breakpoints as DefaultBreakpoints, BreakpointsProps } from './Breakpoints';
 import { HidpiBreakpoints, HidpiBreakpointsProps } from './HidpiBreakpoints';
-import { mapNext, mapNextNumber, toEm, strBreakpointJoin } from '../utils';
+import { mapNext, mapNextNumber, strBreakpointJoin } from '../utils';
 import warning from 'warning';
+import stripUnit from 'polished/lib/helpers/stripUnit';
+import em from 'polished/lib/helpers/em';
 
-const stripUnits = require('strip-units');
 /**
  * Generates a media query for dpi.
  *
@@ -18,13 +19,21 @@ const generateDpiMediaQuery = (
   stdWebDpi: number,
   bpMax: null | number | string,
 ): string => {
+  if (typeof bpMin === 'string') {
+    bpMin = stripUnit(bpMin);
+  }
+
+  if (typeof bpMax === 'string') {
+    bpMax = stripUnit(bpMax);
+  }
+
   // Generate values in DPI instead of DPPX for an IE9-11/Opera mini compatibility.
   // See https://caniuse.com/#feat=css-media-resolution
   const bpMinDpi =
-    bpMin !== null ? `${stripUnits(bpMin) * stdWebDpi}dpi` : bpMin;
+    bpMin !== null ? `${bpMin * stdWebDpi}dpi` : bpMin;
   const bpMaxDpi =
     bpMax !== null
-      ? `${parseFloat(`${stripUnits(bpMax) * stdWebDpi}`).toFixed(0)}dpi`
+      ? `${parseFloat(`${bpMax * stdWebDpi}`).toFixed(0)}dpi`
       : bpMax;
 
   let template = strBreakpointJoin(
@@ -110,12 +119,16 @@ export default function(
     }
   }
 
+  if (typeof bp === 'string') {
+    bp = stripUnit(bp);
+  }
+
   // Only 'only' and 'up' have a min limit.
   if (direction === 'only' || direction === 'up') {
     if (hidpi) {
-      bpMin = stripUnits(bp);
+      bpMin = bp;
     } else {
-      bpMin = toEm(bp);
+      bpMin = em(bp);
     }
   }
 
@@ -123,16 +136,16 @@ export default function(
   if (direction === 'only' || direction === 'down') {
     if (name === null) {
       if (hidpi) {
-        bpMax = stripUnits(bp);
+        bpMax = bp;
       } else {
-        bpMax = toEm(bp);
+        bpMax = em(bp);
       }
     } else if (bpNext !== null) {
       // If the breakpoint is named, the max limit is the following breakpoint - 1px.
       if (hidpi) {
         bpMax = bpNext - 1 / stdWebDpi;
       } else {
-        bpMax = `${stripUnits(toEm(bpNext)) - 1 / 16}em`;
+        bpMax = `${stripUnit(em(bpNext)) - 1 / 16}em`;
       }
     }
   }
