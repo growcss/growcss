@@ -1,33 +1,4 @@
-import stripUnit from 'polished/lib/helpers/stripUnit';
-
-/**
- * Converts a pixel value to matching rem value. *Any* value passed, regardless of unit, is assumed to be a pixel value.
- * By default, the base pixel value used to calculate the rem value is taken from the `base` variable.
- *
- * @param {number | string} value
- * @param {number}          base
- *
- * @return {string} A number in rems, calculated based on the given value and the base pixel value. rem values are passed through as is.
- */
-const toRem = (value: string | number, base: number): string => {
-  let rem = '';
-
-  if (typeof value === 'string') {
-    if (value.includes('em')) {
-      rem = `${stripUnit(value)}rem`;
-    } else if (! value.includes('rem')) {
-      rem = `${stripUnit(value) / base}rem`;
-    }
-  } else {
-    rem = `${stripUnit(value) / base}rem`;
-  }
-
-  if (rem === '0rem' || rem === 'nullrem' || value === '0rem') {
-    return '0';
-  }
-
-  return rem;
-};
+import { rem, stripUnit } from 'polished';
 
 /**
  *
@@ -40,27 +11,39 @@ export default (
   values: string | number | Array<string | number>,
   base: number | string = 16,
 ) => {
-  let baseRem: number = stripUnit(base);
+  let baseRem: number = +base;
 
   if (typeof base === 'string') {
     // If the base font size is a %, then multiply it by 16px
     // This is because 100% font size = 16px in most all browsers
     if (base.includes('%')) {
-      baseRem = stripUnit(base) / 100 * 16;
+      baseRem = +stripUnit(base) / 100 * 16;
     } else if (base.includes('rem')) {
       // Using rem as base allows correct scaling
-      baseRem = stripUnit(base) * 16;
+      baseRem = +stripUnit(base) * 16;
     }
   }
 
   if (typeof values === 'string' || typeof values === 'number') {
-    return toRem(values, baseRem);
+    const remValue = rem(values, baseRem);
+
+    if (['0rem', 'nullrem', '0rem'].includes(remValue)) {
+      return '0';
+    }
+
+    return remValue;
   }
 
   const remValues: string[] = [];
 
   values.forEach(value => {
-    remValues.push(toRem(value, baseRem));
+    let remValue = rem(value, baseRem);
+
+    if (['0rem', 'nullrem', '0rem'].includes(remValue)) {
+      remValue = '0';
+    }
+
+    remValues.push(remValue);
   });
 
   return remValues.join(' ');

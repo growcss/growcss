@@ -3,8 +3,7 @@ import { BreakpointsProps } from '@growcss/behavior-media-queries';
 import remCalc from '@growcss/util-remcalc';
 import { Gutters as DefaultGutters, GuttersProps } from '../components/Gutters';
 import { CellSize } from './CellSize';
-
-const stripUnits = require('strip-units');
+import stripUnit from 'polished/lib/helpers/stripUnit';
 
 export const CellOffset = (
   n: number | string,
@@ -40,7 +39,7 @@ export const CellOffset = (
     lastBreakpointName = breakpoint;
   }
 
-  const gutter = remCalc(stripUnits(gutters[lastBreakpointName]) / 2);
+  const gutter = remCalc(stripUnit(gutters[lastBreakpointName]) / 2);
   const gutterSize =
     gutterType === 'margin' ? `calc(${CellSize(n)} + ${gutter})` : CellSize(n);
   const css = `margin-${direction}: ${gutterSize};`;

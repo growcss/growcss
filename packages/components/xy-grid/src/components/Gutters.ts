@@ -1,4 +1,3 @@
-
 export interface GuttersProps {
   [key:string]: string | number
 }

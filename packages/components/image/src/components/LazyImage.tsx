@@ -6,8 +6,7 @@ import { FigureElement } from '../styled/FigureElement';
 import { ImageElement } from '../styled/ImageElement';
 import { PreviewElement } from '../styled/PreviewElement';
 import { StateType } from '../states';
-
-const stripUnits = require('strip-units');
+import stripUnit from 'polished/lib/helpers/stripUnit';
 
 export interface ImagesProps {
   [key: string]: string
@@ -111,7 +110,7 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
         <AspectRatioPlaceholder>
           <div
             style={{
-              paddingBottom: `${stripUnits(height) / stripUnits(width) * 100}%`,
+              paddingBottom: `${stripUnit(height) / stripUnit(width) * 100}%`,
             }}
           />
           <PreviewElement

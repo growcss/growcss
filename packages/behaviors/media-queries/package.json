@@ -34,12 +34,14 @@
   },
   "browser": "dist/umd/index.js",
   "dependencies": {
-    "strip-units": "0.0.1",
     "styled-components": "^4.0.3",
     "warning": "^3.0.0"
   },
   "peerDependencies": {
     "styled-components": "^4.0"
+  },
+  "devDependencies": {
+    "polished": "^2.3.0"
   },
   "engines": {
     "node": "^9.10.0"

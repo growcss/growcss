@@ -35,13 +35,14 @@
     "@growcss/behavior-media-queries": "0.0.0",
     "@growcss/util-remcalc": "0.0.0",
     "classnames": "^2.2.5",
-    "prop-types": "^15.6.0",
-    "polished": "^2.3.0",
     "styled-components": "^4.0.1"
   },
   "peerDependencies": {
     "preact": "^8.0",
     "react": "^16.0"
+  },
+  "devDependencies": {
+    "polished": "^2.3.0"
   },
   "engines": {
     "node": "^9.10.0"

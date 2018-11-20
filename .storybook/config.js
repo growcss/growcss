@@ -1,10 +1,9 @@
 import { configure, addDecorator } from '@storybook/react';
-import { setOptions } from '@storybook/addon-options';
+import { withOptions } from '@storybook/addon-options';
 import { checkA11y } from '@storybook/addon-a11y';
 
 // Option defaults:
-setOptions({
-
+withOptions({
   /**
    * name to display in the top left corner
    * @type {String}
