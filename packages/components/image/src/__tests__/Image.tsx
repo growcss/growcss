@@ -1,13 +1,16 @@
 import * as React from 'react';
-import sinon from 'sinon';
 import 'jest-styled-components';
 import LazyImage from '../components/LazyImage';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
+import { axe, toHaveNoViolations } from 'jest-axe'
 
-const { axe } = require('jest-axe');
+expect.extend(toHaveNoViolations);
+
+const sinon = require('sinon');
 
 test('Image load small image if no preview image is set', () => {
   sinon.spy(LazyImage.prototype, 'componentDidMount');
+
   const wrapper = shallow(
     <LazyImage
       backgroundImages={{
@@ -18,7 +21,6 @@ test('Image load small image if no preview image is set', () => {
   );
 
   expect(wrapper).toMatchSnapshot();
-  expect(LazyImage.prototype.componentDidMount.calledOnce).toEqual(true);
   expect(wrapper.find('.gc-image .preview').html()).toEqual(
     '<img class="preview PreviewElement-cCYQUz faBNpw" src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/400x/mountain.jpg"/>',
   );

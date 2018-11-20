@@ -6,22 +6,21 @@ import { FigureElement } from '../styled/FigureElement';
 import { ImageElement } from '../styled/ImageElement';
 import { PreviewElement } from '../styled/PreviewElement';
 import { StateType } from '../states';
-import { FigcaptionProps } from '../styled/FigcaptionElement';
-import stripUnits from 'strip-units';
+
+const stripUnits = require('strip-units');
 
 export interface ImagesProps {
-    src: string,
-    srcSet: string,
+  [key: string]: string
 }
 
 export interface ImageType {
     backgroundImages: ImagesProps,
-    height: string | number,
-    width: string | number,
-    alt: string,
-    crossorigin?: string,
+    height?: string | number,
+    width?: string | number,
+    alt?: string,
+    crossorigin?: "" | "anonymous" | "use-credentials" | undefined,
     previewImage?: string,
-    children?: React.Component<FigcaptionProps>[],
+    children?: React.ReactNode
 }
 
 export default class LazyImage extends React.Component<ImageType, StateType> {
@@ -123,12 +122,11 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
           />
           <ImageElement
             className={className}
-            // @ts-ignore
-            innerRef={img => {
-              this.imgElement = img;
+            ref={img => {
+              this.imgElement = img!;
             }}
             alt={alt}
-            crossorigin={crossorigin}
+            crossOrigin={crossorigin}
           />
         </AspectRatioPlaceholder>
         {children}

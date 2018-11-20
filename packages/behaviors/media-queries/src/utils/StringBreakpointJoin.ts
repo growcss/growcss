@@ -1,4 +1,4 @@
-import stripUnits from 'strip-units';
+const stripUnits = require('strip-units');
 
 /**
  * Return media query string from the given min and/or max limits.

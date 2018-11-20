@@ -1,4 +1,4 @@
-import stripUnits from 'strip-units';
+const stripUnits = require('strip-units');
 
 /**
  * Converts a pixel value to matching rem value. *Any* value passed, regardless of unit, is assumed to be a pixel value.

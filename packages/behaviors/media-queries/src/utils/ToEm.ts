@@ -1,4 +1,4 @@
-import stripUnits from 'strip-units';
+const stripUnits = require('strip-units');
 
 /**
  * Converts a unitless, pixel, or rem value to em, for use in breakpoints.

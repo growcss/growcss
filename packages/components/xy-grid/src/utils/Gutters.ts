@@ -1,7 +1,8 @@
 import mediaquery from '@growcss/behavior-media-queries';
 import remCalc from '@growcss/util-remcalc';
 import { GuttersProps } from '../components/Gutters';
-import stripUnits from 'strip-units';
+
+const stripUnits = require('strip-units');
 
 const cssBuilder = (
   gutter: string | number,

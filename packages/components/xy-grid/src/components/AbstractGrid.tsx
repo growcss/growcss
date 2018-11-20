@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import { Gutters as DefaultGutters, GuttersProps } from './Gutters';
 import { XYGridElement } from '../styled/XYGridElement';
 import { CellProps } from './Cell';
 
 export interface GridProps {
-    children: React.Component<CellProps>[],
-    height: string,
+    children: React.ReactNode,
+    height?: string,
     gutterSizes?: GuttersProps,
     gutterType?: string,
     alignX?: string,
     alignY?: string,
 }
 
-export default class AbstractGrid extends Component<GridProps> {
+export default class AbstractGrid extends React.Component<GridProps> {
   static defaultProps = {
     gutterSizes: DefaultGutters,
     alignX: 'left',
@@ -36,7 +36,7 @@ export default class AbstractGrid extends Component<GridProps> {
    * @return {Object}
    */
   renderCellChildren(
-    children: React.Component<CellProps>[],
+    children: React.ReactNode,
     gutterType?: string,
     gutterSizes?: GuttersProps,
   ) {
@@ -68,7 +68,7 @@ export default class AbstractGrid extends Component<GridProps> {
     const direction = this.vertical ? 'vertical' : 'horizontal';
 
     if (this.vertical && height === undefined) {
-      throw new Error('');
+      throw new Error('Y-Grid needs always a height, please use "height" prop to add the grid height.');
     }
 
     return (

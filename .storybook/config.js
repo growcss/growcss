@@ -1,5 +1,6 @@
-import { configure } from '@storybook/react';
+import { configure, addDecorator } from '@storybook/react';
 import { setOptions } from '@storybook/addon-options';
+import { checkA11y } from '@storybook/addon-a11y';
 
 // Option defaults:
 setOptions({
@@ -86,7 +87,9 @@ setOptions({
 });
 
 // automatically import all files ending with *.stories.js
-const stories = require.context('../packages', true, /\.stories\.js$/);
+const stories = require.context('../packages', true, /.stories.tsx$/);
+
+addDecorator(checkA11y);
 
 function loadStories() {
   stories.keys().forEach(filename => stories(filename));

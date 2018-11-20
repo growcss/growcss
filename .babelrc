@@ -13,7 +13,8 @@
       ],
       "plugins": [
         "@babel/plugin-transform-regenerator",
-        "babel-plugin-styled-components"
+        "babel-plugin-styled-components",
+        "require-context-hook"
       ]
     },
     "production": {

@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import remCalc from '@growcss/util-remcalc';
 import { Gutters as DefaultGutters, GuttersProps } from './Gutters';
 import { GridContainerElement } from '../styled/GridContainerElement';
-import { GridProps } from './AbstractGrid';
 
-export type GridContainerProps = {
-    children: React.Component<GridProps>[],
+export interface GridContainerProps extends React.HTMLAttributes<HTMLDivElement> {
+    children: React.ReactNode,
     type?: string,
     width?: string | number,
     gutterSizes?: string | number | GuttersProps,
@@ -17,7 +16,7 @@ type GridContainerDefaultProps = {
   gutterSizes: GuttersProps
 }
 
-export default class GridContainer extends Component<GridContainerProps> {
+export default class GridContainer extends React.Component<GridContainerProps> {
   static defaultProps: GridContainerDefaultProps = {
     width: remCalc(1200),
     gutterSizes: DefaultGutters,

@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { GridElementAlign } from '../utils/FlexAlign';
 
 export type XYGridElementProps = {
-    gridDirection: string | undefined
+    gridDirection?: string
     wrap: boolean
-    gridHeight: string
-    alignX: string | null | undefined
-    alignY: string | null | undefined
+    gridHeight?: string
+    alignX?: string | null
+    alignY?: string | null
 }
 
 export const XYGridElement = styled.div<XYGridElementProps>`
@@ -15,6 +15,6 @@ export const XYGridElement = styled.div<XYGridElementProps>`
 
   -webkit-box-orient: ${props => props.gridDirection};
   -webkit-box-direction: normal;
-  ${props => `height:${props.gridHeight};`}
+  ${props => props.gridHeight !== undefined ? `height:${props.gridHeight};` : ''}
   ${props => GridElementAlign(props.alignX || null, props.alignY || null)}
 `;

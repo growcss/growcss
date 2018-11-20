@@ -2,10 +2,9 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { Gutters as DefaultGutters, GuttersProps } from './Gutters';
 import { CellElement } from '../styled/CellElement';
-import { BreakpointsProps } from '@growcss/image/src/components/Breakpoints';
 
-export interface CellProps {
-  children: React.Component<CellProps>[],
+export interface CellProps extends React.HTMLAttributes<HTMLDivElement>{
+  children: React.ReactNode,
   gridColumns?: number,
   vertical?: boolean,
   gutterSizes?: GuttersProps,
@@ -15,10 +14,22 @@ export interface CellProps {
 }
 
 export interface OffsetProps {
-  [key: string]: number | undefined
+    smallOffset?: number
+    mediumOffset?: number
+    largeOffset?: number
+    xlargeOffset?: number
+    xxlargeOffset?: number
 }
 
-export default class Cell extends React.Component<CellProps & BreakpointsProps & OffsetProps> {
+export interface CellBreakpointsProps {
+    small?: number | string
+    medium?: number | string
+    large?: number | string
+    xlarge?: number | string
+    xxlarge?: number | string
+}
+
+export default class Cell extends React.Component<CellProps & CellBreakpointsProps & OffsetProps> {
   static defaultProps = {
     gridColumns: 12,
     gutterSizes: DefaultGutters,

@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Image load small image if no preview image is set 1`] = `
-<FigureElement
+<styled.figure
   className="gc-image"
 >
-  <AspectRatioPlaceholder>
+  <styled.div>
     <div
       style={
         Object {
@@ -12,15 +12,14 @@ exports[`Image load small image if no preview image is set 1`] = `
         }
       }
     />
-    <PreviewElement
+    <styled.img
       className="preview"
-      crossorigin="anonymous"
+      crossOrigin="anonymous"
       src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/400x/mountain.jpg"
     />
-    <ImageElement
+    <styled.img
       className=""
-      innerRef={[Function]}
     />
-  </AspectRatioPlaceholder>
-</FigureElement>
+  </styled.div>
+</styled.figure>
 `;

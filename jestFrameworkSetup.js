@@ -1,10 +1,12 @@
 /* eslint-disable */
 import 'jest-styled-components';
-import snakeCase from 'snake-case';
+import registerRequireContextHook from 'babel-plugin-require-context-hook/register';
 import { toMatchSnapshot } from 'jest-snapshot';
 import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
-import * as emotion from 'emotion';
-import { createSerializer } from 'jest-emotion';
+import initStoryshots, { multiSnapshotWithOptions } from '@storybook/addon-storyshots';
+import { createSerializer } from 'enzyme-to-json';
+
+registerRequireContextHook();
 
 let consoleError;
 let consoleWarn;
@@ -322,7 +324,19 @@ if (process.env.CI) {
     });
 }
 
-expect.addSnapshotSerializer(createSerializer(emotion));
+const serializerOptions = {
+    mode: "deep"
+};
+
+// Set the default serializer for Jest to be the from enzyme-to-json
+// This produces an easier to read (for humans) serialized format.
+initStoryshots({
+    snapshotSerializers: [createSerializer(serializerOptions)],
+    integrityOptions: { cwd: __dirname },
+    test: multiSnapshotWithOptions(),
+});
+
+expect.addSnapshotSerializer(createSerializer(serializerOptions));
 
 // set up for visual regression
 if (process.env.VISUAL_REGRESSION) {
@@ -333,15 +347,18 @@ if (process.env.VISUAL_REGRESSION) {
         // show browser when watch is enabled
         const isWatch = process.env.WATCH === 'true';
         let headless = true;
+
         if (isWatch) {
             headless = false;
         }
+
         global.browser = await puppeteer.launch({
             // run test in headless mode
             headless: headless,
             slowMo: 100,
             args: ['--no-sandbox', '--disable-setuid-sandbox'],
         });
+
         global.page = await global.browser.newPage();
     }, jasmine.DEFAULT_TIMEOUT_INTERVAL);
 

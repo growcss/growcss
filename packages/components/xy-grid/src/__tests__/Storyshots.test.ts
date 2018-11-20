@@ -1,15 +1,14 @@
-import initStoryshots, { getSnapshotFileName } from '@storybook/addon-storyshots';
-import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import initStoryshots, { Options, multiSnapshotWithOptions } from '@storybook/addon-storyshots';
+import { createSerializer } from 'enzyme-to-json';
+
+// Set the default serializer for Jest to be the from enzyme-to-json
+// This produces an easier to read (for humans) serialized format.
+const options = <Options>{
+    mode: "deep"
+};
 
 initStoryshots({
-  test: ({ story, context }) => {
-    const snapshotFileName = getSnapshotFileName(context);
-    const storyElement = story.render(context);
-    const shallowTree = shallow(storyElement);
-
-    if (snapshotFileName) {
-      expect(toJson(shallowTree)).toMatchSpecificSnapshot(snapshotFileName);
-    }
-  },
+    snapshotSerializers: [createSerializer(options)],
+    integrityOptions: { cwd: __dirname },
+    test: multiSnapshotWithOptions(),
 });

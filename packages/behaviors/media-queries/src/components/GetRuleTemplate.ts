@@ -1,9 +1,9 @@
 import { Breakpoints as DefaultBreakpoints, BreakpointsProps } from './Breakpoints';
 import { HidpiBreakpoints, HidpiBreakpointsProps } from './HidpiBreakpoints';
 import { mapNext, mapNextNumber, toEm, strBreakpointJoin } from '../utils';
-import stripUnits from 'strip-units';
 import warning from 'warning';
 
+const stripUnits = require('strip-units');
 /**
  * Generates a media query for dpi.
  *

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`cell align 1`] = `
-<CellElement
+<styled.div
   align="top"
   className="gc-cell"
   gridColumns={12}
@@ -14,11 +14,11 @@ exports[`cell align 1`] = `
   vertical={false}
 >
   test
-</CellElement>
+</styled.div>
 `;
 
 exports[`cell auto layout with margin gutter 1`] = `
-<CellElement
+<styled.div
   cellType="auto"
   className="gc-cell"
   gridColumns={12}
@@ -32,11 +32,11 @@ exports[`cell auto layout with margin gutter 1`] = `
   vertical={false}
 >
   test
-</CellElement>
+</styled.div>
 `;
 
 exports[`cell auto layout with padding gutter 1`] = `
-<CellElement
+<styled.div
   cellType="auto"
   className="gc-cell"
   gridColumns={12}
@@ -50,11 +50,11 @@ exports[`cell auto layout with padding gutter 1`] = `
   vertical={false}
 >
   test
-</CellElement>
+</styled.div>
 `;
 
 exports[`cell base layout 1`] = `
-<CellElement
+<styled.div
   className="gc-cell"
   gridColumns={12}
   gutterSizes={
@@ -66,11 +66,11 @@ exports[`cell base layout 1`] = `
   vertical={false}
 >
   test
-</CellElement>
+</styled.div>
 `;
 
 exports[`cell offset 1`] = `
-<CellElement
+<styled.div
   className="gc-cell"
   gridColumns={12}
   gutterSizes={
@@ -83,11 +83,11 @@ exports[`cell offset 1`] = `
   vertical={false}
 >
   test
-</CellElement>
+</styled.div>
 `;
 
 exports[`cell shrink layout 1`] = `
-<CellElement
+<styled.div
   cellType="shrink"
   className="gc-cell"
   gridColumns={12}
@@ -100,11 +100,11 @@ exports[`cell shrink layout 1`] = `
   vertical={false}
 >
   test
-</CellElement>
+</styled.div>
 `;
 
 exports[`cell with 6 small layout 1`] = `
-<CellElement
+<styled.div
   className="gc-cell"
   gridColumns={12}
   gutterSizes={
@@ -117,5 +117,5 @@ exports[`cell with 6 small layout 1`] = `
   vertical={false}
 >
   test
-</CellElement>
+</styled.div>
 `;

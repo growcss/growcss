@@ -11,3 +11,4 @@ storybook-static
 test-reports
 
 bundle-stats.html
+.cache

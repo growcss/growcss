@@ -1,17 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the style output of GridY 1`] = `
-<XYGridElement
+<styled.div
   alignX="left"
   className="gc-grid-y"
   gridDirection="vertical"
   gridHeight="500px"
-  gutterSizes={
-    Object {
-      "medium": "30px",
-      "small": "20px",
-    }
-  }
   wrap={true}
 >
   <Cell
@@ -27,5 +21,5 @@ exports[`the style output of GridY 1`] = `
   >
     test
   </Cell>
-</XYGridElement>
+</styled.div>
 `;

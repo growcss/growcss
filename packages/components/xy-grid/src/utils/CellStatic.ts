@@ -17,7 +17,7 @@ import { CellProperties } from './CellProperties';
 export const CellStatic = (
   size: string | number = 'full',
   outputGutter: boolean = true,
-  gutters: GuttersProps = DefaultGutters,
+  gutters: number | GuttersProps = DefaultGutters,
   gutterType: string = 'margin',
   breakpoint: string = 'small',
   vertical: boolean = false,

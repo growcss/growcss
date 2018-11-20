@@ -3,7 +3,8 @@ import { BreakpointsProps } from '@growcss/behavior-media-queries';
 import remCalc from '@growcss/util-remcalc';
 import { Gutters as DefaultGutters, GuttersProps } from '../components/Gutters';
 import { CellSize } from './CellSize';
-import stripUnits from 'strip-units';
+
+const stripUnits = require('strip-units');
 
 export const CellOffset = (
   n: number | string,
