@@ -2,10 +2,10 @@
 
 exports[`Storyshots Image Image with a preview url 1`] = `
 <figure
-  className="gc-image sc-bwzfXH gBXAlR"
+  className="gc-image FigureElement-sc-4pw5w0-0 bGDRKy"
 >
   <div
-    className="sc-bdVaJa gvZWvM"
+    className="AspectRatioPlaceholder-sc-1jfhsx0-0 hmdmSF"
   >
     <div
       style={
@@ -16,13 +16,13 @@ exports[`Storyshots Image Image with a preview url 1`] = `
     />
     <img
       alt="test"
-      className="preview sc-bxivhb bAdDmw"
+      className="preview PreviewElement-sc-1t6xf7x-0 HqctH"
       crossOrigin="anonymous"
       src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/32x/-/grayscale/-/quality/lightest/mountain.jpg"
     />
     <img
       alt="test"
-      className="sc-htpNat dEqXuf"
+      className="ImageElement-k4q0my-0 fyNsfK"
     />
   </div>
 </figure>
@@ -30,10 +30,10 @@ exports[`Storyshots Image Image with a preview url 1`] = `
 
 exports[`Storyshots Image Image with figcaption 1`] = `
 <figure
-  className="gc-image sc-bwzfXH gBXAlR"
+  className="gc-image FigureElement-sc-4pw5w0-0 bGDRKy"
 >
   <div
-    className="sc-bdVaJa gvZWvM"
+    className="AspectRatioPlaceholder-sc-1jfhsx0-0 hmdmSF"
   >
     <div
       style={
@@ -44,17 +44,17 @@ exports[`Storyshots Image Image with figcaption 1`] = `
     />
     <img
       alt="test"
-      className="preview sc-bxivhb bAdDmw"
+      className="preview PreviewElement-sc-1t6xf7x-0 HqctH"
       crossOrigin="anonymous"
       src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/32x/-/grayscale/-/quality/lightest/mountain.jpg"
     />
     <img
       alt="test"
-      className="sc-htpNat dEqXuf"
+      className="ImageElement-k4q0my-0 fyNsfK"
     />
   </div>
   <figcaption
-    className="sc-ifAKCX bDPrmc"
+    className="FigcaptionElement-t4a8lz-0 jOFhiB"
   >
     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
   </figcaption>
@@ -63,10 +63,10 @@ exports[`Storyshots Image Image with figcaption 1`] = `
 
 exports[`Storyshots Image Image with figcaption to the right 1`] = `
 <figure
-  className="gc-image sc-bwzfXH gBXAlR"
+  className="gc-image FigureElement-sc-4pw5w0-0 bGDRKy"
 >
   <div
-    className="sc-bdVaJa gvZWvM"
+    className="AspectRatioPlaceholder-sc-1jfhsx0-0 hmdmSF"
   >
     <div
       style={
@@ -77,17 +77,17 @@ exports[`Storyshots Image Image with figcaption to the right 1`] = `
     />
     <img
       alt="test"
-      className="preview sc-bxivhb bAdDmw"
+      className="preview PreviewElement-sc-1t6xf7x-0 HqctH"
       crossOrigin="anonymous"
       src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/32x/-/grayscale/-/quality/lightest/mountain.jpg"
     />
     <img
       alt="test"
-      className="sc-htpNat dEqXuf"
+      className="ImageElement-k4q0my-0 fyNsfK"
     />
   </div>
   <figcaption
-    className="sc-ifAKCX fBeZep"
+    className="FigcaptionElement-t4a8lz-0 jmMfgk"
   >
     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
   </figcaption>
@@ -96,10 +96,10 @@ exports[`Storyshots Image Image with figcaption to the right 1`] = `
 
 exports[`Storyshots Image Simple image 1`] = `
 <figure
-  className="gc-image sc-bwzfXH gBXAlR"
+  className="gc-image FigureElement-sc-4pw5w0-0 bGDRKy"
 >
   <div
-    className="sc-bdVaJa gvZWvM"
+    className="AspectRatioPlaceholder-sc-1jfhsx0-0 hmdmSF"
   >
     <div
       style={
@@ -110,13 +110,13 @@ exports[`Storyshots Image Simple image 1`] = `
     />
     <img
       alt="test"
-      className="preview sc-bxivhb bAdDmw"
+      className="preview PreviewElement-sc-1t6xf7x-0 HqctH"
       crossOrigin="anonymous"
       src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/300x/mountain.jpg"
     />
     <img
       alt="test"
-      className="sc-htpNat dEqXuf"
+      className="ImageElement-k4q0my-0 fyNsfK"
     />
   </div>
 </figure>

@@ -39,7 +39,15 @@ export const CellOffset = (
     lastBreakpointName = breakpoint;
   }
 
-  const gutter = remCalc(stripUnit(gutters[lastBreakpointName]) / 2);
+  let lastBreakpoint: number;
+
+  if (typeof gutters[lastBreakpointName] === 'string') {
+    lastBreakpoint = +stripUnit(gutters[lastBreakpointName] + '');
+  } else {
+    lastBreakpoint = + gutters[lastBreakpointName]
+  }
+
+  const gutter = remCalc(lastBreakpoint / 2);
   const gutterSize =
     gutterType === 'margin' ? `calc(${CellSize(n)} + ${gutter})` : CellSize(n);
   const css = `margin-${direction}: ${gutterSize};`;

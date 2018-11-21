@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the style output of GridY 1`] = `
-<styled.div
+<XYGridElement
   alignX="left"
   className="gc-grid-y"
   gridDirection="vertical"
@@ -21,5 +21,5 @@ exports[`the style output of GridY 1`] = `
   >
     test
   </Cell>
-</styled.div>
+</XYGridElement>
 `;

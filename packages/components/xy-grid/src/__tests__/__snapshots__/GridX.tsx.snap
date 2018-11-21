@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the style output of GridX 1`] = `
-<styled.div
+<XYGridElement
   alignX="left"
   className="gc-grid-x"
   gridDirection="horizontal"
@@ -20,11 +20,11 @@ exports[`the style output of GridX 1`] = `
   >
     test
   </Cell>
-</styled.div>
+</XYGridElement>
 `;
 
 exports[`the style output of GridX with alignment to bottom 1`] = `
-<styled.div
+<XYGridElement
   alignX="left"
   alignY="bottom"
   className="gc-grid-x"
@@ -45,11 +45,11 @@ exports[`the style output of GridX with alignment to bottom 1`] = `
   >
     test
   </Cell>
-</styled.div>
+</XYGridElement>
 `;
 
 exports[`the style output of GridX with alignment to center 1`] = `
-<styled.div
+<XYGridElement
   alignX="center"
   className="gc-grid-x"
   gridDirection="horizontal"
@@ -69,11 +69,11 @@ exports[`the style output of GridX with alignment to center 1`] = `
   >
     test
   </Cell>
-</styled.div>
+</XYGridElement>
 `;
 
 exports[`the style output of GridX with alignment to justify 1`] = `
-<styled.div
+<XYGridElement
   alignX="justify"
   className="gc-grid-x"
   gridDirection="horizontal"
@@ -93,11 +93,11 @@ exports[`the style output of GridX with alignment to justify 1`] = `
   >
     test
   </Cell>
-</styled.div>
+</XYGridElement>
 `;
 
 exports[`the style output of GridX with alignment to middle 1`] = `
-<styled.div
+<XYGridElement
   alignX="left"
   alignY="middle"
   className="gc-grid-x"
@@ -118,11 +118,11 @@ exports[`the style output of GridX with alignment to middle 1`] = `
   >
     test
   </Cell>
-</styled.div>
+</XYGridElement>
 `;
 
 exports[`the style output of GridX with alignment to right 1`] = `
-<styled.div
+<XYGridElement
   alignX="right"
   className="gc-grid-x"
   gridDirection="horizontal"
@@ -142,11 +142,11 @@ exports[`the style output of GridX with alignment to right 1`] = `
   >
     test
   </Cell>
-</styled.div>
+</XYGridElement>
 `;
 
 exports[`the style output of GridX with alignment to spaced 1`] = `
-<styled.div
+<XYGridElement
   alignX="spaced"
   className="gc-grid-x"
   gridDirection="horizontal"
@@ -166,11 +166,11 @@ exports[`the style output of GridX with alignment to spaced 1`] = `
   >
     test
   </Cell>
-</styled.div>
+</XYGridElement>
 `;
 
 exports[`the style output of GridX with alignment to stretch 1`] = `
-<styled.div
+<XYGridElement
   alignX="left"
   alignY="stretch"
   className="gc-grid-x"
@@ -191,11 +191,11 @@ exports[`the style output of GridX with alignment to stretch 1`] = `
   >
     test
   </Cell>
-</styled.div>
+</XYGridElement>
 `;
 
 exports[`the style output of GridX with alignment to top 1`] = `
-<styled.div
+<XYGridElement
   alignX="left"
   alignY="top"
   className="gc-grid-x"
@@ -216,5 +216,5 @@ exports[`the style output of GridX with alignment to top 1`] = `
   >
     test
   </Cell>
-</styled.div>
+</XYGridElement>
 `;

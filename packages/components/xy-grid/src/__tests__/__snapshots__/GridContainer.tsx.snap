@@ -1,18 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`if the container content is of the full width of the available space 1`] = `
-<styled.div
+<GridContainerElement
   className="gc-grid-container"
   gutterSizes="0"
   maxWidth="100%"
   type="full"
 >
   test
-</styled.div>
+</GridContainerElement>
 `;
 
 exports[`if the container is centered and has a max-width of 100% 1`] = `
-<styled.div
+<GridContainerElement
   className="gc-grid-container"
   gutterSizes={
     Object {
@@ -24,11 +24,11 @@ exports[`if the container is centered and has a max-width of 100% 1`] = `
   type="fluid"
 >
   test
-</styled.div>
+</GridContainerElement>
 `;
 
 exports[`if the container is centered and have a max-width of 75rem 1`] = `
-<styled.div
+<GridContainerElement
   className="gc-grid-container"
   gutterSizes={
     Object {
@@ -39,5 +39,5 @@ exports[`if the container is centered and have a max-width of 75rem 1`] = `
   maxWidth="75rem"
 >
   test
-</styled.div>
+</GridContainerElement>
 `;

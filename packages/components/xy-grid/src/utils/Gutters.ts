@@ -11,11 +11,17 @@ const cssBuilder = (
 ): string => {
   let negativeBoolean = negative;
   let operator = negativeBoolean ? '-' : '';
+  let isString = false;
 
-  const rem = remCalc(stripUnit(gutter) / 2);
+  if (typeof gutter === 'string') {
+    isString = true;
+    gutter = stripUnit(gutter);
+  }
+
+  const rem = remCalc(+gutter / 2);
 
   // If the value is already negative, remove the operator and set negative to true.
-  if (typeof gutter === 'number' && gutter < 0) {
+  if (! isString && gutter < 0) {
     negativeBoolean = true;
     operator = '';
   }

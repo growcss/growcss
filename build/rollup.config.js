@@ -8,8 +8,9 @@ import visualizer from 'rollup-plugin-visualizer';
 import sourceMaps from 'rollup-plugin-sourcemaps';
 import globals from 'rollup-plugin-node-globals';
 import cleanup from 'rollup-plugin-cleanup';
-import 'babel-polyfill';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import typescript from 'rollup-plugin-typescript2';
+import 'babel-polyfill';
 
 const env = process.env.NODE_ENV;
 const pkg = require(`${__dirname}/../packages/${process.env.PACKAGE_PATH}/package.json`);
@@ -18,6 +19,7 @@ const babelConfig = require(`${__dirname}/../babel.config.js`);
 let babelEnvConfig = babelConfig['env'][env];
 
 const commonPlugins = [
+  peerDepsExternal(),
   typescript(),
   json(),
   globals(),
@@ -28,7 +30,7 @@ const commonPlugins = [
   nodeResolve({
     jsnext: true,
     browser: true,
-    preferBuiltins: false,
+    preferBuiltins: true,
     extensions: ['.js', '.jsx', '.ts', '.tsx']
   }),
   babel({
@@ -36,6 +38,7 @@ const commonPlugins = [
     babelrc: false,
     presets: babelEnvConfig.presets,
     plugins: babelEnvConfig.plugins,
+    externalHelpers: true
   }),
   sourceMaps(),
   commonjs({

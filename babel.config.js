@@ -30,6 +30,7 @@ module.exports = {
       ],
       "plugins": [
         "@babel/plugin-transform-regenerator",
+        "@babel/plugin-external-helpers",
         "babel-plugin-styled-components",
         "polished"
       ]
