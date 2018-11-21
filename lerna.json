@@ -1,8 +1,6 @@
 {
   "packages": [
-    "packages/behaviors/*",
-    "packages/components/*",
-    "packages/utils/*"
+    "packages/**/*"
   ],
   "command": {
     "publish": {
@@ -26,10 +24,9 @@
     },
     "cacheDir": ".changelog"
   },
-  "version": "0.0.0",
+  "version": "0.1.0",
   "npmClient": "yarn",
   "npmClientArgs": [
     "--no-lockfile"
-  ],
-  "useWorkspaces": true
+  ]
 }

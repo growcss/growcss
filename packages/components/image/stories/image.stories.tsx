@@ -5,8 +5,8 @@ import { Image, Figcaption } from '../src/index';
 storiesOf('Image', module)
   .add('Simple image', () => (
     <Image
-      width='1024'
-      height='256'
+      width={1024}
+      height={256}
       alt='test'
       backgroundImages={{
         small: 'https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/300x/mountain.jpg',
@@ -15,8 +15,8 @@ storiesOf('Image', module)
     />
   )).add('Image with a preview url', () => (
     <Image
-      width='1024'
-      height='256'
+      width={1024}
+      height={256}
       alt='test'
       previewImage='https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/32x/-/grayscale/-/quality/lightest/mountain.jpg'
       backgroundImages={{
@@ -25,8 +25,8 @@ storiesOf('Image', module)
     }}/>
   )).add('Image with figcaption', () => (
     <Image
-      width='1024'
-      height='256'
+      width={1024}
+      height={256}
       alt='test'
       previewImage='https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/32x/-/grayscale/-/quality/lightest/mountain.jpg'
       backgroundImages={{
@@ -37,8 +37,8 @@ storiesOf('Image', module)
     </Image>
   )).add('Image with figcaption to the right', () => (
     <Image
-      width='1024'
-      height='256'
+      width={1024}
+      height={256}
       alt='test'
       previewImage='https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/32x/-/grayscale/-/quality/lightest/mountain.jpg'
       backgroundImages={{

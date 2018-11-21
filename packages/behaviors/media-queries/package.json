@@ -36,11 +36,11 @@
   "dependencies": {
     "warning": "^3.0.0"
   },
-  "peerDependencies": {
-    "styled-components": "^4.0.1"
-  },
   "devDependencies": {
     "polished": "^2.3.0"
+  },
+  "peerDependencies": {
+    "styled-components": "^4.0.1"
   },
   "engines": {
     "node": "^9.10.0"

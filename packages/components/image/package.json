@@ -32,13 +32,13 @@
   "dependencies": {
     "classnames": "^2.2.5"
   },
+  "devDependencies": {
+    "polished": "^2.3.0"
+  },
   "peerDependencies": {
     "preact": "^8.0",
     "react": "^16.0",
     "styled-components": "^4.0.1"
-  },
-  "devDependencies": {
-    "polished": "^2.3.0"
   },
   "engines": {
     "node": "^9.10.0"

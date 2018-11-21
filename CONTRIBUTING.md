@@ -1,12 +1,12 @@
-# growcss contributing guidelines
+# GrowCss contributing guidelines
 
-Thank you for wanting to contribute to growcss!
+Thank you for wanting to contribute to GrowCss!
 
-You can find below our guidelines for contribution, explaining how to send [pull requests](#pull-requests), [report issues](#filling-bugs) and [ask questions](#asking-questions), as well as which [workflow](#workflow) we're using while developing growcss.
+You can find below our guidelines for contribution, explaining how to send [pull requests](#pull-requests), [report issues](#filling-bugs) and [ask questions](#asking-questions), as well as which [workflow](#workflow) we're using while developing GrowCss.
 
 ## Maintainers
 
-Current maintainers of growcss are:
+Current maintainers of GrowCss are:
 
 - Daniel Bannert ([@prisis](https://github.com/prisis)),
 
@@ -56,11 +56,11 @@ If you found an error, typo, or any other flaw in the project, please report it 
 
 When it comes to bugs, the more details you provide, the easier it is to reproduce the issue and the faster it could be fixed.
 
-The best case would be if you'd provide a minimal reproducible test case illustrating a bug. For most cases just a code snippet would be enough, for more complex cases you can create gists or even test repos on GitHub — we would be glad to look into any problems you'll have with growcss.
+The best case would be if you'd provide a minimal reproducible test case illustrating a bug. For most cases just a code snippet would be enough, for more complex cases you can create gists or even test repos on GitHub — we would be glad to look into any problems you'll have with GrowCss.
 
 ### Asking questions
 
-GitHub issues is not the best place for asking questions like “why my code won't work” or “is there a way to do X in growcss”, but we are constantly monitoring the [growcss tag at StackOverflow](http://stackoverflow.com/unanswered/tagged/growcss), so feel free to ask there! It would make it easier for other people to get answers and to keep GitHub Issues for bugs and feature requests.
+GitHub issues is not the best place for asking questions like “why my code won't work” or “is there a way to do X in GrowCss”, but we are constantly monitoring the [growcss tag at StackOverflow](http://stackoverflow.com/unanswered/tagged/growcss), so feel free to ask there! It would make it easier for other people to get answers and to keep GitHub Issues for bugs and feature requests.
 
 ### Fixing existing issues
 
@@ -70,13 +70,13 @@ If you'd like to work on an existing issue, just leave a comment on the issue sa
 
 If you've got an idea for a new feature, file an issue providing some details on your idea. Try searching the issues to see if there is an existing proposal for your feature and feel free to bump it by providing your use case or explaining why this feature is important for you.
 
-We should note that not everything should be done as a “growcss feature”, some features better be a growcss plug-ins, some are just not in the scope of the project.
+We should note that not everything should be done as a “GrowCss feature”, some features better be a GrowCss plug-ins, some are just not in the scope of the project.
 
 * * *
 
 ## Workflow
 
-This section describes the workflow we use for growcss releases, the naming of the branches and the meaning behind them.
+This section describes the workflow we use for GrowCss releases, the naming of the branches and the meaning behind them.
 
 ### Branches
 
@@ -100,7 +100,7 @@ The following branches should always be there. Do not fork them directly, always
 
 ### Releasing workflow
 
-We follow [semver](http://semver.org/). We're in `0.x` at the moment, however, as growcss is already widely used, we don't introduce backwards-incompatible changes to our minor releases.
+We follow [semver](http://semver.org/). We're in `0.x` at the moment, however, as GrowCss is already widely used, we don't introduce backwards-incompatible changes to our minor releases.
 
 Each minor release should be first compiled into `rc-`branch. Minor release *should not* have fixes in it, as patch-release should be published before a minor one if there are fixes. This would deliver the fixes to the people using the fixed minor, but `x` at patch version.
 

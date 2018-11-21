@@ -8,7 +8,7 @@ withOptions({
    * name to display in the top left corner
    * @type {String}
    */
-  name: 'growcss',
+  name: 'GrowCss',
 
   /**
    * URL for name in top left corner to link to

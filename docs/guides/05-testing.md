@@ -1,8 +1,8 @@
-# Testing in growcss
+# Testing in GrowCss
 
-We encourage adding tests to all components on **growcss**.
+We encourage adding tests to all components on **GrowCss**.
 
-**Jest** is the testing framework across all types of tests in growcss.
+**Jest** is the testing framework across all types of tests in GrowCss.
 
 ## Testing support as of today includes
 ### Unit tests
