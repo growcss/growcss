@@ -1,4 +1,4 @@
-{
+module.exports = {
   "env": {
     "test": {
       "presets": [
@@ -20,7 +20,12 @@
     },
     "production": {
       "presets": [
-        "@babel/preset-env",
+        [
+          "@babel/preset-env",
+          {
+            "modules": false
+          }
+        ],
         "@babel/preset-react"
       ],
       "plugins": [
@@ -30,4 +35,4 @@
       ]
     }
   }
-}
+};

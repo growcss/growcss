@@ -7,13 +7,17 @@ import replace from 'rollup-plugin-replace';
 import visualizer from 'rollup-plugin-visualizer';
 import sourceMaps from 'rollup-plugin-sourcemaps';
 import globals from 'rollup-plugin-node-globals';
+import cleanup from 'rollup-plugin-cleanup';
 import 'babel-polyfill';
 import typescript from 'rollup-plugin-typescript2';
 
-const pkg = require(`${__dirname}/package.json`);
 const env = process.env.NODE_ENV;
+const pkg = require(`${__dirname}/../packages/${process.env.PACKAGE_PATH}/package.json`);
+const babelConfig = require(`${__dirname}/../babel.config.js`);
 
-export const commonPlugins = [
+let babelEnvConfig = babelConfig['env'][env];
+
+const commonPlugins = [
   typescript(),
   json(),
   globals(),
@@ -25,13 +29,13 @@ export const commonPlugins = [
     jsnext: true,
     browser: true,
     preferBuiltins: false,
-    extensions: ['.js', '.ts', '.tsx']
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
   }),
   babel({
     exclude: 'node_modules/**',
     babelrc: false,
-    presets: [['env', { modules: false }], 'flow', 'react-app'],
-    plugins: ['external-helpers', 'transform-flow-strip-types', 'babel-plugin-styled-components', 'polished'],
+    presets: babelEnvConfig.presets,
+    plugins: babelEnvConfig.plugins,
   }),
   sourceMaps(),
   commonjs({
@@ -40,15 +44,15 @@ export const commonPlugins = [
   }),
 ];
 
-export const configBase = {
+const configBase = {
   input: 'src/index.ts',
   external: ['react'].concat(
-    Object.keys(pkg.dependencies),
+    Object.keys(pkg.dependencies || {}),
   ),
   plugins: commonPlugins,
 };
 
-export const umdConfig = Object.assign({}, configBase, {
+const umdConfig = Object.assign({}, configBase, {
   output: {
     file: pkg.browser,
     format: 'umd',
@@ -68,10 +72,11 @@ export const umdConfig = Object.assign({}, configBase, {
       }
     }),
     visualizer({ filename: './bundle-stats.html' }),
+    cleanup()
   ),
 });
 
-export const browserConfig = Object.assign({}, configBase, {
+const browserConfig = Object.assign({}, configBase, {
   output: [
     {
       file: pkg.module,
@@ -86,3 +91,5 @@ export const browserConfig = Object.assign({}, configBase, {
     },
   ],
 });
+
+export default [umdConfig, browserConfig];

@@ -24,10 +24,10 @@
   "module": "dist/es/index.js",
   "jsnext:main": "dist/es/index.js",
   "scripts": {
-    "build": "rollup -c",
-    "test": "node test/test.js"
+    "build": "cross-env PACKAGE_PATH=utils/remcalc rollup -c ../../../build/rollup.config.js"
   },
   "browser": "dist/umd/index.js",
+  "dependencies": {},
   "devDependencies": {
     "polished": "^2.3.0"
   },

@@ -1,6 +1,8 @@
 {
   "packages": [
-    "packages/**/*"
+    "packages/utils/*",
+    "packages/behaviors/*",
+    "packages/components/*"
   ],
   "command": {
     "publish": {

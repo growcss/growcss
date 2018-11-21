@@ -30,10 +30,10 @@ const generateDpiMediaQuery = (
   // Generate values in DPI instead of DPPX for an IE9-11/Opera mini compatibility.
   // See https://caniuse.com/#feat=css-media-resolution
   const bpMinDpi =
-    bpMin !== null ? `${bpMin * stdWebDpi}dpi` : bpMin;
+    bpMin !== null ? `${+bpMin * stdWebDpi}dpi` : bpMin;
   const bpMaxDpi =
     bpMax !== null
-      ? `${parseFloat(`${bpMax * stdWebDpi}`).toFixed(0)}dpi`
+      ? `${parseFloat(`${+bpMax * stdWebDpi}`).toFixed(0)}dpi`
       : bpMax;
 
   let template = strBreakpointJoin(
@@ -145,7 +145,7 @@ export default function(
       if (hidpi) {
         bpMax = bpNext - 1 / stdWebDpi;
       } else {
-        bpMax = `${stripUnit(em(bpNext)) - 1 / 16}em`;
+        bpMax = bpNext - 1 === 0 ? '0' : `${bpNext - 1 / 16}em`;
       }
     }
   }

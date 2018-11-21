@@ -28,12 +28,12 @@
   "module": "dist/es/index.js",
   "jsnext:main": "dist/es/index.js",
   "scripts": {
-    "build": "rollup -c"
+    "build": "cross-env PACKAGE_PATH=components/xy-grid rollup -c ../../../build/rollup.config.js"
   },
   "browser": "dist/umd/index.js",
   "dependencies": {
-    "@growcss/behavior-media-queries": "0.1.0",
-    "@growcss/util-remcalc": "0.1.0",
+    "@growcss/behavior-media-queries": "0.0.0",
+    "@growcss/util-remcalc": "0.0.0",
     "classnames": "^2.2.5"
   },
   "devDependencies": {
