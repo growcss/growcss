@@ -93,6 +93,9 @@ const browserConfig = Object.assign({}, configBase, {
       sourcemap: true,
     },
   ],
+  plugins: configBase.plugins.concat(
+    cleanup()
+  ),
 });
 
 export default [umdConfig, browserConfig];
