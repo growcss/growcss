@@ -3,7 +3,6 @@ import 'jest-styled-components';
 import registerRequireContextHook from 'babel-plugin-require-context-hook/register';
 import { toMatchSnapshot } from 'jest-snapshot';
 import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
-import initStoryshots, { multiSnapshotWithOptions } from '@storybook/addon-storyshots';
 import { createSerializer } from 'enzyme-to-json';
 
 registerRequireContextHook();
@@ -327,14 +326,6 @@ if (process.env.CI) {
 const serializerOptions = {
     mode: "deep"
 };
-
-// Set the default serializer for Jest to be the from enzyme-to-json
-// This produces an easier to read (for humans) serialized format.
-initStoryshots({
-    snapshotSerializers: [createSerializer(serializerOptions)],
-    integrityOptions: { cwd: __dirname },
-    test: multiSnapshotWithOptions(),
-});
 
 expect.addSnapshotSerializer(createSerializer(serializerOptions));
 

@@ -7,9 +7,9 @@ test('calculate the cell offset', () => {
   expect(CellOffset(2, 'large')).toEqual([
     '@media ',
     '(min-width: 64em)',
-    '{',
+    ' { ',
     'margin-left: calc(16.666666666666668% + 0.9375rem);',
-    '}',
+    ' }',
   ]);
 
   expect(CellOffset(1, 'small', 'padding')).toEqual([
@@ -18,9 +18,9 @@ test('calculate the cell offset', () => {
   expect(CellOffset(2, 'large', 'padding')).toEqual([
     '@media ',
     '(min-width: 64em)',
-    '{',
+    ' { ',
     'margin-left: 16.666666666666668%;',
-    '}',
+    ' }',
   ]);
 });
 
@@ -31,9 +31,9 @@ test('calculate the cell offset for vertical', () => {
   expect(CellOffset(2, 'large', 'margin', true)).toEqual([
     '@media ',
     '(min-width: 64em)',
-    '{',
+    ' { ',
     'margin-top: calc(16.666666666666668% + 0.9375rem);',
-    '}',
+    ' }',
   ]);
 
   expect(CellOffset(1, 'small', 'padding', true)).toEqual([
@@ -42,9 +42,9 @@ test('calculate the cell offset for vertical', () => {
   expect(CellOffset(2, 'large', 'padding', true)).toEqual([
     '@media ',
     '(min-width: 64em)',
-    '{',
+    ' { ',
     'margin-top: 16.666666666666668%;',
-    '}',
+    ' }',
   ]);
 });
 
@@ -55,9 +55,9 @@ test('calculate the cell offset for rtl', () => {
   expect(CellOffset(2, 'large', 'margin', false, true)).toEqual([
     '@media ',
     '(min-width: 64em)',
-    '{',
+    ' { ',
     'margin-right: calc(16.666666666666668% + 0.9375rem);',
-    '}',
+    ' }',
   ]);
 
   expect(CellOffset(1, 'small', 'padding', false, true)).toEqual([
@@ -66,8 +66,8 @@ test('calculate the cell offset for rtl', () => {
   expect(CellOffset(2, 'large', 'padding', false, true)).toEqual([
     '@media ',
     '(min-width: 64em)',
-    '{',
+    ' { ',
     'margin-right: 16.666666666666668%;',
-    '}',
+    ' }',
   ]);
 });

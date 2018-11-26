@@ -35,7 +35,7 @@
   "browser": "dist/umd/index.js",
   "dependencies": {
     "polished": "^2.3.0",
-    "warning": "^3.0.0"
+    "warning": "^4.0.2"
   },
   "devDependencies": {},
   "peerDependencies": {

@@ -1,5 +1,4 @@
-import stripUnit from 'polished/lib/helpers/stripUnit';
-import rem from 'polished/lib/helpers/rem';
+import { stripUnit, rem } from 'polished';
 
 /**
  *
@@ -41,7 +40,7 @@ export default (
     let remValue = rem(value, baseRem);
 
     if (['0rem', 'nullrem', '0rem'].includes(remValue)) {
-      remValue = '0';
+      remValue = '0px';
     }
 
     remValues.push(remValue);

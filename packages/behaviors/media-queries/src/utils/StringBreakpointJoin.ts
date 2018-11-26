@@ -1,4 +1,4 @@
-import stripUnit from 'polished/lib/helpers/stripUnit';
+import { stripUnit } from 'polished';
 
 /**
  * Return media query string from the given min and/or max limits.
@@ -17,29 +17,32 @@ export const strBreakpointJoin = (
   minName: string = 'min-width',
   maxName: string = 'max-width'
 ): string => {
-  const delimiter: string = ' and ';
-  let str = '';
-  let minWidth = min;
-  let maxWidth = max;
+  let minNumber = min;
+  let maxNumber = max;
 
   if (typeof min === 'string') {
-    minWidth = +stripUnit(min);
+    minNumber = stripUnit(min);
   }
 
   if (typeof max === 'string') {
-    maxWidth = +stripUnit(max);
+    maxNumber = stripUnit(max);
   }
 
-  if (minWidth !== null && minWidth !== 0) {
-    str = `(${minName}: ${minWidth})`;
+  let addDelimiter = false;
+  let str = '';
 
-    if (maxWidth !== null && maxWidth !== 0) {
-      str += delimiter;
+  if (minNumber !== null && minNumber !== 0 && !isNaN(+minNumber)) {
+    str = `(${minName}: ${min})`;
+
+    addDelimiter = true;
+  }
+
+  if (maxNumber !== null && maxNumber !== 0 && !isNaN(+maxNumber)) {
+    if (addDelimiter) {
+      str += ' and ';
     }
-  }
 
-  if (maxWidth !== null && maxWidth !== 0) {
-    str += `(${maxName}: ${maxWidth})`;
+    str += `(${maxName}: ${max})`;
   }
 
   return str;

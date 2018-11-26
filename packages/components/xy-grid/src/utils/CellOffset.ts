@@ -1,4 +1,4 @@
-import stripUnit from 'polished/lib/helpers/stripUnit';
+import { stripUnit } from 'polished';
 import mediaquery, { Breakpoints } from '@growcss/behavior-media-queries';
 import { BreakpointsProps } from '@growcss/behavior-media-queries';
 import remCalc from '@growcss/util-remcalc';

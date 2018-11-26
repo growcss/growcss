@@ -1,4 +1,4 @@
-import stripUnit from 'polished/lib/helpers/stripUnit';
+import { stripUnit } from 'polished';
 import mediaquery from '@growcss/behavior-media-queries';
 import remCalc from '@growcss/util-remcalc';
 import { GuttersProps } from '../components/Gutters';

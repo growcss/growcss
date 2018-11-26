@@ -11,6 +11,7 @@ import cleanup from 'rollup-plugin-cleanup';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import typescript from 'rollup-plugin-typescript2';
 import 'babel-polyfill';
+import { terser } from "rollup-plugin-terser";
 
 const env = process.env.NODE_ENV;
 const pkg = require(`${__dirname}/../packages/${process.env.PACKAGE_PATH}/package.json`);
@@ -79,13 +80,22 @@ const umdConfig = Object.assign({}, configBase, {
   ),
 });
 
-const browserConfig = Object.assign({}, configBase, {
+const browserEsConfig = Object.assign({}, configBase, {
   output: [
     {
       file: pkg.module,
       format: 'es',
       sourcemap: true,
-    },
+    }
+  ],
+  plugins: configBase.plugins.concat(
+    cleanup(),
+    terser(),
+  ),
+});
+
+const browserCjsConfig = Object.assign({}, configBase, {
+  output: [
     {
       file: pkg.main,
       format: 'cjs',
@@ -94,8 +104,8 @@ const browserConfig = Object.assign({}, configBase, {
     },
   ],
   plugins: configBase.plugins.concat(
-    cleanup()
+    cleanup(),
   ),
 });
 
-export default [umdConfig, browserConfig];
+export default [umdConfig, browserEsConfig, browserCjsConfig];

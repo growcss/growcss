@@ -18,6 +18,250 @@ exports[`Storyshots XY-Grid Grid cell will take up the remaining space 1`] = `
 </div>
 `;
 
+exports[`Storyshots XY-Grid Grid cell with self align types 1`] = `
+<div
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
+  wrap={true}
+>
+  <div
+    className="gc-cell CellElement-o119kl-0 lliDFC"
+  >
+    Align bottom
+  </div>
+  <div
+    className="gc-cell CellElement-o119kl-0 eRXDwO"
+  >
+    Align middle
+  </div>
+  <div
+    className="gc-cell CellElement-o119kl-0 lhbJEQ"
+  >
+    Align stretch
+  </div>
+  <div
+    className="gc-cell CellElement-o119kl-0 kJvlHa"
+  >
+    Align top. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non harum laborum cum voluptate vel, eius adipisci similique dignissimos nobis at excepturi incidunt fugit molestiae quaerat, consequuntur porro temporibus. Nisi, ex?
+  </div>
+</div>
+`;
+
+exports[`Storyshots XY-Grid GridX central alignment with alignX center and alignY middle 1`] = `
+<div
+  className="sc-bdVaJa iEwzWw XYGridElement-sc-11ht4j5-0 bjGQ"
+  wrap={true}
+>
+  <div
+    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+  >
+    I am in the center-middle
+  </div>
+  <div
+    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+  >
+    I am also centrally located
+  </div>
+</div>
+`;
+
+exports[`Storyshots XY-Grid GridX gutter type with margin 1`] = `
+<div
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
+  wrap={true}
+>
+  <div
+    className="gc-cell CellElement-o119kl-0 jKbMPy"
+  >
+    12/6/4 cells
+  </div>
+  <div
+    className="gc-cell CellElement-o119kl-0 ccWNjf"
+  >
+    12/6/8 cells
+  </div>
+</div>
+`;
+
+exports[`Storyshots XY-Grid GridX gutter type with padding 1`] = `
+<div
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
+  wrap={true}
+>
+  <div
+    className="gc-cell CellElement-o119kl-0 jLiXAq"
+  >
+    12/6/4 cells
+  </div>
+  <div
+    className="gc-cell CellElement-o119kl-0 kQbrcJ"
+  >
+    12/6/8 cells
+  </div>
+</div>
+`;
+
+exports[`Storyshots XY-Grid GridX horizontal center alignment 1`] = `
+<div
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dbNJcy"
+  wrap={true}
+>
+  <div
+    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+  >
+    Aligned to
+  </div>
+  <div
+    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+  >
+    the center
+  </div>
+</div>
+`;
+
+exports[`Storyshots XY-Grid GridX horizontal default left alignment 1`] = `
+<div
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
+  wrap={true}
+>
+  <div
+    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+  >
+    Aligned to
+  </div>
+  <div
+    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+  >
+    the left
+  </div>
+</div>
+`;
+
+exports[`Storyshots XY-Grid GridX horizontal justify alignment 1`] = `
+<div
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 bKIBgf"
+  wrap={true}
+>
+  <div
+    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+  >
+    Aligned to
+  </div>
+  <div
+    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+  >
+    the justify
+  </div>
+</div>
+`;
+
+exports[`Storyshots XY-Grid GridX horizontal right alignment 1`] = `
+<div
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 cxkclV"
+  wrap={true}
+>
+  <div
+    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+  >
+    Aligned to
+  </div>
+  <div
+    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+  >
+    the right
+  </div>
+</div>
+`;
+
+exports[`Storyshots XY-Grid GridX horizontal spaced alignment 1`] = `
+<div
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 czsRqf"
+  wrap={true}
+>
+  <div
+    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+  >
+    Aligned to
+  </div>
+  <div
+    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+  >
+    the spaced
+  </div>
+</div>
+`;
+
+exports[`Storyshots XY-Grid GridX vertical bottom alignment 1`] = `
+<div
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 gFDiLV"
+  wrap={true}
+>
+  <div
+    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+  >
+    I'm at the bottom
+  </div>
+  <div
+    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+  >
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, tempora. Impedit eius officia possimus laudantium? Molestiae eaque, sapiente atque doloremque placeat! In sint, fugiat saepe sunt dolore tempore amet cupiditate.
+  </div>
+</div>
+`;
+
+exports[`Storyshots XY-Grid GridX vertical middle alignment 1`] = `
+<div
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 fdoyQo"
+  wrap={true}
+>
+  <div
+    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+  >
+    I'm in the middle
+  </div>
+  <div
+    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+  >
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, tempora. Impedit eius officia possimus laudantium? Molestiae eaque, sapiente atque doloremque placeat! In sint, fugiat saepe sunt dolore tempore amet cupiditate.
+  </div>
+</div>
+`;
+
+exports[`Storyshots XY-Grid GridX vertical stretch alignment 1`] = `
+<div
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 fUdoaF"
+  wrap={true}
+>
+  <div
+    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+  >
+    These cells have the same height
+  </div>
+  <div
+    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+  >
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, tempora. Impedit eius officia possimus laudantium? Molestiae eaque, sapiente atque doloremque placeat! In sint, fugiat saepe sunt dolore tempore amet cupiditate.
+  </div>
+</div>
+`;
+
+exports[`Storyshots XY-Grid GridX vertical top alignment 1`] = `
+<div
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 huExLd"
+  wrap={true}
+>
+  <div
+    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+  >
+    I'm at the top (default)
+  </div>
+  <div
+    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+  >
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, tempora. Impedit eius officia possimus laudantium? Molestiae eaque, sapiente atque doloremque placeat! In sint, fugiat saepe sunt dolore tempore amet cupiditate.
+  </div>
+</div>
+`;
+
 exports[`Storyshots XY-Grid GridX with 6/8/2 and 6/4/10 cells 1`] = `
 <div
   className="gc-grid-y XYGridElement-sc-11ht4j5-0 kVkjUr"
@@ -68,6 +312,24 @@ exports[`Storyshots XY-Grid GridX with a full width cell 1`] = `
     className="gc-cell CellElement-o119kl-0 ePEyAR"
   >
     full width cell
+  </div>
+</div>
+`;
+
+exports[`Storyshots XY-Grid GridX with offset of 2 to a large cell 1`] = `
+<div
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
+  wrap={true}
+>
+  <div
+    className="gc-cell CellElement-o119kl-0 eOWjEy"
+  >
+    Offset 2 on large
+  </div>
+  <div
+    className="gc-cell CellElement-o119kl-0 hixAQG"
+  >
+    4 cells
   </div>
 </div>
 `;

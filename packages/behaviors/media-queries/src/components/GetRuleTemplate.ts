@@ -1,9 +1,8 @@
-import warning from 'warning';
+import * as warning from 'warning';
+import { stripUnit, em } from 'polished';
 import { Breakpoints as DefaultBreakpoints, BreakpointsProps } from './Breakpoints';
 import { HidpiBreakpoints, HidpiBreakpointsProps } from './HidpiBreakpoints';
 import { mapNext, mapNextNumber, strBreakpointJoin } from '../utils';
-import stripUnit from 'polished/lib/helpers/stripUnit';
-import em from 'polished/lib/helpers/em';
 
 /**
  * Generates a media query for dpi.
@@ -19,26 +18,29 @@ const generateDpiMediaQuery = (
   stdWebDpi: number,
   bpMax: null | number | string,
 ): string => {
-  if (typeof bpMin === 'string') {
-    bpMin = stripUnit(bpMin);
+  let bpMinSize = bpMin;
+  let bpMaxSize = bpMax;
+
+  if (typeof bpMinSize === 'string') {
+    bpMinSize = stripUnit(bpMinSize);
   }
 
-  if (typeof bpMax === 'string') {
-    bpMax = stripUnit(bpMax);
+  if (typeof bpMaxSize === 'string') {
+    bpMaxSize = stripUnit(bpMaxSize);
   }
 
   // Generate values in DPI instead of DPPX for an IE9-11/Opera mini compatibility.
   // See https://caniuse.com/#feat=css-media-resolution
   const bpMinDpi =
-    bpMin !== null ? `${+bpMin * stdWebDpi}dpi` : bpMin;
+    bpMinSize !== null ? `${+bpMinSize * stdWebDpi}dpi` : bpMinSize;
   const bpMaxDpi =
-    bpMax !== null
-      ? `${parseFloat(`${+bpMax * stdWebDpi}`).toFixed(0)}dpi`
-      : bpMax;
+    bpMaxSize !== null
+      ? `${parseFloat(`${+bpMaxSize * stdWebDpi}`).toFixed(0)}dpi`
+      : bpMaxSize;
 
   let template = strBreakpointJoin(
-    bpMin,
-    parseFloat(`${bpMax}`).toFixed(5),
+    bpMinSize,
+    parseFloat(`${bpMaxSize}`).toFixed(5),
     '-webkit-min-device-pixel-ratio',
     '-webkit-max-device-pixel-ratio',
   );
@@ -89,7 +91,9 @@ export default function(
 
   if (bp === 'landscape' || bp === 'portrait') {
     return `(orientation: ${bp})`;
-  } else if (bp === 'retina') {
+  }
+
+  if (bp === 'retina') {
     return '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)';
   }
 
@@ -119,16 +123,12 @@ export default function(
     }
   }
 
-  if (typeof bp === 'string') {
-    bp = stripUnit(bp);
-  }
-
   // Only 'only' and 'up' have a min limit.
   if (direction === 'only' || direction === 'up') {
     if (hidpi) {
-      bpMin = bp;
+      bpMin = typeof bp === 'string' ? stripUnit(bp) : bp;
     } else {
-      bpMin = em(bp);
+      bpMin = bp !== '0' ? em(bp) : null;
     }
   }
 
@@ -136,16 +136,16 @@ export default function(
   if (direction === 'only' || direction === 'down') {
     if (name === null) {
       if (hidpi) {
-        bpMax = bp;
+        bpMax = typeof bp === 'string' ? stripUnit(bp) : bp;
       } else {
-        bpMax = em(bp);
+        bpMax = bp !== '0' ? em(bp) : null;
       }
     } else if (bpNext !== null) {
       // If the breakpoint is named, the max limit is the following breakpoint - 1px.
       if (hidpi) {
         bpMax = bpNext - 1 / stdWebDpi;
       } else {
-        bpMax = bpNext - 1 === 0 ? '0' : `${bpNext - 1 / 16}em`;
+        bpMax = bpNext - 1 <= 0 ? '0' : `${+stripUnit(em(bpNext)) - 1 / 16}em`;
       }
     }
   }

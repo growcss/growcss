@@ -22,12 +22,8 @@ export default (
     const regex = /\(.*\)/;
 
     if (regex.exec(template) !== null) {
-      return css`
-        @media ${template} {
-          // @ts-ignore
-          ${css(...args)}
-        }
-      `;
+      // @ts-ignore
+      return css`@media ${template} { ${css(...args)} }`;
     }
 
     // @ts-ignore

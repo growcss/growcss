@@ -32,9 +32,6 @@
   "dependencies": {
     "classnames": "^2.2.5"
   },
-  "devDependencies": {
-    "polished": "^2.3.0"
-  },
   "peerDependencies": {
     "preact": "^8.0",
     "react": "^16.0",
