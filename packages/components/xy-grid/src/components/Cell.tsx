@@ -14,19 +14,19 @@ export interface CellProps extends React.HTMLAttributes<HTMLDivElement>{
 }
 
 export interface OffsetProps {
-    smallOffset?: number
-    mediumOffset?: number
-    largeOffset?: number
-    xlargeOffset?: number
-    xxlargeOffset?: number
+  smallOffset?: number,
+  mediumOffset?: number,
+  largeOffset?: number,
+  xlargeOffset?: number,
+  xxlargeOffset?: number,
 }
 
 export interface CellBreakpointsProps {
-    small?: number | string
-    medium?: number | string
-    large?: number | string
-    xlarge?: number | string
-    xxlarge?: number | string
+  small?: number | string,
+  medium?: number | string,
+  large?: number | string,
+  xlarge?: number | string,
+  xxlarge?: number | string,
 }
 
 export default class Cell extends React.Component<CellProps & CellBreakpointsProps & OffsetProps> {

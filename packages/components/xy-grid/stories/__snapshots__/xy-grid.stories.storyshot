@@ -18,54 +18,18 @@ exports[`Storyshots XY-Grid Grid cell will take up the remaining space 1`] = `
 </div>
 `;
 
-exports[`Storyshots XY-Grid Grid cell will take up the remaining space 2`] = `
-<div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
-  wrap={true}
->
-  <div
-    className="gc-cell CellElement-o119kl-0 gErIwn"
-  >
-    4 cells
-  </div>
-  <div
-    className="gc-cell CellElement-o119kl-0 hePhNC"
-  >
-    Whatever's left!
-  </div>
-</div>
-`;
-
 exports[`Storyshots XY-Grid GridX with 6/8/2 and 6/4/10 cells 1`] = `
 <div
   className="gc-grid-y XYGridElement-sc-11ht4j5-0 kVkjUr"
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 jHutya"
+    className="gc-cell CellElement-o119kl-0 ehOdtu"
   >
     6/8/2 cells
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 ghBOmf"
-  >
-    6/4/10 cells
-  </div>
-</div>
-`;
-
-exports[`Storyshots XY-Grid GridX with 6/8/2 and 6/4/10 cells 2`] = `
-<div
-  className="gc-grid-y XYGridElement-sc-11ht4j5-0 kVkjUr"
-  wrap={true}
->
-  <div
-    className="gc-cell CellElement-o119kl-0 jHutya"
-  >
-    6/8/2 cells
-  </div>
-  <div
-    className="gc-cell CellElement-o119kl-0 ghBOmf"
+    className="gc-cell CellElement-o119kl-0 eHXMyw"
   >
     6/4/10 cells
   </div>
@@ -78,30 +42,12 @@ exports[`Storyshots XY-Grid GridX with 12/6/4 and 12/6/8 cells 1`] = `
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 jPvHwi"
+    className="gc-cell CellElement-o119kl-0 eFehCP"
   >
     12/6/4 cells
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 eJvmHa"
-  >
-    12/6/8 cells
-  </div>
-</div>
-`;
-
-exports[`Storyshots XY-Grid GridX with 12/6/4 and 12/6/8 cells 2`] = `
-<div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
-  wrap={true}
->
-  <div
-    className="gc-cell CellElement-o119kl-0 jPvHwi"
-  >
-    12/6/4 cells
-  </div>
-  <div
-    className="gc-cell CellElement-o119kl-0 eJvmHa"
+    className="gc-cell CellElement-o119kl-0 goxaQh"
   >
     12/6/8 cells
   </div>
@@ -126,43 +72,7 @@ exports[`Storyshots XY-Grid GridX with a full width cell 1`] = `
 </div>
 `;
 
-exports[`Storyshots XY-Grid GridX with a full width cell 2`] = `
-<div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
-  wrap={true}
->
-  <div
-    className="gc-cell CellElement-o119kl-0 ePEyAR"
-  >
-    full width cell
-  </div>
-  <div
-    className="gc-cell CellElement-o119kl-0 ePEyAR"
-  >
-    full width cell
-  </div>
-</div>
-`;
-
 exports[`Storyshots XY-Grid GridX with two 6 small cells 1`] = `
-<div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
-  wrap={true}
->
-  <div
-    className="gc-cell CellElement-o119kl-0 ecZjQA"
-  >
-    6 cells
-  </div>
-  <div
-    className="gc-cell CellElement-o119kl-0 ecZjQA"
-  >
-    6 cells
-  </div>
-</div>
-`;
-
-exports[`Storyshots XY-Grid GridX with two 6 small cells 2`] = `
 <div
   className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
   wrap={true}
@@ -203,48 +113,7 @@ exports[`Storyshots XY-Grid Multiple expanding cells will share the leftover spa
 </div>
 `;
 
-exports[`Storyshots XY-Grid Multiple expanding cells will share the leftover space equally. 2`] = `
-<div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
-  wrap={true}
->
-  <div
-    className="gc-cell CellElement-o119kl-0 gErIwn"
-  >
-    4 cell
-  </div>
-  <div
-    className="gc-cell CellElement-o119kl-0 hePhNC"
-  >
-    Whatever's left!
-  </div>
-  <div
-    className="gc-cell CellElement-o119kl-0 hePhNC"
-  >
-    Whatever's left!
-  </div>
-</div>
-`;
-
 exports[`Storyshots XY-Grid Shrink means it will only take up the space its contents need 1`] = `
-<div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
-  wrap={true}
->
-  <div
-    className="gc-cell CellElement-o119kl-0 hjLzdu"
-  >
-    Shrink!
-  </div>
-  <div
-    className="gc-cell CellElement-o119kl-0 hePhNC"
-  >
-    Expand!
-  </div>
-</div>
-`;
-
-exports[`Storyshots XY-Grid Shrink means it will only take up the space its contents need 2`] = `
 <div
   className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
   wrap={true}
@@ -268,70 +137,32 @@ exports[`Storyshots XY-Grid To switch back to the auto behavior from a percentag
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 ehzMvt"
+    className="gc-cell CellElement-o119kl-0 iLpdLJ"
   >
     One
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 ehzMvt"
+    className="gc-cell CellElement-o119kl-0 iLpdLJ"
   >
     Two
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 ehzMvt"
+    className="gc-cell CellElement-o119kl-0 iLpdLJ"
   >
     Three
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 ehzMvt"
+    className="gc-cell CellElement-o119kl-0 iLpdLJ"
   >
     Four
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 ehzMvt"
+    className="gc-cell CellElement-o119kl-0 iLpdLJ"
   >
     Five
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 ehzMvt"
-  >
-    Six
-  </div>
-</div>
-`;
-
-exports[`Storyshots XY-Grid To switch back to the auto behavior from a percentage or shrink behavior 2`] = `
-<div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
-  wrap={true}
->
-  <div
-    className="gc-cell CellElement-o119kl-0 ehzMvt"
-  >
-    One
-  </div>
-  <div
-    className="gc-cell CellElement-o119kl-0 ehzMvt"
-  >
-    Two
-  </div>
-  <div
-    className="gc-cell CellElement-o119kl-0 ehzMvt"
-  >
-    Three
-  </div>
-  <div
-    className="gc-cell CellElement-o119kl-0 ehzMvt"
-  >
-    Four
-  </div>
-  <div
-    className="gc-cell CellElement-o119kl-0 ehzMvt"
-  >
-    Five
-  </div>
-  <div
-    className="gc-cell CellElement-o119kl-0 ehzMvt"
+    className="gc-cell CellElement-o119kl-0 iLpdLJ"
   >
     Six
   </div>

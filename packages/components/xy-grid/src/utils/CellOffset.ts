@@ -1,9 +1,9 @@
+import stripUnit from 'polished/lib/helpers/stripUnit';
 import mediaquery, { Breakpoints } from '@growcss/behavior-media-queries';
 import { BreakpointsProps } from '@growcss/behavior-media-queries';
 import remCalc from '@growcss/util-remcalc';
 import { Gutters as DefaultGutters, GuttersProps } from '../components/Gutters';
 import { CellSize } from './CellSize';
-import stripUnit from 'polished/lib/helpers/stripUnit';
 
 export const CellOffset = (
   n: number | string,

@@ -28,68 +28,7 @@ exports[`Storyshots Image Image with a preview url 1`] = `
 </figure>
 `;
 
-exports[`Storyshots Image Image with a preview url 2`] = `
-<figure
-  className="gc-image FigureElement-sc-4pw5w0-0 bGDRKy"
->
-  <div
-    className="AspectRatioPlaceholder-sc-1jfhsx0-0 hmdmSF"
-  >
-    <div
-      style={
-        Object {
-          "paddingBottom": "25%",
-        }
-      }
-    />
-    <img
-      alt="test"
-      className="preview PreviewElement-sc-1t6xf7x-0 HqctH"
-      crossOrigin="anonymous"
-      src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/32x/-/grayscale/-/quality/lightest/mountain.jpg"
-    />
-    <img
-      alt="test"
-      className="ImageElement-k4q0my-0 fyNsfK"
-    />
-  </div>
-</figure>
-`;
-
 exports[`Storyshots Image Image with figcaption 1`] = `
-<figure
-  className="gc-image FigureElement-sc-4pw5w0-0 bGDRKy"
->
-  <div
-    className="AspectRatioPlaceholder-sc-1jfhsx0-0 hmdmSF"
-  >
-    <div
-      style={
-        Object {
-          "paddingBottom": "25%",
-        }
-      }
-    />
-    <img
-      alt="test"
-      className="preview PreviewElement-sc-1t6xf7x-0 HqctH"
-      crossOrigin="anonymous"
-      src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/32x/-/grayscale/-/quality/lightest/mountain.jpg"
-    />
-    <img
-      alt="test"
-      className="ImageElement-k4q0my-0 fyNsfK"
-    />
-  </div>
-  <figcaption
-    className="FigcaptionElement-t4a8lz-0 jOFhiB"
-  >
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-  </figcaption>
-</figure>
-`;
-
-exports[`Storyshots Image Image with figcaption 2`] = `
 <figure
   className="gc-image FigureElement-sc-4pw5w0-0 bGDRKy"
 >
@@ -155,68 +94,7 @@ exports[`Storyshots Image Image with figcaption to the right 1`] = `
 </figure>
 `;
 
-exports[`Storyshots Image Image with figcaption to the right 2`] = `
-<figure
-  className="gc-image FigureElement-sc-4pw5w0-0 bGDRKy"
->
-  <div
-    className="AspectRatioPlaceholder-sc-1jfhsx0-0 hmdmSF"
-  >
-    <div
-      style={
-        Object {
-          "paddingBottom": "25%",
-        }
-      }
-    />
-    <img
-      alt="test"
-      className="preview PreviewElement-sc-1t6xf7x-0 HqctH"
-      crossOrigin="anonymous"
-      src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/32x/-/grayscale/-/quality/lightest/mountain.jpg"
-    />
-    <img
-      alt="test"
-      className="ImageElement-k4q0my-0 fyNsfK"
-    />
-  </div>
-  <figcaption
-    className="FigcaptionElement-t4a8lz-0 jmMfgk"
-  >
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-  </figcaption>
-</figure>
-`;
-
 exports[`Storyshots Image Simple image 1`] = `
-<figure
-  className="gc-image FigureElement-sc-4pw5w0-0 bGDRKy"
->
-  <div
-    className="AspectRatioPlaceholder-sc-1jfhsx0-0 hmdmSF"
-  >
-    <div
-      style={
-        Object {
-          "paddingBottom": "25%",
-        }
-      }
-    />
-    <img
-      alt="test"
-      className="preview PreviewElement-sc-1t6xf7x-0 HqctH"
-      crossOrigin="anonymous"
-      src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/300x/mountain.jpg"
-    />
-    <img
-      alt="test"
-      className="ImageElement-k4q0my-0 fyNsfK"
-    />
-  </div>
-</figure>
-`;
-
-exports[`Storyshots Image Simple image 2`] = `
 <figure
   className="gc-image FigureElement-sc-4pw5w0-0 bGDRKy"
 >

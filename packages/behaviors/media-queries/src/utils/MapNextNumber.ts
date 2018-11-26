@@ -1,4 +1,4 @@
-import { BreakpointsProps } from './../components/Breakpoints';
+import { BreakpointsProps } from '../components/Breakpoints';
 import {HidpiBreakpointsProps} from '..';
 
 /**

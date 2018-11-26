@@ -1,7 +1,7 @@
+import warning from 'warning';
 import { Breakpoints as DefaultBreakpoints, BreakpointsProps } from './Breakpoints';
 import { HidpiBreakpoints, HidpiBreakpointsProps } from './HidpiBreakpoints';
 import { mapNext, mapNextNumber, strBreakpointJoin } from '../utils';
-import warning from 'warning';
 import stripUnit from 'polished/lib/helpers/stripUnit';
 import em from 'polished/lib/helpers/em';
 

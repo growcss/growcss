@@ -1,25 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Image load small image if no preview image is set 1`] = `
-<styled.figure
+<FigureElement
   className="gc-image"
 >
-  <styled.div>
-    <div
-      style={
-        Object {
-          "paddingBottom": "NaN%",
-        }
-      }
-    />
-    <styled.img
+  <AspectRatioPlaceholder>
+    <div />
+    <PreviewElement
       className="preview"
       crossOrigin="anonymous"
       src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/400x/mountain.jpg"
     />
-    <styled.img
+    <ImageElement
       className=""
     />
-  </styled.div>
-</styled.figure>
+  </AspectRatioPlaceholder>
+</FigureElement>
 `;

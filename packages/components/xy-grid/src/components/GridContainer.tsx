@@ -5,15 +5,15 @@ import { Gutters as DefaultGutters, GuttersProps } from './Gutters';
 import { GridContainerElement } from '../styled/GridContainerElement';
 
 export interface GridContainerProps extends React.HTMLAttributes<HTMLDivElement> {
-    children: React.ReactNode,
-    type?: string,
-    width?: string | number,
-    gutterSizes?: string | number | GuttersProps,
+  children: React.ReactNode,
+  type?: string,
+  width?: string | number,
+  gutterSizes?: string | number | GuttersProps,
 }
 
 type GridContainerDefaultProps = {
   width: string | number,
-  gutterSizes: GuttersProps
+  gutterSizes: GuttersProps,
 }
 
 export default class GridContainer extends React.Component<GridContainerProps> {

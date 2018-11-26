@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { GridElementAlign } from '../utils/FlexAlign';
 
 export type XYGridElementProps = {
-    gridDirection?: string
-    wrap: boolean
-    gridHeight?: string
-    alignX?: string | null
-    alignY?: string | null
+    gridDirection?: string,
+    wrap: boolean,
+    gridHeight?: string,
+    alignX?: string | null,
+    alignY?: string | null,
 }
 
 export const XYGridElement = styled.div<XYGridElementProps>`

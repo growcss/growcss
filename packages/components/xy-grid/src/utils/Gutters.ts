@@ -1,7 +1,7 @@
+import stripUnit from 'polished/lib/helpers/stripUnit';
 import mediaquery from '@growcss/behavior-media-queries';
 import remCalc from '@growcss/util-remcalc';
 import { GuttersProps } from '../components/Gutters';
-import stripUnit from 'polished/lib/helpers/stripUnit';
 
 const cssBuilder = (
   gutter: string | number,
@@ -12,16 +12,17 @@ const cssBuilder = (
   let negativeBoolean = negative;
   let operator = negativeBoolean ? '-' : '';
   let isString = false;
+  let gutterSize = gutter;
 
-  if (typeof gutter === 'string') {
+  if (typeof gutterSize === 'string') {
     isString = true;
-    gutter = stripUnit(gutter);
+    gutterSize = stripUnit(gutterSize);
   }
 
-  const rem = remCalc(+gutter / 2);
+  const rem = remCalc(+gutterSize / 2);
 
   // If the value is already negative, remove the operator and set negative to true.
-  if (! isString && gutter < 0) {
+  if (! isString && gutterSize < 0) {
     negativeBoolean = true;
     operator = '';
   }

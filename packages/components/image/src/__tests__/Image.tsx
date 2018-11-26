@@ -22,7 +22,7 @@ test('Image load small image if no preview image is set', () => {
 
   expect(wrapper).toMatchSnapshot();
   expect(wrapper.find('.gc-image .preview').html()).toEqual(
-    '<img class="preview PreviewElement-cCYQUz faBNpw" src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/400x/mountain.jpg"/>',
+    '<img class="preview PreviewElement-sc-1t6xf7x-0 HqctH" src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/400x/mountain.jpg" crossOrigin="anonymous"/>',
   );
 });
 

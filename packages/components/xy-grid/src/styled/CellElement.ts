@@ -7,9 +7,9 @@ import { CellElementAlign } from '../utils/FlexAlign';
 import { GuttersProps } from '..';
 
 type GutterCssProps = {
-  gutterSizes: GuttersProps
-  gutterType: string | undefined
-  vertical: boolean
+  gutterSizes: GuttersProps,
+  gutterType: string | undefined,
+  vertical: boolean,
 }
 
 const BreakpointGutterCss = (props: GutterCssProps) => {
@@ -36,7 +36,7 @@ const BreakpointGutterCss = (props: GutterCssProps) => {
 };
 
 type CellOffsetCssProps = {
-  [key: string]: number
+  [key: string]: number,
 } & GutterCssProps
 
 const CellOffsetCss = (props: CellOffsetCssProps) => {
@@ -52,8 +52,8 @@ const CellOffsetCss = (props: CellOffsetCssProps) => {
 };
 
 type ResponsiveCellCssProps = {
-  cellType: string | undefined
-  gridColumns: number
+  cellType: string | undefined,
+  gridColumns: number,
 } & GutterCssProps
 
 const ResponsiveCellCss = (props: ResponsiveCellCssProps) => {

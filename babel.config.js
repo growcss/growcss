@@ -1,38 +1,36 @@
 module.exports = {
-  "env": {
-    "test": {
-      "presets": [
-        [
-          "@babel/preset-env",
-          {
-            "debug": false,
-            "modules": "commonjs"
-          }
-        ],
-        "@babel/preset-react"
+  plugins: [
+    '@babel/plugin-proposal-class-properties',
+    '@babel/plugin-proposal-object-rest-spread',
+    '@babel/syntax-dynamic-import',
+    'babel-plugin-styled-components',
+    'polished'
+  ],
+  presets: [
+    '@babel/react'
+  ],
+  'env': {
+    'test': {
+      'presets': [
+        '@babel/preset-env'
       ],
-      "plugins": [
-        "@babel/plugin-transform-regenerator",
-        "babel-plugin-styled-components",
-        "require-context-hook",
-        "polished"
+      'plugins': [
+        '@babel/plugin-transform-regenerator',
+        'require-context-hook'
       ]
     },
-    "production": {
-      "presets": [
+    'production': {
+      'presets': [
         [
-          "@babel/preset-env",
+          '@babel/preset-env',
           {
-            "modules": false
+            'modules': false
           }
-        ],
-        "@babel/preset-react"
+        ]
       ],
-      "plugins": [
-        "@babel/plugin-transform-regenerator",
-        "@babel/plugin-external-helpers",
-        "babel-plugin-styled-components",
-        "polished"
+      'plugins': [
+        '@babel/plugin-transform-regenerator',
+        '@babel/plugin-external-helpers'
       ]
     }
   }

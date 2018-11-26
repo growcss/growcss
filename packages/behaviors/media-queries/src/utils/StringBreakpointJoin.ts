@@ -1,4 +1,4 @@
-const stripUnits = require('strip-units');
+import stripUnit from 'polished/lib/helpers/stripUnit';
 
 /**
  * Return media query string from the given min and/or max limits.
@@ -19,17 +19,27 @@ export const strBreakpointJoin = (
 ): string => {
   const delimiter: string = ' and ';
   let str = '';
+  let minWidth = min;
+  let maxWidth = max;
 
-  if (min !== null && +stripUnits(min) !== 0) {
-    str = `(${minName}: ${min})`;
+  if (typeof min === 'string') {
+    minWidth = +stripUnit(min);
+  }
 
-    if (max !== null && +stripUnits(max) !== 0) {
+  if (typeof max === 'string') {
+    maxWidth = +stripUnit(max);
+  }
+
+  if (minWidth !== null && minWidth !== 0) {
+    str = `(${minName}: ${minWidth})`;
+
+    if (maxWidth !== null && maxWidth !== 0) {
       str += delimiter;
     }
   }
 
-  if (max !== null && +stripUnits(max) !== 0) {
-    str += `(${maxName}: ${max})`;
+  if (maxWidth !== null && maxWidth !== 0) {
+    str += `(${maxName}: ${maxWidth})`;
   }
 
   return str;

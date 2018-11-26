@@ -18,4 +18,4 @@ export const HidpiBreakpoints: HidpiBreakpointsProps = {
   'hidpi-2': 2,
   'retina': 2,
   'hidpi-3': 3,
-}
+};

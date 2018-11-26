@@ -27,8 +27,7 @@
     "build": "cross-env PACKAGE_PATH=utils/remcalc rollup -c ../../../build/rollup.config.js"
   },
   "browser": "dist/umd/index.js",
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "polished": "^2.3.0"
   },
   "peerDependencies": {},

@@ -4,6 +4,7 @@ module.exports = (baseConfig, env, config) => {
     config.module.rules.push({
         test: /\.(ts|tsx)$/,
         loader: require.resolve('awesome-typescript-loader'),
+        exclude: /(node_modules)/,
     });
 
     config.plugins.push(new TSDocgenPlugin());
