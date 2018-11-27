@@ -1,13 +1,20 @@
 {
-  "name": "@growcss/util-remcalc",
+  "name": "@growcss/elaborate",
   "version": "0.0.0",
-  "description": "Converts one or more pixel values into matching rem values.",
+  "description": "A lightweight toolset for writing styles in Javascript.",
   "keywords": [
     "rem",
     "rem-calc",
     "remcalc",
     "sass",
-    "utils"
+    "utils",
+    "styled-components",
+    "emotion",
+    "glamor",
+    "css-in-js",
+    "inline-styles",
+    "react",
+    "typescript"
   ],
   "homepage": "http://growcss.com",
   "repository": "https://github.com/growcss/growcss.git",
@@ -24,7 +31,7 @@
   "module": "dist/es/index.js",
   "jsnext:main": "dist/es/index.js",
   "scripts": {
-    "build": "cross-env PACKAGE_PATH=utils/remcalc rollup -c ../../../build/rollup.config.js"
+    "build": "cross-env PACKAGE_PATH=elaborate rollup -c ../../build/rollup.config.js"
   },
   "browser": "dist/umd/index.js",
   "dependencies": {
@@ -34,5 +41,5 @@
   "engines": {
     "node": "^9.10.0"
   },
-  "moduleName": "remcalc"
+  "moduleName": "gc-elaborate"
 }

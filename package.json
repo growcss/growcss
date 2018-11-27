@@ -7,9 +7,9 @@
     "build": "                     lerna exec -- sort-package-json && cross-env NODE_ENV=production lerna run build",
     "changed": "                   lerna changed",
     "changelog": "                 lerna-changelog",
-    "delete": "                    yarn run delete:modules && yarn run delete:build",
-    "delete:build": "              lerna exec -- rimraf dist",
-    "delete:modules": "            lerna clean --yes",
+    "clear": "                     yarn run clear:modules && yarn run clear:build",
+    "clear:build": "               lerna exec -- rimraf dist",
+    "clear:modules": "             lerna clean --yes",
     "docz:dev": "                  docz dev",
     "docz:build": "                docz build",
     "lint": "                      yarn run lint:eslint && yarn run lint:tslint && yarn run lint:stylelint",
@@ -167,15 +167,7 @@
     "yarn": "^1.12.0"
   },
   "lint-staged": {
-    "packages/behaviors/**/src/**/*.{js, jsx}": [
-      "prettier --write",
-      "git add"
-    ],
-    "packages/components/**/src/**/*.{js, jsx}": [
-      "prettier --write",
-      "git add"
-    ],
-    "packages/utils/**/src/**/*.{js, jsx}": [
+    "packages/**/src/**/*.{js, jsx}": [
       "prettier --write",
       "git add"
     ]

@@ -11,12 +11,12 @@ import { stripUnit } from 'polished';
  *
  * @return {string}
  */
-export const strBreakpointJoin = (
+export default function(
   min: null | number | string,
   max: null | number | string,
   minName: string = 'min-width',
   maxName: string = 'max-width'
-): string => {
+): string {
   let minNumber = min;
   let maxNumber = max;
 

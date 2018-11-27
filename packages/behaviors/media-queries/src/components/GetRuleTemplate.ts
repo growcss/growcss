@@ -1,8 +1,9 @@
-import * as warning from 'warning';
-import { stripUnit, em } from 'polished';
+import { stripUnit } from 'polished';
 import { Breakpoints as DefaultBreakpoints, BreakpointsProps } from './Breakpoints';
 import { HidpiBreakpoints, HidpiBreakpointsProps } from './HidpiBreakpoints';
-import { mapNext, mapNextNumber, strBreakpointJoin } from '../utils';
+import { mapNext, mapNextNumber, strBreakpointJoin, em } from '../utils';
+
+const warning = require('warning');
 
 /**
  * Generates a media query for dpi.

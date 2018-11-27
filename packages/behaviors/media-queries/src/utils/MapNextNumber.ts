@@ -9,7 +9,7 @@ import {HidpiBreakpointsProps} from '..';
  *
  * @return {null | number} The number following `number`, if `number` was found. If `number` was not found, or `number` was the biggest number in the map, returns `null`.
  */
-export const mapNextNumber = (breakpoints: BreakpointsProps | HidpiBreakpointsProps, number: number): null | number => {
+export default function(breakpoints: BreakpointsProps | HidpiBreakpointsProps, number: number): null | number {
   let nextNumber = null;
 
   for (const key in breakpoints) {

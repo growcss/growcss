@@ -10,7 +10,7 @@ import { stripUnit, rem } from 'polished';
 export default (
   values: string | number | Array<string | number>,
   base: number | string = 16,
-) => {
+): string => {
   let baseRem: number = +base;
 
   if (typeof base === 'string') {
@@ -26,7 +26,7 @@ export default (
 
   if (typeof values === 'string' || typeof values === 'number') {
     const remValue = rem(values, baseRem);
-
+console.log(remValue);
     if (['0rem', 'nullrem', '0rem'].includes(remValue)) {
       return '0';
     }

@@ -2208,7 +2208,7 @@
     "@types/react" "*"
     csstype "^2.2.0"
 
-"@types/warning@^4.0.2":
+"@types/warning@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@types/warning/-/warning-3.0.0.tgz#0d2501268ad8f9962b740d387c4654f5f8e23e52"
   integrity sha1-DSUBJorY+ZYrdA04fEZU9fjiPlI=

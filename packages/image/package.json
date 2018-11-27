@@ -26,7 +26,7 @@
   "module": "dist/es/index.js",
   "jsnext:main": "dist/es/index.js",
   "scripts": {
-    "build": "cross-env PACKAGE_PATH=components/image rollup -c ../../../build/rollup.config.js"
+    "build": "cross-env PACKAGE_PATH=image rollup -c ../../build/rollup.config.js"
   },
   "browser": "dist/umd/index.js",
   "dependencies": {
@@ -40,5 +40,5 @@
   "engines": {
     "node": "^9.10.0"
   },
-  "moduleName": "gc-image"
+  "moduleName": "image"
 }
