@@ -1,6 +1,6 @@
 import rem from '../components/rem';
 
-describe('Convert To Rem', () => {
+describe('Convert to Rem', () => {
   it('Converts a unit to the equivalent in rems', () => {
     const expected = '2rem';
 

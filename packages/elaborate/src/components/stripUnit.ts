@@ -6,5 +6,15 @@
  * @return {null|number}
  */
 export default function(value: string | number): null | number {
-  return (Number((value || '').toString().replace(/[^d.-]/gi, '')) || null);
+  let unit = value;
+
+  if (typeof value === 'string') {
+    unit = (value).toString().replace(/[^\d.-]/gi, '');
+  }
+
+  if (unit === '') {
+    return null;
+  }
+
+  return Number(unit);
 };
