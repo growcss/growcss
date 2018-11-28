@@ -2,7 +2,7 @@ import mapNext from './_mapNext';
 import mapNextNumber from './_mapNextNumber';
 import strBreakpointJoin from './_stringBreakpointJoin';
 import stripUnit from '../stripUnit';
-import {BreakpointsProps,HidpiBreakpointsProps,Breakpoints,HidpiBreakpoints} from './Mediaquery';
+import {BreakpointsProps,HidpiBreakpointsProps,Breakpoints,HidpiBreakpoints} from './mediaQuery';
 import em from '../em';
 
 const warning = require('warning');
@@ -41,9 +41,15 @@ const generateDpiMediaQuery = (
       ? `${parseFloat(`${+bpMaxSize * stdWebDpi}`).toFixed(0)}dpi`
       : bpMaxSize;
 
-  let template = strBreakpointJoin(
+  const onlyScreen = 'only screen and ';
+
+  if (bpMaxSize !== null) {
+    bpMaxSize = parseFloat(`${bpMaxSize}`).toFixed(5);
+  }
+
+  let template = onlyScreen + strBreakpointJoin(
     bpMinSize,
-    parseFloat(`${bpMaxSize}`).toFixed(5),
+    bpMaxSize,
     '-webkit-min-device-pixel-ratio',
     '-webkit-max-device-pixel-ratio',
   );
@@ -52,8 +58,30 @@ const generateDpiMediaQuery = (
     template += ', ';
   }
 
+  template += onlyScreen + strBreakpointJoin(
+    bpMinSize,
+    bpMaxSize,
+    'min--moz-device-pixel-ratio',
+    'max--moz-device-pixel-ratio',
+  );
+
+  if (template !== '') {
+    template += ', ';
+  }
+
+  template += onlyScreen + strBreakpointJoin(
+    bpMinSize !== null ? `${bpMinSize}/1` : null,
+    bpMaxSize !== null ? `${bpMaxSize}/1` : null,
+    '-o-min-device-pixel-ratio',
+    '-o-max-device-pixel-ratio',
+  );
+
+  if (template !== '') {
+    template += ', ';
+  }
+
   return (
-    template +
+    template + onlyScreen +
     strBreakpointJoin(bpMinDpi, bpMaxDpi, 'min-resolution', 'max-resolution')
   );
 };
@@ -63,6 +91,7 @@ const generateDpiMediaQuery = (
  *
  * @param {string}                value
  * @param {BreakpointsProps}      breakpoints
+ * @param {string}                printBreakpoint
  * @param {HidpiBreakpointsProps} hidpiBreakpoints
  *
  * @return {null | string}
@@ -70,6 +99,7 @@ const generateDpiMediaQuery = (
 export default function(
   value: string,
   breakpoints: BreakpointsProps = Breakpoints,
+  printBreakpoint: string = 'large',
   hidpiBreakpoints: HidpiBreakpointsProps = HidpiBreakpoints,
 ): string {
   const split = value.split(' ');
@@ -78,6 +108,7 @@ export default function(
   const stdWebDpi = 96;
   // Direction of media query (up, down, or only)
   const direction = split.length > 1 ? split[1] : 'up';
+  const pbp = breakpoints[printBreakpoint];
 
   // Size or keyword
   let bp: string | number = split[0];
@@ -97,7 +128,7 @@ export default function(
   }
 
   if (bp === 'retina') {
-    return '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)';
+    return 'only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi)';
   }
 
   // Since NaN is the only JavaScript value that is treated as unequal to itself (DON`T REMOVE the +bp !== +bp check)
@@ -126,37 +157,52 @@ export default function(
     }
   }
 
-  // Only 'only' and 'up' have a min limit.
-  if (direction === 'only' || direction === 'up') {
+  // Conditions to skip media query creation
+  // - It's a named breakpoint that resolved to "0 down" or "0 up"
+  // - It's a numeric breakpoint that resolved to "0 " + anything
+  if (bp > '0' || bp > 0 || direction === 'only' || direction === 'down') {
+
+    // Only 'only' and 'up' have a min limit.
+    if (direction === 'only' || direction === 'up') {
+      if (hidpi) {
+        bpMin = typeof bp === 'string' ? stripUnit(bp) : bp;
+      } else {
+        bpMin = em(bp);
+      }
+    }
+
+    // Only 'only' and 'down' have a max limit.
+    if (direction === 'only' || direction === 'down') {
+      if (name === null) {
+        if (hidpi) {
+          bpMax = typeof bp === 'string' ? stripUnit(bp) : bp;
+        } else {
+          bpMax = em(bp);
+        }
+      } else if (bpNext !== null) {
+        // If the breakpoint is named, the max limit is the following breakpoint - 1px.
+        if (hidpi) {
+          bpMax = bpNext - 1 / stdWebDpi;
+        } else {
+          bpMax = bpNext - 1 <= 0 ? '0' : `${+stripUnit(em(bpNext)) - 1 / 16}em`;
+        }
+      }
+    }
+
+    // Generate the media query string from min and max limits.
     if (hidpi) {
-      bpMin = typeof bp === 'string' ? stripUnit(bp) : bp;
-    } else {
-      bpMin = bp !== '0' ? em(bp) : null;
+      return generateDpiMediaQuery(bpMin, stdWebDpi, bpMax);
     }
-  }
 
-  // Only 'only' and 'down' have a max limit.
-  if (direction === 'only' || direction === 'down') {
-    if (name === null) {
-      if (hidpi) {
-        bpMax = typeof bp === 'string' ? stripUnit(bp) : bp;
-      } else {
-        bpMax = bp !== '0' ? em(bp) : null;
-      }
-    } else if (bpNext !== null) {
-      // If the breakpoint is named, the max limit is the following breakpoint - 1px.
-      if (hidpi) {
-        bpMax = bpNext - 1 / stdWebDpi;
-      } else {
-        bpMax = bpNext - 1 <= 0 ? '0' : `${+stripUnit(em(bpNext)) - 1 / 16}em`;
-      }
+    let media = strBreakpointJoin(bpMin, bpMax);
+
+    // For named breakpoints less than or equal to printBreakpoint, add print to the media types
+    if (media !== '' && (bp <= pbp || direction === 'down')) {
+      media = `print, ${media}`;
     }
+
+    return media;
   }
 
-  // Generate the media query string from min and max limits.
-  if (hidpi) {
-    return generateDpiMediaQuery(bpMin, stdWebDpi, bpMax);
-  }
-
-  return strBreakpointJoin(bpMin, bpMax);
+  return '';
 }

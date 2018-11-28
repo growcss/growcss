@@ -1,4 +1,4 @@
-import {BreakpointsProps} from './Mediaquery';
+import {BreakpointsProps} from './mediaQuery';
 
 /**
  * Find the next key in object.

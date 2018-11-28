@@ -64,8 +64,7 @@ describe('Breakpoint (Retina)', () => {
 });
 
 describe('Breakpoint (HIDPI Default/Up Range)', () => {
-  const expect15 =
-    '(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)';
+  const expect15 = 'only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 1.5/1), only screen and (min-resolution: 144dpi)';
 
   it('Creates a x1.5 HiDPI up range out of a x1.5 HiDPI breakpoint', () => {
     expect(GetRuleTemplate('hidpi-1-5 up')).toBe(expect15);
@@ -75,15 +74,14 @@ describe('Breakpoint (HIDPI Default/Up Range)', () => {
     expect(GetRuleTemplate('hidpi-1-5')).toBe(expect15);
   });
 
-  const expect2 =
-    '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)';
+  const expect2 = 'only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-resolution: 192dpi)';
 
   it('Creates a x1.5 HiDPI up range out of a x2 HiDPI breakpoint', () => {
     expect(GetRuleTemplate('hidpi-2')).toBe(expect2);
   });
 
   it('Creates a x1.5 HiDPI up range out of a x2 HiDPI breakpoint', () => {
-    expect(GetRuleTemplate('hidpi-2')).toBe(expect2);
+    expect(GetRuleTemplate('hidpi-2 up')).toBe(expect2);
   });
 });
 

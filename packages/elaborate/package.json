@@ -3,22 +3,22 @@
   "version": "0.0.0",
   "description": "A lightweight toolset for writing styles in Javascript.",
   "keywords": [
-    "rem",
-    "em",
-    "sass",
-    "utils",
     "behavior",
     "breakpoint",
-    "media-queries",
-    "media-query",
-    "styled-components",
+    "css-in-js",
+    "em",
     "emotion",
     "glamor",
-    "css-in-js",
     "inline-styles",
+    "media-queries",
+    "media-query",
     "preact",
     "react",
-    "typescript"
+    "rem",
+    "sass",
+    "styled-components",
+    "typescript",
+    "utils"
   ],
   "homepage": "http://growcss.com",
   "repository": "https://github.com/growcss/growcss.git",
@@ -48,5 +48,5 @@
   "engines": {
     "node": "^9.10.0"
   },
-  "moduleName": "gc-elaborate"
+  "moduleName": "elaborate"
 }

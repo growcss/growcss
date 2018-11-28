@@ -1,8 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import remCalc from '@growcss/util-remcalc';
-import { Gutters as DefaultGutters, GuttersProps } from './Gutters';
-import { GridContainerElement } from '../styled/GridContainerElement';
+import {rem} from '@growcss/elaborate';
+import {Gutters as DefaultGutters,GuttersProps} from './Gutters';
+import {GridContainerElement} from '../styled/GridContainerElement';
 
 export interface GridContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode,
@@ -18,7 +18,7 @@ type GridContainerDefaultProps = {
 
 export default class GridContainer extends React.Component<GridContainerProps> {
   static defaultProps: GridContainerDefaultProps = {
-    width: remCalc(1200),
+    width: rem(1200),
     gutterSizes: DefaultGutters,
   };
 

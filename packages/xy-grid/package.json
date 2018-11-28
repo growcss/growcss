@@ -33,8 +33,7 @@
   "browser": "dist/umd/index.js",
   "dependencies": {
     "@growcss/elaborate": "0.0.0",
-    "classnames": "^2.2.5",
-    "polished": "^2.3.0"
+    "classnames": "^2.2.5"
   },
   "devDependencies": {},
   "peerDependencies": {

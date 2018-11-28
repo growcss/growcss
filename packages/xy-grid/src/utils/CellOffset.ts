@@ -1,9 +1,6 @@
-import { stripUnit } from 'polished';
-import mediaquery, { Breakpoints } from '@growcss/behavior-media-queries';
-import { BreakpointsProps } from '@growcss/behavior-media-queries';
-import remCalc from '@growcss/util-remcalc';
-import { Gutters as DefaultGutters, GuttersProps } from '../components/Gutters';
-import { CellSize } from './CellSize';
+import {rem,stripUnit,mediaquery,Breakpoints,BreakpointsProps} from '@growcss/elaborate';
+import {Gutters as DefaultGutters,GuttersProps} from '../components/Gutters';
+import {CellSize} from './CellSize';
 
 export const CellOffset = (
   n: number | string,
@@ -47,7 +44,7 @@ export const CellOffset = (
     lastBreakpoint = + gutters[lastBreakpointName]
   }
 
-  const gutter = remCalc(lastBreakpoint / 2);
+  const gutter = rem(lastBreakpoint / 2);
   const gutterSize =
     gutterType === 'margin' ? `calc(${CellSize(n)} + ${gutter})` : CellSize(n);
   const css = `margin-${direction}: ${gutterSize};`;

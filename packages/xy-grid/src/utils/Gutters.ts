@@ -1,7 +1,5 @@
-import { stripUnit } from 'polished';
-import mediaquery from '@growcss/behavior-media-queries';
-import remCalc from '@growcss/util-remcalc';
-import { GuttersProps } from '../components/Gutters';
+import {rem,stripUnit,mediaquery} from '@growcss/elaborate';
+import {GuttersProps} from '../components/Gutters';
 
 const cssBuilder = (
   gutter: string | number,
@@ -19,7 +17,7 @@ const cssBuilder = (
     gutterSize = stripUnit(gutterSize);
   }
 
-  const rem = remCalc(+gutterSize / 2);
+  const remValue = rem(+gutterSize / 2);
 
   // If the value is already negative, remove the operator and set negative to true.
   if (! isString && gutterSize < 0) {
@@ -33,7 +31,7 @@ const cssBuilder = (
   let css = '';
 
   for (const gutterPositionItem of gutterPosition) {
-    css += `${gType}-${gutterPositionItem}: ${operator}${rem};`;
+    css += `${gType}-${gutterPositionItem}: ${operator}${remValue};`;
   }
 
   return css;

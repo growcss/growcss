@@ -1,5 +1,5 @@
-import remCalc from '@growcss/util-remcalc';
-import { CellSize } from './CellSize';
+import {rem} from '@growcss/elaborate';
+import {CellSize} from './CellSize';
 
 /**
  *  Sets our cell widths or heights depending on gutter type.
@@ -19,7 +19,7 @@ export const CellProperties = (
 
   if (size === 'full') {
     const val =
-      marginGutter === 0 ? '100%' : `calc(100% - ${remCalc(marginGutter)})`;
+      marginGutter === 0 ? '100%' : `calc(100% - ${rem(marginGutter)})`;
 
     return `${direction}: ${val};`;
   } else if (size === 'auto' || size === 'shrink') {
@@ -29,7 +29,7 @@ export const CellProperties = (
   const val =
     marginGutter === 0
       ? CellSize(size)
-      : `calc(${CellSize(size)} - ${remCalc(marginGutter)})`;
+      : `calc(${CellSize(size)} - ${rem(marginGutter)})`;
 
   return `${direction}: ${val};`;
 };
