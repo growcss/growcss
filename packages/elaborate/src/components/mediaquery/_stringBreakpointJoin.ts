@@ -1,4 +1,4 @@
-import { stripUnit } from 'polished';
+import stripUnit from '../stripUnit';
 
 /**
  * Return media query string from the given min and/or max limits.
@@ -6,8 +6,8 @@ import { stripUnit } from 'polished';
  *
  * @param {null | number | string} min     Min media query limit.
  * @param {null | number | string} max     Max media query limit.
- * @param {string} minName Name of the min media query limit. Default: min-width
- * @param {string} maxName Name of the max media query limit. Default: max-width
+ * @param {string}                 minName Name of the min media query limit. Default: min-width
+ * @param {string}                 maxName Name of the max media query limit. Default: max-width
  *
  * @return {string}
  */

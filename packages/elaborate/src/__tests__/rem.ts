@@ -5,7 +5,7 @@ describe('Convert to Rem', () => {
     const expected = '2rem';
 
     expect(rem(32)).toBe(expected);
-    expect(rem('2em')).toBe(expected);
+    expect(rem('2rem')).toBe(expected);
   });
 
   it('Converts a 0rem and 0em to 0', () => {
@@ -17,7 +17,7 @@ describe('Convert to Rem', () => {
     const expected = '4rem';
 
     expect(rem(32, 8)).toBe(expected);
-    expect(rem('4em', '8px')).toBe(expected);
+    expect(rem('4rem', '8px')).toBe(expected);
     expect(rem('16px', '8px')).toBe('2rem');
   });
 });
@@ -27,7 +27,7 @@ describe('Convert To Rem with changed base value', () => {
     expect(rem(32, 8)).toBe('4rem');
     expect(rem('16px', '8px')).toBe('2rem');
     expect(rem(2, '50%')).toBe('0.25rem');
-    expect(rem('2em', '16rem')).toBe('2rem');
+    expect(rem('2rem', '16rem')).toBe('2rem');
   });
 });
 

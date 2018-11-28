@@ -1,9 +1,10 @@
-import { stripUnit, rem } from 'polished';
+import _remCalc from './_remCalc';
 
 /**
+ * Converts one or more pixel values into matching rem values.
  *
- * @param {string | number | Array<string | number>} values
- * @param {number | string}                          base
+ * @param {string | number | Array<string | number>} values One or more values to convert.
+ * @param {number | string}                          base   The base value to use when calculating the `rem`.
  *
  * @return {string}
  */
@@ -11,39 +12,22 @@ export default (
   values: string | number | Array<string | number>,
   base: number | string = 16,
 ): string => {
-  let baseRem: number = +base;
-
-  if (typeof base === 'string') {
-    // If the base font size is a %, then multiply it by 16px
-    // This is because 100% font size = 16px in most all browsers
-    if (base.includes('%')) {
-      baseRem = +stripUnit(base) / 100 * 16;
-    } else if (base.includes('rem')) {
-      // Using rem as base allows correct scaling
-      baseRem = +stripUnit(base) * 16;
-    }
-  }
-
-  if (typeof values === 'string' || typeof values === 'number') {
-    const remValue = rem(values, baseRem);
-
-    if (['0rem', 'nullrem', '0rem'].includes(remValue)) {
+  if (typeof values === 'string' && values.includes('rem')) {
+    if (values === '0rem') {
       return '0';
     }
 
-    return remValue;
+    return values;
+  }
+
+  if (typeof values === 'string' || typeof values === 'number') {
+    return _remCalc(values, base);
   }
 
   const remValues: string[] = [];
 
   values.forEach(value => {
-    let remValue = rem(value, baseRem);
-
-    if (['0rem', 'nullrem', '0rem'].includes(remValue)) {
-      remValue = '0px';
-    }
-
-    remValues.push(remValue);
+    remValues.push(_remCalc(value, base));
   });
 
   return remValues.join(' ');

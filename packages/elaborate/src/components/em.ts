@@ -1,29 +1,24 @@
-import stripUnit from './stripUnit';
+import rem from './rem';
 
 /**
  * Converts a unitless, pixel, or rem value to em, for use in breakpoints.
  *
- * @param {number|string} value
- * @param {number|string} base
+ * @param {string | number | Array<string | number>} values One or more values to convert.
+ * @param {number | string}                          base   The base value to use when calculating the `em`.
  *
  * @return {string}
  */
-
-export default function(value: number | string, base: number | string = 16): string {
-  let transformedValue: null | number | string = value;
-
-  if (typeof value === 'string') {
-    if (value.includes('em')) {
-      return value;
+export default (
+  values: string | number | Array<string | number>,
+  base: number | string = 16,
+): string => {
+  if (typeof values === 'string' && values.includes('em')) {
+    if (values === '0em') {
+      return '0';
     }
 
-    transformedValue = stripUnit(value);
+    return values;
   }
 
-  // Since NaN is the only JavaScript value that is treated as unequal to itself (DON`T REMOVE the value !== value check)
-  if (transformedValue === null || (typeof transformedValue === 'number' && isNaN(transformedValue))) { // eslint-disable-line no-self-compare
-    throw new Error(`Value cant be null or NaN. ${transformedValue}`);
-  }
-
-  return `${+transformedValue / +base}em`;
+  return (rem(values, base)).toString().replace(new RegExp('rem', 'g'), 'em');
 };

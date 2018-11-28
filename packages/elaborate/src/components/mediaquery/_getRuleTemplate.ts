@@ -1,7 +1,9 @@
-import { stripUnit } from 'polished';
-import { Breakpoints as DefaultBreakpoints, BreakpointsProps } from './Breakpoints';
-import { HidpiBreakpoints, HidpiBreakpointsProps } from './HidpiBreakpoints';
-import { mapNext, mapNextNumber, strBreakpointJoin, em } from '../utils';
+import mapNext from './_mapNext';
+import mapNextNumber from './_mapNextNumber';
+import strBreakpointJoin from './_stringBreakpointJoin';
+import stripUnit from '../stripUnit';
+import {BreakpointsProps,HidpiBreakpointsProps,Breakpoints,HidpiBreakpoints} from './Mediaquery';
+import em from '../em';
 
 const warning = require('warning');
 
@@ -61,14 +63,14 @@ const generateDpiMediaQuery = (
  *
  * @param {string}                value
  * @param {BreakpointsProps}      breakpoints
- * @param {HidpiBreakpointsProps} hidpibreakpoints
+ * @param {HidpiBreakpointsProps} hidpiBreakpoints
  *
  * @return {null | string}
  */
 export default function(
   value: string,
-  breakpoints: BreakpointsProps = DefaultBreakpoints,
-  hidpibreakpoints: HidpiBreakpointsProps = HidpiBreakpoints,
+  breakpoints: BreakpointsProps = Breakpoints,
+  hidpiBreakpoints: HidpiBreakpointsProps = HidpiBreakpoints,
 ): string {
   const split = value.split(' ');
   // Web standard Pixels per inch. (1ddpx / $std-web-dpi) = 1dpi
@@ -105,10 +107,10 @@ export default function(
       name = bp;
       bp = breakpoints[name];
       bpNext = mapNext(breakpoints, name);
-    } else if (bp in hidpibreakpoints) {
+    } else if (bp in hidpiBreakpoints) {
       name = bp;
-      bp = hidpibreakpoints[name];
-      bpNext = mapNextNumber(hidpibreakpoints, +bp);
+      bp = hidpiBreakpoints[name];
+      bpNext = mapNextNumber(hidpiBreakpoints, +bp);
       hidpi = true;
     } else {
       warning(

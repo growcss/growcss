@@ -1,4 +1,4 @@
-import mediaquery from '../index';
+import mediaquery from './../components/mediaquery/Mediaquery';
 
 describe('Styled components test', () => {
   it('Returns a max-width media query with content', () => {

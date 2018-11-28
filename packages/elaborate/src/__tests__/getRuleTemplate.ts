@@ -1,4 +1,4 @@
-import { GetRuleTemplate } from '../index';
+import GetRuleTemplate from './../components/mediaquery/_getRuleTemplate';
 
 describe('Breakpoint (Named Default/Up Range)', () => {
   it('Converts a named breakpoint to an em value', () => {

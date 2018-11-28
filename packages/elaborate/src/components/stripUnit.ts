@@ -5,7 +5,7 @@
  *
  * @return {null|number}
  */
-export default function(value: string | number): null | number {
+export default function(value: string | number): number {
   let unit = value;
 
   if (typeof value === 'string') {
@@ -13,7 +13,7 @@ export default function(value: string | number): null | number {
   }
 
   if (unit === '') {
-    return null;
+    throw new Error('An empty string was given for value.');
   }
 
   return Number(unit);

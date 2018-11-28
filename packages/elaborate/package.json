@@ -4,15 +4,19 @@
   "description": "A lightweight toolset for writing styles in Javascript.",
   "keywords": [
     "rem",
-    "rem-calc",
-    "remcalc",
+    "em",
     "sass",
     "utils",
+    "behavior",
+    "breakpoint",
+    "media-queries",
+    "media-query",
     "styled-components",
     "emotion",
     "glamor",
     "css-in-js",
     "inline-styles",
+    "preact",
     "react",
     "typescript"
   ],
@@ -35,9 +39,12 @@
   },
   "browser": "dist/umd/index.js",
   "dependencies": {
-    "polished": "^2.3.0"
+    "warning": "^4.0.2"
   },
-  "peerDependencies": {},
+  "devDependencies": {},
+  "peerDependencies": {
+    "styled-components": "^4.0.1"
+  },
   "engines": {
     "node": "^9.10.0"
   },

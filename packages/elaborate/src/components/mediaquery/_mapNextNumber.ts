@@ -1,5 +1,4 @@
-import { BreakpointsProps } from '../components/Breakpoints';
-import {HidpiBreakpointsProps} from '..';
+import {BreakpointsProps,HidpiBreakpointsProps} from './Mediaquery';
 
 /**
  * Find the next number in object.
