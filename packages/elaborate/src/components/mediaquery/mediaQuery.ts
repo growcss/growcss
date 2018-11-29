@@ -13,6 +13,12 @@ export interface HidpiBreakpointsProps {
   'hidpi-3': number,
 }
 
+export interface MediaQueryOptionsProps {
+  printBreakpoint: string,
+  breakpoints: BreakpointsProps,
+  hidpiBreakpoints: HidpiBreakpointsProps,
+}
+
 /**
  * A list of named breakpoints. You can use these with the `breakpoint` mixin to quickly create media queries.
  *
@@ -40,6 +46,12 @@ export const HidpiBreakpoints: HidpiBreakpointsProps = {
   'hidpi-3': 3,
 };
 
+export const MediaQueryOptions: MediaQueryOptionsProps = {
+  printBreakpoint: 'large',
+  breakpoints: Breakpoints,
+  hidpiBreakpoints: HidpiBreakpoints
+};
+
 /**
  * Wraps a media query around the content you put inside the function. This mixin accepts a number of values:
  *  - If a string is passed, the mixin will look for it in the `$breakpoints` map, and use a media query there.
@@ -47,25 +59,23 @@ export const HidpiBreakpoints: HidpiBreakpointsProps = {
  *  - If a rem value is passed, the unit will be changed to em.
  *  - If an em value is passed, the value will be used as-is.
  *
- * @param {string}                value            Breakpoint name, or px, rem, or em value to process.
- * @param {BreakpointsProps}      breakpoints
- * @param {string}                printBreakpoint
- * @param {HidpiBreakpointsProps} hidpiBreakpoints
+ * @param {string}                 value             Breakpoint name, or px, rem, or em value to process.
+ * @param {MediaQueryOptionsProps} mediaQueryOptions
  *
  * @return {function(...any)} If the breakpoint is "0px and larger", outputs the content as-is. Otherwise, outputs the content wrapped in a media query.
  */
 export default (
   value: string = 'small',
-  breakpoints: BreakpointsProps = Breakpoints,
-  printBreakpoint: string = 'large',
-  hidpiBreakpoints: HidpiBreakpointsProps = HidpiBreakpoints
+  mediaQueryOptions: MediaQueryOptionsProps | null = null
 ) => {
-  if (breakpoints[Object.keys(breakpoints)[0]] !== 0) {
-    throw new Error(`Your smallest breakpoint (defined in ${breakpoints}) must be set to "0".`);
+  const options = mediaQueryOptions !== null ? mediaQueryOptions : MediaQueryOptions;
+
+  if (options.breakpoints[Object.keys(options.breakpoints)[0]] !== 0) {
+    throw new Error(`Your smallest breakpoint (defined in ${options.breakpoints}) must be set to "0".`);
   }
   
   return (...args: any) => { // @TODO fix type hint
-    const template = GetRuleTemplate(value, breakpoints, printBreakpoint,hidpiBreakpoints);
+    const template = GetRuleTemplate(value, options);
     const regex = /\(.*\)/;
 
     if (regex.exec(template) !== null) {

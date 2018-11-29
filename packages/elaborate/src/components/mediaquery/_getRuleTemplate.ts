@@ -2,7 +2,7 @@ import mapNext from './_mapNext';
 import mapNextNumber from './_mapNextNumber';
 import strBreakpointJoin from './_stringBreakpointJoin';
 import stripUnit from '../stripUnit';
-import {BreakpointsProps,HidpiBreakpointsProps,Breakpoints,HidpiBreakpoints} from './mediaQuery';
+import {MediaQueryOptionsProps} from './mediaQuery';
 import em from '../em';
 
 const warning = require('warning');
@@ -47,60 +47,60 @@ const generateDpiMediaQuery = (
     bpMaxSize = parseFloat(`${bpMaxSize}`).toFixed(5);
   }
 
-  let template = onlyScreen + strBreakpointJoin(
+  let template = '';
+  let query = strBreakpointJoin(
     bpMinSize,
     bpMaxSize,
     '-webkit-min-device-pixel-ratio',
     '-webkit-max-device-pixel-ratio',
   );
 
-  if (template !== '') {
-    template += ', ';
+  if (query !== '') {
+    template += `${onlyScreen}${query}, `;
   }
 
-  template += onlyScreen + strBreakpointJoin(
+  query = strBreakpointJoin(
     bpMinSize,
     bpMaxSize,
     'min--moz-device-pixel-ratio',
     'max--moz-device-pixel-ratio',
   );
 
-  if (template !== '') {
-    template += ', ';
+  if (query !== '') {
+    template += `${onlyScreen}${query}, `;
   }
 
-  template += onlyScreen + strBreakpointJoin(
-    bpMinSize !== null ? `${bpMinSize}/1` : null,
-    bpMaxSize !== null ? `${bpMaxSize}/1` : null,
+  query = strBreakpointJoin(
+    bpMinSize !== null ? `${+bpMinSize * 2}/2` : null,
+    bpMaxSize !== null ? `${+bpMaxSize * 2}/2` : null,
     '-o-min-device-pixel-ratio',
     '-o-max-device-pixel-ratio',
   );
 
-  if (template !== '') {
-    template += ', ';
+  if (query !== '') {
+    template += `${onlyScreen}${query}, `;
   }
 
-  return (
-    template + onlyScreen +
-    strBreakpointJoin(bpMinDpi, bpMaxDpi, 'min-resolution', 'max-resolution')
-  );
+  query = strBreakpointJoin(bpMinDpi, bpMaxDpi, 'min-resolution', 'max-resolution');
+
+  if (query !== '') {
+    template += `${onlyScreen}${query}`;
+  }
+
+  return template;
 };
 
 /**
  * Generates a media query template string matching the input value.
  *
- * @param {string}                value
- * @param {BreakpointsProps}      breakpoints
- * @param {string}                printBreakpoint
- * @param {HidpiBreakpointsProps} hidpiBreakpoints
+ * @param {string}                 value
+ * @param {MediaQueryOptionsProps} options
  *
  * @return {null | string}
  */
 export default function(
   value: string,
-  breakpoints: BreakpointsProps = Breakpoints,
-  printBreakpoint: string = 'large',
-  hidpiBreakpoints: HidpiBreakpointsProps = HidpiBreakpoints,
+  options: MediaQueryOptionsProps
 ): string {
   const split = value.split(' ');
   // Web standard Pixels per inch. (1ddpx / $std-web-dpi) = 1dpi
@@ -108,7 +108,7 @@ export default function(
   const stdWebDpi = 96;
   // Direction of media query (up, down, or only)
   const direction = split.length > 1 ? split[1] : 'up';
-  const pbp = breakpoints[printBreakpoint];
+  const pbp = options.breakpoints[options.printBreakpoint];
 
   // Size or keyword
   let bp: string | number = split[0];
@@ -134,14 +134,14 @@ export default function(
   // Since NaN is the only JavaScript value that is treated as unequal to itself (DON`T REMOVE the +bp !== +bp check)
   // eslint-disable-next-line no-self-compare
   if (+bp !== +bp) {
-    if (bp in breakpoints) {
+    if (bp in options.breakpoints) {
       name = bp;
-      bp = breakpoints[name];
-      bpNext = mapNext(breakpoints, name);
-    } else if (bp in hidpiBreakpoints) {
+      bp = options.breakpoints[name];
+      bpNext = mapNext(options.breakpoints, name);
+    } else if (bp in options.hidpiBreakpoints) {
       name = bp;
-      bp = hidpiBreakpoints[name];
-      bpNext = mapNextNumber(hidpiBreakpoints, +bp);
+      bp = options.hidpiBreakpoints[name];
+      bpNext = mapNextNumber(options.hidpiBreakpoints, +bp);
       hidpi = true;
     } else {
       warning(
@@ -157,11 +157,14 @@ export default function(
     }
   }
 
+  if (bp === value) {
+    return '';
+  }
+
   // Conditions to skip media query creation
   // - It's a named breakpoint that resolved to "0 down" or "0 up"
   // - It's a numeric breakpoint that resolved to "0 " + anything
   if (bp > '0' || bp > 0 || direction === 'only' || direction === 'down') {
-
     // Only 'only' and 'up' have a min limit.
     if (direction === 'only' || direction === 'up') {
       if (hidpi) {
@@ -194,14 +197,18 @@ export default function(
       return generateDpiMediaQuery(bpMin, stdWebDpi, bpMax);
     }
 
-    let media = strBreakpointJoin(bpMin, bpMax);
+    let query = strBreakpointJoin(bpMin, bpMax);
 
-    // For named breakpoints less than or equal to printBreakpoint, add print to the media types
-    if (media !== '' && (bp <= pbp || direction === 'down')) {
-      media = `print, ${media}`;
+    if (query !== '') {
+      query = `only screen and ${query}`;
+      // For named breakpoints less than or equal to printBreakpoint, add print to the media types
+      if (bp <= pbp || direction === 'down') {
+        // query = `print, ${query}`;
+        query = `${query}`;
+      }
     }
 
-    return media;
+    return query;
   }
 
   return '';
