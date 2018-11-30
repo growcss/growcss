@@ -1,5 +1,52 @@
-import GetRuleTemplate from './../components/mediaquery/_getRuleTemplate';
+import GetRuleTemplate, {allowedTypes} from './../components/mediaquery/_getRuleTemplate';
 import {MediaQueryOptions} from './../components/mediaquery/mediaQuery';
+
+describe('Media query allowed types', () => {
+  it('allowed types', () => {
+    allowedTypes.forEach(function (value) {
+      expect(GetRuleTemplate(value, MediaQueryOptions)).toBe(value);
+      expect(GetRuleTemplate(`not ${value}`, MediaQueryOptions)).toBe(`not ${value}`);
+    })
+  });
+});
+
+describe('Level 3 Media query types', () => {
+  it('css3 media queries', () => {
+    expect(GetRuleTemplate('all', MediaQueryOptions)).toBe('all');
+    expect(GetRuleTemplate('all and (min-width:500px)', MediaQueryOptions)).toBe('all and (min-width:500px)');
+    expect(GetRuleTemplate('(min-width:500px)', MediaQueryOptions)).toBe('(min-width:500px)');
+    expect(GetRuleTemplate('all and (orientation:portrait)', MediaQueryOptions)).toBe('all and (orientation:portrait)');
+    expect(GetRuleTemplate('screen and (device-aspect-ratio: 16/9)', MediaQueryOptions)).toBe('screen and (device-aspect-ratio: 16/9)');
+    expect(GetRuleTemplate('screen and (color), projection and (color)', MediaQueryOptions)).toBe('screen and (color), projection and (color)');
+    expect(GetRuleTemplate('all and (min-color: 1)', MediaQueryOptions)).toBe('all and (min-color: 1)');
+    expect(GetRuleTemplate('all and (color-index)', MediaQueryOptions)).toBe('all and (color-index)');
+    expect(GetRuleTemplate('all and (min-color-index: 1)', MediaQueryOptions)).toBe('all and (min-color-index: 1)');
+    expect(GetRuleTemplate('all and (monochrome)', MediaQueryOptions)).toBe('all and (monochrome)');
+    expect(GetRuleTemplate('all and (min-monochrome: 1)', MediaQueryOptions)).toBe('all and (min-monochrome: 1)');
+    expect(GetRuleTemplate('print and (min-resolution: 300dpi)', MediaQueryOptions)).toBe('print and (min-resolution: 300dpi)');
+    expect(GetRuleTemplate('tv and (scan: progressive)', MediaQueryOptions)).toBe('tv and (scan: progressive)');
+    expect(GetRuleTemplate('handheld and (grid) and (max-width: 15em)', MediaQueryOptions)).toBe('handheld and (grid) and (max-width: 15em)');
+    expect(GetRuleTemplate('handheld and (grid) and (device-max-height: 7em)', MediaQueryOptions)).toBe('handheld and (grid) and (device-max-height: 7em)');
+    expect(GetRuleTemplate('screen and (min-width: 400px) and (max-width: 700px)', MediaQueryOptions)).toBe('screen and (min-width: 400px) and (max-width: 700px)');
+    expect(GetRuleTemplate('handheld and (min-width: 20em), screen and (min-width: 20em)', MediaQueryOptions)).toBe('handheld and (min-width: 20em), screen and (min-width: 20em)');
+  });
+
+  it('not allowed css3 media queries', () => {
+    expect(GetRuleTemplate('(min-width: -100px)', MediaQueryOptions)).toThrowError('Negative lengths are not allowed for the ‘width’ media feature');
+    expect(GetRuleTemplate('all and(color)', MediaQueryOptions)).toThrowError('Having no space between "and" and the expression is not allowed');
+    expect(GetRuleTemplate('(min-resolution: 118d)', MediaQueryOptions)).toThrowError('The resolution value must be followed by a unit identifier ("dpi" or "dpcm").');
+  });
+});
+
+
+describe('Level 4 Media query features', () => {
+  it('Media features with a “range” type', () => {
+    expect(GetRuleTemplate('(height > 600px)', MediaQueryOptions)).toBe('(height > 600px)');
+    expect(GetRuleTemplate('(600px < height)', MediaQueryOptions)).toBe('(600px < height)');
+    expect(GetRuleTemplate('(400px < width < 1000px)', MediaQueryOptions)).toBe('(400px < width < 1000px)');
+    expect(GetRuleTemplate('not (width <= -100px)', MediaQueryOptions)).toBe('not (width <= -100px)');
+  });
+});
 
 describe('Breakpoint (Named Default/Up Range)', () => {
   it('Converts a named breakpoint to an em value', () => {
