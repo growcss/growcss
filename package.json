@@ -40,6 +40,7 @@
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.1.0",
     "@babel/plugin-transform-regenerator": "^7.0.0",
     "@babel/plugin-transform-typescript": "^7.1.0",
     "@babel/polyfill": "^7.0.0",
@@ -72,7 +73,6 @@
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "babel-plugin-external-helpers": "^6.22.0",
-    "babel-plugin-polished": "^1.1.0",
     "babel-plugin-require-context-hook": "^1.0.0",
     "babel-plugin-styled-components": "^1.8.0",
     "babel-plugin-syntax-decorators": "^6.13.0",
@@ -110,7 +110,6 @@
     "jsdom-global": "^3.0.2",
     "lerna": "^3.4.3",
     "lint-staged": "^8.0.4",
-    "polished": "^2.3.0",
     "preact": "^8.2.7",
     "preact-compat": "^3.18.0",
     "prettier": "^1.10.2",
@@ -181,5 +180,8 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }

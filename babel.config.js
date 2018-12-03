@@ -3,8 +3,8 @@ module.exports = {
     '@babel/plugin-proposal-class-properties',
     '@babel/plugin-proposal-object-rest-spread',
     '@babel/plugin-syntax-dynamic-import',
+    '@babel/plugin-transform-modules-commonjs',
     'babel-plugin-styled-components',
-    'polished'
   ],
   presets: [
     '@babel/react'
@@ -22,9 +22,6 @@ module.exports = {
     'storybook': {
       'presets': [
         '@babel/preset-env',
-        {
-          'modules': false
-        }
       ],
       'plugins': [
         '@babel/plugin-transform-regenerator'
@@ -33,10 +30,7 @@ module.exports = {
     'production': {
       'presets': [
         [
-          '@babel/preset-env',
-          {
-            'modules': false
-          }
+          '@babel/preset-env'
         ]
       ],
       'plugins': [

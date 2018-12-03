@@ -88,7 +88,7 @@ withOptions({
 storybook.addDecorator(checkA11y);
 
 // automatically import all files ending with *.stories.js
-const req = require.context('..', true, /packages\/((?!node_modules).)*__stories__\/[^\/]+\.[js|tsx]+$/);
+const req = require.context('..', true, /packages\/((?!node_modules).)*__stories__\/[^\/]+\.(js|tsx)+$/);
 
 function loadStories() {
   req.keys().forEach(filename => req(filename));
