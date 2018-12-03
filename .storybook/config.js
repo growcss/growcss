@@ -86,7 +86,7 @@ withOptions({
 });
 
 // automatically import all files ending with *.stories.js
-const stories = require.context('../packages', true, /.stories.tsx$/);
+const stories = require.context('..', true, /packages\/((?!node_modules).)*__stories__\/[^\/]+\.[js|tsx]+$/);
 
 addDecorator(checkA11y);
 

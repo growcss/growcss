@@ -29,8 +29,7 @@ module.exports = {
         ]
       ],
       'plugins': [
-        '@babel/plugin-transform-regenerator',
-        '@babel/plugin-external-helpers'
+        '@babel/plugin-transform-regenerator'
       ]
     }
   }

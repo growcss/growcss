@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { storiesOf } from '@storybook/react';
-import { Cell, GridX, GridY } from '../src/index';
+import { Cell, GridX, GridY } from '../index';
 
 const CustomGridX = styled(GridX)`
   height: 200px;

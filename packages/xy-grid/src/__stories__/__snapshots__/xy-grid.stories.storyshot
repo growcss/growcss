@@ -70,12 +70,12 @@ exports[`Storyshots XY-Grid GridX gutter type with margin 1`] = `
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 jOJmho"
+    className="gc-cell CellElement-o119kl-0 iPtIBG"
   >
     12/6/4 cells
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 iJYhtk"
+    className="gc-cell CellElement-o119kl-0 boNXTv"
   >
     12/6/8 cells
   </div>
@@ -88,12 +88,12 @@ exports[`Storyshots XY-Grid GridX gutter type with padding 1`] = `
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 erQkST"
+    className="gc-cell CellElement-o119kl-0 iPXXsR"
   >
     12/6/4 cells
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 fTZJEG"
+    className="gc-cell CellElement-o119kl-0 eVzabg"
   >
     12/6/8 cells
   </div>
@@ -268,12 +268,12 @@ exports[`Storyshots XY-Grid GridX with 6/8/2 and 6/4/10 cells 1`] = `
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 jaORmz"
+    className="gc-cell CellElement-o119kl-0 gpeRkh"
   >
     6/8/2 cells
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 bhPzbj"
+    className="gc-cell CellElement-o119kl-0 dKCHBa"
   >
     6/4/10 cells
   </div>
@@ -286,12 +286,12 @@ exports[`Storyshots XY-Grid GridX with 12/6/4 and 12/6/8 cells 1`] = `
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 cQnjxo"
+    className="gc-cell CellElement-o119kl-0 jAHHvL"
   >
     12/6/4 cells
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 fVEJnZ"
+    className="gc-cell CellElement-o119kl-0 deEkAk"
   >
     12/6/8 cells
   </div>
@@ -312,24 +312,6 @@ exports[`Storyshots XY-Grid GridX with a full width cell 1`] = `
     className="gc-cell CellElement-o119kl-0 ePEyAR"
   >
     full width cell
-  </div>
-</div>
-`;
-
-exports[`Storyshots XY-Grid GridX with offset of 2 to a large cell 1`] = `
-<div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
-  wrap={true}
->
-  <div
-    className="gc-cell CellElement-o119kl-0 hSnSmL"
-  >
-    Offset 2 on large
-  </div>
-  <div
-    className="gc-cell CellElement-o119kl-0 hixAQG"
-  >
-    4 cells
   </div>
 </div>
 `;
@@ -399,32 +381,32 @@ exports[`Storyshots XY-Grid To switch back to the auto behavior from a percentag
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 dldBVH"
+    className="gc-cell CellElement-o119kl-0 fELQLj"
   >
     One
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 dldBVH"
+    className="gc-cell CellElement-o119kl-0 fELQLj"
   >
     Two
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 dldBVH"
+    className="gc-cell CellElement-o119kl-0 fELQLj"
   >
     Three
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 dldBVH"
+    className="gc-cell CellElement-o119kl-0 fELQLj"
   >
     Four
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 dldBVH"
+    className="gc-cell CellElement-o119kl-0 fELQLj"
   >
     Five
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 dldBVH"
+    className="gc-cell CellElement-o119kl-0 fELQLj"
   >
     Six
   </div>

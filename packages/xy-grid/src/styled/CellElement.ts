@@ -35,11 +35,11 @@ const BreakpointGutterCss = (props: GutterCssProps) => {
   return breakpoints;
 };
 
-type CellOffsetCssProps = {
-  [key: string]: number,
-} & GutterCssProps
+// type CellOffsetCssProps = {
+//   [key: string]: number,
+// } & GutterCssProps
 
-const CellOffsetCss = (props: CellOffsetCssProps) => {
+const CellOffsetCss = (props) => {
   let css = [];
 
   for(const breakpoint in Breakpoints) {
@@ -79,7 +79,7 @@ const ResponsiveCellCss = (props: ResponsiveCellCssProps) => {
 export type CellElementProps = {
     gutterType: string | undefined,
     align: string | null | undefined
-} & ResponsiveCellCssProps & CellOffsetCssProps
+} & ResponsiveCellCssProps
 
 export const CellElement = styled.div<CellElementProps>`
   ${props => ResponsiveCellCss(props)}

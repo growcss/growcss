@@ -5,7 +5,9 @@ import { toMatchSnapshot } from 'jest-snapshot';
 import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
 import { createSerializer } from 'enzyme-to-json';
 
-registerRequireContextHook();
+if (process.env.NODE_ENV === 'test') {
+  registerRequireContextHook();
+}
 
 let consoleError;
 let consoleWarn;
