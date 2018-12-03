@@ -42,7 +42,9 @@ describe('Strip units', () => {
   });
 
   it('should be equal null', () => {
-    expect(stripUnit('foo')).toBe(null);
+    expect(() => {
+      stripUnit('foo');
+    }).toThrowError(new Error('An empty string was given for value.'));
   });
 
   it('should be equal 100', () => {

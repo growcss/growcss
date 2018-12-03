@@ -1,4 +1,5 @@
 import _remCalc from './_remCalc';
+import getValueAndUnit from './getValueAndUnit';
 
 /**
  * Converts one or more pixel values into matching rem values.
@@ -12,15 +13,21 @@ export default (
   values: string | number | Array<string | number>,
   base: number | string = 16,
 ): string => {
-  if (typeof values === 'string' && values.includes('rem')) {
-    if (values === '0rem') {
-      return '0';
+  if (typeof values === 'string') {
+    const match = getValueAndUnit(values);
+
+    if (match[1] === 'rem') {
+      if (match[0] === 0) {
+        return '0';
+      }
+
+      return values;
     }
 
-    return values;
+    return _remCalc(values, base);
   }
 
-  if (typeof values === 'string' || typeof values === 'number') {
+  if (typeof values === 'number') {
     return _remCalc(values, base);
   }
 

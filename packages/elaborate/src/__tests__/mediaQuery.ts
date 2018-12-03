@@ -6,28 +6,28 @@ describe('Styled components test', () => {
     expect(mediaquery('small')`display:none;`).toEqual(['display:none;']);
     expect(mediaquery('medium')`display:none;`).toEqual([
       '@media ',
-      '(min-width: 40em)',
+      'only screen and (min-width: 40em)',
       ' { ',
       'display:none;',
       ' }',
     ]);
     expect(mediaquery('large')`display:none;`).toEqual([
       '@media ',
-      '(min-width: 64em)',
+      'only screen and (min-width: 64em)',
       ' { ',
       'display:none;',
       ' }',
     ]);
     expect(mediaquery('xlarge')`display:none;`).toEqual([
       '@media ',
-      '(min-width: 75em)',
+      'only screen and (min-width: 75em)',
       ' { ',
       'display:none;',
       ' }',
     ]);
     expect(mediaquery('xxlarge')`display:none;`).toEqual([
       '@media ',
-      '(min-width: 90em)',
+      'only screen and (min-width: 90em)',
       ' { ',
       'display:none;',
       ' }',

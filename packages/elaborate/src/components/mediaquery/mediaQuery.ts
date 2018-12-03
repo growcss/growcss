@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import GetRuleTemplate from './_getRuleTemplate';
+import MediaQueryTemplate from './_mediaQueryTemplate';
 
 export interface BreakpointsProps {
   [key: string]: number
@@ -14,9 +14,10 @@ export interface HidpiBreakpointsProps {
 }
 
 export interface MediaQueryOptionsProps {
-  printBreakpoint: string,
+  printBreakpoint: string,                 // The largest named breakpoint in which to include print as a media type
   breakpoints: BreakpointsProps,
   hidpiBreakpoints: HidpiBreakpointsProps,
+  stdWebDpi: number
 }
 
 /**
@@ -37,6 +38,8 @@ export const Breakpoints: BreakpointsProps = {
  * Values must represent the device pixels / web pixels ration and be unitless or in DPPX.
  *
  * @type {{'hidpi-1': number, 'hidpi-1-5': number, 'hidpi-2': number, retina: number, 'hidpi-3': number}}
+ *
+ * @see https://bjango.com/articles/min-device-pixel-ratio/
  */
 export const HidpiBreakpoints: HidpiBreakpointsProps = {
   'hidpi-1': 1,
@@ -49,8 +52,13 @@ export const HidpiBreakpoints: HidpiBreakpointsProps = {
 export const MediaQueryOptions: MediaQueryOptionsProps = {
   printBreakpoint: 'large',
   breakpoints: Breakpoints,
-  hidpiBreakpoints: HidpiBreakpoints
+  hidpiBreakpoints: HidpiBreakpoints,
+  // Web standard Pixels per inch. (1ddpx / stdWebDpi) = 1dpi
+  // See https://www.w3.org/TR/css-values-3/#absolute-lengths
+  stdWebDpi: 96,
 };
+
+const mediaQueryTemplate = new MediaQueryTemplate(MediaQueryOptions);
 
 /**
  * Wraps a media query around the content you put inside the function. This mixin accepts a number of values:
@@ -75,10 +83,13 @@ export default (
   }
   
   return (...args: any) => { // @TODO fix type hint
-    const template = GetRuleTemplate(value, options);
-    const regex = /\(.*\)/;
+    if (mediaQueryOptions !== null) {
+      mediaQueryTemplate.setOption(mediaQueryOptions);
+    }
 
-    if (regex.exec(template) !== null) {
+    const template = mediaQueryTemplate.render(value);
+
+    if (template !== '') {
       // @ts-ignore
       return css`@media ${template} { ${css(...args)} }`;
     }
