@@ -17,8 +17,6 @@ const env = process.env.NODE_ENV;
 const pkg = require(`${__dirname}/../packages/${process.env.PACKAGE_PATH}/package.json`);
 const babelConfig = require(`${__dirname}/../babel.config.js`);
 
-let babelEnvConfig = babelConfig['env'][env];
-
 const commonPlugins = [
   peerDepsExternal(),
   typescript(),
@@ -37,8 +35,8 @@ const commonPlugins = [
   babel({
     exclude: 'node_modules/**',
     babelrc: false,
-    presets: babelEnvConfig.presets,
-    plugins: babelEnvConfig.plugins,
+    presets: babelConfig.presets,
+    plugins: babelConfig.plugins,
     externalHelpers: true
   }),
   sourceMaps(),
@@ -48,7 +46,7 @@ const commonPlugins = [
   }),
 ];
 
-const configBase = {
+const baseConfig = {
   input: 'src/index.ts',
   external: ['react'].concat(
     Object.keys(pkg.dependencies || {}),
@@ -56,7 +54,7 @@ const configBase = {
   plugins: commonPlugins,
 };
 
-const umdConfig = Object.assign({}, configBase, {
+const umdConfig = Object.assign({}, baseConfig, {
   output: {
     file: pkg.browser,
     format: 'umd',
@@ -65,7 +63,7 @@ const umdConfig = Object.assign({}, configBase, {
     sourcemap: true,
     globals: {},
   },
-  plugins: configBase.plugins.concat(
+  plugins: baseConfig.plugins.concat(
     uglify({
       sourcemap: true,
       compress: {
@@ -80,7 +78,7 @@ const umdConfig = Object.assign({}, configBase, {
   ),
 });
 
-const browserEsConfig = Object.assign({}, configBase, {
+const browserEsConfig = Object.assign({}, baseConfig, {
   output: [
     {
       file: pkg.module,
@@ -88,13 +86,13 @@ const browserEsConfig = Object.assign({}, configBase, {
       sourcemap: true,
     }
   ],
-  plugins: configBase.plugins.concat(
+  plugins: baseConfig.plugins.concat(
     cleanup(),
     terser(),
   ),
 });
 
-const browserCjsConfig = Object.assign({}, configBase, {
+const browserCjsConfig = Object.assign({}, baseConfig, {
   output: [
     {
       file: pkg.main,
@@ -103,7 +101,7 @@ const browserCjsConfig = Object.assign({}, configBase, {
       sourcemap: true,
     },
   ],
-  plugins: configBase.plugins.concat(
+  plugins: baseConfig.plugins.concat(
     cleanup(),
   ),
 });

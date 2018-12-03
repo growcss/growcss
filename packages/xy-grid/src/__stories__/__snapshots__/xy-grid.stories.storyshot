@@ -2,16 +2,16 @@
 
 exports[`Storyshots XY-Grid Grid cell will take up the remaining space 1`] = `
 <div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 fkGVwg"
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 gErIwn"
+    className="gc-cell CellElement-o119kl-0 gVNWNV"
   >
     4 cells
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 hePhNC"
+    className="gc-cell CellElement-o119kl-0 kbEAGZ"
   >
     Whatever's left!
   </div>
@@ -20,26 +20,26 @@ exports[`Storyshots XY-Grid Grid cell will take up the remaining space 1`] = `
 
 exports[`Storyshots XY-Grid Grid cell with self align types 1`] = `
 <div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 fkGVwg"
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 lliDFC"
+    className="gc-cell CellElement-o119kl-0 fDFQPP"
   >
     Align bottom
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 eRXDwO"
+    className="gc-cell CellElement-o119kl-0 fvKWUx"
   >
     Align middle
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 lhbJEQ"
+    className="gc-cell CellElement-o119kl-0 hZHUii"
   >
     Align stretch
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 kJvlHa"
+    className="gc-cell CellElement-o119kl-0 eyEfso"
   >
     Align top. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non harum laborum cum voluptate vel, eius adipisci similique dignissimos nobis at excepturi incidunt fugit molestiae quaerat, consequuntur porro temporibus. Nisi, ex?
   </div>
@@ -48,16 +48,16 @@ exports[`Storyshots XY-Grid Grid cell with self align types 1`] = `
 
 exports[`Storyshots XY-Grid GridX central alignment with alignX center and alignY middle 1`] = `
 <div
-  className="sc-bdVaJa iEwzWw XYGridElement-sc-11ht4j5-0 bjGQ"
+  className="xy-gridstories__CustomGridX-sc-3d797a-0 dYvKtA XYGridElement-sc-11ht4j5-0 fjuMIN"
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+    className="gc-cell CellElement-o119kl-0 jgzvhi"
   >
     I am in the center-middle
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+    className="gc-cell CellElement-o119kl-0 jgzvhi"
   >
     I am also centrally located
   </div>
@@ -66,16 +66,16 @@ exports[`Storyshots XY-Grid GridX central alignment with alignX center and align
 
 exports[`Storyshots XY-Grid GridX gutter type with margin 1`] = `
 <div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 fkGVwg"
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 iPtIBG"
+    className="gc-cell CellElement-o119kl-0 VLBoc"
   >
     12/6/4 cells
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 boNXTv"
+    className="gc-cell CellElement-o119kl-0 kcNHpa"
   >
     12/6/8 cells
   </div>
@@ -84,16 +84,16 @@ exports[`Storyshots XY-Grid GridX gutter type with margin 1`] = `
 
 exports[`Storyshots XY-Grid GridX gutter type with padding 1`] = `
 <div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 fkGVwg"
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 iPXXsR"
+    className="gc-cell CellElement-o119kl-0 RkkeB"
   >
     12/6/4 cells
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 eVzabg"
+    className="gc-cell CellElement-o119kl-0 bltcca"
   >
     12/6/8 cells
   </div>
@@ -102,16 +102,16 @@ exports[`Storyshots XY-Grid GridX gutter type with padding 1`] = `
 
 exports[`Storyshots XY-Grid GridX horizontal center alignment 1`] = `
 <div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dbNJcy"
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 fGbXxS"
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+    className="gc-cell CellElement-o119kl-0 jgzvhi"
   >
     Aligned to
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+    className="gc-cell CellElement-o119kl-0 jgzvhi"
   >
     the center
   </div>
@@ -120,16 +120,16 @@ exports[`Storyshots XY-Grid GridX horizontal center alignment 1`] = `
 
 exports[`Storyshots XY-Grid GridX horizontal default left alignment 1`] = `
 <div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 fkGVwg"
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+    className="gc-cell CellElement-o119kl-0 jgzvhi"
   >
     Aligned to
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+    className="gc-cell CellElement-o119kl-0 jgzvhi"
   >
     the left
   </div>
@@ -138,16 +138,16 @@ exports[`Storyshots XY-Grid GridX horizontal default left alignment 1`] = `
 
 exports[`Storyshots XY-Grid GridX horizontal justify alignment 1`] = `
 <div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 bKIBgf"
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 kjGILi"
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+    className="gc-cell CellElement-o119kl-0 jgzvhi"
   >
     Aligned to
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+    className="gc-cell CellElement-o119kl-0 jgzvhi"
   >
     the justify
   </div>
@@ -156,16 +156,16 @@ exports[`Storyshots XY-Grid GridX horizontal justify alignment 1`] = `
 
 exports[`Storyshots XY-Grid GridX horizontal right alignment 1`] = `
 <div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 cxkclV"
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 kLBgTq"
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+    className="gc-cell CellElement-o119kl-0 jgzvhi"
   >
     Aligned to
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+    className="gc-cell CellElement-o119kl-0 jgzvhi"
   >
     the right
   </div>
@@ -174,16 +174,16 @@ exports[`Storyshots XY-Grid GridX horizontal right alignment 1`] = `
 
 exports[`Storyshots XY-Grid GridX horizontal spaced alignment 1`] = `
 <div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 czsRqf"
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dDTYRa"
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+    className="gc-cell CellElement-o119kl-0 jgzvhi"
   >
     Aligned to
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+    className="gc-cell CellElement-o119kl-0 jgzvhi"
   >
     the spaced
   </div>
@@ -192,16 +192,16 @@ exports[`Storyshots XY-Grid GridX horizontal spaced alignment 1`] = `
 
 exports[`Storyshots XY-Grid GridX vertical bottom alignment 1`] = `
 <div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 gFDiLV"
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 bMWfTZ"
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+    className="gc-cell CellElement-o119kl-0 jgzvhi"
   >
     I'm at the bottom
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+    className="gc-cell CellElement-o119kl-0 jgzvhi"
   >
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, tempora. Impedit eius officia possimus laudantium? Molestiae eaque, sapiente atque doloremque placeat! In sint, fugiat saepe sunt dolore tempore amet cupiditate.
   </div>
@@ -210,16 +210,16 @@ exports[`Storyshots XY-Grid GridX vertical bottom alignment 1`] = `
 
 exports[`Storyshots XY-Grid GridX vertical middle alignment 1`] = `
 <div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 fdoyQo"
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dtfoYW"
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+    className="gc-cell CellElement-o119kl-0 jgzvhi"
   >
     I'm in the middle
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+    className="gc-cell CellElement-o119kl-0 jgzvhi"
   >
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, tempora. Impedit eius officia possimus laudantium? Molestiae eaque, sapiente atque doloremque placeat! In sint, fugiat saepe sunt dolore tempore amet cupiditate.
   </div>
@@ -228,16 +228,16 @@ exports[`Storyshots XY-Grid GridX vertical middle alignment 1`] = `
 
 exports[`Storyshots XY-Grid GridX vertical stretch alignment 1`] = `
 <div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 fUdoaF"
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dQblEq"
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+    className="gc-cell CellElement-o119kl-0 jgzvhi"
   >
     These cells have the same height
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+    className="gc-cell CellElement-o119kl-0 jgzvhi"
   >
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, tempora. Impedit eius officia possimus laudantium? Molestiae eaque, sapiente atque doloremque placeat! In sint, fugiat saepe sunt dolore tempore amet cupiditate.
   </div>
@@ -246,16 +246,16 @@ exports[`Storyshots XY-Grid GridX vertical stretch alignment 1`] = `
 
 exports[`Storyshots XY-Grid GridX vertical top alignment 1`] = `
 <div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 huExLd"
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 bJeurh"
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+    className="gc-cell CellElement-o119kl-0 jgzvhi"
   >
     I'm at the top (default)
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 hLWcQQ"
+    className="gc-cell CellElement-o119kl-0 jgzvhi"
   >
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, tempora. Impedit eius officia possimus laudantium? Molestiae eaque, sapiente atque doloremque placeat! In sint, fugiat saepe sunt dolore tempore amet cupiditate.
   </div>
@@ -264,16 +264,16 @@ exports[`Storyshots XY-Grid GridX vertical top alignment 1`] = `
 
 exports[`Storyshots XY-Grid GridX with 6/8/2 and 6/4/10 cells 1`] = `
 <div
-  className="gc-grid-y XYGridElement-sc-11ht4j5-0 kVkjUr"
+  className="gc-grid-y XYGridElement-sc-11ht4j5-0 bQFwCP"
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 gpeRkh"
+    className="gc-cell CellElement-o119kl-0 gDzfTH"
   >
     6/8/2 cells
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 dKCHBa"
+    className="gc-cell CellElement-o119kl-0 cDmpjF"
   >
     6/4/10 cells
   </div>
@@ -282,16 +282,16 @@ exports[`Storyshots XY-Grid GridX with 6/8/2 and 6/4/10 cells 1`] = `
 
 exports[`Storyshots XY-Grid GridX with 12/6/4 and 12/6/8 cells 1`] = `
 <div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 fkGVwg"
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 jAHHvL"
+    className="gc-cell CellElement-o119kl-0 kDBEbe"
   >
     12/6/4 cells
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 deEkAk"
+    className="gc-cell CellElement-o119kl-0 sJOHt"
   >
     12/6/8 cells
   </div>
@@ -300,16 +300,16 @@ exports[`Storyshots XY-Grid GridX with 12/6/4 and 12/6/8 cells 1`] = `
 
 exports[`Storyshots XY-Grid GridX with a full width cell 1`] = `
 <div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 fkGVwg"
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 ePEyAR"
+    className="gc-cell CellElement-o119kl-0 ZMwXG"
   >
     full width cell
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 ePEyAR"
+    className="gc-cell CellElement-o119kl-0 ZMwXG"
   >
     full width cell
   </div>
@@ -318,16 +318,16 @@ exports[`Storyshots XY-Grid GridX with a full width cell 1`] = `
 
 exports[`Storyshots XY-Grid GridX with two 6 small cells 1`] = `
 <div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 fkGVwg"
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 ecZjQA"
+    className="gc-cell CellElement-o119kl-0 jxotwv"
   >
     6 cells
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 ecZjQA"
+    className="gc-cell CellElement-o119kl-0 jxotwv"
   >
     6 cells
   </div>
@@ -336,21 +336,21 @@ exports[`Storyshots XY-Grid GridX with two 6 small cells 1`] = `
 
 exports[`Storyshots XY-Grid Multiple expanding cells will share the leftover space equally. 1`] = `
 <div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 fkGVwg"
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 gErIwn"
+    className="gc-cell CellElement-o119kl-0 gVNWNV"
   >
     4 cell
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 hePhNC"
+    className="gc-cell CellElement-o119kl-0 kbEAGZ"
   >
     Whatever's left!
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 hePhNC"
+    className="gc-cell CellElement-o119kl-0 kbEAGZ"
   >
     Whatever's left!
   </div>
@@ -359,16 +359,16 @@ exports[`Storyshots XY-Grid Multiple expanding cells will share the leftover spa
 
 exports[`Storyshots XY-Grid Shrink means it will only take up the space its contents need 1`] = `
 <div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 fkGVwg"
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 hjLzdu"
+    className="gc-cell CellElement-o119kl-0 cXiIUi"
   >
     Shrink!
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 hePhNC"
+    className="gc-cell CellElement-o119kl-0 kbEAGZ"
   >
     Expand!
   </div>
@@ -377,36 +377,36 @@ exports[`Storyshots XY-Grid Shrink means it will only take up the space its cont
 
 exports[`Storyshots XY-Grid To switch back to the auto behavior from a percentage or shrink behavior 1`] = `
 <div
-  className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
+  className="gc-grid-x XYGridElement-sc-11ht4j5-0 fkGVwg"
   wrap={true}
 >
   <div
-    className="gc-cell CellElement-o119kl-0 fELQLj"
+    className="gc-cell CellElement-o119kl-0 fcJZJk"
   >
     One
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 fELQLj"
+    className="gc-cell CellElement-o119kl-0 fcJZJk"
   >
     Two
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 fELQLj"
+    className="gc-cell CellElement-o119kl-0 fcJZJk"
   >
     Three
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 fELQLj"
+    className="gc-cell CellElement-o119kl-0 fcJZJk"
   >
     Four
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 fELQLj"
+    className="gc-cell CellElement-o119kl-0 fcJZJk"
   >
     Five
   </div>
   <div
-    className="gc-cell CellElement-o119kl-0 fELQLj"
+    className="gc-cell CellElement-o119kl-0 fcJZJk"
   >
     Six
   </div>

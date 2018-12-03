@@ -23,15 +23,16 @@
     "lint:tslint": "               yarn run lint:tslint:sources && yarn run lint:tslint:supporting",
     "lint:tslint:sources": "       tslint-config-prettier-check ./tslint.sources.json && tslint -c ./tslint.sources.json --format stylish 'packages/*/*/src/**/*.+(ts|tsx)' --exclude '**/__tests__/**'",
     "lint:tslint:supporting": "    tslint-config-prettier-check ./tslint.supporting.json && tslint -c ./tslint.supporting.json --format stylish 'packages/*/*/+(tests|__tests__|examples|docs|example-helpers)/**/*.(ts|tsx)' 'packages/*/*/src/**/__tests__/**/*.+(ts|tsx)'",
-    "storybook": "                 cross-env NODE_ENV=storybook start-storybook -p 6006 -c .storybook",
+    "storybook": "                 node verify-node-version.js && cross-env NODE_ENV=storybook start-storybook -p 6006 -c .storybook",
     "storybook-build": "           cross-env NODE_ENV=production build-storyboo k-c .storybook",
     "typecheck": "                 yarn run typecheck:typescript",
     "typecheck:typescript": "      tsc --noEmit --project ./tsconfig.typecheck.json",
-    "test": "                      cross-env NODE_ENV=test jest",
+    "test": "                      node verify-node-version.js && cross-env NODE_ENV=test jest",
     "test:changed": "              cross-env NODE_ENV=test CHANGED_PACKAGES=$(yarn run changed) COVERAGE_PACKAGES=$(yarn run changed) jest",
     "test:ci": "                   yarn run test --coverage -- --runInBand",
     "test:coverage": "             yarn run test --coverage",
-    "test:watch": "                yarn run test --watch"
+    "test:watch": "                yarn run test --watch",
+    "type-check": "                tsc --pretty --noEmit"
   },
   "dependencies": {
     "@babel/cli": "^7.1.0",
@@ -151,7 +152,6 @@
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.5.0",
-    "ts-jest": "^23.10.4",
     "ts-loader": "^5.3.0",
     "tslib": "^1.9.3",
     "tslint": "^5.11.0",
@@ -160,6 +160,7 @@
     "types-installer": "^1.4.0",
     "typescript": "^3.1.6",
     "typescript-plugin-styled-components": "^1.0.0",
+    "typescript-styled-plugin": "^0.13.0",
     "warning": "^4.0.2"
   },
   "engines": {

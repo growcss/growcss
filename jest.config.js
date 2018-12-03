@@ -2,18 +2,20 @@
 const { CHANGED_PACKAGES, COVERAGE_PACKAGES, TEST_ONLY_PATTERN } = process.env;
 
 const config = {
-  preset: 'ts-jest/presets/js-with-babel',
-  testMatch: [`${__dirname}/**/__tests__/**/*.(js|tsx|ts)`],
+  "transform": {
+    "^.+\\.(ts|tsx|js|jsx)$": "babel-jest",
+  },
+  testRegex: '/__tests__/.+?\\.(ts|tsx|js|jsx)$',
+  modulePathIgnorePatterns: [
+    './node_modules',
+    '/dist/'
+  ],
   moduleFileExtensions: [
     'js',
     'json',
     'jsx',
     'ts',
     'tsx'
-  ],
-  modulePathIgnorePatterns: [
-    './node_modules',
-    '/dist/'
   ],
   // don't transform any files under node_modules except @growcss/* and react-syntax-highlighter (it
   // uses dynamic imports which are not valid in node)
@@ -28,10 +30,6 @@ const config = {
     'enzyme-to-json/serializer'
   ],
   globals: {
-    'ts-jest': {
-      tsConfig: './tsconfig.jest.json',
-      babelConfig: true,
-    },
     '__DEV__': true
   },
   reporters: [
@@ -56,11 +54,10 @@ const config = {
 // run the tests for those packages
 if (CHANGED_PACKAGES) {
   const changedPackages = JSON.parse(CHANGED_PACKAGES);
-  const changedPackagesTestGlobs = changedPackages.map(
-    pkgPath => `${__dirname}/${pkgPath}/**/__tests__/**/*.(js|tsx|ts)`,
-  );
 
-  config.testMatch = changedPackagesTestGlobs;
+  config.testMatch = changedPackages.map(
+    pkgPath => `${__dirname}/${pkgPath}/**/__tests__/**/*.(js|tsx|ts)`
+  );
 }
 
 // Adding code coverage thresold configuration for unit test only
@@ -98,8 +95,8 @@ if (TEST_ONLY_PATTERN) {
 }
 
 // Annoyingly, if the array is empty, jest will fallback to its defaults and run everything
-if (config.testMatch.length === 0) {
-  config.testMatch = ['DONT-RUN-ANYTHING'];
+if (config.testRegex.length === 0) {
+  config.testRegex = ['DONT-RUN-ANYTHING'];
   config.collectCoverage = false;
   // only log this message if we are running in an actual terminal (output not being piped to a file
   // or a subshell)

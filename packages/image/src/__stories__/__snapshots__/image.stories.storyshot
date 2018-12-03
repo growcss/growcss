@@ -2,10 +2,10 @@
 
 exports[`Storyshots Image Image with a preview url 1`] = `
 <figure
-  className="gc-image FigureElement-sc-4pw5w0-0 bGDRKy"
+  className="gc-image FigureElement-sc-4pw5w0-0 gTMSVb"
 >
   <div
-    className="AspectRatioPlaceholder-sc-1jfhsx0-0 hmdmSF"
+    className="AspectRatioPlaceholder-sc-1jfhsx0-0 cQFJsV"
   >
     <div
       style={
@@ -16,13 +16,13 @@ exports[`Storyshots Image Image with a preview url 1`] = `
     />
     <img
       alt="test"
-      className="preview PreviewElement-sc-1t6xf7x-0 HqctH"
+      className="preview PreviewElement-sc-1t6xf7x-0 iWKQVZ"
       crossOrigin="anonymous"
       src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/32x/-/grayscale/-/quality/lightest/mountain.jpg"
     />
     <img
       alt="test"
-      className="ImageElement-k4q0my-0 fyNsfK"
+      className="ImageElement-k4q0my-0 cKDwGc"
     />
   </div>
 </figure>
@@ -30,10 +30,10 @@ exports[`Storyshots Image Image with a preview url 1`] = `
 
 exports[`Storyshots Image Image with figcaption 1`] = `
 <figure
-  className="gc-image FigureElement-sc-4pw5w0-0 bGDRKy"
+  className="gc-image FigureElement-sc-4pw5w0-0 gTMSVb"
 >
   <div
-    className="AspectRatioPlaceholder-sc-1jfhsx0-0 hmdmSF"
+    className="AspectRatioPlaceholder-sc-1jfhsx0-0 cQFJsV"
   >
     <div
       style={
@@ -44,17 +44,17 @@ exports[`Storyshots Image Image with figcaption 1`] = `
     />
     <img
       alt="test"
-      className="preview PreviewElement-sc-1t6xf7x-0 HqctH"
+      className="preview PreviewElement-sc-1t6xf7x-0 iWKQVZ"
       crossOrigin="anonymous"
       src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/32x/-/grayscale/-/quality/lightest/mountain.jpg"
     />
     <img
       alt="test"
-      className="ImageElement-k4q0my-0 fyNsfK"
+      className="ImageElement-k4q0my-0 cKDwGc"
     />
   </div>
   <figcaption
-    className="FigcaptionElement-t4a8lz-0 jOFhiB"
+    className="FigcaptionElement-t4a8lz-0 jDepkg"
   >
     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
   </figcaption>
@@ -63,10 +63,10 @@ exports[`Storyshots Image Image with figcaption 1`] = `
 
 exports[`Storyshots Image Image with figcaption to the right 1`] = `
 <figure
-  className="gc-image FigureElement-sc-4pw5w0-0 bGDRKy"
+  className="gc-image FigureElement-sc-4pw5w0-0 gTMSVb"
 >
   <div
-    className="AspectRatioPlaceholder-sc-1jfhsx0-0 hmdmSF"
+    className="AspectRatioPlaceholder-sc-1jfhsx0-0 cQFJsV"
   >
     <div
       style={
@@ -77,17 +77,17 @@ exports[`Storyshots Image Image with figcaption to the right 1`] = `
     />
     <img
       alt="test"
-      className="preview PreviewElement-sc-1t6xf7x-0 HqctH"
+      className="preview PreviewElement-sc-1t6xf7x-0 iWKQVZ"
       crossOrigin="anonymous"
       src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/32x/-/grayscale/-/quality/lightest/mountain.jpg"
     />
     <img
       alt="test"
-      className="ImageElement-k4q0my-0 fyNsfK"
+      className="ImageElement-k4q0my-0 cKDwGc"
     />
   </div>
   <figcaption
-    className="FigcaptionElement-t4a8lz-0 jmMfgk"
+    className="FigcaptionElement-t4a8lz-0 elumHw"
   >
     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
   </figcaption>
@@ -96,10 +96,10 @@ exports[`Storyshots Image Image with figcaption to the right 1`] = `
 
 exports[`Storyshots Image Simple image 1`] = `
 <figure
-  className="gc-image FigureElement-sc-4pw5w0-0 bGDRKy"
+  className="gc-image FigureElement-sc-4pw5w0-0 gTMSVb"
 >
   <div
-    className="AspectRatioPlaceholder-sc-1jfhsx0-0 hmdmSF"
+    className="AspectRatioPlaceholder-sc-1jfhsx0-0 cQFJsV"
   >
     <div
       style={
@@ -110,13 +110,13 @@ exports[`Storyshots Image Simple image 1`] = `
     />
     <img
       alt="test"
-      className="preview PreviewElement-sc-1t6xf7x-0 HqctH"
+      className="preview PreviewElement-sc-1t6xf7x-0 iWKQVZ"
       crossOrigin="anonymous"
       src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/300x/mountain.jpg"
     />
     <img
       alt="test"
-      className="ImageElement-k4q0my-0 fyNsfK"
+      className="ImageElement-k4q0my-0 cKDwGc"
     />
   </div>
 </figure>

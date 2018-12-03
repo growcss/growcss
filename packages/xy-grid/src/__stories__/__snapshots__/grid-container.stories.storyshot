@@ -2,25 +2,25 @@
 
 exports[`Storyshots Grid Container Fluid width container 1`] = `
 <div
-  className="gc-grid-container GridContainerElement-k7axvl-0 ilWaFz"
+  className="gc-grid-container GridContainerElement-k7axvl-0 dikzX"
   type="fluid"
 >
   <div
-    className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
+    className="gc-grid-x XYGridElement-sc-11ht4j5-0 fkGVwg"
     wrap={true}
   >
     <div
-      className="gc-cell CellElement-o119kl-0 gErIwn"
+      className="gc-cell CellElement-o119kl-0 gVNWNV"
     >
       cell
     </div>
     <div
-      className="gc-cell CellElement-o119kl-0 gErIwn"
+      className="gc-cell CellElement-o119kl-0 gVNWNV"
     >
       cell
     </div>
     <div
-      className="gc-cell CellElement-o119kl-0 gErIwn"
+      className="gc-cell CellElement-o119kl-0 gVNWNV"
     >
       cell
     </div>
@@ -30,25 +30,25 @@ exports[`Storyshots Grid Container Fluid width container 1`] = `
 
 exports[`Storyshots Grid Container Full width container 1`] = `
 <div
-  className="gc-grid-container GridContainerElement-k7axvl-0 kFWHxK"
+  className="gc-grid-container GridContainerElement-k7axvl-0 liDBYg"
   type="full"
 >
   <div
-    className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
+    className="gc-grid-x XYGridElement-sc-11ht4j5-0 fkGVwg"
     wrap={true}
   >
     <div
-      className="gc-cell CellElement-o119kl-0 gErIwn"
+      className="gc-cell CellElement-o119kl-0 gVNWNV"
     >
       cell
     </div>
     <div
-      className="gc-cell CellElement-o119kl-0 gErIwn"
+      className="gc-cell CellElement-o119kl-0 gVNWNV"
     >
       cell
     </div>
     <div
-      className="gc-cell CellElement-o119kl-0 gErIwn"
+      className="gc-cell CellElement-o119kl-0 gVNWNV"
     >
       cell
     </div>
@@ -58,24 +58,24 @@ exports[`Storyshots Grid Container Full width container 1`] = `
 
 exports[`Storyshots Grid Container Width of the available space container 1`] = `
 <div
-  className="gc-grid-container GridContainerElement-k7axvl-0 gyaqvh"
+  className="gc-grid-container GridContainerElement-k7axvl-0 ddrwgF"
 >
   <div
-    className="gc-grid-x XYGridElement-sc-11ht4j5-0 dOWcve"
+    className="gc-grid-x XYGridElement-sc-11ht4j5-0 fkGVwg"
     wrap={true}
   >
     <div
-      className="gc-cell CellElement-o119kl-0 gErIwn"
+      className="gc-cell CellElement-o119kl-0 gVNWNV"
     >
       cell
     </div>
     <div
-      className="gc-cell CellElement-o119kl-0 gErIwn"
+      className="gc-cell CellElement-o119kl-0 gVNWNV"
     >
       cell
     </div>
     <div
-      className="gc-cell CellElement-o119kl-0 gErIwn"
+      className="gc-cell CellElement-o119kl-0 gVNWNV"
     >
       cell
     </div>
