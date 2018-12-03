@@ -1,9 +1,7 @@
 const TSDocgenPlugin = require('react-docgen-typescript-webpack-plugin');
 
-module.exports = (baseConfig, env, config) => {
-    config.module.rules.push();
-
-  config.module.rules.push(
+module.exports = (baseConfig, env, defaultConfig) => {
+  defaultConfig.module.rules.push(
     {
       test: /\.js$/,
       exclude: /node_modules/,
@@ -18,9 +16,9 @@ module.exports = (baseConfig, env, config) => {
     }
   );
 
-  config.plugins.push(new TSDocgenPlugin());
-  config.resolve.extensions.push('.ts', '.tsx');
-  config.externals = {
+  defaultConfig.plugins.push(new TSDocgenPlugin());
+  defaultConfig.resolve.extensions.push('.ts', '.tsx', '.js');
+  defaultConfig.externals = {
       'jsdom': 'window',
       'cheerio': 'window',
       'react/lib/ExecutionEnvironment': true,
@@ -28,5 +26,5 @@ module.exports = (baseConfig, env, config) => {
       'react/addons': true,
   };
 
-  return config;
+  return defaultConfig;
 };

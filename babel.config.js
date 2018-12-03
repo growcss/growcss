@@ -2,7 +2,7 @@ module.exports = {
   plugins: [
     '@babel/plugin-proposal-class-properties',
     '@babel/plugin-proposal-object-rest-spread',
-    '@babel/syntax-dynamic-import',
+    '@babel/plugin-syntax-dynamic-import',
     'babel-plugin-styled-components',
     'polished'
   ],
@@ -17,6 +17,17 @@ module.exports = {
       'plugins': [
         '@babel/plugin-transform-regenerator',
         'require-context-hook'
+      ]
+    },
+    'storybook': {
+      'presets': [
+        '@babel/preset-env',
+        {
+          'modules': false
+        }
+      ],
+      'plugins': [
+        '@babel/plugin-transform-regenerator'
       ]
     },
     'production': {

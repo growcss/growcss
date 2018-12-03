@@ -1,13 +1,8 @@
 /* eslint-disable */
 import 'jest-styled-components';
-import registerRequireContextHook from 'babel-plugin-require-context-hook/register';
 import { toMatchSnapshot } from 'jest-snapshot';
 import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
 import { createSerializer } from 'enzyme-to-json';
-
-if (process.env.NODE_ENV === 'test') {
-  registerRequireContextHook();
-}
 
 let consoleError;
 let consoleWarn;

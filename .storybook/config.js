@@ -1,4 +1,4 @@
-import { configure, addDecorator } from '@storybook/react';
+import * as storybook from '@storybook/react';
 import { withOptions } from '@storybook/addon-options';
 import { checkA11y } from '@storybook/addon-a11y';
 
@@ -85,13 +85,13 @@ withOptions({
   selectedAddonPanel: undefined, // The order of addons in the "Addon panel" is the same as you import them in 'addons.js'. The first panel will be opened by default as you run Storybook
 });
 
-// automatically import all files ending with *.stories.js
-const stories = require.context('..', true, /packages\/((?!node_modules).)*__stories__\/[^\/]+\.[js|tsx]+$/);
+storybook.addDecorator(checkA11y);
 
-addDecorator(checkA11y);
+// automatically import all files ending with *.stories.js
+const req = require.context('..', true, /packages\/((?!node_modules).)*__stories__\/[^\/]+\.[js|tsx]+$/);
 
 function loadStories() {
-  stories.keys().forEach(filename => stories(filename));
+  req.keys().forEach(filename => req(filename));
 }
 
-configure(loadStories, module);
+storybook.configure(loadStories, module);
