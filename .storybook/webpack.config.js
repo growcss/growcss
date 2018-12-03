@@ -3,15 +3,9 @@ const TSDocgenPlugin = require('react-docgen-typescript-webpack-plugin');
 module.exports = (baseConfig, env, defaultConfig) => {
   defaultConfig.module.rules.push(
     {
-      test: /\.js$/,
+      test: /\.(js|ts|tsx)$/,
       exclude: /node_modules/,
       loader: 'babel-loader',
-      query: { cacheDirectory: true },
-    },
-    {
-      test: /\.(ts|tsx)$/,
-      loader: require.resolve('awesome-typescript-loader'),
-      exclude: /(node_modules)/,
       query: { cacheDirectory: true },
     }
   );

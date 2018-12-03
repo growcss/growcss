@@ -5,37 +5,24 @@ module.exports = {
     '@babel/plugin-syntax-dynamic-import',
     '@babel/plugin-transform-modules-commonjs',
     'babel-plugin-styled-components',
+    '@babel/plugin-transform-regenerator',
   ],
   presets: [
-    '@babel/react'
+    '@babel/preset-env',
+    '@babel/react',
+    '@babel/typescript'
   ],
   'env': {
     'test': {
-      'presets': [
-        '@babel/preset-env'
-      ],
       'plugins': [
-        '@babel/plugin-transform-regenerator',
         'require-context-hook'
       ]
     },
     'storybook': {
-      'presets': [
-        '@babel/preset-env',
-      ],
-      'plugins': [
-        '@babel/plugin-transform-regenerator'
-      ]
+      'plugins': []
     },
     'production': {
-      'presets': [
-        [
-          '@babel/preset-env'
-        ]
-      ],
-      'plugins': [
-        '@babel/plugin-transform-regenerator'
-      ]
+      'plugins': []
     }
   }
 };

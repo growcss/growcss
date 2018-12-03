@@ -67,7 +67,6 @@
     "@types/storybook__react": "^4.0.0",
     "@types/styled-components": "^4.0.3",
     "@types/warning": "^3.0.0",
-    "awesome-typescript-loader": "^5.2.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
