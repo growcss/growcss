@@ -32,7 +32,10 @@ jobs:
     - stage: Test # test for v10.14.1
     - stage: Test
       node_js:
-        - latest
+        - node
+    - stage: Test
+      node_js:
+        - lts/*
 
     - stage: Coding standard
       script:
