@@ -63,7 +63,7 @@
     "@types/prosemirror-model": "^1.5.0",
     "@types/react": "^16.7.11",
     "@types/react-dom": "^16.0.9",
-    "@types/storybook__addon-options": "^3.2.2",
+    "@types/storybook__addon-options": "^4.0.0",
     "@types/storybook__react": "^4.0.0",
     "@types/styled-components": "^4.0.3",
     "@types/warning": "^3.0.0",
@@ -147,7 +147,6 @@
     "styled-components": "^4.0.3",
     "styled-theming": "^2.2.0",
     "stylelint": "^9.8.0",
-    "stylelint-config-growcss": "^1.0.1",
     "stylelint-config-prettier": "^4.0.0",
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-config-styled-components": "^0.1.1",
@@ -164,8 +163,8 @@
     "warning": "^4.0.2"
   },
   "engines": {
-    "node": "^9.10.0",
-    "yarn": "^1.12.0"
+    "node": "^10.14.0 || ^11.3.0",
+    "yarn": "^1.12"
   },
   "lint-staged": {
     "packages/**/src/**/*.{js, jsx}": [
