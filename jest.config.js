@@ -23,6 +23,7 @@ const config = {
     '\\/node_modules\\/(?!@growcss|react-syntax-highlighter)',
   ],
   setupFiles: [
+    '<rootDir>/node_modules/regenerator-runtime/runtime',
     './build/jest-config/index.js'
   ],
   setupTestFrameworkScriptFile: `${__dirname}/jestFrameworkSetup.js`,

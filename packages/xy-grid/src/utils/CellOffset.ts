@@ -1,4 +1,4 @@
-import {rem,stripUnit,mediaquery,Breakpoints,BreakpointsProps} from '@growcss/elaborate';
+import {rem,stripUnit,mediaquery,MediaQueryOptionsProps, MediaQueryOptions} from '@growcss/elaborate';
 import {Gutters as DefaultGutters,GuttersProps} from '../components/Gutters';
 import {CellSize} from './CellSize';
 
@@ -9,7 +9,7 @@ export const CellOffset = (
   vertical: boolean = false,
   rtl: boolean = false,
   gutters: GuttersProps = DefaultGutters,
-  breakpoints: BreakpointsProps = Breakpoints,
+  mediaQueryOptions: MediaQueryOptionsProps = MediaQueryOptions,
 ) => {
   let direction;
 
@@ -24,7 +24,7 @@ export const CellOffset = (
   let lastBreakpointName = 'small';
 
   if (gutters[breakpoint] === undefined) {
-    for (const breakpointName in breakpoints) {
+    for (const breakpointName in mediaQueryOptions.breakpoints) {
       if (
         typeof breakpointName === 'string' &&
         gutters[breakpointName] !== undefined
@@ -39,7 +39,7 @@ export const CellOffset = (
   let lastBreakpoint: number;
 
   if (typeof gutters[lastBreakpointName] === 'string') {
-    lastBreakpoint = +stripUnit(gutters[lastBreakpointName] + '');
+    lastBreakpoint = +stripUnit(`${gutters[lastBreakpointName]}`);
   } else {
     lastBreakpoint = + gutters[lastBreakpointName]
   }
@@ -49,5 +49,5 @@ export const CellOffset = (
     gutterType === 'margin' ? `calc(${CellSize(n)} + ${gutter})` : CellSize(n);
   const css = `margin-${direction}: ${gutterSize};`;
 
-  return mediaquery(breakpoint, breakpoints)`${css}`;
+  return mediaquery(breakpoint, mediaQueryOptions)`${css}`;
 };

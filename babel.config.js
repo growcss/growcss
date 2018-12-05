@@ -10,6 +10,7 @@ const config = {
         "ssr": true
       }
     ],
+    '@babel/plugin-transform-runtime',
     '@babel/plugin-transform-regenerator'
   ],
   presets: [
