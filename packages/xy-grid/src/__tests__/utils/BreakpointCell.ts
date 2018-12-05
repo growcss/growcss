@@ -15,7 +15,7 @@ describe('Test the BreakpointCell output', () => {
   it('Return a array with sizes of medium 12 grid count', () => {
     expect(BreakpointCell(12, 'medium', false)).toEqual([
       '@media ',
-      '(min-width: 40em)',
+      'only screen and (min-width: 40em)',
       ' { ',
       'width: calc(100% - 1.875rem);',
       ' }',

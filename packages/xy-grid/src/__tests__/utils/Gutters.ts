@@ -7,7 +7,7 @@ describe('Gutters (margin and padding with breakpoints)', () => {
       ['margin-right: 0.625rem;margin-left: 0.625rem;'],
       [
         '@media ',
-        '(min-width: 40em)',
+        'only screen and (min-width: 40em)',
         ' { ',
         'margin-right: 0.9375rem;margin-left: 0.9375rem;',
         ' }',
@@ -20,7 +20,7 @@ describe('Gutters (margin and padding with breakpoints)', () => {
       ['padding-right: 0.625rem;padding-left: 0.625rem;'],
       [
         '@media ',
-        '(min-width: 40em)',
+        'only screen and (min-width: 40em)',
         ' { ',
         'padding-right: 0.9375rem;padding-left: 0.9375rem;',
         ' }',

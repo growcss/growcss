@@ -33,7 +33,7 @@ const commonPlugins = [
     extensions: ['.js', '.jsx', '.ts', '.tsx']
   }),
   babel({
-    exclude: 'node_modules/**',
+    exclude: '**/node_modules/**',
     babelrc: false,
     presets: babelConfig.presets,
     plugins: babelConfig.plugins,
@@ -63,7 +63,10 @@ const umdConfig = Object.assign({}, baseConfig, {
     sourcemap: true,
     globals: {},
   },
-  plugins: baseConfig.plugins.concat(
+});
+
+if (env === 'prod') {
+  umdConfig.plugins.concat(
     uglify({
       sourcemap: true,
       compress: {
@@ -72,11 +75,14 @@ const umdConfig = Object.assign({}, baseConfig, {
         unsafe_comps: true,
         warnings: false
       }
-    }),
-    visualizer({ filename: './bundle-stats.html' }),
-    cleanup()
-  ),
-});
+    })
+  );
+}
+
+umdConfig.plugins.concat(
+  visualizer({ filename: './bundle-stats.html' }),
+  cleanup(),
+);
 
 const browserEsConfig = Object.assign({}, baseConfig, {
   output: [
