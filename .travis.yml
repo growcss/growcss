@@ -1,5 +1,4 @@
 dist: trusty
-sudo: false
 language: node_js
 
 node_js:
@@ -23,13 +22,10 @@ before_script:
   - yarn run build
 
 script:
-  - yarn run test
+  - yarn run test --runInBand
 
 jobs:
-  fast_finish: true
-
   include:
-    - stage: Test
     - stage: Test
       node_js:
         - 10
@@ -37,6 +33,10 @@ jobs:
     - stage: Coding standard
       script:
         - yarn lint
+
+    - stage: Coverage
+      script:
+        - yarn test:coverage
 
 notifications:
   email:

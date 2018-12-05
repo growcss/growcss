@@ -29,7 +29,6 @@
     "typecheck:typescript": "      tsc --noEmit --project ./tsconfig.typecheck.json",
     "test": "                      node verify-node-version.js && cross-env NODE_ENV=test jest",
     "test:changed": "              cross-env NODE_ENV=test CHANGED_PACKAGES=$(yarn run changed) COVERAGE_PACKAGES=$(yarn run changed) jest",
-    "test:ci": "                   yarn run test --coverage -- --runInBand",
     "test:coverage": "             yarn run test --coverage",
     "test:watch": "                yarn run test --watch",
     "type-check": "                tsc --pretty --noEmit"
