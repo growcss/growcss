@@ -46,9 +46,8 @@ const config = {
     'html',
     'text-summary'
   ],
-  collectCoverage: false,
-  collectCoverageFrom: [],
-  coverageThreshold: {},
+  "coverageDirectory": "./coverage/",
+  "collectCoverage": false,
 };
 
 // If the CHANGED_PACKAGES variable is set, we parse it to get an array of changed packages and only

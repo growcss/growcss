@@ -18,7 +18,7 @@ before_install:
   - node --version && yarn --version
 
 install:
-  - yarn install
+  - yarn --frozen-lockfile
 
 before_script:
   - yarn run bootstrap
@@ -43,7 +43,9 @@ jobs:
 
     - stage: Coverage
       script:
+        - yarn global add codecov
         - yarn test:coverage
+        - codecov
 
 notifications:
   email:
