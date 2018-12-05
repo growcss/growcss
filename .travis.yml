@@ -2,7 +2,7 @@ dist: trusty
 language: node_js
 
 node_js:
-  - 10.14.1
+  - lts/*
 
 env:
   - SKIP_CHECK=true
@@ -25,17 +25,14 @@ before_script:
   - yarn run build
 
 script:
-  - yarn run test --runInBand
+  - yarn run test --ci --runInBand
 
 jobs:
   include:
-    - stage: Test # test for v10.14.1
+    - stage: Test # test for lts/*
     - stage: Test
       node_js:
         - node
-    - stage: Test
-      node_js:
-        - lts/*
 
     - stage: Coding standard
       script:
@@ -44,7 +41,7 @@ jobs:
     - stage: Coverage
       script:
         - yarn global add codecov
-        - yarn test:coverage
+        - yarn test:coverage --ci --runInBand
         - codecov
 
 notifications:
