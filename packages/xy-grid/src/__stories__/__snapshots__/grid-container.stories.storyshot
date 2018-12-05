@@ -1,0 +1,1959 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Grid Container Fluid width container 1`] = `
+<div>
+  <div>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "backgroundColor": "#fff",
+          "border": "1px solid #eee",
+          "borderRadius": "2px",
+          "color": "#444",
+          "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+          "marginBottom": "20px",
+          "marginTop": "20px",
+          "padding": "20px 40px 40px",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "borderBottom": "1px solid #eee",
+            "marginBottom": 10,
+            "paddingTop": 10,
+          }
+        }
+      >
+        <h1
+          style={
+            Object {
+              "fontSize": "35px",
+              "margin": 0,
+              "padding": 0,
+            }
+          }
+        >
+          Grid Container
+        </h1>
+        <h2
+          style={
+            Object {
+              "fontSize": "22px",
+              "fontWeight": 400,
+              "margin": "0 0 10px 0",
+              "padding": 0,
+            }
+          }
+        >
+          Fluid width container
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div
+    style={Object {}}
+  >
+    <div
+      className="gc-grid-container GridContainerElement-k7axvl-0 dikzX"
+      type="fluid"
+    >
+      <div
+        className="gc-grid-x XYGridElement-sc-11ht4j5-0 fkGVwg"
+        wrap={true}
+      >
+        <div
+          className="gc-cell CellElement-o119kl-0 gVNWNV"
+        >
+          cell
+        </div>
+        <div
+          className="gc-cell CellElement-o119kl-0 gVNWNV"
+        >
+          cell
+        </div>
+        <div
+          className="gc-cell CellElement-o119kl-0 gVNWNV"
+        >
+          cell
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "backgroundColor": "#fff",
+          "border": "1px solid #eee",
+          "borderRadius": "2px",
+          "color": "#444",
+          "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+          "marginBottom": "20px",
+          "marginTop": "20px",
+          "padding": "20px 40px 40px",
+        }
+      }
+    >
+      
+      <div>
+        <h1
+          style={
+            Object {
+              "borderBottom": "1px solid #EEE",
+              "fontSize": "25px",
+              "margin": "20px 0 0 0",
+              "padding": "0 0 5px 0",
+            }
+          }
+        >
+          Prop Types
+        </h1>
+        <div>
+          <h2
+            style={
+              Object {
+                "margin": "20px 0 0 0",
+              }
+            }
+          >
+            "
+            Cell
+            " Component
+          </h2>
+          <table
+            className="css-1uhv8nx e1vdo5380"
+          >
+            <thead>
+              <tr>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  property
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  propType
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  required
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  default
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  description
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  gridColumns
+                </td>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  <span>
+                    unknown
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  -
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#a11",
+                      }
+                    }
+                  >
+                    12
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                />
+              </tr>
+              <tr>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  gutterSizes
+                </td>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  <span>
+                    unknown
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  -
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#666",
+                      }
+                    }
+                  >
+                    {
+                    <span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }
+                      >
+                        small
+                      </span>
+                    </span>
+                    : 
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }
+                    >
+                      '20px'
+                    </span>
+                    ,
+                    <span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }
+                      >
+                        medium
+                      </span>
+                    </span>
+                    : 
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }
+                    >
+                      '30px'
+                    </span>
+                    }
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                />
+              </tr>
+              <tr>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  vertical
+                </td>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  <span>
+                    unknown
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  -
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#a11",
+                      }
+                    }
+                  >
+                    false
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                />
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h2
+            style={
+              Object {
+                "margin": "20px 0 0 0",
+              }
+            }
+          >
+            "
+            GridContainer
+            " Component
+          </h2>
+          <table
+            className="css-1uhv8nx e1vdo5380"
+          >
+            <thead>
+              <tr>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  property
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  propType
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  required
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  default
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  description
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  width
+                </td>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  <span>
+                    unknown
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  -
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#22a",
+                        "wordBreak": "break-word",
+                      }
+                    }
+                  >
+                    75rem
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                />
+              </tr>
+              <tr>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  gutterSizes
+                </td>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  <span>
+                    unknown
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  -
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#666",
+                      }
+                    }
+                  >
+                    {
+                    <span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }
+                      >
+                        small
+                      </span>
+                    </span>
+                    : 
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }
+                    >
+                      '20px'
+                    </span>
+                    ,
+                    <span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }
+                      >
+                        medium
+                      </span>
+                    </span>
+                    : 
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }
+                    >
+                      '30px'
+                    </span>
+                    }
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                />
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h2
+            style={
+              Object {
+                "margin": "20px 0 0 0",
+              }
+            }
+          >
+            "
+            GridX
+            " Component
+          </h2>
+          <table
+            className="css-1uhv8nx e1vdo5380"
+          >
+            <thead>
+              <tr>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  property
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  propType
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  required
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  default
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  description
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  gutterSizes
+                </td>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  <span>
+                    unknown
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  -
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#666",
+                      }
+                    }
+                  >
+                    {
+                    <span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }
+                      >
+                        small
+                      </span>
+                    </span>
+                    : 
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }
+                    >
+                      '20px'
+                    </span>
+                    ,
+                    <span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }
+                      >
+                        medium
+                      </span>
+                    </span>
+                    : 
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }
+                    >
+                      '30px'
+                    </span>
+                    }
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                />
+              </tr>
+              <tr>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  alignX
+                </td>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  <span>
+                    unknown
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  -
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#22a",
+                        "wordBreak": "break-word",
+                      }
+                    }
+                  >
+                    left
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                />
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Grid Container Full width container 1`] = `
+<div>
+  <div>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "backgroundColor": "#fff",
+          "border": "1px solid #eee",
+          "borderRadius": "2px",
+          "color": "#444",
+          "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+          "marginBottom": "20px",
+          "marginTop": "20px",
+          "padding": "20px 40px 40px",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "borderBottom": "1px solid #eee",
+            "marginBottom": 10,
+            "paddingTop": 10,
+          }
+        }
+      >
+        <h1
+          style={
+            Object {
+              "fontSize": "35px",
+              "margin": 0,
+              "padding": 0,
+            }
+          }
+        >
+          Grid Container
+        </h1>
+        <h2
+          style={
+            Object {
+              "fontSize": "22px",
+              "fontWeight": 400,
+              "margin": "0 0 10px 0",
+              "padding": 0,
+            }
+          }
+        >
+          Full width container
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div
+    style={Object {}}
+  >
+    <div
+      className="gc-grid-container GridContainerElement-k7axvl-0 liDBYg"
+      type="full"
+    >
+      <div
+        className="gc-grid-x XYGridElement-sc-11ht4j5-0 fkGVwg"
+        wrap={true}
+      >
+        <div
+          className="gc-cell CellElement-o119kl-0 gVNWNV"
+        >
+          cell
+        </div>
+        <div
+          className="gc-cell CellElement-o119kl-0 gVNWNV"
+        >
+          cell
+        </div>
+        <div
+          className="gc-cell CellElement-o119kl-0 gVNWNV"
+        >
+          cell
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "backgroundColor": "#fff",
+          "border": "1px solid #eee",
+          "borderRadius": "2px",
+          "color": "#444",
+          "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+          "marginBottom": "20px",
+          "marginTop": "20px",
+          "padding": "20px 40px 40px",
+        }
+      }
+    >
+      
+      <div>
+        <h1
+          style={
+            Object {
+              "borderBottom": "1px solid #EEE",
+              "fontSize": "25px",
+              "margin": "20px 0 0 0",
+              "padding": "0 0 5px 0",
+            }
+          }
+        >
+          Prop Types
+        </h1>
+        <div>
+          <h2
+            style={
+              Object {
+                "margin": "20px 0 0 0",
+              }
+            }
+          >
+            "
+            Cell
+            " Component
+          </h2>
+          <table
+            className="css-1uhv8nx e1vdo5380"
+          >
+            <thead>
+              <tr>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  property
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  propType
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  required
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  default
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  description
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  gridColumns
+                </td>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  <span>
+                    unknown
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  -
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#a11",
+                      }
+                    }
+                  >
+                    12
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                />
+              </tr>
+              <tr>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  gutterSizes
+                </td>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  <span>
+                    unknown
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  -
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#666",
+                      }
+                    }
+                  >
+                    {
+                    <span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }
+                      >
+                        small
+                      </span>
+                    </span>
+                    : 
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }
+                    >
+                      '20px'
+                    </span>
+                    ,
+                    <span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }
+                      >
+                        medium
+                      </span>
+                    </span>
+                    : 
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }
+                    >
+                      '30px'
+                    </span>
+                    }
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                />
+              </tr>
+              <tr>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  vertical
+                </td>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  <span>
+                    unknown
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  -
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#a11",
+                      }
+                    }
+                  >
+                    false
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                />
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h2
+            style={
+              Object {
+                "margin": "20px 0 0 0",
+              }
+            }
+          >
+            "
+            GridContainer
+            " Component
+          </h2>
+          <table
+            className="css-1uhv8nx e1vdo5380"
+          >
+            <thead>
+              <tr>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  property
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  propType
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  required
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  default
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  description
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  width
+                </td>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  <span>
+                    unknown
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  -
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#22a",
+                        "wordBreak": "break-word",
+                      }
+                    }
+                  >
+                    75rem
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                />
+              </tr>
+              <tr>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  gutterSizes
+                </td>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  <span>
+                    unknown
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  -
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#666",
+                      }
+                    }
+                  >
+                    {
+                    <span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }
+                      >
+                        small
+                      </span>
+                    </span>
+                    : 
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }
+                    >
+                      '20px'
+                    </span>
+                    ,
+                    <span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }
+                      >
+                        medium
+                      </span>
+                    </span>
+                    : 
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }
+                    >
+                      '30px'
+                    </span>
+                    }
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                />
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h2
+            style={
+              Object {
+                "margin": "20px 0 0 0",
+              }
+            }
+          >
+            "
+            GridX
+            " Component
+          </h2>
+          <table
+            className="css-1uhv8nx e1vdo5380"
+          >
+            <thead>
+              <tr>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  property
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  propType
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  required
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  default
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  description
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  gutterSizes
+                </td>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  <span>
+                    unknown
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  -
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#666",
+                      }
+                    }
+                  >
+                    {
+                    <span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }
+                      >
+                        small
+                      </span>
+                    </span>
+                    : 
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }
+                    >
+                      '20px'
+                    </span>
+                    ,
+                    <span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }
+                      >
+                        medium
+                      </span>
+                    </span>
+                    : 
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }
+                    >
+                      '30px'
+                    </span>
+                    }
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                />
+              </tr>
+              <tr>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  alignX
+                </td>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  <span>
+                    unknown
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  -
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#22a",
+                        "wordBreak": "break-word",
+                      }
+                    }
+                  >
+                    left
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                />
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Grid Container Width of the available space container 1`] = `
+<div>
+  <div>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "backgroundColor": "#fff",
+          "border": "1px solid #eee",
+          "borderRadius": "2px",
+          "color": "#444",
+          "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+          "marginBottom": "20px",
+          "marginTop": "20px",
+          "padding": "20px 40px 40px",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "borderBottom": "1px solid #eee",
+            "marginBottom": 10,
+            "paddingTop": 10,
+          }
+        }
+      >
+        <h1
+          style={
+            Object {
+              "fontSize": "35px",
+              "margin": 0,
+              "padding": 0,
+            }
+          }
+        >
+          Grid Container
+        </h1>
+        <h2
+          style={
+            Object {
+              "fontSize": "22px",
+              "fontWeight": 400,
+              "margin": "0 0 10px 0",
+              "padding": 0,
+            }
+          }
+        >
+          Width of the available space container
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div
+    style={Object {}}
+  >
+    <div
+      className="gc-grid-container GridContainerElement-k7axvl-0 ddrwgF"
+    >
+      <div
+        className="gc-grid-x XYGridElement-sc-11ht4j5-0 fkGVwg"
+        wrap={true}
+      >
+        <div
+          className="gc-cell CellElement-o119kl-0 gVNWNV"
+        >
+          cell
+        </div>
+        <div
+          className="gc-cell CellElement-o119kl-0 gVNWNV"
+        >
+          cell
+        </div>
+        <div
+          className="gc-cell CellElement-o119kl-0 gVNWNV"
+        >
+          cell
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "backgroundColor": "#fff",
+          "border": "1px solid #eee",
+          "borderRadius": "2px",
+          "color": "#444",
+          "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+          "marginBottom": "20px",
+          "marginTop": "20px",
+          "padding": "20px 40px 40px",
+        }
+      }
+    >
+      
+      <div>
+        <h1
+          style={
+            Object {
+              "borderBottom": "1px solid #EEE",
+              "fontSize": "25px",
+              "margin": "20px 0 0 0",
+              "padding": "0 0 5px 0",
+            }
+          }
+        >
+          Prop Types
+        </h1>
+        <div>
+          <h2
+            style={
+              Object {
+                "margin": "20px 0 0 0",
+              }
+            }
+          >
+            "
+            Cell
+            " Component
+          </h2>
+          <table
+            className="css-1uhv8nx e1vdo5380"
+          >
+            <thead>
+              <tr>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  property
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  propType
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  required
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  default
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  description
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  gridColumns
+                </td>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  <span>
+                    unknown
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  -
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#a11",
+                      }
+                    }
+                  >
+                    12
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                />
+              </tr>
+              <tr>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  gutterSizes
+                </td>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  <span>
+                    unknown
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  -
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#666",
+                      }
+                    }
+                  >
+                    {
+                    <span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }
+                      >
+                        small
+                      </span>
+                    </span>
+                    : 
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }
+                    >
+                      '20px'
+                    </span>
+                    ,
+                    <span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }
+                      >
+                        medium
+                      </span>
+                    </span>
+                    : 
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }
+                    >
+                      '30px'
+                    </span>
+                    }
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                />
+              </tr>
+              <tr>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  vertical
+                </td>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  <span>
+                    unknown
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  -
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#a11",
+                      }
+                    }
+                  >
+                    false
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                />
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h2
+            style={
+              Object {
+                "margin": "20px 0 0 0",
+              }
+            }
+          >
+            "
+            GridContainer
+            " Component
+          </h2>
+          <table
+            className="css-1uhv8nx e1vdo5380"
+          >
+            <thead>
+              <tr>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  property
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  propType
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  required
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  default
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  description
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  width
+                </td>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  <span>
+                    unknown
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  -
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#22a",
+                        "wordBreak": "break-word",
+                      }
+                    }
+                  >
+                    75rem
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                />
+              </tr>
+              <tr>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  gutterSizes
+                </td>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  <span>
+                    unknown
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  -
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#666",
+                      }
+                    }
+                  >
+                    {
+                    <span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }
+                      >
+                        small
+                      </span>
+                    </span>
+                    : 
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }
+                    >
+                      '20px'
+                    </span>
+                    ,
+                    <span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }
+                      >
+                        medium
+                      </span>
+                    </span>
+                    : 
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }
+                    >
+                      '30px'
+                    </span>
+                    }
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                />
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h2
+            style={
+              Object {
+                "margin": "20px 0 0 0",
+              }
+            }
+          >
+            "
+            GridX
+            " Component
+          </h2>
+          <table
+            className="css-1uhv8nx e1vdo5380"
+          >
+            <thead>
+              <tr>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  property
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  propType
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  required
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  default
+                </th>
+                <th
+                  className="css-11b5gui e6fp4ir1"
+                >
+                  description
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  gutterSizes
+                </td>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  <span>
+                    unknown
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  -
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#666",
+                      }
+                    }
+                  >
+                    {
+                    <span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }
+                      >
+                        small
+                      </span>
+                    </span>
+                    : 
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }
+                    >
+                      '20px'
+                    </span>
+                    ,
+                    <span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }
+                      >
+                        medium
+                      </span>
+                    </span>
+                    : 
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }
+                    >
+                      '30px'
+                    </span>
+                    }
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                />
+              </tr>
+              <tr>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  alignX
+                </td>
+                <td
+                  className="css-1qcb1f7 e6fp4ir0"
+                >
+                  <span>
+                    unknown
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  -
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                >
+                  <span
+                    style={
+                      Object {
+                        "color": "#22a",
+                        "wordBreak": "break-word",
+                      }
+                    }
+                  >
+                    left
+                  </span>
+                </td>
+                <td
+                  className="css-11b5gui e6fp4ir0"
+                />
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

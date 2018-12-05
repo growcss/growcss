@@ -1,10 +1,15 @@
 npm-debug.log
 lerna-debug.log
 yarn-error.log
+package-lock.json
 
 node_modules
 coverage
 dist
 storybook-static
+.docz
+.rpt2_cache
+test-reports
 
 bundle-stats.html
+.cache

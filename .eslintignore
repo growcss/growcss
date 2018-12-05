@@ -1,11 +1,8 @@
 node_modules
 
-flow-typed/**/*.js
-**/dist
+dist
 __tests__
 coverage
 build
 
-.storybook
-storybook-static
 stories

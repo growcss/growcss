@@ -1,13 +1,10 @@
 {
-  "lerna": "2.8.0",
   "packages": [
-    "src/behaviors/*",
-    "src/components/*",
-    "src/utils/*"
+    "packages/*"
   ],
-  "commands": {
+  "command": {
     "publish": {
-      "ignore": [
+      "ignoreChanges": [
         "src",
         "__tests__"
       ],
@@ -27,10 +24,10 @@
     },
     "cacheDir": ".changelog"
   },
-  "version": "0.0.0",
+  "version": "0.1.0",
   "npmClient": "yarn",
+  "useWorkspaces": true,
   "npmClientArgs": [
     "--no-lockfile"
-  ],
-  "useWorkspaces": true
+  ]
 }

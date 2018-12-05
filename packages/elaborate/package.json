@@ -1,0 +1,52 @@
+{
+  "name": "@growcss/elaborate",
+  "version": "0.0.0",
+  "description": "A lightweight toolset for writing styles in Javascript.",
+  "keywords": [
+    "behavior",
+    "breakpoint",
+    "css-in-js",
+    "em",
+    "emotion",
+    "glamor",
+    "inline-styles",
+    "media-queries",
+    "media-query",
+    "preact",
+    "react",
+    "rem",
+    "sass",
+    "styled-components",
+    "typescript",
+    "utils"
+  ],
+  "homepage": "http://growcss.com",
+  "repository": "https://github.com/growcss/growcss.git",
+  "license": "MIT",
+  "author": {
+    "name": "Daniel Bannert",
+    "email": "d.bannert@anolilab.de"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "jsnext:main": "dist/es/index.js",
+  "scripts": {
+    "build": "cross-env PACKAGE_PATH=elaborate rollup -c ../../build/rollup.config.js"
+  },
+  "browser": "dist/umd/index.js",
+  "dependencies": {
+    "warning": "^4.0.2"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "styled-components": "^4.0.1"
+  },
+  "engines": {
+    "node": "^10.14.0 || ^11.3.0"
+  },
+  "moduleName": "elaborate"
+}
