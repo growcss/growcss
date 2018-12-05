@@ -2,7 +2,10 @@ dist: trusty
 language: node_js
 
 node_js:
-  - 9.10.0
+  - 10.14.1
+
+env:
+  - SKIP_CHECK=true
 
 cache:
   yarn: true
@@ -26,10 +29,10 @@ script:
 
 jobs:
   include:
-    - stage: Test # test for v9.10.0
+    - stage: Test # test for v10.14.1
     - stage: Test
       node_js:
-        - 10
+        - latest
 
     - stage: Coding standard
       script:

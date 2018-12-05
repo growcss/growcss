@@ -2,7 +2,7 @@ const requiredVersion = require("fs")
   .readFileSync(".nvmrc", { encoding: "utf8" })
   .trim();
 
-if (('TRAVIS' in process.env && 'CI' in process.env) || process.env.SKIP_CHECK !== undefined) {
+if (process.env.SKIP_CHECK !== undefined) {
   process.exit(0);
 }
 
