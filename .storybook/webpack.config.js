@@ -7,17 +7,7 @@ module.exports = (baseConfig, env, defaultConfig) => {
       exclude: /node_modules/,
       loader: 'babel-loader',
       query: { cacheDirectory: true },
-    },
-    {
-      test: /\.stories\.(js|ts|tsx|jsx)$/,
-      loaders: [
-        {
-          loader: require.resolve('@storybook/addon-storysource/loader'),
-          options: { parser: 'typescript' }
-        }
-      ],
-      enforce: 'pre',
-    },
+    }
   );
 
   defaultConfig.plugins.push(new TSDocgenPlugin());
