@@ -35,7 +35,7 @@
   "module": "dist/es/index.js",
   "jsnext:main": "dist/es/index.js",
   "scripts": {
-    "build": "cross-env PACKAGE_PATH=elaborate rollup -c ../../build/rollup.config.js"
+    "build": "cross-env PACKAGE_PATH=core/elaborate rollup -c ../../../build/rollup.config.js"
   },
   "browser": "dist/umd/index.js",
   "dependencies": {

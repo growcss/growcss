@@ -22,11 +22,11 @@
     "email": "d.bannert@anolilab.de"
   },
   "main": "index.json",
-  "peerDependencies": {
-    "tslint": "^5.11.0"
-  },
   "dependencies": {
     "tslint-config-prettier": "^1.15.0",
     "tslint-react": "^3.6.0"
+  },
+  "peerDependencies": {
+    "tslint": "^5.11.0"
   }
 }
