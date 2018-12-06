@@ -1,5 +1,5 @@
 {
-  "name": "@growcss/eslint-config-growcss",
+  "name": "@growcss/eslint-config",
   "version": "0.0.0",
   "private": false,
   "description": "GrowCss Coding Standard for eslint.",
