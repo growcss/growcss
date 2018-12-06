@@ -1,8 +1,0 @@
-{
-  "name": "@growcss/tslint-rules",
-  "private": true,
-  "version": "1.0.0",
-  "main": "tslint.json",
-  "description": "Custom tslint rules used in growcss",
-  "license": "MIT"
-}

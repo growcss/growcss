@@ -1,6 +1,7 @@
 {
   "packages": [
-    "packages/*"
+    "packages/coding-standard/*",
+    "packages/core/*"
   ],
   "command": {
     "publish": {

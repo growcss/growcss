@@ -1,0 +1,32 @@
+{
+  "name": "@growcss/tslint-config-growcss",
+  "version": "0.0.0",
+  "private": false,
+  "description": "GrowCss Coding Standard for es-lint, style-lint and prettier.",
+  "keywords": [
+    "css",
+    "growcss",
+    "lint",
+    "styled-components",
+    "styleguide",
+    "stylelint"
+  ],
+  "homepage": "https://growcss.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/growcss/growcss.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Daniel Bannert",
+    "email": "d.bannert@anolilab.de"
+  },
+  "main": "index.json",
+  "peerDependencies": {
+    "tslint": "^5.11.0"
+  },
+  "dependencies": {
+    "tslint-config-prettier": "^1.15.0",
+    "tslint-react": "^3.6.0"
+  }
+}
