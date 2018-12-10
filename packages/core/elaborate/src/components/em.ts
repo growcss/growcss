@@ -1,5 +1,5 @@
 import rem from './rem';
-import getValueAndUnit from './getValueAndUnit';
+import getValueAndUnit from './get-value-and-unit';
 
 /**
  * Converts a unitless, pixel, or rem value to em, for use in breakpoints.

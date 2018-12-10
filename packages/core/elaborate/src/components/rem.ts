@@ -1,5 +1,5 @@
-import _remCalc from './_remCalc';
-import getValueAndUnit from './getValueAndUnit';
+import _remCalc from './_rem-calc';
+import getValueAndUnit from './get-value-and-unit';
 
 /**
  * Converts one or more pixel values into matching rem values.
