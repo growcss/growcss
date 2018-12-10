@@ -6,10 +6,15 @@
  *
  * @return {string}
  */
-export const CellSize = (size: string | number, gridColumns: number = 12): string => {
+export const CellSize = (
+  size: string | number,
+  gridColumns: number = 12,
+): string => {
   if (typeof size === 'string' && size.includes('%')) {
     return size;
-  } else if (+size < 1) {
+  }
+
+  if (+size < 1) {
     return `${Number(size) * 100}%`;
   }
 

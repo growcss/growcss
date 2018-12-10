@@ -10,7 +10,7 @@ import getValueAndUnit from './getValueAndUnit';
  * @return {string}
  */
 export default (
-  values: string | number | Array<string | number>,
+  values: string | number | (string | number)[],
   base: number | string = 16,
 ): string => {
   if (typeof values === 'string') {
@@ -25,5 +25,7 @@ export default (
     }
   }
 
-  return (rem(values, base)).toString().replace(new RegExp('rem', 'g'), 'em');
+  return rem(values, base)
+    .toString()
+    .replace(new RegExp('rem', 'g'), 'em');
 };

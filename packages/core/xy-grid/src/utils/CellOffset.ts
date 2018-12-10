@@ -1,6 +1,12 @@
-import {rem,stripUnit,mediaquery,MediaQueryOptionsProps, MediaQueryOptions} from '@growcss/elaborate';
-import {Gutters as DefaultGutters,GuttersProps} from '../components/Gutters';
-import {CellSize} from './CellSize';
+import {
+  rem,
+  stripUnit,
+  mediaquery,
+  MediaQueryOptionsProps,
+  MediaQueryOptions,
+} from '@growcss/elaborate';
+import { Gutters as DefaultGutters, GuttersProps } from '../components/Gutters';
+import { CellSize } from './CellSize';
 
 export const CellOffset = (
   n: number | string,
@@ -41,7 +47,7 @@ export const CellOffset = (
   if (typeof gutters[lastBreakpointName] === 'string') {
     lastBreakpoint = +stripUnit(`${gutters[lastBreakpointName]}`);
   } else {
-    lastBreakpoint = + gutters[lastBreakpointName]
+    lastBreakpoint = +gutters[lastBreakpointName];
   }
 
   const gutter = rem(lastBreakpoint / 2);

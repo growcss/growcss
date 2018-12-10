@@ -9,7 +9,7 @@ export default function(value: string | number): number {
   let unit = value;
 
   if (typeof value === 'string') {
-    unit = (value).toString().replace(/[^\d.-]/gi, '');
+    unit = value.toString().replace(/[^\d.-]/gi, '');
   }
 
   if (unit === '') {
@@ -17,4 +17,4 @@ export default function(value: string | number): number {
   }
 
   return Number(unit);
-};
+}

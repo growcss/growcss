@@ -15,7 +15,7 @@ export default function(
   min: null | number | string,
   max: null | number | string,
   minName: string = 'min-width',
-  maxName: string = 'max-width'
+  maxName: string = 'max-width',
 ): string {
   let minNumber = min;
   let maxNumber = max;
@@ -46,4 +46,4 @@ export default function(
   }
 
   return str;
-};
+}

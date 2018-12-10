@@ -1,6 +1,6 @@
 module.exports = {
   "extends": [
-    "@growcss/eslint-config-growcss"
+    "./packages/coding-standard/eslint-config/index.js"
   ],
   rules: {}
 };

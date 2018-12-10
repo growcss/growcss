@@ -5,12 +5,12 @@ import { XYGridElement } from '../styled/XYGridElement';
 import { CellProps } from './Cell';
 
 export interface GridProps {
-    children: React.ReactNode,
-    height?: string,
-    gutterSizes?: GuttersProps,
-    gutterType?: string,
-    alignX?: string,
-    alignY?: string,
+  children: React.ReactNode;
+  height?: string;
+  gutterSizes?: GuttersProps;
+  gutterType?: string;
+  alignX?: string;
+  alignY?: string;
 }
 
 export default class AbstractGrid extends React.Component<GridProps> {
@@ -40,13 +40,16 @@ export default class AbstractGrid extends React.Component<GridProps> {
     gutterType?: string,
     gutterSizes?: GuttersProps,
   ) {
-    return React.Children.map(children, (thisArg: React.ReactElement<CellProps>) => {
-      return React.cloneElement(thisArg, {
-        vertical: this.vertical,
-        gutterType,
-        gutterSizes,
-      });
-    });
+    return React.Children.map(
+      children,
+      (thisArg: React.ReactElement<CellProps>) => {
+        return React.cloneElement(thisArg, {
+          gutterType,
+          gutterSizes,
+          vertical: this.vertical,
+        });
+      },
+    );
   }
 
   /**
@@ -62,13 +65,13 @@ export default class AbstractGrid extends React.Component<GridProps> {
       height,
       ...other
     } = this.props;
-    const className = classNames(
-      `gc-grid-${this.vertical ? 'y' : 'x'}`,
-    );
+    const className = classNames(`gc-grid-${this.vertical ? 'y' : 'x'}`);
     const direction = this.vertical ? 'vertical' : 'horizontal';
 
     if (this.vertical && height === undefined) {
-      throw new Error('Y-Grid needs always a height, please use "height" prop to add the grid height.');
+      throw new Error(
+        'Y-Grid needs always a height, please use "height" prop to add the grid height.',
+      );
     }
 
     return (

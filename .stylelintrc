@@ -1,6 +1,6 @@
 {
   "extends": [
-    "@growcss/stylelint-config-growcss"
+    "./packages/coding-standard/stylelint-config"
   ],
   "rules": {
   }

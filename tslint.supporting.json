@@ -1,6 +1,11 @@
 {
-  "extends": ["./tslint.sources.json"],
+  "extends": [
+    "./tslint.sources.json"
+  ],
+  "linterOptions": {
+    "exclude": []
+  },
   "rules": {
-    "no-implicit-dependencies": [true, "dev"]
+    "no-implicit-dependencies": false
   }
 }

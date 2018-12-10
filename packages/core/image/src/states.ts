@@ -1,3 +1,3 @@
 export type StateType = {
-  imageLoaded: boolean,
+  imageLoaded: boolean;
 };

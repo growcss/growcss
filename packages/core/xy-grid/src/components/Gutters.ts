@@ -1,5 +1,5 @@
 export interface GuttersProps {
-  [key:string]: string | number
+  [key: string]: string | number;
 }
 
 export const Gutters: GuttersProps = {

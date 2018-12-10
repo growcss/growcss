@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export type FigcaptionProps = {
-    align?: 'start' | 'left' | 'end' | 'right' | 'center',
-}
+  align?: 'start' | 'left' | 'end' | 'right' | 'center';
+};
 
 export const FigcaptionElement = styled.figcaption<FigcaptionProps>`
   position: relative;

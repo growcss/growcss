@@ -1,29 +1,40 @@
 import styled from 'styled-components';
-import {mediaquery,Breakpoints} from '@growcss/elaborate';
-import {CellStatic} from '../utils/CellStatic';
-import {CellBase} from '../utils/CellBase';
-import {CellOffset} from '../utils/CellOffset';
-import {CellElementAlign} from '../utils/FlexAlign';
-import {GuttersProps} from '..';
+import { mediaquery, Breakpoints } from '@growcss/elaborate';
+import { CellStatic } from '../utils/CellStatic';
+import { CellBase } from '../utils/CellBase';
+import { CellOffset } from '../utils/CellOffset';
+import { CellElementAlign } from '../utils/FlexAlign';
+import { GuttersProps } from '..';
 
 type GutterCssProps = {
-  gutterSizes: GuttersProps,
-  gutterType: string | undefined,
-  vertical: boolean,
-}
+  gutterSizes: GuttersProps;
+  gutterType: string | undefined;
+  vertical: boolean;
+};
 
 const BreakpointGutterCss = (props: GutterCssProps) => {
   let breakpoints: string[] = [];
   let lastBreakpoint;
 
-  for(const breakpoint in Breakpoints) {
-    if (props[breakpoint] !== undefined && typeof props[breakpoint] === 'number' && props[breakpoint] !== 0) {
+  for (const breakpoint in Breakpoints) {
+    if (
+      props[breakpoint] !== undefined &&
+      typeof props[breakpoint] === 'number' &&
+      props[breakpoint] !== 0
+    ) {
       if (props.gutterSizes[breakpoint] !== undefined) {
         lastBreakpoint = breakpoint;
       }
 
       breakpoints = breakpoints.concat(
-        mediaquery(breakpoint)`${CellStatic(props[breakpoint], props.gutterType !== undefined, props.gutterSizes, (props.gutterType || 'padding'), lastBreakpoint, props.vertical)}`
+        mediaquery(breakpoint)`${CellStatic(
+          props[breakpoint],
+          props.gutterType !== undefined,
+          props.gutterSizes,
+          props.gutterType || 'padding',
+          lastBreakpoint,
+          props.vertical,
+        )}`,
       );
     }
   }
@@ -39,12 +50,21 @@ const BreakpointGutterCss = (props: GutterCssProps) => {
 //   [key: string]: number,
 // } & GutterCssProps
 
-const CellOffsetCss = (props) => {
+const CellOffsetCss = props => {
   let css = [];
 
-  for(const breakpoint in Breakpoints) {
+  for (const breakpoint in Breakpoints) {
     if (props[`${breakpoint}Offset`] !== undefined) {
-      css = css.concat(CellOffset(props[`${breakpoint}Offset`], breakpoint, (props.gutterType || 'padding'), props.vertical, false, props.gutterSizes));
+      css = css.concat(
+        CellOffset(
+          props[`${breakpoint}Offset`],
+          breakpoint,
+          props.gutterType || 'padding',
+          props.vertical,
+          false,
+          props.gutterSizes,
+        ),
+      );
     }
   }
 
@@ -52,9 +72,9 @@ const CellOffsetCss = (props) => {
 };
 
 type ResponsiveCellCssProps = {
-  cellType: string | undefined,
-  gridColumns: number,
-} & GutterCssProps
+  cellType: string | undefined;
+  gridColumns: number;
+} & GutterCssProps;
 
 const ResponsiveCellCss = (props: ResponsiveCellCssProps) => {
   let css: string[] = [];
@@ -62,13 +82,32 @@ const ResponsiveCellCss = (props: ResponsiveCellCssProps) => {
   const hasGutterType = props.gutterType !== undefined;
 
   css.push(CellBase(props.cellType || 'full'));
-  css = css.concat(CellStatic((props.cellType || props.gridColumns), hasGutterType, props.gutterSizes, (props.gutterType || 'padding'), 'small', props.vertical));
+  css = css.concat(
+    CellStatic(
+      props.cellType || props.gridColumns,
+      hasGutterType,
+      props.gutterSizes,
+      props.gutterType || 'padding',
+      'small',
+      props.vertical,
+    ),
+  );
 
-  for(const breakpoint in Breakpoints) {
-    if (typeof props[breakpoint] === 'string' && types.includes(props[breakpoint])) {
+  for (const breakpoint in Breakpoints) {
+    if (
+      typeof props[breakpoint] === 'string' &&
+      types.includes(props[breakpoint])
+    ) {
       css = css.concat(mediaquery(breakpoint)`
         ${CellBase(props[breakpoint])}
-        ${CellStatic(props[breakpoint], hasGutterType, props.gutterSizes, (props.gutterType || 'padding'), 'small', props.vertical)}
+        ${CellStatic(
+          props[breakpoint],
+          hasGutterType,
+          props.gutterSizes,
+          props.gutterType || 'padding',
+          'small',
+          props.vertical,
+        )}
       `);
     }
   }
@@ -77,14 +116,14 @@ const ResponsiveCellCss = (props: ResponsiveCellCssProps) => {
 };
 
 export type CellElementProps = {
-    gutterType: string | undefined,
-    align: string | null | undefined
-} & ResponsiveCellCssProps
+  gutterType: string | undefined;
+  align: string | null | undefined;
+} & ResponsiveCellCssProps;
 
 export const CellElement = styled.div<CellElementProps>`
   ${props => ResponsiveCellCss(props)}
   ${props => BreakpointGutterCss(props)}
   ${props => CellOffsetCss(props)}
-  ${props => props.gutterType === 'padding' ? 'box-sizing: border-box;' : ''}
+  ${props => (props.gutterType === 'padding' ? 'box-sizing: border-box;' : '')}
   ${props => CellElementAlign(props.align || null)}
 `;

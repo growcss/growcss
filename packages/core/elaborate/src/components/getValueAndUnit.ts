@@ -7,12 +7,12 @@ const cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/;
  *
  * @return {[number|string, undefined|string]}
  */
-export default (value: string): [number|string, undefined|string] => {
+export default (value: string): [number | string, undefined | string] => {
   const matchedValue = value.match(cssRegex);
 
   if (matchedValue) {
     return [parseFloat(value), matchedValue[2]];
   }
 
-  return [value, undefined]
+  return [value, undefined];
 };

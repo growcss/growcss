@@ -8,17 +8,17 @@ import { PreviewElement } from '../styled/PreviewElement';
 import { StateType } from '../states';
 
 export interface ImagesProps {
-  [key: string]: string
+  [key: string]: string;
 }
 
 export interface ImageType {
-    backgroundImages: ImagesProps,
-    height?: number,
-    width?: number,
-    alt?: string,
-    crossorigin?: "" | "anonymous" | "use-credentials" | undefined,
-    previewImage?: string,
-    children?: React.ReactNode
+  backgroundImages: ImagesProps;
+  height?: number;
+  width?: number;
+  alt?: string;
+  crossorigin?: '' | 'anonymous' | 'use-credentials' | undefined;
+  previewImage?: string;
+  children?: React.ReactNode;
 }
 
 export default class LazyImage extends React.Component<ImageType, StateType> {
@@ -58,12 +58,12 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
     imageInstance.src = this.src;
     imageInstance.srcset = this.srcSet;
 
-    imageInstance.onload = () => {
+    imageInstance.addEventListener('load', () => {
       this.setState({ imageLoaded: true });
 
       this.imgElement.src = this.src;
       this.imgElement.srcset = this.srcSet;
-    };
+    });
   }
 
   static parseBackgroundImages(backgroundImages: ImagesProps) {
@@ -102,30 +102,34 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
       crossorigin,
     } = this.props;
     const className = classNames({ loaded: this.state.imageLoaded });
-    let DivSizer = <div/>;
+    let DivSizer = <div />;
 
     if (height !== undefined && width !== undefined) {
-      DivSizer = <div style={ { paddingBottom: `${height / width * 100}%` } } />;
+      DivSizer = (
+        <div style={{ paddingBottom: `${(height / width) * 100}%` }} />
+      );
     }
 
     return (
       <FigureElement className="gc-image">
         <AspectRatioPlaceholder>
-          { DivSizer }
+          {DivSizer}
           <PreviewElement
-            className={ classNames('preview') }
-            src={ previewImage || this.src }
+            className={classNames('preview')}
+            src={previewImage || this.src}
             crossOrigin="anonymous"
-            alt={ alt }
+            alt={alt}
           />
           <ImageElement
             className={className}
-            ref={ (img: HTMLImageElement) => { this.imgElement = img; } }
-            alt={ alt }
-            crossOrigin={ crossorigin }
+            ref={(img: HTMLImageElement) => {
+              this.imgElement = img;
+            }}
+            alt={alt}
+            crossOrigin={crossorigin}
           />
         </AspectRatioPlaceholder>
-        { children }
+        {children}
       </FigureElement>
     );
   }

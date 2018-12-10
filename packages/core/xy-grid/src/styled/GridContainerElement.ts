@@ -3,10 +3,10 @@ import { Gutters } from '../utils/Gutters';
 import { GuttersProps } from '..';
 
 export type GridContainerElementProps = {
-    maxWidth: string | number,
-    gutterSizes: string | number | GuttersProps,
-    type: string | undefined,
-}
+  maxWidth: string | number;
+  gutterSizes: string | number | GuttersProps;
+  type: string | undefined;
+};
 
 export const GridContainerElement = styled.div<GridContainerElementProps>`
   max-width: ${props => props.maxWidth};

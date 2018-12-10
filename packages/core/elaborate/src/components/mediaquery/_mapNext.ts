@@ -1,4 +1,4 @@
-import {BreakpointsProps} from './mediaQuery';
+import { BreakpointsProps } from './mediaQuery';
 
 /**
  * Find the next key in object.
@@ -8,7 +8,10 @@ import {BreakpointsProps} from './mediaQuery';
  *
  * @return {null|number}
  */
-export default function(breakpoints: BreakpointsProps, key: string): number | null {
+export default function(
+  breakpoints: BreakpointsProps,
+  key: string,
+): number | null {
   const keys: string[] = Object.keys(breakpoints);
   const objectCount: string[] = Object.keys(breakpoints);
   let i = 0;
@@ -24,4 +27,4 @@ export default function(breakpoints: BreakpointsProps, key: string): number | nu
   }
 
   return breakpoints[keys[i]];
-};
+}

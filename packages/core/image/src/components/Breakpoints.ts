@@ -1,5 +1,5 @@
 export interface BreakpointsProps {
-    [key:string]: string
+  [key: string]: string;
 }
 
 /**

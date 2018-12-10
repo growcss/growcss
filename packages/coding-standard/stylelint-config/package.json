@@ -30,10 +30,10 @@
     "stylelint-config-prettier": "^4.0.0",
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-images": "^2.0.0",
     "stylelint-no-unsupported-browser-features": "^3.0.2",
     "stylelint-order": "^2.0.0",
-    "stylelint-processor-styled-components": "^1.5.0",
-    "stylelint-images": "^2.0.0"
+    "stylelint-processor-styled-components": "^1.5.0"
   },
   "peerDependencies": {
     "stylelint": "^9.0.0"

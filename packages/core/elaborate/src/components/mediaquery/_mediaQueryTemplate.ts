@@ -1,6 +1,6 @@
-import mapNext from './_mapNext';
-import mapNextNumber from './_mapNextNumber';
-import strBreakpointJoin from './_stringBreakpointJoin';
+import _mapNext from './_mapNext';
+import _mapNextNumber from './_mapNextNumber';
+import _stringBreakpointJoin from './_stringBreakpointJoin';
 import stripUnit from '../stripUnit';
 import {BreakpointsProps, HidpiBreakpointsProps, MediaQueryOptionsProps} from './mediaQuery';
 import em from '../em';
@@ -107,7 +107,7 @@ export default class MediaQueryTemplate {
             }
 
             if (['width', 'height'].includes(level3RegexMatches[4])) {
-              query += `(${level3RegexMatches[3] || ''}${level3RegexMatches[4]}${level3RegexMatches[5] ? ': ' + em(level3RegexMatches[5]) : ''})`;
+              query += `(${level3RegexMatches[3] || ''}${level3RegexMatches[4]}${level3RegexMatches[5] ? `: ${em(level3RegexMatches[5])}` : ''})`;
             } else {
               query += expression;
             }
@@ -147,7 +147,7 @@ export default class MediaQueryTemplate {
     direction: string,
     breakpoints: BreakpointsProps | HidpiBreakpointsProps,
     stdWebDpi: number
-  ): Array<string|number|null> => {
+  ): (string|number|null)[] => {
     // Size or keyword
     let breakpoint = bp;
     // Value of the following breakpoint
@@ -167,9 +167,9 @@ export default class MediaQueryTemplate {
 
       if (this.isHidpi(breakpoints)) {
         isHidpi = true;
-        bpNext = mapNextNumber(breakpoints, +breakpoint);
+        bpNext = _mapNextNumber(breakpoints, +breakpoint);
       } else {
-        bpNext = mapNext(breakpoints, name + '');
+        bpNext = _mapNext(breakpoints, `${name}`);
       }
     } else {
       warning(
@@ -222,7 +222,7 @@ export default class MediaQueryTemplate {
    *
    * @return {string}
    */
-  private generateDpiMediaQuery = (matches: Array<string>, options: MediaQueryOptionsProps): string => {
+  private generateDpiMediaQuery = (matches: string[], options: MediaQueryOptionsProps): string => {
     const sizes = this.calculatedSizes(
       matches[1],
       matches[2] !== undefined ? matches[2] : 'up',
@@ -257,7 +257,7 @@ export default class MediaQueryTemplate {
     }
 
     let template = '';
-    let query = strBreakpointJoin(
+    let query = _stringBreakpointJoin(
       bpMinSize,
       bpMaxSize,
       '-webkit-min-device-pixel-ratio',
@@ -268,7 +268,7 @@ export default class MediaQueryTemplate {
       template += `${onlyScreen}${query}, `;
     }
 
-    query = strBreakpointJoin(
+    query = _stringBreakpointJoin(
       bpMinSize,
       bpMaxSize,
       'min--moz-device-pixel-ratio',
@@ -280,7 +280,7 @@ export default class MediaQueryTemplate {
     }
 
     if ((bpMinSize !== null && +bpMinSize > 1) || (bpMaxSize !== null && +bpMaxSize > 1)) {
-      query = strBreakpointJoin(
+      query = _stringBreakpointJoin(
         bpMinSize !== null ? `${+bpMinSize * 2}/2` : null,
         bpMaxSize !== null ? `${+bpMaxSize * 2}/2` : null,
         '-o-min-device-pixel-ratio',
@@ -292,13 +292,13 @@ export default class MediaQueryTemplate {
       }
     }
 
-    query = strBreakpointJoin(bpMinDpi, bpMaxDpi, 'min-resolution', 'max-resolution');
+    query = _stringBreakpointJoin(bpMinDpi, bpMaxDpi, 'min-resolution', 'max-resolution');
 
     if (query !== '') {
       template += `${onlyScreen}${query}, `;
     }
 
-    query = strBreakpointJoin(
+    query = _stringBreakpointJoin(
       bpMinSize !== null ? `${bpMinSize}dppx` : null,
       bpMaxSize !== null ? `${bpMaxSize}dppx` : null,
       'min-resolution',
@@ -320,13 +320,13 @@ export default class MediaQueryTemplate {
    *
    * @return {string}
    */
-  private generateBreakpointQuery = (matches: Array<string>, options: MediaQueryOptionsProps): string => {
+  private generateBreakpointQuery = (matches: string[], options: MediaQueryOptionsProps): string => {
     const breakpoint = matches[1] !== undefined ? matches[1] : matches[5];
     const direction = matches[2] !== undefined ? matches[2] : 'up';
 
     const sizes = this.calculatedSizes(breakpoint, direction, options.breakpoints, 0);
 
-    let query = strBreakpointJoin(sizes[0], sizes[1]);
+    let query = _stringBreakpointJoin(sizes[0], sizes[1]);
     // const breakpointValue: number | null = options.breakpoints[breakpoint] !== undefined ? options.breakpoints[breakpoint] : null;
 
     if (query !== '') {

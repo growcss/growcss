@@ -6,16 +6,11 @@ const config = {
     [
       'babel-plugin-styled-components',
       {
-        "ssr": true
-      }
+        ssr: true,
+      },
     ],
-    // '@babel/plugin-transform-runtime',
-    // '@babel/plugin-transform-regenerator'
   ],
-  presets: [
-    '@babel/typescript',
-    'airbnb'
-  ]
+  presets: ['@babel/typescript', 'airbnb'],
 };
 
 module.exports = config;

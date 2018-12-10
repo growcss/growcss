@@ -1,4 +1,7 @@
-export { default as GridContainer, GridContainerProps } from './components/GridContainer';
+export {
+  default as GridContainer,
+  GridContainerProps,
+} from './components/GridContainer';
 export { default as Cell, CellProps } from './components/Cell';
 export { GridProps } from './components/AbstractGrid';
 export { default as GridX } from './components/GridX';

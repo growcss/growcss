@@ -1,11 +1,11 @@
-import {rem,stripUnit,mediaquery} from '@growcss/elaborate';
-import {GuttersProps} from '../components/Gutters';
+import { rem, stripUnit, mediaquery } from '@growcss/elaborate';
+import { GuttersProps } from '../components/Gutters';
 
 const cssBuilder = (
   gutter: string | number,
   negative: boolean,
   gutterType: string,
-  gutterPosition: Array<string>,
+  gutterPosition: string[],
 ): string => {
   let negativeBoolean = negative;
   let operator = negativeBoolean ? '-' : '';
@@ -20,7 +20,7 @@ const cssBuilder = (
   const remValue = rem(+gutterSize / 2);
 
   // If the value is already negative, remove the operator and set negative to true.
-  if (! isString && gutterSize < 0) {
+  if (!isString && gutterSize < 0) {
     negativeBoolean = true;
     operator = '';
   }
@@ -50,7 +50,7 @@ const cssBuilder = (
 export const Gutters = (
   gutters: string | number | GuttersProps,
   gutterType: string = 'margin',
-  gutterPosition: Array<string> = ['right', 'left'],
+  gutterPosition: string[] = ['right', 'left'],
   negative: boolean = false,
 ) => {
   // Output our margin gutters.
@@ -62,7 +62,14 @@ export const Gutters = (
         typeof gutters[key] === 'number' ||
         typeof gutters[key] === 'string'
       ) {
-        strings.push(mediaquery(key)`${cssBuilder(gutters[key], negative, gutterType, gutterPosition)}`);
+        strings.push(
+          mediaquery(key)`${cssBuilder(
+            gutters[key],
+            negative,
+            gutterType,
+            gutterPosition,
+          )}`,
+        );
       }
     }
 

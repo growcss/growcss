@@ -3,20 +3,23 @@ import stripUnit from './stripUnit';
 /**
  * Converts a pixel value to matching rem value. *Any* value passed, regardless of unit.
  *
- * @param {number|string|Array<string|number>} value Value to convert.
- * @param {number|string}                      base  Base for pixel conversion.
+ * @param {number|string|string[] | number[]} value Value to convert.
+ * @param {number|string}                     base  Base for pixel conversion.
  *
  * @return {string} A number in rems, calculated based on the given value and the base pixel value. rem values are passed through as is.
  */
-export default function(value: number | string | Array<string | number>, base: number | string): string {
-  let transformedValue: null | number | string | Array<string | number> = value;
+export default function(
+  value: number | string | string[] | number[],
+  base: number | string,
+): string {
+  let transformedValue: null | number | string | string[] | number[] = value;
   let baseRem: number | string = base;
 
   if (typeof base === 'string') {
     // If the base font size is a %, then multiply it by 16px
     // This is because 100% font size = 16px in most all browsers
     if (base.includes('%')) {
-      baseRem = +stripUnit(base) / 100 * 16;
+      baseRem = (+stripUnit(base) / 100) * 16;
     } else if (base.includes('rem')) {
       // Using rem as base allows correct scaling
       baseRem = +stripUnit(base) * 16;
@@ -34,7 +37,11 @@ export default function(value: number | string | Array<string | number>, base: n
   }
 
   // Since NaN is the only JavaScript value that is treated as unequal to itself (DON`T REMOVE the value !== value check)
-  if (transformedValue === null || (typeof transformedValue === 'number' && isNaN(transformedValue))) { // eslint-disable-line no-self-compare
+  if (
+    transformedValue === null ||
+    (typeof transformedValue === 'number' && isNaN(transformedValue))
+  ) {
+    // eslint-disable-line no-self-compare
     throw new Error(`Value cant be null or NaN.`);
   }
 
@@ -45,4 +52,4 @@ export default function(value: number | string | Array<string | number>, base: n
   }
 
   return `${val}rem`;
-};
+}

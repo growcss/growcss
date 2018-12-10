@@ -2,22 +2,22 @@ import { css } from 'styled-components';
 import MediaQueryTemplate from './_mediaQueryTemplate';
 
 export interface BreakpointsProps {
-  [key: string]: number
+  [key: string]: number;
 }
 
 export interface HidpiBreakpointsProps {
-  'hidpi-1': number,
-  'hidpi-1-5': number,
-  'hidpi-2': number,
-  'retina': number,
-  'hidpi-3': number,
+  'hidpi-1': number;
+  'hidpi-1-5': number;
+  'hidpi-2': number;
+  retina: number;
+  'hidpi-3': number;
 }
 
 export interface MediaQueryOptionsProps {
-  printBreakpoint: string,                 // The largest named breakpoint in which to include print as a media type
-  breakpoints: BreakpointsProps,
-  hidpiBreakpoints: HidpiBreakpointsProps,
-  stdWebDpi: number
+  printBreakpoint: string; // The largest named breakpoint in which to include print as a media type
+  breakpoints: BreakpointsProps;
+  hidpiBreakpoints: HidpiBreakpointsProps;
+  stdWebDpi: number;
 }
 
 /**
@@ -45,7 +45,7 @@ export const HidpiBreakpoints: HidpiBreakpointsProps = {
   'hidpi-1': 1,
   'hidpi-1-5': 1.5,
   'hidpi-2': 2,
-  'retina': 2,
+  retina: 2,
   'hidpi-3': 3,
 };
 
@@ -74,15 +74,21 @@ const mediaQueryTemplate = new MediaQueryTemplate(MediaQueryOptions);
  */
 export default (
   value: string = 'small',
-  mediaQueryOptions: MediaQueryOptionsProps | null = null
+  mediaQueryOptions: MediaQueryOptionsProps | null = null,
 ) => {
-  const options = mediaQueryOptions !== null ? mediaQueryOptions : MediaQueryOptions;
+  const options =
+    mediaQueryOptions !== null ? mediaQueryOptions : MediaQueryOptions;
 
   if (options.breakpoints[Object.keys(options.breakpoints)[0]] !== 0) {
-    throw new Error(`Your smallest breakpoint (defined in ${options.breakpoints}) must be set to "0".`);
+    throw new Error(
+      `Your smallest breakpoint (defined in ${
+        options.breakpoints
+      }) must be set to "0".`,
+    );
   }
-  
-  return (...args: any) => { // @TODO fix type hint
+
+  // @TODO fix type hint
+  return (...args: any) => {
     if (mediaQueryOptions !== null) {
       mediaQueryTemplate.setOption(mediaQueryOptions);
     }
