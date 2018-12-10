@@ -1,9 +1,9 @@
 export {
   default as GridContainer,
   GridContainerProps,
-} from './components/GridContainer';
-export { default as Cell, CellProps } from './components/Cell';
-export { GridProps } from './components/AbstractGrid';
-export { default as GridX } from './components/GridX';
-export { default as GridY } from './components/GridY';
-export { Gutters, GuttersProps } from './components/Gutters';
+} from './components/grid-container';
+export { default as Cell, CellProps } from './components/cell';
+export { GridProps } from './components/abstract-grid';
+export { default as GridX } from './components/grid-x';
+export { default as GridY } from './components/grid-y';
+export { Gutters, GuttersProps } from './components/gutters';

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import 'jest-styled-components';
-import LazyImage from '../components/LazyImage';
+import LazyImage from '../components/lazy-image';
 import { shallow } from 'enzyme';
 import { axe, toHaveNoViolations } from 'jest-axe'
 

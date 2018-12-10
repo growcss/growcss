@@ -1,2 +1,2 @@
-export { default as Image } from './components/LazyImage';
-export { FigcaptionElement as Figcaption } from './styled/FigcaptionElement';
+export { default as Image } from './components/lazy-image';
+export { FigcaptionElement as Figcaption } from './styled/figcaption-element';
