@@ -205,7 +205,7 @@ export default class MediaQueryTemplate {
     // If named, name of the breakpoint
     let name: null | string | number = null;
     // If the breakpoint is a HiDPI breakpoint
-    let isHidpi: boolean = false;
+    let isHidpi = false;
 
     if (breakpoint in breakpoints) {
       name = breakpoint;

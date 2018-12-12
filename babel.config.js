@@ -9,6 +9,7 @@ const config = {
         ssr: true,
       },
     ],
+    'module:fast-async',
   ],
   presets: ['@babel/typescript', 'airbnb'],
 };
