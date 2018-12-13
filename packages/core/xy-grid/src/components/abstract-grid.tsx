@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { Gutters as DefaultGutters, GuttersProps } from './gutters';
 import { XYGridElement } from '../styled/xy-grid-element';
+// eslint-disable-next-line no-unused-vars
 import { CellProps } from './cell';
 
 export interface GridProps {
@@ -13,8 +14,15 @@ export interface GridProps {
   alignY?: string;
 }
 
+interface DefaultGridProps {
+  gutterSizes?: GuttersProps;
+  alignX?: string;
+}
+
+type PropsWithDefaults = GridProps & DefaultGridProps;
+
 export default class AbstractGrid extends React.Component<GridProps> {
-  static defaultProps = {
+  public static defaultProps: DefaultGridProps = {
     gutterSizes: DefaultGutters,
     alignX: 'left',
   };
@@ -24,47 +32,14 @@ export default class AbstractGrid extends React.Component<GridProps> {
    *
    * @param {boolean} vertical
    */
-  vertical: boolean;
-
-  /**
-   * Renders the child elements.
-   *
-   * @param {React.Component<CellProps>[]} children
-   * @param {undefined | string}           gutterType
-   * @param {GuttersProps}                 gutterSizes
-   *
-   * @return {Object}
-   */
-  renderCellChildren(
-    children: React.ReactNode,
-    gutterType?: string,
-    gutterSizes?: GuttersProps,
-  ) {
-    return React.Children.map(
-      children,
-      (thisArg: React.ReactElement<CellProps>) => {
-        return React.cloneElement(thisArg, {
-          gutterType,
-          gutterSizes,
-          vertical: this.vertical,
-        });
-      },
-    );
-  }
+  protected vertical: boolean;
 
   /**
    * @inheritdoc
    */
-  render() {
-    const {
-      children,
-      gutterSizes,
-      gutterType,
-      alignX,
-      alignY,
-      height,
-      ...other
-    } = this.props;
+  public render() {
+    const { children, gutterSizes, gutterType, alignX, alignY, height, ...other } = this
+      .props as PropsWithDefaults;
     const className = classNames(`gc-grid-${this.vertical ? 'y' : 'x'}`);
     const direction = this.vertical ? 'vertical' : 'horizontal';
 
@@ -87,5 +62,28 @@ export default class AbstractGrid extends React.Component<GridProps> {
         {this.renderCellChildren(children, gutterType, gutterSizes)}
       </XYGridElement>
     );
+  }
+
+  /**
+   * Renders the child elements.
+   *
+   * @param {React.Component<CellProps>[]} children
+   * @param {undefined | string}           gutterType
+   * @param {GuttersProps}                 gutterSizes
+   *
+   * @return {Object}
+   */
+  private renderCellChildren(
+    children: React.ReactNode,
+    gutterType?: string,
+    gutterSizes?: GuttersProps,
+  ) {
+    return React.Children.map(children, (thisArg: React.ReactElement<CellProps>) => {
+      return React.cloneElement(thisArg, {
+        gutterType,
+        gutterSizes,
+        vertical: this.vertical,
+      });
+    });
   }
 }

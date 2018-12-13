@@ -18,8 +18,7 @@ export const CellProperties = (
   const direction: string = vertical ? 'height' : 'width';
 
   if (size === 'full') {
-    const val =
-      marginGutter === 0 ? '100%' : `calc(100% - ${rem(marginGutter)})`;
+    const val = marginGutter === 0 ? '100%' : `calc(100% - ${rem(marginGutter)})`;
 
     return `${direction}: ${val};`;
   }

@@ -4,5 +4,5 @@ export default class GridX extends AbstractGrid {
   /**
    * @inheritdoc
    */
-  vertical: boolean = false;
+  protected vertical: boolean = false;
 }

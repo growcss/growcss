@@ -13,7 +13,7 @@ import getValueAndUnit from '../get-value-and-unit';
 const warning = require('warning');
 
 export default class MediaQueryTemplate {
-  static allowedTypes = [
+  private static allowedTypes = [
     'all', // Suitable for all devices.
     'print', // Intended for paged, opaque material and for documents viewed on screen in print preview mode. Please consult the section on paged media.
     'screen', // Intended primarily for color computer screens. (Matches all devices that aren’t matched by print or speech.)
@@ -31,13 +31,13 @@ export default class MediaQueryTemplate {
   /**
    *
    */
-  options: MediaQueryOptionsProps;
+  protected options: MediaQueryOptionsProps;
 
   /**
    *
    * @param {MediaQueryOptionsProps} options
    */
-  constructor(options: MediaQueryOptionsProps) {
+  public constructor(options: MediaQueryOptionsProps) {
     this.options = options;
   }
 
@@ -45,7 +45,7 @@ export default class MediaQueryTemplate {
    *
    * @param options
    */
-  setOption = (options: MediaQueryOptionsProps) => {
+  public setOption = (options: MediaQueryOptionsProps) => {
     this.options = options;
   };
 
@@ -56,7 +56,7 @@ export default class MediaQueryTemplate {
    *
    * @return {string}
    */
-  render = (value: string): string => {
+  public render = (value: string): string => {
     if (value === 'retina') {
       return 'only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi)';
     }
@@ -74,15 +74,11 @@ export default class MediaQueryTemplate {
       's',
     );
     const breakpointRegex = new RegExp(
-      `(${this.joinObjectKeys(
-        this.options.breakpoints,
-      )}|\\d+\\w+) ?(up|down|only)?`,
+      `(${this.joinObjectKeys(this.options.breakpoints)}|\\d+\\w+) ?(up|down|only)?`,
       'ys',
     );
     const hiDPIRegex = new RegExp(
-      `(${this.joinObjectKeys(
-        this.options.hidpiBreakpoints,
-      )}) ?(up|down|only)?`,
+      `(${this.joinObjectKeys(this.options.hidpiBreakpoints)}) ?(up|down|only)?`,
       'ys',
     );
     const mediaQueries = value.split(',');
@@ -98,9 +94,7 @@ export default class MediaQueryTemplate {
 
       const andSplit = queryRule.split(' and ');
       const delimiter =
-        mediaQueries.length >= 2 && mediaQueries.length !== index + 1
-          ? ','
-          : '';
+        mediaQueries.length >= 2 && mediaQueries.length !== index + 1 ? ',' : '';
 
       andSplit.forEach((expression, expressionIndex) => {
         const breakpointRegexMatches = breakpointRegex.exec(expression);
@@ -112,14 +106,8 @@ export default class MediaQueryTemplate {
           (breakpointRegexMatches[1] !== undefined ||
             breakpointRegexMatches[5] !== undefined)
         ) {
-          query += this.generateBreakpointQuery(
-            breakpointRegexMatches,
-            this.options,
-          );
-        } else if (
-          hiDPIRegexMatches !== null &&
-          hiDPIRegexMatches[1] !== undefined
-        ) {
+          query += this.generateBreakpointQuery(breakpointRegexMatches, this.options);
+        } else if (hiDPIRegexMatches !== null && hiDPIRegexMatches[1] !== undefined) {
           query += this.generateDpiMediaQuery(hiDPIRegexMatches, this.options);
         } else if (level3RegexMatches !== null) {
           if (level3RegexMatches[5] !== undefined) {
@@ -130,10 +118,7 @@ export default class MediaQueryTemplate {
               level3RegexMatches[4] === 'resolution'
             ) {
               // @see https://developer.mozilla.org/de/docs/Web/CSS/resolution
-              if (
-                type !== undefined &&
-                !['dpi', 'dpcm', 'dppx'].includes(type)
-              ) {
+              if (type !== undefined && !['dpi', 'dpcm', 'dppx'].includes(type)) {
                 throw new Error(
                   'The resolution value must be followed by a unit identifier ("dpi", "dpcm" or "dppx").',
                 );
@@ -146,9 +131,7 @@ export default class MediaQueryTemplate {
             }
 
             if (['width', 'height'].includes(level3RegexMatches[4])) {
-              query += `(${level3RegexMatches[3] || ''}${
-                level3RegexMatches[4]
-              }${
+              query += `(${level3RegexMatches[3] || ''}${level3RegexMatches[4]}${
                 level3RegexMatches[5] ? `: ${em(level3RegexMatches[5])}` : ''
               })`;
             } else {
@@ -160,9 +143,7 @@ export default class MediaQueryTemplate {
         }
 
         query +=
-          andSplit.length >= 2 && andSplit.length !== expressionIndex + 1
-            ? ' and '
-            : '';
+          andSplit.length >= 2 && andSplit.length !== expressionIndex + 1 ? ' and ' : '';
       });
 
       query += delimiter;
@@ -174,7 +155,7 @@ export default class MediaQueryTemplate {
   /**
    * User Defined Type Guard!
    */
-  isHidpi = (arg: any): arg is HidpiBreakpointsProps => {
+  private isHidpi = (arg: any): arg is HidpiBreakpointsProps => {
     return arg['hidpi-1'] !== undefined;
   };
 
@@ -225,9 +206,7 @@ export default class MediaQueryTemplate {
     }
 
     if (name === null && direction === 'only') {
-      throw new Error(
-        'breakpoint: Only named media queries can have an "only" range.',
-      );
+      throw new Error('breakpoint: Only named media queries can have an "only" range.');
     }
 
     // Conditions to skip media query creation
@@ -237,8 +216,7 @@ export default class MediaQueryTemplate {
     // Only 'only' and 'up' have a min limit.
     if (direction === 'only' || direction === 'up') {
       if (isHidpi) {
-        bpMin =
-          typeof breakpoint === 'string' ? stripUnit(breakpoint) : breakpoint;
+        bpMin = typeof breakpoint === 'string' ? stripUnit(breakpoint) : breakpoint;
       } else {
         bpMin = em(breakpoint);
       }
@@ -250,11 +228,11 @@ export default class MediaQueryTemplate {
         bpMax = isHidpi ? stripUnit(breakpoint) : em(breakpoint);
       } else if (bpNext !== null) {
         // If the breakpoint is named, the max limit is the following breakpoint - 1px.
-        bpMax = isHidpi
-          ? bpNext - 1 / stdWebDpi
-          : bpNext - 1 <= 0
-          ? '0'
-          : `${+stripUnit(em(bpNext)) - 1 / 16}em`;
+        if (isHidpi) {
+          bpMax = bpNext - 1 / stdWebDpi;
+        } else {
+          bpMax = bpNext - 1 <= 0 ? '0' : `${+stripUnit(em(bpNext)) - 1 / 16}em`;
+        }
       }
     }
 
@@ -305,9 +283,7 @@ export default class MediaQueryTemplate {
         : bpMinSize;
     const bpMaxDpi =
       bpMaxSize !== null
-        ? `${parseFloat(
-            `${Math.round(+bpMaxSize * options.stdWebDpi)}`,
-          ).toFixed(0)}dpi`
+        ? `${parseFloat(`${Math.round(+bpMaxSize * options.stdWebDpi)}`).toFixed(0)}dpi`
         : bpMaxSize;
 
     const onlyScreen = 'only screen and ';
@@ -395,12 +371,7 @@ export default class MediaQueryTemplate {
     const breakpoint = matches[1] !== undefined ? matches[1] : matches[5];
     const direction = matches[2] !== undefined ? matches[2] : 'up';
 
-    const sizes = this.calculatedSizes(
-      breakpoint,
-      direction,
-      options.breakpoints,
-      0,
-    );
+    const sizes = this.calculatedSizes(breakpoint, direction, options.breakpoints, 0);
 
     let query = _stringBreakpointJoin(sizes[0], sizes[1]);
     // const breakpointValue: number | null = options.breakpoints[breakpoint] !== undefined ? options.breakpoints[breakpoint] : null;

@@ -12,7 +12,12 @@ type GutterCssProps = {
   vertical: boolean;
 };
 
-const BreakpointGutterCss = (props: GutterCssProps) => {
+/**
+ * @param {GutterCssProps} props
+ *
+ * @return {Array<string>}
+ */
+const BreakpointGutterCss = (props: GutterCssProps): string[] => {
   let breakpoints: string[] = [];
   let lastBreakpoint;
 
@@ -50,12 +55,12 @@ const BreakpointGutterCss = (props: GutterCssProps) => {
 //   [key: string]: number,
 // } & GutterCssProps
 
-const CellOffsetCss = props => {
-  let css = [];
+const CellOffsetCss = (props): string[] => {
+  const css: string[] = [];
 
   for (const breakpoint in Breakpoints) {
     if (props[`${breakpoint}Offset`] !== undefined) {
-      css = css.concat(
+      css.push(
         CellOffset(
           props[`${breakpoint}Offset`],
           breakpoint,
@@ -76,7 +81,7 @@ type ResponsiveCellCssProps = {
   gridColumns: number;
 } & GutterCssProps;
 
-const ResponsiveCellCss = (props: ResponsiveCellCssProps) => {
+const ResponsiveCellCss = (props: ResponsiveCellCssProps): string[] => {
   let css: string[] = [];
   const types = ['auto', 'full', 'grow', 'shrink'];
   const hasGutterType = props.gutterType !== undefined;
@@ -94,10 +99,7 @@ const ResponsiveCellCss = (props: ResponsiveCellCssProps) => {
   );
 
   for (const breakpoint in Breakpoints) {
-    if (
-      typeof props[breakpoint] === 'string' &&
-      types.includes(props[breakpoint])
-    ) {
+    if (typeof props[breakpoint] === 'string' && types.includes(props[breakpoint])) {
       css = css.concat(mediaquery(breakpoint)`
         ${CellBase(props[breakpoint])}
         ${CellStatic(

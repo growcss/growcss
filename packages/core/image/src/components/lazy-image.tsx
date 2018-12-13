@@ -16,32 +16,35 @@ export interface ImageType {
   height?: number;
   width?: number;
   alt?: string;
-  crossorigin?: '' | 'anonymous' | 'use-credentials' | undefined;
+  crossOrigin?: '' | 'anonymous' | 'use-credentials' | undefined;
   previewImage?: string;
   children?: React.ReactNode;
 }
 
 export default class LazyImage extends React.Component<ImageType, StateType> {
   /**
+   * @param { HTMLImageElement } imgElement
+   */
+  private imgElement: HTMLImageElement;
+
+  /**
    * The first found img url.
    *
    * @param {string} src
    */
-  src: string;
+  protected src: string;
 
   /**
    * A string with breakpoint images.
    *
    * @param {string} srcSet
    */
-  srcSet: string;
+  protected srcSet: string;
 
   /**
-   * @param { HTMLImageElement } imgElement
+   * @param {ImageType} props
    */
-  imgElement: HTMLImageElement;
-
-  constructor(props: ImageType) {
+  public constructor(props: ImageType) {
     super(props);
 
     const { backgroundImages } = props;
@@ -52,7 +55,7 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
     this.state = { imageLoaded: false };
   }
 
-  componentDidMount() {
+  public componentDidMount() {
     const imageInstance = new Image();
 
     imageInstance.src = this.src;
@@ -66,49 +69,14 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
     });
   }
 
-  static parseBackgroundImages(backgroundImages: ImagesProps) {
-    const list = backgroundImages;
-    const firstImageKey = Object.keys(list)[0];
-    const src = list[firstImageKey];
-
-    delete list[firstImageKey];
-
-    let srcSet = '';
-
-    for (const image in list) {
-      if (
-        typeof image === 'string' &&
-        typeof DefaultBreakpoints[image] === 'string'
-      ) {
-        srcSet += `${list[image]} ${DefaultBreakpoints[image]},`;
-      }
-    }
-
-    srcSet = srcSet.slice(0, -1);
-
-    return {
-      src,
-      srcSet,
-    };
-  }
-
-  render() {
-    const {
-      children,
-      previewImage,
-      height,
-      width,
-      alt,
-      crossorigin,
-    } = this.props;
+  public render() {
+    const { children, previewImage, height, width, alt, crossOrigin } = this.props;
     const { imageLoaded } = this.state;
     const className = classNames({ loaded: imageLoaded });
     let DivSizer = <div />;
 
     if (height !== undefined && width !== undefined) {
-      DivSizer = (
-        <div style={{ paddingBottom: `${(height / width) * 100}%` }} />
-      );
+      DivSizer = <div style={{ paddingBottom: `${(height / width) * 100}%` }} />;
     }
 
     return (
@@ -127,11 +95,37 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
               this.imgElement = img;
             }}
             alt={alt}
-            crossOrigin={crossorigin}
+            crossOrigin={crossOrigin}
           />
         </AspectRatioPlaceholder>
         {children}
       </FigureElement>
     );
+  }
+
+  /**
+   * @param {ImagesProps} backgroundImages
+   */
+  private static parseBackgroundImages(backgroundImages: ImagesProps) {
+    const list = backgroundImages;
+    const firstImageKey = Object.keys(list)[0];
+    const src = list[firstImageKey];
+
+    delete list[firstImageKey];
+
+    let srcSet = '';
+
+    for (const image in list) {
+      if (typeof DefaultBreakpoints[image] === 'string') {
+        srcSet += `${list[image]} ${DefaultBreakpoints[image]},`;
+      }
+    }
+
+    srcSet = srcSet.slice(0, -1);
+
+    return {
+      src,
+      srcSet,
+    };
   }
 }

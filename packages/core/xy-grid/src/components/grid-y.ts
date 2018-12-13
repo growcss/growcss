@@ -4,5 +4,5 @@ export default class GridY extends AbstractGrid {
   /**
    * @inheritdoc
    */
-  vertical: boolean = true;
+  protected vertical: boolean = true;
 }

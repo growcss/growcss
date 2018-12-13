@@ -3,13 +3,13 @@ import { Gutters } from '../utils/gutters';
 import { GuttersProps } from '..';
 
 export type GridContainerElementProps = {
-  maxWidth: string | number;
+  maxWidth?: string | number;
   gutterSizes: string | number | GuttersProps;
   type: string | undefined;
 };
 
 export const GridContainerElement = styled.div<GridContainerElementProps>`
-  max-width: ${props => props.maxWidth};
+  ${props => (props.maxWidth !== undefined ? '' : `max-width: ${props.maxWidth}`)};
   margin: 0 auto;
 
   ${props => (props.type === 'full' ? 'overflow-x: hidden;' : '')}

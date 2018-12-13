@@ -9,13 +9,12 @@ const restrictedGlobals = require('confusing-browser-globals');
 module.exports = {
   extends: [
     'airbnb',
-    'plugin:react/recommended',
     'plugin:unicorn/recommended',
+    'plugin:security/recommended',
     'prettier',
     'prettier/react',
     'prettier/standard',
     'prettier/unicorn',
-    'plugin:security/recommended',
   ],
   plugins: [
     'react',

@@ -42,17 +42,25 @@ export const GridElementAlign = (
   return css;
 };
 
-export const CellElementAlign = (align: string | null = null) => {
+/**
+ *
+ * @param {string|null} align
+ *
+ * @return {string}
+ */
+export const CellElementAlign = (align: string | null = null): string => {
   let css = '';
 
-  if (align !== null) {
-    if (flexAlign[align] !== undefined) {
-      css += `align-self:${flexAlign[align]};`;
-    } else {
-      throw new Error(
-        `${align} is not a valid value for vertical alignment. Use top, bottom, middle, or stretch.`,
-      );
-    }
+  if (align === null) {
+    return css;
+  }
+
+  if (['top', 'bottom', 'middle', 'stretch'].includes(align)) {
+    css += `align-self:${flexAlign[align]};`;
+  } else {
+    throw new Error(
+      `${align} is not a valid value for vertical alignment. Use top, bottom, middle, or stretch.`,
+    );
   }
 
   return css;

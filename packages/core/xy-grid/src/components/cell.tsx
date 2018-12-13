@@ -29,16 +29,24 @@ export interface CellBreakpointsProps {
   xxlarge?: number | string;
 }
 
+interface DefaultCellProps {
+  gridColumns: number;
+  gutterSizes: GuttersProps;
+  vertical: boolean;
+}
+
+type PropsWithDefaults = CellProps & DefaultCellProps;
+
 export default class Cell extends React.PureComponent<
   CellProps & CellBreakpointsProps & OffsetProps
 > {
-  static defaultProps = {
+  public static defaultProps: DefaultCellProps = {
     gridColumns: 12,
     gutterSizes: DefaultGutters,
     vertical: false,
   };
 
-  render() {
+  public render() {
     const {
       children,
       gridColumns,
@@ -48,17 +56,17 @@ export default class Cell extends React.PureComponent<
       vertical,
       align,
       ...other
-    } = this.props;
+    } = this.props as PropsWithDefaults;
     const className = classNames('gc-cell');
 
     return (
       <CellElement
         className={className}
-        gridColumns={gridColumns!}
+        gridColumns={gridColumns}
         cellType={cellType}
         gutterType={gutterType}
-        gutterSizes={gutterSizes!}
-        vertical={vertical!}
+        gutterSizes={gutterSizes}
+        vertical={vertical}
         align={align}
         {...other}
       >

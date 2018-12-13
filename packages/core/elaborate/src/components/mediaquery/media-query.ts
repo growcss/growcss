@@ -76,14 +76,11 @@ export default (
   value: string = 'small',
   mediaQueryOptions: MediaQueryOptionsProps | null = null,
 ) => {
-  const options =
-    mediaQueryOptions !== null ? mediaQueryOptions : MediaQueryOptions;
+  const options = mediaQueryOptions !== null ? mediaQueryOptions : MediaQueryOptions;
 
   if (options.breakpoints[Object.keys(options.breakpoints)[0]] !== 0) {
     throw new Error(
-      `Your smallest breakpoint (defined in ${
-        options.breakpoints
-      }) must be set to "0".`,
+      `Your smallest breakpoint (defined in ${options.breakpoints}) must be set to "0".`,
     );
   }
 
@@ -97,7 +94,7 @@ export default (
 
     if (template !== '') {
       // @ts-ignore
-      // eslint-disable-next-line
+      // eslint-disable-next-line prettier/prettier
       return css`@media ${template} { ${css(...args)} }`;
     }
 

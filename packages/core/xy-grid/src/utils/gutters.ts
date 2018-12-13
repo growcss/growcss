@@ -1,6 +1,16 @@
 import { rem, stripUnit, mediaquery } from '@growcss/elaborate';
 import { GuttersProps } from '../components/gutters';
 
+/**
+ * Builds the css for gutters.
+ *
+ * @param {string | number} gutter
+ * @param {boolean}         negative
+ * @param {string}          gutterType
+ * @param {Array<string>}   gutterPosition
+ *
+ * @return {string}
+ */
 const cssBuilder = (
   gutter: string | number,
   negative: boolean,
@@ -41,9 +51,9 @@ const cssBuilder = (
  * Create gutters for a cell/container.
  *
  * @param {string | number | GuttersProps} gutters
- * @param {string}               gutterType
- * @param {Array<string>}        gutterPosition
- * @param {boolean}              negative
+ * @param {string}                         gutterType
+ * @param {Array<string>}                  gutterPosition
+ * @param {boolean}                        negative
  *
  * @return {Array<string>}
  */
@@ -52,16 +62,13 @@ export const Gutters = (
   gutterType: string = 'margin',
   gutterPosition: string[] = ['right', 'left'],
   negative: boolean = false,
-) => {
+): string[] => {
   // Output our margin gutters.
   if (typeof gutters === 'object') {
     const strings: string[] = [];
 
     for (const key in gutters) {
-      if (
-        typeof gutters[key] === 'number' ||
-        typeof gutters[key] === 'string'
-      ) {
+      if (typeof gutters[key] === 'number' || typeof gutters[key] === 'string') {
         strings.push(
           mediaquery(key)`${cssBuilder(
             gutters[key],
