@@ -2,21 +2,12 @@
 const { CHANGED_PACKAGES, COVERAGE_PACKAGES, TEST_ONLY_PATTERN } = process.env;
 
 const config = {
-  "transform": {
-    "^.+\\.(ts|tsx|js|jsx)$": "babel-jest",
+  transform: {
+    '^.+\\.(ts|tsx|js|jsx)$': 'babel-jest',
   },
   testRegex: '/__tests__/.+?\\.(ts|tsx|js|jsx)$',
-  modulePathIgnorePatterns: [
-    './node_modules',
-    '/dist/'
-  ],
-  moduleFileExtensions: [
-    'js',
-    'json',
-    'jsx',
-    'ts',
-    'tsx'
-  ],
+  modulePathIgnorePatterns: ['./node_modules', '/dist/'],
+  moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx'],
   // don't transform any files under node_modules except @growcss/* and react-syntax-highlighter (it
   // uses dynamic imports which are not valid in node)
   transformIgnorePatterns: [
@@ -24,30 +15,21 @@ const config = {
   ],
   setupFiles: [
     '<rootDir>/node_modules/regenerator-runtime/runtime',
-    './build/jest-config/index.js'
+    './build/jest-config/index.js',
   ],
-  setupTestFrameworkScriptFile: `${__dirname}/jestFrameworkSetup.js`,
-  snapshotSerializers: [
-    'enzyme-to-json/serializer'
-  ],
+  setupTestFrameworkScriptFile: `${__dirname}/jest-framework-setup.js`,
+  snapshotSerializers: ['enzyme-to-json/serializer'],
   globals: {
-    '__DEV__': true
+    __DEV__: true,
   },
-  reporters: [
-    'default',
-    'jest-junit',
-  ],
+  reporters: ['default', 'jest-junit'],
   testEnvironmentOptions: {
     // Need this to have jsdom loading images.
     resources: 'usable',
   },
-  coverageReporters: [
-    'lcov',
-    'html',
-    'text-summary'
-  ],
-  "coverageDirectory": "./coverage/",
-  "collectCoverage": false,
+  coverageReporters: ['lcov', 'html', 'text-summary'],
+  coverageDirectory: './coverage/',
+  collectCoverage: false,
 };
 
 // If the CHANGED_PACKAGES variable is set, we parse it to get an array of changed packages and only
@@ -56,7 +38,7 @@ if (CHANGED_PACKAGES) {
   const changedPackages = JSON.parse(CHANGED_PACKAGES);
 
   config.testMatch = changedPackages.map(
-    pkgPath => `${__dirname}/${pkgPath}/**/__tests__/**/*.(js|tsx|ts)`
+    pkgPath => `${__dirname}/${pkgPath}/**/__tests__/**/*.(js|tsx|ts)`,
   );
 }
 
@@ -64,13 +46,13 @@ if (CHANGED_PACKAGES) {
 // This should add only the packages with code coverage threshold available
 // If not it will keep the same flow without code coverage check
 if (COVERAGE_PACKAGES) {
-    const coveragePackages = JSON.parse(COVERAGE_PACKAGES);
+  const coveragePackages = JSON.parse(COVERAGE_PACKAGES);
 
-    if (coveragePackages.collectCoverageFrom.length > 0) {
-        config.collectCoverage = true;
-        config.collectCoverageFrom = coveragePackages.collectCoverageFrom;
-        config.coverageThreshold = coveragePackages.coverageThreshold;
-    }
+  if (coveragePackages.collectCoverageFrom.length > 0) {
+    config.collectCoverage = true;
+    config.collectCoverageFrom = coveragePackages.collectCoverageFrom;
+    config.coverageThreshold = coveragePackages.coverageThreshold;
+  }
 }
 
 // The TEST_ONLY_PATTERN is added to let us restrict a set of tests that *would* have been run; to

@@ -1,39 +1,17 @@
 const config = {
   plugins: [
     '@babel/plugin-proposal-class-properties',
-    '@babel/plugin-proposal-object-rest-spread',
     '@babel/plugin-syntax-dynamic-import',
     '@babel/plugin-transform-modules-commonjs',
     [
       'babel-plugin-styled-components',
       {
-        "ssr": true
-      }
+        ssr: true,
+      },
     ],
-    '@babel/plugin-transform-runtime',
-    '@babel/plugin-transform-regenerator'
+    'module:fast-async',
   ],
-  presets: [
-    '@babel/typescript',
-    '@babel/react',
-    [
-      '@babel/preset-env',
-      {
-        'useBuiltIns': 'usage'
-      }
-    ]
-  ]
+  presets: ['@babel/typescript', 'airbnb'],
 };
-
-if (process.env.NODE_ENV === 'test') {
-  config.plugins.push('require-context-hook');
-
-  config.presets[1] = [
-    '@babel/preset-react',
-    {
-      'development': true
-    }
-  ];
-}
 
 module.exports = config;

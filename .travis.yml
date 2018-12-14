@@ -19,6 +19,7 @@ before_install:
 
 install:
   - yarn --frozen-lockfile
+  - yarn audit
 
 before_script:
   - yarn run bootstrap
@@ -36,7 +37,9 @@ jobs:
 
     - stage: Coding standard
       script:
-        - yarn lint
+        - yarn run lint:eslint:source
+        - yarn run lint:eslint:supporting
+        - yarn run lint:style
 
     - stage: Coverage
       script:

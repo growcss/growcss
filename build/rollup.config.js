@@ -10,7 +10,6 @@ import globals from 'rollup-plugin-node-globals';
 import cleanup from 'rollup-plugin-cleanup';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import typescript from 'rollup-plugin-typescript2';
-import 'babel-polyfill';
 import { terser } from "rollup-plugin-terser";
 
 const env = process.env.NODE_ENV;
@@ -37,7 +36,7 @@ const commonPlugins = [
     babelrc: false,
     presets: babelConfig.presets,
     plugins: babelConfig.plugins,
-    externalHelpers: true
+    externalHelpers: false
   }),
   sourceMaps(),
   commonjs({
