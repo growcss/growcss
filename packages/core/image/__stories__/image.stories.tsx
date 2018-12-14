@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Image, Figcaption } from '..';
+import { Image, Figcaption } from '../src';
 
 storiesOf('Image', module)
   .add('Simple image', () => (

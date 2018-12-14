@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Cell, GridX, GridContainer } from '..';
+import { Cell, GridX, GridContainer } from '../src';
 
 storiesOf('Grid Container', module)
   .add('Width of the available space container', () => (

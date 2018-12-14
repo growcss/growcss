@@ -10,7 +10,7 @@ module.exports = {
   extends: [
     'airbnb',
     'plugin:unicorn/recommended',
-    'plugin:security/recommended',
+    // 'plugin:security/recommended', @todo check it on the next version
     'prettier',
     'prettier/react',
     'prettier/standard',
@@ -25,7 +25,7 @@ module.exports = {
     'compat',
     'prettier',
     'jsx-a11y',
-    'security',
+    // 'security', @todo check it on the next version
     'typescript',
   ],
   parser: 'typescript-eslint-parser',

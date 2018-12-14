@@ -19,6 +19,7 @@ before_install:
 
 install:
   - yarn --frozen-lockfile
+  - yarn audit
 
 before_script:
   - yarn run bootstrap

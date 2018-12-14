@@ -2,24 +2,28 @@
   "name": "growcss",
   "private": true,
   "license": "MIT",
+  "workspaces": [
+    "packages/coding-standard/*",
+    "packages/core/*"
+  ],
   "scripts": {
     "bootstrap": "                    node verify-node-version.js && lerna bootstrap",
-    "build": "                        node verify-node-version.js && lerna exec -- sort-package-json && cross-env NODE_ENV=production lerna run build",
+    "build": "                        node verify-node-version.js && yarn run sort-package && cross-env NODE_ENV=production lerna run build",
     "changed": "                      node verify-node-version.js && lerna changed",
     "changelog": "                    node verify-node-version.js && lerna-changelog",
     "clear": "                        yarn run clear:modules && yarn run clear:build",
     "clear:build": "                  node verify-node-version.js && lerna exec -- rimraf dist",
     "clear:modules": "                node verify-node-version.js && lerna clean --yes",
-    "lint": "                         yarn run lint:eslint:source && yarn run lint:eslint:supporting && yarn run lint:stylelint",
-    "lint:style": "                   node verify-node-version.js && stylelint-config-prettier-check && stylelint 'packages/*/*/src/**/*.+{js,ts,tsx}'",
+    "lint": "                         yarn run lint:eslint:source && yarn run lint:eslint:supporting && yarn run lint:style",
     "lint:eslint:source": "           node verify-node-version.js && eslint -c .eslintrc.sources.js --print-config .eslintrc.sources.js | eslint-config-prettier-check && eslint -c .eslintrc.sources.js 'packages/*/*/src/**/*.{js,jsx,ts,tsx}'",
+    "lint:eslint:source:staged": "    yarn run lint:eslint:source --fix --max-warnings=1",
     "lint:eslint:supporting": "       node verify-node-version.js && eslint -c .eslintrc.supporting.js --print-config .eslintrc.supporting.js | eslint-config-prettier-check && eslint -c .eslintrc.supporting.js 'packages/*/*/{__tests__,__stories__}/**/*.{js,jsx,ts,tsx}'",
-    "lint:eslint:source:staged": "    yarn run lint:eslint:source --fix --max-warnings=0",
-    "lint:eslint:supporting:staged": "yarn run lint:eslint:supporting --fix --max-warnings=0",
-    "lint:fix": "                     yarn run lint:fix:eslint:source && yarn run lint:fix:eslint:supporting && yarn run lint:fix:style",
+    "lint:eslint:supporting:staged": "yarn run lint:eslint:supporting --fix --max-warnings=1",
+    "lint:fix": "                     yarn run lint:fix:eslint:source && yarn run lint:fix:eslint:supporting",
     "lint:fix:eslint:source": "       yarn run lint:eslint:source --fix",
     "lint:fix:eslint:supporting": "   yarn run lint:eslint:supporting --fix",
-    "lint:fix:style": "               yarn run lint:style --fix",
+    "lint:style": "                   node verify-node-version.js && stylelint-config-prettier-check && stylelint 'packages/*/*/src/**/*.+{js,ts,tsx}'",
+    "sort-package": "                 lerna exec -- sort-package-json",
     "storybook": "                    node verify-node-version.js && cross-env NODE_ENV=storybook start-storybook -p 6006 -c .storybook",
     "storybook-build": "              cross-env NODE_ENV=production build-storyboo k-c .storybook",
     "test": "                         node verify-node-version.js && cross-env NODE_ENV=test jest",
@@ -81,7 +85,6 @@
     "eva-icons": "^1.1.1",
     "extract-react-types": "^0.15.0",
     "fast-async": "^7.0.6",
-    "husky": "^1.2.0",
     "istanbul-reports": "^2.0.1",
     "jest": "^23.6.0",
     "jest-axe": "^3.1.0",
@@ -93,7 +96,6 @@
     "jsdom": "^13.0.0",
     "jsdom-global": "^3.0.2",
     "lerna": "^3.6.0",
-    "lint-staged": "^8.1.0",
     "preact": "^8.4.2",
     "preact-compat": "^3.18.4",
     "prettier": "^1.15.3",
@@ -104,7 +106,6 @@
     "react": "^16.6.3",
     "react-deprecate": "^0.1.0",
     "react-docgen-typescript-loader": "^3.0.0",
-    "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "react-dom": "^16.6.3",
     "react-test-renderer": "^16.6.3",
     "react-testing-library": "^5.3.2",
@@ -171,27 +172,7 @@
     "node": "^10.14.0 || ^11.3.0",
     "yarn": "^1.12"
   },
-  "lint-staged": {
-    "packages/**/{__tests__,__stories__|src}/**/*.{js1,jsx1,ts1,tsx1}": [
-      "yarn run lint:eslint:source:staged",
-      "yarn run lint:eslint:supporting:staged",
-      "git add"
-    ],
-    "*.{json}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
   "jest-junit": {
     "output": "test-reports/junit.xml"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "workspaces": [
-    "packages/coding-standard/*",
-    "packages/core/*"
-  ]
+  }
 }

@@ -296,3 +296,15 @@ describe('Breakpoint (Unknown Value)', () => {
     expect(template.render('xxxxlarge')).toBe('');
   });
 });
+
+describe('Reduce Motion', () => {
+  it('Returns a Reduce Motion media-query', () => {
+    expect(template.render('(prefers-reduced-motion)')).toBe('(prefers-reduced-motion)');
+    expect(template.render('(prefers-reduced-motion: reduce)')).toBe(
+      '(prefers-reduced-motion: reduce)',
+    );
+    expect(template.render('(prefers-reduced-motion: no-preference)')).toBe(
+      '(prefers-reduced-motion: no-preference)',
+    );
+  });
+});

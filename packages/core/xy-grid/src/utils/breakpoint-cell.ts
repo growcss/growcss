@@ -8,19 +8,19 @@ import { CellStatic } from './cell-static';
  * @param {string}  breakpoint
  * @param {boolean} vertical
  *
- * @return {string}
+ * @return {string[]}
  */
 export const BreakpointCell = (
   size: number,
   breakpoint: string,
   vertical: boolean,
-): string => {
+): string[] => {
   if (size === 0) {
-    return '';
+    return [];
   }
 
   if (DefaultGutters[breakpoint] === undefined) {
-    return '';
+    return [];
   }
 
   return mediaquery(breakpoint)`${CellStatic(

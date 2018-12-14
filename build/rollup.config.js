@@ -36,7 +36,7 @@ const commonPlugins = [
     babelrc: false,
     presets: babelConfig.presets,
     plugins: babelConfig.plugins,
-    externalHelpers: true
+    externalHelpers: false
   }),
   sourceMaps(),
   commonjs({

@@ -81,6 +81,10 @@ export default class MediaQueryTemplate {
       `(${this.joinObjectKeys(this.options.hidpiBreakpoints)}) ?(up|down|only)?`,
       'ys',
     );
+    const motionRegex = new RegExp(
+      '(prefers-reduced-motion:?s?(no-preference|reduce)?)',
+      's',
+    );
     const mediaQueries = value.split(',');
 
     let query = '';
@@ -140,6 +144,8 @@ export default class MediaQueryTemplate {
           } else {
             query += expression;
           }
+        } else if (motionRegex.exec(expression) !== null) {
+          query += expression;
         }
 
         query +=

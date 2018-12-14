@@ -9,7 +9,7 @@ export type GridContainerElementProps = {
 };
 
 export const GridContainerElement = styled.div<GridContainerElementProps>`
-  ${props => (props.maxWidth !== undefined ? '' : `max-width: ${props.maxWidth}`)};
+  max-width: ${props => props.maxWidth};
   margin: 0 auto;
 
   ${props => (props.type === 'full' ? 'overflow-x: hidden;' : '')}
