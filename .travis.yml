@@ -8,25 +8,22 @@ env:
   - SKIP_CHECK=true
 
 cache:
-  yarn: true
   directories:
     - node_modules
 
 before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh | bash
-  - export PATH="$HOME/.yarn/bin:$PATH"
-  - node --version && yarn --version
+  - node --version
 
 install:
-  - yarn --frozen-lockfile
-  - yarn audit
+  - npm --frozen-lockfile
+  - npm audit
 
 before_script:
-  - yarn run bootstrap
-  - yarn run build
+  - npm run bootstrap
+  - npm run build
 
 script:
-  - yarn run test --ci --runInBand
+  - npm run test --ci --runInBand
 
 jobs:
   include:
@@ -37,14 +34,14 @@ jobs:
 
     - stage: Coding standard
       script:
-        - yarn run lint:eslint:source
-        - yarn run lint:eslint:supporting
-        - yarn run lint:style
+        - npm run lint:eslint:source
+        - npm run lint:eslint:supporting
+        - npm run lint:style
 
     - stage: Coverage
       script:
-        - yarn global add codecov
-        - yarn test:coverage --ci --runInBand
+        - npm global add codecov
+        - npm test:coverage --ci --runInBand
         - codecov
 # @TODO find a good solution
 #    - stage: Publish

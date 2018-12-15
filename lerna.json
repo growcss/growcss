@@ -29,8 +29,7 @@
     "cacheDir": ".changelog"
   },
   "version": "independent",
-  "npmClient": "yarn",
-  "useWorkspaces": true,
+  "npmClient": "npm",
   "npmClientArgs": [
     "--no-lockfile"
   ]
