@@ -39,8 +39,8 @@ jobs:
 
     - stage: Coverage
       script:
-        - npm global add codecov
-        - npm test:coverage --ci --runInBand
+        - npm install -g codecov
+        - npm run test:coverage --ci --runInBand
         - codecov
 # @TODO find a good solution
 #    - stage: Publish

@@ -24,7 +24,7 @@
     "storybook-build": "              cross-env NODE_ENV=production build-storyboo k-c .storybook",
     "test": "                         node verify-node-version.js && cross-env NODE_ENV=test jest",
     "test:changed": "                 node verify-node-version.js && cross-env NODE_ENV=test CHANGED_PACKAGES=$(node build/ci-scripts/get.changed.packages.since.master.js) COVERAGE_PACKAGES=$(node build/ci-scripts/get.changed.packages.since.master.js) jest",
-    "test:coverage": "                npm run test --coverage",
+    "test:coverage": "                npm run test:changed --coverage",
     "test:watch": "                   npm run test --watch",
     "upgrade-interactive": "          npm-check --update"
   },
