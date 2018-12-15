@@ -12,7 +12,8 @@
         "**/*.md",
         "**/.rpt2_cache"
       ],
-      "allowBranch": "master"
+      "allowBranch": "master",
+      "conventionalCommits": true
     }
   },
   "changelog": {
@@ -27,7 +28,7 @@
     },
     "cacheDir": ".changelog"
   },
-  "version": "0.0.1",
+  "version": "independent",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "npmClientArgs": [

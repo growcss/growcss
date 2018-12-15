@@ -13,6 +13,7 @@
     "clear": "                        yarn run clear:modules && yarn run clear:build",
     "clear:build": "                  node verify-node-version.js && lerna exec -- rimraf dist",
     "clear:modules": "                node verify-node-version.js && lerna clean --yes",
+    "commitmsg": "                    commitlint -e $GIT_PARAMS",
     "lint": "                         yarn run lint:eslint:source && yarn run lint:eslint:supporting && yarn run lint:style",
     "lint:eslint:source": "           node verify-node-version.js && eslint -c .eslintrc.sources.js --print-config .eslintrc.sources.js | eslint-config-prettier-check && eslint -c .eslintrc.sources.js 'packages/*/*/src/**/*.{js,jsx,ts,tsx}'",
     "lint:eslint:source:staged": "    yarn run lint:eslint:source --fix --max-warnings=1",
@@ -44,6 +45,8 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.1.0",
+    "@commitlint/cli": "^7.2.1",
+    "@commitlint/config-conventional": "^7.1.2",
     "@storybook/addon-a11y": "^4.0.12",
     "@storybook/addon-info": "^4.0.12",
     "@storybook/addon-options": "^4.0.12",
@@ -84,6 +87,7 @@
     "eva-icons": "^1.1.1",
     "extract-react-types": "^0.15.0",
     "fast-async": "^7.0.6",
+    "husky": "^1.2.1",
     "istanbul-reports": "^2.0.1",
     "jest": "^23.6.0",
     "jest-axe": "^3.1.0",
@@ -170,6 +174,11 @@
   "engines": {
     "node": "^10.14.0 || ^11.3.0",
     "yarn": "^1.12"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "jest-junit": {
     "output": "test-reports/junit.xml"
