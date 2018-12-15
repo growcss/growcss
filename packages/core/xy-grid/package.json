@@ -1,6 +1,6 @@
 {
   "name": "@growcss/xy-grid",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "The XY Grid is huge advancement in Grids.",
   "keywords": [
     "flex",
@@ -32,10 +32,9 @@
   },
   "browser": "dist/umd/index.js",
   "dependencies": {
-    "@growcss/elaborate": "0.0.0",
+    "@growcss/elaborate": "^0.0.1",
     "classnames": "^2.2.5"
   },
-  "devDependencies": {},
   "peerDependencies": {
     "preact": "^8.0",
     "react": "^16.0",
