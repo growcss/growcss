@@ -12,7 +12,16 @@
         "**/*.md",
         "**/.rpt2_cache"
       ],
-      "allowBranch": "master"
+      "allowBranch": "master",
+      "conventionalCommits": true,
+      "npmClientArgs": [
+        "--access public"
+      ]
+    },
+    "bootstrap": {
+      "npmClientArgs": [
+        "--no-package-lock"
+      ]
     }
   },
   "changelog": {
@@ -27,10 +36,6 @@
     },
     "cacheDir": ".changelog"
   },
-  "version": "0.0.1",
-  "npmClient": "yarn",
-  "useWorkspaces": true,
-  "npmClientArgs": [
-    "--no-lockfile"
-  ]
+  "version": "independent",
+  "npmClient": "npm"
 }
