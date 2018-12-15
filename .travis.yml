@@ -46,14 +46,14 @@ jobs:
         - yarn global add codecov
         - yarn test:coverage --ci --runInBand
         - codecov
-
-    - stage: Publish
-      before_script:
-      - |
-          git config --global user.email "$GH_USER_EMAIL"
-          git config --global user.name "$GH_USER_NAME"
-          git remote set-url origin git@github.com:growcss/growcss.git > /dev/null 2>&1
-          - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
+# @TODO find a good solution
+#    - stage: Publish
+#      before_script:
+#      - |
+#          git config --global user.email "$GH_USER_EMAIL"
+#          git config --global user.name "$GH_USER_NAME"
+#          git remote set-url origin git@github.com:growcss/growcss.git > /dev/null 2>&1
+#          - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
 
 notifications:
   email:
