@@ -21,11 +21,16 @@ $ npm run test
 $ npm run test:coverage
 ```
 
-Which are shortcuts for:
+### Dependencies
+
+We keep all the `devDependencies` at root `package.json` for avoiding unnecessary duplication.
+
+To install dependencies at individual package level, just update their `package.json` (even if the dependency is a package from this repo itself), and run this from root:
 
 ```
-$ ./node_modules/.bin/lerna run lint
-$ ./node_modules/.bin/lerna run test
-$ ./node_modules/.bin/lerna run cover
+$ yarn run bootstrap
+```
+
+The `bootstrap` script takes care of installing and linking the dependencies in your packages.
 
 [1]: https://github.com/lerna/lerna/

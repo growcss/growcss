@@ -6,8 +6,10 @@
   "command": {
     "publish": {
       "ignoreChanges": [
-        "src",
-        "__tests__"
+        "**/dist/**",
+        "**/__stories__/**",
+        "**/__tests__/**",
+        "**/*.md"
       ],
       "allowBranch": "master"
     }
@@ -15,17 +17,16 @@
   "changelog": {
     "repo": "growcss/growcss",
     "labels": {
-      "PR: Spec Compliancy": ":eyeglasses: Spec Compliancy",
-      "PR: Breaking Change": ":boom: Breaking Change",
-      "PR: New Feature": ":rocket: New Feature",
-      "PR: Bug Fix": ":bug: Bug Fix",
-      "PR: Polish": ":nail_care: Polish",
-      "PR: Docs": ":memo: Documentation",
-      "PR: Internal": ":house: Internal"
+      "Changelog: Added": "Added",
+      "Changelog: Changed": "Changed",
+      "Changelog: Deprecated": "Deprecated",
+      "Changelog: Removed": "Removed",
+      "Changelog: Fixed": "Fixed",
+      "Changelog: Security": "Security"
     },
     "cacheDir": ".changelog"
   },
-  "version": "0.1.0",
+  "version": "0.0.0",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "npmClientArgs": [

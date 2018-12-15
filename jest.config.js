@@ -1,18 +1,35 @@
 /* eslint-disable no-console */
-const { CHANGED_PACKAGES, COVERAGE_PACKAGES, TEST_ONLY_PATTERN } = process.env;
+const {
+  CHANGED_PACKAGES,
+  COVERAGE_PACKAGES,
+  TEST_ONLY_PATTERN,
+  INTEGRATION_TESTS,
+  VISUAL_REGRESSION,
+} = process.env;
 
 const config = {
   transform: {
     '^.+\\.(ts|tsx|js|jsx)$': 'babel-jest',
   },
-  testRegex: '/__tests__/.+?\\.(ts|tsx|js|jsx)$',
+  testMatch: [`${__dirname}/packages/**/**/__tests__/**/*.(ts|tsx|js|jsx)`],
+  // NOTE: all options with 'pattern' in the name are javascript regex's that will match if they match
+  // anywhere in the string. Where-ever there are an array of patterns, jest simply 'or's all of them
+  // i.e /\/__tests__\/_.*?|\/__tests__\/.*?\/_.*?|\/__tests__\/integration\//
+  testPathIgnorePatterns: [
+    // ignore files that are under a directory starting with "_" at the root of __tests__
+    '/__tests__\\/_.*?',
+    // ignore files under __tests__ that start with an underscore
+    '/__tests__\\/.*?\\/_.*?',
+    // ignore tests under __tests__/integration (we override this if the INTEGRATION_TESTS flag is set)
+    '/__tests__\\/integration/',
+    // ignore tests under __tests__/vr (we override this if the VISUAL_REGRESSION flag is set)
+    '/__tests__\\/visual-regression/',
+  ],
   modulePathIgnorePatterns: ['./node_modules', '/dist/'],
   moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx'],
   // don't transform any files under node_modules except @growcss/* and react-syntax-highlighter (it
   // uses dynamic imports which are not valid in node)
-  transformIgnorePatterns: [
-    '\\/node_modules\\/(?!@growcss|react-syntax-highlighter)',
-  ],
+  transformIgnorePatterns: ['\\/node_modules\\/(?!@growcss|react-syntax-highlighter)'],
   setupFiles: [
     '<rootDir>/node_modules/regenerator-runtime/runtime',
     './build/jest-config/index.js',
@@ -30,6 +47,8 @@ const config = {
   coverageReporters: ['lcov', 'html', 'text-summary'],
   coverageDirectory: './coverage/',
   collectCoverage: false,
+  collectCoverageFrom: [],
+  coverageThreshold: {},
 };
 
 // If the CHANGED_PACKAGES variable is set, we parse it to get an array of changed packages and only
@@ -48,10 +67,35 @@ if (CHANGED_PACKAGES) {
 if (COVERAGE_PACKAGES) {
   const coveragePackages = JSON.parse(COVERAGE_PACKAGES);
 
-  if (coveragePackages.collectCoverageFrom.length > 0) {
+  if (
+    coveragePackages.collectCoverageFrom !== undefined &&
+    coveragePackages.collectCoverageFrom.length > 0
+  ) {
     config.collectCoverage = true;
     config.collectCoverageFrom = coveragePackages.collectCoverageFrom;
     config.coverageThreshold = coveragePackages.coverageThreshold;
+  }
+}
+
+// If the INTEGRATION_TESTS / VISUAL_REGRESSION flag is set we need to
+if (INTEGRATION_TESTS || VISUAL_REGRESSION) {
+  const testPattern = process.env.VISUAL_REGRESSION
+    ? 'visual-regression'
+    : 'integration';
+
+  config.testPathIgnorePatterns /*: string[] */ = config.testPathIgnorePatterns.filter(
+    pattern => pattern !== `/__tests__\\/${testPattern}/`,
+  );
+
+  // If the CHANGED_PACKAGES variable is set, only integration tests from changed packages will run
+  if (CHANGED_PACKAGES) {
+    const changedPackages = JSON.parse(CHANGED_PACKAGES);
+
+    config.testMatch = changedPackages.map(
+      pkgPath => `${__dirname}/${pkgPath}/**/__tests__/${testPattern}/**/*.(js|tsx|ts)`,
+    );
+  } else {
+    config.testMatch = [`**/__tests__/${testPattern}/**/*.(js|tsx|ts)`];
   }
 }
 
@@ -77,7 +121,7 @@ if (TEST_ONLY_PATTERN) {
 }
 
 // Annoyingly, if the array is empty, jest will fallback to its defaults and run everything
-if (config.testRegex.length === 0) {
+if (config.testRegex !== undefined && config.testRegex.length === 0) {
   config.testRegex = ['DONT-RUN-ANYTHING'];
   config.collectCoverage = false;
   // only log this message if we are running in an actual terminal (output not being piped to a file
