@@ -6,9 +6,10 @@
     <br>
     <a href="https://gitter.im/growcss/growcss"><img src="https://img.shields.io/gitter/room/nwjs/nw.js.svg?style=flat-square"></a>
     <a href="http://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square"></a>
+    <a href="https://lernajs.io/"><img src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg?style=flat-square"></a>
 </p>
 
-[GrowCss][1] is a simple, flexible and extensible modular **frontend framework** for react/preact.
+[GrowCss][1] is a simple, flexible and extensible modular **frontend framework** for react.
 
 Documentation
 -------------
