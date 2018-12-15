@@ -15,7 +15,6 @@ before_install:
   - node --version
 
 install:
-  - npm --frozen-lockfile
   - npm audit
 
 before_script:
