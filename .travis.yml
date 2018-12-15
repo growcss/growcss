@@ -47,6 +47,10 @@ jobs:
         - yarn test:coverage --ci --runInBand
         - codecov
 
+deploy:
+  provider: script
+  script: "yarn run lerna:publish"
+
 notifications:
   email:
     on_success: never
