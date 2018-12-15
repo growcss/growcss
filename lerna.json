@@ -9,7 +9,8 @@
         "**/dist/**",
         "**/__stories__/**",
         "**/__tests__/**",
-        "**/*.md"
+        "**/*.md",
+        "**/.rpt2_cache"
       ],
       "allowBranch": "master"
     }
