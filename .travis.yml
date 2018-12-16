@@ -44,14 +44,19 @@ jobs:
         - npm install -g codecov
         - npm run test:coverage --ci --runInBand
         - codecov
-# @TODO find a good solution
-#    - stage: Publish
-#      before_script:
-#      - |
-#          git config --global user.email "$GH_USER_EMAIL"
-#          git config --global user.name "$GH_USER_NAME"
-#          git remote set-url origin git@github.com:growcss/growcss.git > /dev/null 2>&1
-#          - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
+
+    - stage: Release
+      if: branch = master
+      script:
+        - |
+          git config --global user.email "$GH_USER_EMAIL"
+          git config --global user.name "$GH_USER_NAME"
+          git config credential.helper "store --file=.git/credentials";
+          echo "https://$GH_TOKEN:@github.com" > .git/credentials;
+        - chmod a+x ./build/ping-npm.sh
+        - bash ./build/ping-npm.sh
+        - yarn lerna exec --concurrency 1 "npx --no-install semantic-release -e semantic-release-monorepo" && node -e "require('semantic-release-monorepo-hooks').hookAfterAll()"
+
 
 notifications:
   email:
