@@ -15,6 +15,7 @@ before_install:
   - node --version
 
 install:
+  - npm ci
   - npm audit
 
 before_script:
