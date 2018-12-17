@@ -13,16 +13,15 @@ module.exports = {
     // 'plugin:security/recommended', @todo check it on the next version
     'prettier',
     'prettier/react',
-    'prettier/standard',
     'prettier/unicorn',
   ],
   plugins: [
     'react',
     'prettier',
-    'standard',
     'unicorn',
     'import',
     'compat',
+    'promise',
     'prettier',
     'jsx-a11y',
     // 'security', @todo check it on the next version
@@ -43,7 +42,7 @@ module.exports = {
       'import/no-extraneous-dependencies': [
         'error',
         {
-          devDependencies: ['**/__tests__/**/*.js', '**/examples/**/*.js'],
+          devDependencies: ['**/__tests__/**/*.{js,jsx,ts,tsx}', '**/examples/**/*.{js,jsx,ts,tsx}'],
         },
       ],
       'import/no-unresolved': ['off'],
