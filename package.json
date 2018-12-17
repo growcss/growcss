@@ -177,7 +177,7 @@
   },
   "engines": {
     "node": "^10.14.0 || ^11.3.0",
-    "npm": "^5.7.1"
+    "npm": "^6.1.0"
   },
   "jest-junit": {
     "output": "test-reports/junit.xml"

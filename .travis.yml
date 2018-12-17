@@ -15,6 +15,7 @@ before_install:
   - node --version
 
 install:
+  - npm install -g npm@6.1.0
   - npm ci
   - npm audit
 
