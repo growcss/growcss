@@ -201,8 +201,8 @@
   "lint-staged": {
     "linters": {
       "*.{js,jsx,ts,tsx}": [
-        "npm run lint:eslint:source -- --fix --max-warnings=1",
-        "npm run lint:eslint:supporting -- --fix --max-warnings=1",
+        "npm run lint:eslint:source -- --fix --max-warnings=0",
+        "npm run lint:eslint:supporting -- --fix --max-warnings=0",
         "git add"
       ],
       "*.{md}": [
