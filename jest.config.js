@@ -47,8 +47,6 @@ const config = {
   coverageReporters: ['lcov', 'html', 'text-summary'],
   coverageDirectory: './coverage/',
   collectCoverage: false,
-  collectCoverageFrom: [],
-  coverageThreshold: {},
 };
 
 // If the CHANGED_PACKAGES variable is set, we parse it to get an array of changed packages and only

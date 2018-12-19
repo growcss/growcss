@@ -9,10 +9,10 @@
     "em",
     "emotion",
     "glamor",
+    "growcss",
     "inline-styles",
     "media-queries",
     "media-query",
-    "preact",
     "react",
     "rem",
     "sass",
@@ -34,10 +34,10 @@
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "jsnext:main": "dist/es/index.js",
+  "browser": "dist/umd/index.js",
   "scripts": {
     "build": "cross-env PACKAGE_PATH=core/elaborate rollup -c ../../../build/rollup.config.js"
   },
-  "browser": "dist/umd/index.js",
   "dependencies": {
     "warning": "^4.0.2"
   },

@@ -1,39 +1,34 @@
 {
-  "name": "@growcss/image",
-  "version": "0.0.2",
-  "description": "Image element with sizing and preloading options.",
+  "name": "@growcss/{{kebabCase name}}",
+  "version": "{{version}}",
+  "description": "{{description}}",
   "keywords": [
     "growcss",
-    "image",
-    "lazy",
-    "lazy loading",
     "react",
     "styled-components",
     "ui"
   ],
-  "homepage": "http://growcss.com",
+  "homepage": "http://growcss.com/packages/{{name}}",
   "repository": "https://github.com/growcss/growcss.git",
   "license": "MIT",
   "author": {
-    "name": "Daniel Bannert",
-    "email": "d.bannert@anolilab.de"
+    "name": "{{author}}",
+    "email": "{{author_email}}"
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
   ],
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "jsnext:main": "dist/es/index.js",
-  "browser": "dist/umd/index.js",
   "scripts": {
     "build": "cross-env PACKAGE_PATH=core/image rollup -c ../../../build/rollup.config.js"
   },
-  "dependencies": {
-    "classnames": "^2.2.5"
-  },
+  "browser": "dist/umd/index.js",
   "peerDependencies": {
-    "preact": "^8.0",
     "react": "^16.0",
     "styled-components": "^4.0.1"
   },
@@ -43,5 +38,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "moduleName": "image"
+  "moduleName": "{{name}}"
 }
