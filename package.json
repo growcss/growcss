@@ -1,8 +1,14 @@
 {
   "name": "growcss",
+  "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PrisisForks/growcss.git"
+  },
   "license": "MIT",
   "scripts": {
+    "preinstall": "                   node verify-node-version.js",
     "bootstrap": "                    node verify-node-version.js && lerna bootstrap",
     "build": "                        node verify-node-version.js && npm run sort-package && cross-env NODE_ENV=production lerna run build",
     "changelog": "                    node verify-node-version.js && lerna-changelog",
@@ -26,8 +32,8 @@
     "storybook": "                    node verify-node-version.js && cross-env NODE_ENV=storybook start-storybook -p 6006 -c .storybook",
     "storybook-build": "              cross-env NODE_ENV=production build-storyboo k-c .storybook",
     "test": "                         node verify-node-version.js && cross-env NODE_ENV=test jest",
-    "test:changed": "                 node verify-node-version.js && cross-env NODE_ENV=test CHANGED_PACKAGES=$(node build/ci-scripts/get-changed-packages.js) COVERAGE_PACKAGES=$(node build/ci-scripts/get-changed-packages.js) jest",
-    "test:coverage": "                npm run test:changed -- --coverage",
+    "test:changed": "                 node verify-node-version.js && cross-env NODE_ENV=test CHANGED_PACKAGES=$(node build/ci-scripts/get-changed-packages-since-master.js)  COVERAGE_PACKAGES=$(node build/ci-scripts/get-code-threshold-for-changed-packages-since-master.js) jest",
+    "test:coverage": "                npm run test -- --coverage",
     "test:watch": "                   npm run test -- --watch",
     "upgrade-interactive": "          node verify-node-version.js && npm-check --update"
   },
@@ -214,10 +220,5 @@
       "**/dist/**",
       "**/node_modules/**"
     ]
-  },
-  "version": "0.0.0-development",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/PrisisForks/growcss.git"
   }
 }
