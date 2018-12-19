@@ -7,10 +7,6 @@ node_js:
 env:
   - SKIP_CHECK=true
 
-cache:
-  directories:
-    - node_modules
-
 before_install:
   - node --version
 
