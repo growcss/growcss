@@ -20,7 +20,7 @@ before_script:
   - npm run build
 
 script:
-  - npm run test --ci --runInBand
+  - npm run test:changed --ci --runInBand
 
 jobs:
   include:

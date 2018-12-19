@@ -3,11 +3,26 @@ const codeCoverageByPackage = require('./jest.codeCoverageThreshold');
 
 const TEST_ONLY_PATTERN = process.env.TEST_ONLY_PATTERN || '';
 
+const coverageReducer = (result, { coverage, pkg }) => ({
+  ...result,
+  collectCoverageFrom: [
+    ...result.collectCoverageFrom,
+    `${pkg}/**/*.{js,jsx,ts,tsx}`,
+  ],
+  coverageThreshold: {
+    ...result.coverageThreshold,
+    [pkg]: coverage,
+  },
+});
+
 /**
  * NOTE: This prints the coverage threshold list by changed packages since master ONLY if they have been commited.
  * It will print them all out as a json array of relative paths
  * i.e: $ node build/ci-scripts/get-code-threshold-for-changed-packages-since-master.js
  * {
+ *   "collectCoverageFrom": [
+ *     "<rootDir>packages/core/image/src/**"
+ *   ],
  *   "coverageThreshold": {
  *     "packages/core/image":{
  *       "statements":100,
@@ -23,7 +38,7 @@ const TEST_ONLY_PATTERN = process.env.TEST_ONLY_PATTERN || '';
   const packages = [];
 
   changedPackages.forEach(function (pkg) {
-    packages.push(pkg.location.replace(process.cwd() + '/', '') + '/src');
+    packages.push(pkg.location.replace(process.cwd() + '/', ''));
   });
 
   const testOnlyIsRemovingPattern = TEST_ONLY_PATTERN.startsWith('!');
@@ -41,18 +56,6 @@ const TEST_ONLY_PATTERN = process.env.TEST_ONLY_PATTERN || '';
         (testOnlyIsRemovingPattern && !pkg.startsWith(TEST_ONLY_PATTERN)),
     )
     .map(changedPkg => changedPkg.split('/').pop());
-
-  const coverageReducer = (result, { coverage, pkg }) => ({
-    ...result,
-    collectCoverageFrom: [
-      ...result.collectCoverageFrom,
-      `${pkg}/**/*.{js,jsx,ts,tsx}`,
-    ],
-    coverageThreshold: {
-      ...result.coverageThreshold,
-      [pkg]: coverage,
-    },
-  });
 
   const reducedData = Object.keys(codeCoverageByPackage)
     .filter(pkg => {
