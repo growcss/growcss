@@ -1,19 +1,19 @@
 {
-  "name": "@growcss/${PACKAGE}",
-  "version": "${VERSION}",
-  "description": "${DESCRIPTION}",
+  "name": "@growcss/{{kebabCase name}}",
+  "version": "{{version}}",
+  "description": "{{description}}",
   "keywords": [
     "growcss",
     "react",
     "styled-components",
     "ui"
   ],
-  "homepage": "http://growcss.com",
+  "homepage": "http://growcss.com/packages/{{name}}",
   "repository": "https://github.com/growcss/growcss.git",
   "license": "MIT",
   "author": {
-    "name": "Daniel Bannert",
-    "email": "d.bannert@anolilab.de"
+    "name": "{{author}}",
+    "email": "{{author_email}}"
   },
   "files": [
     "dist",
@@ -28,9 +28,6 @@
     "build": "cross-env PACKAGE_PATH=core/image rollup -c ../../../build/rollup.config.js"
   },
   "browser": "dist/umd/index.js",
-  "dependencies": {
-    "classnames": "^2.2.5"
-  },
   "peerDependencies": {
     "react": "^16.0",
     "styled-components": "^4.0.1"
@@ -41,5 +38,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "moduleName": "${PACKAGE}"
+  "moduleName": "{{name}}"
 }

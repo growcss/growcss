@@ -33,7 +33,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "lint-staged || node build/on-lint-error.js",
       "postcommit": "git update-index --again",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
@@ -62,7 +62,6 @@
     "@types/classnames": "^2.2.6",
     "@types/enzyme": "^3.1.15",
     "@types/enzyme-adapter-react-16": "^1.0.3",
-    "@types/glob": "^7.1.1",
     "@types/jest": "^23.3.10",
     "@types/jest-axe": "^2.2.2",
     "@types/node": "^10.12.17",
@@ -173,11 +172,9 @@
     "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-typescript": "^0.14.0",
     "eslint-plugin-unicorn": "^6.0.1",
-    "glob": "^7.1.3",
     "npm-check": "^5.9.0",
+    "plop": "^2.2.0",
     "prettier-eslint": "^8.8.2",
-    "read-pkg": "^4.0.1",
-    "read-pkg-up": "^4.0.0",
     "semantic-release": "^15.13.1",
     "semantic-release-monorepo": "6.1.1",
     "semantic-release-monorepo-hooks": "2.9.1",
@@ -206,6 +203,10 @@
       "*.{js,jsx,ts,tsx}": [
         "npm run lint:eslint:source -- --fix --max-warnings=1",
         "npm run lint:eslint:supporting -- --fix --max-warnings=1",
+        "git add"
+      ],
+      "*.{md}": [
+        "prettier --write",
         "git add"
       ]
     },
