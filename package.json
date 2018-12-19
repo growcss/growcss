@@ -10,7 +10,7 @@
   "scripts": {
     "preinstall": "                   node verify-node-version.js",
     "bootstrap": "                    node verify-node-version.js && lerna bootstrap",
-    "build": "                        node verify-node-version.js && npm run sort-package && cross-env NODE_ENV=production lerna run build",
+    "build": "                        node verify-node-version.js && cross-env NODE_ENV=production lerna run build",
     "changelog": "                    node verify-node-version.js && lerna-changelog",
     "clear": "                        npm run clear:modules && npm run clear:build",
     "clear:build": "                  node verify-node-version.js && lerna exec -- rimraf dist",
@@ -25,7 +25,6 @@
     "lint:fix:eslint:source": "       npm run lint:eslint:source -- --fix",
     "lint:fix:eslint:supporting": "   npm run lint:eslint:supporting -- --fix",
     "lint:style": "                   node verify-node-version.js && stylelint-config-prettier-check && stylelint 'packages/*/*/src/**/*.+{js,ts,tsx}'",
-    "publish": "                      node verify-node-version.js && lerna exec --bail=false -- \"can-npm-publish && npm publish\" && lerna publish",
     "publish-canary": "               npm run publish -- --canary --force-publish=\"*\" --canary --exact --yes",
     "publish-next": "                 npm run publish -- --npm-tag=next --bump=prerelease",
     "sort-package": "                 lerna exec -- sort-package-json",
