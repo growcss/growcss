@@ -4,6 +4,7 @@ const output = hooks();
 module.exports = {
   branch: 'master',
   tagFormat: 'v${version}',
+  preset: "angular",
   prepare: [
     '@semantic-release/changelog',
     '@semantic-release/npm',
