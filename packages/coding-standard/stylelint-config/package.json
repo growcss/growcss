@@ -1,6 +1,6 @@
 {
   "name": "@growcss/stylelint-config",
-  "version": "0.0.2",
+  "version": "0.0.0",
   "private": false,
   "description": "GrowCss Coding Standard for stylelint.",
   "keywords": [
@@ -37,6 +37,10 @@
   },
   "peerDependencies": {
     "stylelint": "^9.0.0"
+  },
+  "devDependencies": {
+    "stylelint": "^9.0.0",
+    "styled-components": "^4.0.1"
   },
   "publishConfig": {
     "access": "public"

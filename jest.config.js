@@ -16,6 +16,8 @@ const config = {
   // anywhere in the string. Where-ever there are an array of patterns, jest simply 'or's all of them
   // i.e /\/__tests__\/_.*?|\/__tests__\/.*?\/_.*?|\/__tests__\/integration\//
   testPathIgnorePatterns: [
+    // ignore files that a needed for tests
+    '/__fixture__/_.*?',
     // ignore files that are under a directory starting with "_" at the root of __tests__
     '/__tests__\\/_.*?',
     // ignore files under __tests__ that start with an underscore
@@ -64,13 +66,19 @@ if (CHANGED_PACKAGES) {
 // If not it will keep the same flow without code coverage check
 if (COVERAGE_PACKAGES) {
   const coveragePackages = JSON.parse(COVERAGE_PACKAGES);
+  config.collectCoverage = true;
 
   if (
     coveragePackages.collectCoverageFrom !== undefined &&
     coveragePackages.collectCoverageFrom.length > 0
   ) {
-    config.collectCoverage = true;
     config.collectCoverageFrom = coveragePackages.collectCoverageFrom;
+  }
+
+  if (
+    coveragePackages.coverageThreshold !== undefined &&
+    coveragePackages.coverageThreshold.length > 0
+  ) {
     config.coverageThreshold = coveragePackages.coverageThreshold;
   }
 }

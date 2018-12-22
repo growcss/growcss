@@ -49,9 +49,9 @@ jobs:
           git config --global user.name "$GH_USER_NAME"
           git config credential.helper "store --file=.git/credentials";
           echo "https://$GH_TOKEN:@github.com" > .git/credentials;
-        - chmod a+x ./build/ping-npm.sh
-        - bash ./build/ping-npm.sh
-        - yarn lerna exec --concurrency 1 "npx --no-install semantic-release -e semantic-release-monorepo" && node -e "require('semantic-release-monorepo-hooks').hookAfterAll()"
+        - lerna exec "can-npm-publish --verbose"
+      after_success:
+        - lerna exec --concurrency 1 "npx --no-install semantic-release -e semantic-release-monorepo" && node -e "require('semantic-release-monorepo-hooks').hookAfterAll()"
 
 
 notifications:

@@ -4,3 +4,4 @@ dist
 coverage
 build
 test-reports
+__fixture__
