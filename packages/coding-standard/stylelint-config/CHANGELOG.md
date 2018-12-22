@@ -1,3 +1,10 @@
+# [@growcss/stylelint-config-v1.0.2](https://github.com/growcss/growcss/compare/v1.0.1...v1.0.2) (2018-12-22)
+
+
+### Bug Fixes
+
+* **deps:** pin dependencies ([#31](https://github.com/growcss/growcss/issues/31)) ([2f7d689](https://github.com/growcss/growcss/commit/2f7d689))
+
 # [@growcss/stylelint-config-v1.0.1](https://github.com/growcss/growcss/compare/v1.0.0...v1.0.1) (2018-12-22)
 
 

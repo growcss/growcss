@@ -1,6 +1,6 @@
 {
   "name": "@growcss/stylelint-config",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": false,
   "description": "GrowCss Coding Standard for stylelint.",
   "keywords": [
