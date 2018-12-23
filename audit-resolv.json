@@ -1,0 +1,5 @@
+{
+  "577|@commitlint/prompt>vorpal>inquirer>lodash": {
+    "ignore": 1
+  }
+}
