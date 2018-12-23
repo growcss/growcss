@@ -8,14 +8,15 @@
   },
   "license": "MIT",
   "scripts": {
-    "preinstall": "                   node verify-node-version.js",
     "bootstrap": "                    node verify-node-version.js && lerna bootstrap",
     "build": "                        node verify-node-version.js && cross-env NODE_ENV=production lerna run build",
     "clear": "                        npm run clear:modules && npm run clear:build",
     "clear:build": "                  node verify-node-version.js && lerna exec -- rimraf dist",
     "clear:modules": "                node verify-node-version.js && lerna clean --yes",
+    "commit": "git-cz",
     "hooks:install": "                node verify-node-version.js && node node_modules/husky/husky.js install",
     "hooks:uninstall": "              node verify-node-version.js && node node_modules/husky/husky.js uninstall",
+    "preinstall": "                   node verify-node-version.js",
     "lint": "                         npm run lint:eslint:source && npm run lint:eslint:supporting && npm run lint:style",
     "lint:eslint:source": "           node verify-node-version.js && eslint -c .eslintrc.sources.js --print-config .eslintrc.sources.js | eslint-config-prettier-check && eslint -c .eslintrc.sources.js 'packages/*/*/src/**/*.{js,jsx,ts,tsx}'",
     "lint:eslint:supporting": "       node verify-node-version.js && eslint -c .eslintrc.supporting.js --print-config .eslintrc.supporting.js | eslint-config-prettier-check && eslint -c .eslintrc.supporting.js 'packages/*/*/{__tests__,__stories__}/**/*.{js,jsx,ts,tsx}'",
@@ -36,8 +37,14 @@
   },
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged || node build/on-lint-error.js",
       "postcommit": "git update-index --again"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/prompt"
     }
   },
   "dependencies": {
@@ -87,7 +94,6 @@
     "babel-plugin-transform-runtime": "6.23.0",
     "babel-preset-airbnb": "3.2.0",
     "classnames": "2.2.6",
-    "commitizen": "3.0.5",
     "cross-env": "5.2.0",
     "enzyme": "3.8.0",
     "enzyme-adapter-react-16": "1.7.1",
@@ -149,6 +155,7 @@
     "@commitlint/cli": "7.2.1",
     "@commitlint/config-conventional": "7.1.2",
     "@commitlint/config-lerna-scopes": "7.2.1",
+    "@commitlint/prompt": "^7.2.1",
     "@lerna/changed": "3.8.0",
     "@semantic-release/changelog": "3.0.1",
     "@semantic-release/commit-analyzer": "6.1.0",
@@ -156,6 +163,7 @@
     "@semantic-release/github": "5.2.7",
     "@semantic-release/npm": "5.1.2",
     "@semantic-release/release-notes-generator": "7.1.4",
+    "commitizen": "^3.0.5",
     "confusing-browser-globals": "1.0.5",
     "conventional-changelog-angular": "5.0.2",
     "eslint": "5.10.0",
