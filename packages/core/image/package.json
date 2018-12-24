@@ -1,6 +1,6 @@
 {
   "name": "@growcss/image",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Image element with sizing and preloading options.",
   "keywords": [
     "growcss",
