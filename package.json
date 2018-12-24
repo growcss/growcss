@@ -151,6 +151,7 @@
     "warning": "4.0.2"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.2.3",
     "@commitlint/cli": "7.2.1",
     "@commitlint/config-angular": "7.1.2",
     "@commitlint/config-lerna-scopes": "7.2.1",
@@ -162,6 +163,8 @@
     "@semantic-release/github": "5.2.7",
     "@semantic-release/npm": "5.1.2",
     "@semantic-release/release-notes-generator": "7.1.4",
+    "babel-plugin-dynamic-import-node": "^2.2.0",
+    "babel-plugin-macros": "^2.4.3",
     "commitizen": "^3.0.5",
     "confusing-browser-globals": "1.0.5",
     "conventional-changelog-angular": "5.0.2",
