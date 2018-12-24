@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": false,
   "description": "GrowCss Coding Standard for eslint.",
-
   "keywords": [
     "css",
     "growcss",
