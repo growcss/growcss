@@ -56,9 +56,13 @@ const config = {
 if (CHANGED_PACKAGES) {
   const changedPackages = JSON.parse(CHANGED_PACKAGES);
 
-  config.testMatch = changedPackages.map(
-    pkgPath => `${__dirname}/${pkgPath}/**/__tests__/**/*.(js|tsx|ts)`,
-  );
+  if (changedPackages.length > 0) {
+    console.log(changedPackages);
+
+    config.testMatch = changedPackages.map(
+      pkgPath => `${__dirname}/${pkgPath}/**/__tests__/**/*.(js|tsx|ts)`,
+    );
+  }
 }
 
 // Adding code coverage thresold configuration for unit test only

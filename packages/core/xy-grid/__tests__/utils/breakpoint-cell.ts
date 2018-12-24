@@ -14,9 +14,9 @@ describe('Test the BreakpointCell output', () => {
     expect(BreakpointCell(12, 'medium', false)).toEqual([
       '@media ',
       'only screen and (min-width: 40em)',
-      ' { ',
+      '{',
       'width: calc(100% - 1.875rem);',
-      ' }',
+      '}',
     ]);
   });
 });
