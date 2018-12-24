@@ -1,5 +1,5 @@
 const config = {
-  'plugins': [
+  plugins: [
     // class { handleClick = () => { } }
     '@babel/plugin-proposal-class-properties',
     '@babel/plugin-syntax-dynamic-import',
@@ -7,27 +7,27 @@ const config = {
     [
       'babel-plugin-styled-components',
       {
-        'ssr': true
-      }
+        ssr: true,
+      },
     ],
-    'module:fast-async'
+    'module:fast-async',
   ],
-  'presets': [
+  presets: [
     '@babel/typescript',
     [
       'airbnb',
       {
-        'modules': false,
-        'looseClasses': true
-      }
-    ]
+        modules: false,
+        looseClasses: true,
+      },
+    ],
   ],
 };
 
 const env = process.env.BABEL_ENV || process.env.NODE_ENV;
 
 if (env === 'test') {
-  config['plugins'].push(['@babel/plugin-transform-modules-commonjs']);
+  config.plugins.push(['@babel/plugin-transform-modules-commonjs']);
 }
 
 module.exports = config;

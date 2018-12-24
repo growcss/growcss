@@ -1,4 +1,4 @@
-import{CellOffset } from '../../src/utils/cell-offset';
+import { CellOffset } from '../../src/utils/cell-offset';
 
 test('calculate the cell offset', () => {
   expect(CellOffset(1, 'small')).toEqual([
