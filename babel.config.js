@@ -1,6 +1,7 @@
 const env = process.env.BABEL_ENV || process.env.NODE_ENV;
 
 const isEnvTest = env === 'test';
+const isEnvDevelopment = env === 'development';
 
 const config = {
   plugins: [
@@ -23,6 +24,20 @@ const config = {
     // Experimental macros support. Will be documented after it's had some time
     // in the wild.
     'babel-plugin-macros',
+    // https://babeljs.io/docs/en/babel-plugin-transform-computed-properties#loose
+    [
+      '@babel/plugin-transform-computed-properties',
+      {
+        loose: true,
+      },
+    ],
+    // https://babeljs.io/docs/en/babel-plugin-transform-parameters#loose
+    [
+      '@babel/plugin-transform-parameters',
+      {
+        loose: true,
+      },
+    ],
   ],
   presets: [
     '@babel/typescript',
@@ -33,9 +48,11 @@ const config = {
         {
           // Do not transform modules to CJS
           modules: false,
+          // https://babeljs.io/docs/en/babel-plugin-transform-classes#loose
           looseClasses: true,
           // Exclude transforms that make all code slower
           exclude: ['transform-typeof-symbol'],
+          development: isEnvTest || isEnvDevelopment,
         },
         isEnvTest && {
           targets: {
