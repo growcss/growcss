@@ -1,8 +1,12 @@
 /* eslint-disable no-console */
 /* eslint-disable unicorn/no-process-exit */
-const requiredVersion = require('fs')
+let requiredVersion = require('fs')
   .readFileSync('.nvmrc', { encoding: 'utf8' })
   .trim();
+
+if (!requiredVersion.includes('v')) {
+  requiredVersion = `v${requiredVersion}`;
+}
 
 if (process.env.SKIP_CHECK !== undefined) {
   process.exit(0);

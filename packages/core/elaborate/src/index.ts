@@ -6,7 +6,4 @@ export {
   Breakpoints,
   HidpiBreakpoints,
   MediaQueryOptions,
-  BreakpointsProps,
-  HidpiBreakpointsProps,
-  MediaQueryOptionsProps,
 } from './components/mediaquery/media-query';

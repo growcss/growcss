@@ -35,12 +35,12 @@
     "stylelint-order": "^2.0.0",
     "stylelint-processor-styled-components": "^1.5.0"
   },
+  "devDependencies": {
+    "styled-components": "4.1.3",
+    "stylelint": "9.9.0"
+  },
   "peerDependencies": {
     "stylelint": "^9.0.0"
-  },
-  "devDependencies": {
-    "stylelint": "9.9.0",
-    "styled-components": "4.1.3"
   },
   "publishConfig": {
     "access": "public"
