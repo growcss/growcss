@@ -70,7 +70,7 @@ const config = {
   ],
 };
 
-if (isEnvTest) {
+if (isEnvTest || isEnvDevelopment) {
   config.plugins.push('@babel/plugin-transform-modules-commonjs');
   // Transform dynamic import to require
   config.plugins.push('babel-plugin-dynamic-import-node');
