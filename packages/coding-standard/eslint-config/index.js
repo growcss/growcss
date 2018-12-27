@@ -26,6 +26,7 @@ module.exports = {
     'jsx-a11y',
     // 'security', @todo check it on the next version
     'typescript',
+    'react-hooks'
   ],
   parser: 'typescript-eslint-parser',
   parserOptions: {
@@ -77,6 +78,8 @@ module.exports = {
       'prettier/prettier': ['error', { parser: 'typescript' }],
       // https://github.com/airbnb/javascript/pull/1863 need to be merged
       'arrow-parens': ['error', 'always'],
+      // https://reactjs.org/docs/hooks-rules.html
+      "react-hooks/rules-of-hooks": "error"
     },
     ...require('./rules/prettier-conflicts'),
     ...require('./rules/typescript'),

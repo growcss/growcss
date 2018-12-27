@@ -74,6 +74,8 @@ if (isEnvTest || isEnvDevelopment) {
   config.plugins.push('@babel/plugin-transform-modules-commonjs');
   // Transform dynamic import to require
   config.plugins.push('babel-plugin-dynamic-import-node');
+  // Tweak React components in real time. - @see https://github.com/gaearon/react-hot-loader
+  config.plugins.push('react-hot-loader/babel');
 }
 
 module.exports = config;

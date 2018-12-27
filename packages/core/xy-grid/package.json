@@ -30,6 +30,7 @@
   "module": "dist/es/index.js",
   "jsnext:main": "dist/es/index.js",
   "browser": "dist/umd/index.js",
+  "unpkg": "dist/umd/index.js",
   "scripts": {
     "build": "cross-env PACKAGE_PATH=core/xy-grid rollup -c ../../../build/rollup.config.js"
   },

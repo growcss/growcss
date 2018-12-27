@@ -63,18 +63,18 @@ storybook.addDecorator(
      *   /\// - split by `/`
      *   /\./ - split by `.`
      *   /\/|\./ - split by `/` or `.`
-     * @type {Regex}
+     * @type {RegExp}
      */
-    hierarchySeparator: null,
+    hierarchySeparator: /\./,
 
     /**
      * regex for finding the hierarchy root separator
      * @example:
      *   null - turn off mulitple hierarchy roots
      *   /\|/ - split by `|`
-     * @type {Regex}
+     * @type {RegExp}
      */
-    hierarchyRootSeparator: null,
+    hierarchyRootSeparator: /\|/, //,
 
     /**
      * sidebar tree animations

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Image, Figcaption } from '../src';
 
-storiesOf('Image', module)
+storiesOf('Core.Image', module)
   .add('Simple image', () => (
     <Image
       width={1024}
