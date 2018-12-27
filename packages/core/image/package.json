@@ -8,6 +8,11 @@
     "lazy",
     "lazy loading",
     "react",
+    "react-component",
+    "lazyload",
+    "lazyloading",
+    "lazy-loading",
+    "lazyload-images",
     "styled-components",
     "ui"
   ],
@@ -26,6 +31,7 @@
   "module": "dist/es/index.js",
   "jsnext:main": "dist/es/index.js",
   "browser": "dist/umd/index.js",
+  "unpkg": "dist/umd/index.js",
   "scripts": {
     "build": "cross-env PACKAGE_PATH=core/image rollup -c ../../../build/rollup.config.js"
   },

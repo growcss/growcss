@@ -94,19 +94,18 @@ const baseConfig = {
   plugins: commonPlugins,
 };
 
-const umdConfig = Object.assign({}, baseConfig, {
+const unpkgConfig = Object.assign({}, baseConfig, {
   output: {
     file: pkg.browser,
-    format: 'cjs',
+    format: 'umd',
     name: pkg.moduleName,
-    exports: 'named',
     sourcemap: SOURCEMAP,
     globals: {},
   },
 });
 
-if (env === 'prod') {
-  umdConfig.plugins.concat(
+if (env === 'production') {
+  unpkgConfig.plugins.concat(
     uglify({
       sourcemap: SOURCEMAP,
       compress: {
@@ -119,16 +118,16 @@ if (env === 'prod') {
   );
 }
 
-umdConfig.plugins.concat(
+unpkgConfig.plugins.concat(
   visualizer({ filename: './bundle-stats.html' }),
   cleanup(),
 );
 
-const browserEsConfig = Object.assign({}, baseConfig, {
+const moduleConfig = Object.assign({}, baseConfig, {
   output: [
     {
       file: pkg.module,
-      format: 'es',
+      format: 'esm',
       sourcemap: SOURCEMAP,
     }
   ],
@@ -137,7 +136,7 @@ const browserEsConfig = Object.assign({}, baseConfig, {
   ),
 });
 
-const browserCjsConfig = Object.assign({}, baseConfig, {
+const mainConfig = Object.assign({}, baseConfig, {
   output: [
     {
       file: pkg.main,
@@ -151,4 +150,4 @@ const browserCjsConfig = Object.assign({}, baseConfig, {
   ),
 });
 
-export default [umdConfig, browserEsConfig, browserCjsConfig];
+export default [unpkgConfig, moduleConfig, mainConfig];

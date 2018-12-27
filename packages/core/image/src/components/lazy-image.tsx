@@ -19,9 +19,27 @@ export interface ImageType {
   crossOrigin?: '' | 'anonymous' | 'use-credentials' | undefined;
   previewImage?: string;
   children?: React.ReactNode;
+  scrollPosition?: number;
+  afterLoad?: Function;
+  beforeLoad?: Function;
+  visibleByDefault?: boolean;
 }
 
+interface DefaultImageProps {
+  afterLoad: Function;
+  beforeLoad: Function;
+  visibleByDefault: boolean;
+}
+
+type PropsWithDefaults = ImageType & DefaultImageProps;
+
 export default class LazyImage extends React.Component<ImageType, StateType> {
+  public static defaultProps: DefaultImageProps = {
+    afterLoad: () => ({}),
+    beforeLoad: () => ({}),
+    visibleByDefault: false,
+  };
+
   /**
    * @param { HTMLImageElement } imgElement
    */
@@ -42,26 +60,50 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
   protected srcSet: string;
 
   /**
-   * @param {ImageType} props
+   * @param {PropsWithDefaults} props
    */
-  public constructor(props: ImageType) {
+  public constructor(props: PropsWithDefaults) {
     super(props);
 
-    const { backgroundImages } = props;
+    const {
+      backgroundImages,
+      afterLoad,
+      beforeLoad,
+      visibleByDefault,
+    } = props as PropsWithDefaults;
     const { src, srcSet } = LazyImage.parseBackgroundImages(backgroundImages);
 
     this.src = src;
     this.srcSet = srcSet;
-    this.state = { imageLoaded: false };
+
+    if (visibleByDefault) {
+      beforeLoad();
+      afterLoad();
+    }
+
+    this.state = { imageLoaded: visibleByDefault };
+  }
+
+  public componentDidUpdate(prevProps, prevState) {
+    const { imageLoaded } = this.state;
+
+    if (prevState.visible !== imageLoaded) {
+      const { afterLoad } = this.props as DefaultImageProps;
+
+      afterLoad();
+    }
   }
 
   public componentDidMount() {
     const imageInstance = new Image();
+    const { beforeLoad } = this.props as DefaultImageProps;
 
     imageInstance.src = this.src;
     imageInstance.srcset = this.srcSet;
 
     imageInstance.addEventListener('load', () => {
+      beforeLoad();
+
       this.setState({ imageLoaded: true });
 
       this.imgElement.src = this.src;
