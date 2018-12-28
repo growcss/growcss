@@ -22,9 +22,10 @@ The structure leading to each package will look something like:
     ├─ node_modules ······ NPM dependencies
     ├─ __stories__ ······· Package-specific stories (Storiesbook)
     ├─ __tests__ ········· Tests for the component
+    ├─ types ············· All public Typescript interfaces
     ├─ src ··············· Package source
     ├─ CHANGELOG.md ······ Entire change history for the package
-    ├─ index.js ·········· Private entry point for tests
+    ├─ index.ts ·········· Private entry point for tests
     ├─ LICENSE ··········· Package license
     └─ package.json ······ NPM package configuration
 ```
@@ -52,7 +53,7 @@ For React, we have been using Enzyme as a way to do structural testing, but now 
 └─ packages
   └─ button
     └─ __stories__
-      └─ index.stories.js
+      └─ index.stories.tsx
 ```
         
 #### node_modules
@@ -62,13 +63,14 @@ This is where the NPM src are kept. Bolt will automatically populate this, you d
 Each package's source should contain a similar directory structure.
 Essentially this rule follows the convention that anything that has a default export must be ```CamelCapped``` or ```camelCased```. Everything else is ```dash-cased```. This rule is expanded into the following that goes into greater detail about how certain things in the structure should look (i.e. styled-components / tests).
 
-1. There must always be an ```index.js``` that exports your public API.
+1. There must always be an ```index.ts``` that exports your public API.
 2. Each file that has a default export, must only have a default export - no named exports. This simplifies the heuristics to determine a name for the file.
 3. The file name should be the name of the export. For example, if ```Button``` is a default export for a file, the file name should be ```Button.js```.
 For a HoC, this might look something like ```withButton```.
-4. In lieu of a file, you may use a directory with an ```index.js``` file. For example, ```Button/index.js```.
-5. Styled components should go in a ```styled.js``` file, or you can use a ```styled/index.js``` file that exports sibling files with default exports that conform to #3 or #4. This should also follow something similar to #6 and have this for every level of components.
+4. In lieu of a file, you may use a directory with an ```index.ts``` file. For example, ```Button/index.ts```.
+5. Styled components should go in a ```styled.tsx``` file, or you can use a ```styled/index.ts``` file that exports sibling files with default exports that conform to #3 or #4. This should also follow something similar to #6 and have this for every level of components.
 6. Tests should be in a ```__tests__``` folder that correspond to the root level.
+7. All public typescript `interfaces` and `types` should be in `types/index.tsx` file.
 
 Your structure may look something like this:
 
@@ -76,16 +78,18 @@ Your structure may look something like this:
 └─ packages
   └─ button
     ├─ __stories__
-    │  └─ index.stories.js ·· A visual story of the element
-    ├─ __tests__ ············ Tests for Button.js, index.js, styled.js
-    │  └─ __snapshots__ ····· Directory for the storybook snapshots (optional)
+    │  └─ index.stories.tsx ··· A visual story of the element
+    ├─ __tests__ ·············· Tests for Button.js, index.js, styled.js
+    │  └─ __snapshots__ ······· Directory for the storybook snapshots (optional)
+    ├─ types
+    │  └─ index.tsx ··········· Public typescript interfaces
     └─ src
       ├─ components············ Directory form of Button.js
-      │  └─ Button.js ········· Default export for Button
+      │  └─ Button.ts ········· Default export for Button
       ├─ styled ··············· Directory for styled components
-      │  └─ MyComponent.js ···· Exported MyComponent
-      ├─ Button.js ············ Simpler form of components/Button.js
-      └─ styled.js ············ Simpler form of styled/MyComponent.js
+      │  └─ MyComponent.tsx ··· Exported MyComponent
+      ├─ Button.ts ············ Simpler form of components/Button.ts
+      └─ styled.tsx ··········· Simpler form of styled/MyComponent.tsx
 ```
 The key difference between the file and directory forms (i.e. ```styled.js``` vs ```styled/index.js```) is how complex your component becomes. What matters here is that consistency is still very close and your imports do not change.
 
@@ -94,8 +98,8 @@ The rules listed above are exhaustive. Anything outside of them are not supporte
 #### CHANGELOG.md
 The changelog contains all of the relevant changes of the package, over time, in an easy-to-consume format. It also is searchable from the website if you want the changes for a particular version.
 
-#### index.js
-This index.js file exists for Jest so that it can resolve the actual source of the package as opposed to having to build the entire set of packages prior to running tests.
+#### index.ts
+This index.ts file exists for Jest so that it can resolve the actual source of the package as opposed to having to build the entire set of packages prior to running tests.
 
 #### LICENSE
 The LICENSE file contains the license for each package.

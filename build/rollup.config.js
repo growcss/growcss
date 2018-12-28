@@ -10,6 +10,7 @@ import globals from 'rollup-plugin-node-globals';
 import cleanup from 'rollup-plugin-cleanup';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import { terser } from "rollup-plugin-terser";
+import executable from "rollup-plugin-executable"
 import gzip from 'rollup-plugin-gzip';
 import licensePlugin from 'rollup-plugin-license';
 import 'airbnb-browser-shims';
@@ -18,6 +19,7 @@ const env = process.env.NODE_ENV;
 const pkg = require(`${__dirname}/../packages/${process.env.PACKAGE_PATH}/package.json`);
 
 const SOURCEMAP = true;
+const EXTENSIONS = ['.js', '.jsx', '.ts', '.tsx'];
 
 const commonPlugins = [
   peerDepsExternal(),
@@ -48,14 +50,21 @@ const commonPlugins = [
     // If true, inspect resolved files to check that they are
     // ES2015 modules
     modulesOnly: false,  // Default: false
-    extensions: ['.js', '.jsx', '.ts', '.tsx']
+    extensions: EXTENSIONS
   }),
   babel({
-    exclude: '**/node_modules/**',
     babelrc: false,
     configFile: `${__dirname}/../babel.config.js`,
-    extensions: ['.js', '.jsx', '.ts', '.tsx']
-  }),
+    // The Babel-Plugin is not using a pre-defined include, but builds up
+    // its include list from the default extensions of Babel-Core.
+    // Default Extensions: [".js", ".jsx", ".es6", ".es", ".mjs"]
+    // We add TypeScript extensions here as well to be able to post-process
+    // any TypeScript sources with Babel. This allows us for using presets
+    // like "react" and plugins like "fast-async" with TypeScript as well.
+    extensions: EXTENSIONS,
+    // Do not transpile external code
+    // https://github.com/rollup/rollup-plugin-babel/issues/48#issuecomment-211025960
+    exclude: [ "node_modules/**", "**/*.json" ]  }),
   sourceMaps(),
   commonjs({
     // All of our own sources will be ES6 modules, so only node_modules need to be resolved with cjs
@@ -121,6 +130,7 @@ if (env === 'production') {
 unpkgConfig.plugins.concat(
   visualizer({ filename: './bundle-stats.html' }),
   cleanup(),
+  executable(),
 );
 
 const moduleConfig = Object.assign({}, baseConfig, {
@@ -128,11 +138,13 @@ const moduleConfig = Object.assign({}, baseConfig, {
     {
       file: pkg.module,
       format: 'esm',
+      target: 'node',
       sourcemap: SOURCEMAP,
     }
   ],
   plugins: baseConfig.plugins.concat(
     cleanup(),
+    executable(),
   ),
 });
 
@@ -147,6 +159,7 @@ const mainConfig = Object.assign({}, baseConfig, {
   ],
   plugins: baseConfig.plugins.concat(
     cleanup(),
+    executable(),
   ),
 });
 

@@ -40,7 +40,13 @@ const config = {
     ],
   ],
   presets: [
-    '@babel/typescript',
+    [
+      '@babel/typescript',
+      {
+        allExtensions: true,
+        isTSX: true
+      }
+    ],
     [
       'airbnb',
       Object.assign(
