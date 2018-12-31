@@ -10,13 +10,13 @@ import globals from 'rollup-plugin-node-globals';
 import cleanup from 'rollup-plugin-cleanup';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import { terser } from "rollup-plugin-terser";
-import executable from "rollup-plugin-executable"
 import gzip from 'rollup-plugin-gzip';
 import licensePlugin from 'rollup-plugin-license';
 import 'airbnb-browser-shims';
 
 const env = process.env.NODE_ENV;
-const pkg = require(`${__dirname}/../packages/${process.env.PACKAGE_PATH}/package.json`);
+const packageDir = `${__dirname}/../packages/${process.env.PACKAGE_PATH}`;
+const pkg = require(`${packageDir}/package.json`);
 
 const SOURCEMAP = true;
 const EXTENSIONS = ['.js', '.jsx', '.ts', '.tsx'];
@@ -97,6 +97,7 @@ const commonPlugins = [
 
 const baseConfig = {
   input: 'src/index.ts',
+  inlineDynamicImports: true,
   external: ['react'].concat(
     Object.keys(pkg.dependencies || {}),
   ),
@@ -105,11 +106,10 @@ const baseConfig = {
 
 const unpkgConfig = Object.assign({}, baseConfig, {
   output: {
-    file: pkg.browser,
+    dir: `${packageDir}/dist/umd/`,
     format: 'umd',
     name: pkg.moduleName,
     sourcemap: SOURCEMAP,
-    globals: {},
   },
 });
 
@@ -129,37 +129,34 @@ if (env === 'production') {
 
 unpkgConfig.plugins.concat(
   visualizer({ filename: './bundle-stats.html' }),
-  cleanup(),
-  executable(),
+  cleanup({}),
 );
 
 const moduleConfig = Object.assign({}, baseConfig, {
   output: [
     {
-      file: pkg.module,
+      dir: `${packageDir}/dist/es/`,
       format: 'esm',
       target: 'node',
-      sourcemap: SOURCEMAP,
+      sourcemap: SOURCEMAP
     }
   ],
   plugins: baseConfig.plugins.concat(
-    cleanup(),
-    executable(),
-  ),
+    cleanup({}),
+    ),
 });
 
 const mainConfig = Object.assign({}, baseConfig, {
   output: [
     {
-      file: pkg.main,
+      dir: `${packageDir}/dist/cjs/`,
       format: 'cjs',
       exports: 'named',
-      sourcemap: true,
+      sourcemap: SOURCEMAP,
     },
   ],
   plugins: baseConfig.plugins.concat(
-    cleanup(),
-    executable(),
+    cleanup({}),
   ),
 });
 

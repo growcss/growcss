@@ -7,7 +7,7 @@
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "alwaysStrict": true,
-    "declaration": true,
+    "declaration": false,
     "experimentalDecorators": true,
     "downlevelIteration": true,
     "importHelpers": true,

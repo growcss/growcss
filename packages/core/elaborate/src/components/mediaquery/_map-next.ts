@@ -1,4 +1,4 @@
-import { BreakpointsProps } from './media-query';
+import { BreakpointsProps } from '../../../types';
 
 /**
  * Find the next key in object.
