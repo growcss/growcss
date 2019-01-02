@@ -4,7 +4,7 @@ import { CellStatic } from '../utils/cell-static';
 import { CellBase } from '../utils/cell-base';
 import { CellOffset } from '../utils/cell-offset';
 import { CellElementAlign } from '../utils/flex-align';
-import { GuttersProps } from '../components/gutters';
+import { GuttersProps } from '../../types';
 
 type GutterCssProps = {
   gutterSizes: GuttersProps;

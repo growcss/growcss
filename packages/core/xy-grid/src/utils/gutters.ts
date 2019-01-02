@@ -1,5 +1,5 @@
 import { rem, stripUnit, mediaquery } from '@growcss/elaborate';
-import { GuttersProps } from '../components/gutters';
+import { GuttersProps } from '../../types';
 
 /**
  * Builds the css for gutters.

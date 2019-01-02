@@ -1,6 +1,10 @@
 import { css } from 'styled-components';
 import MediaQueryTemplate from './_media-query-template';
-import { BreakpointsProps, HidpiBreakpointsProps, MediaQueryOptionsProps } from '../../../types';
+import {
+  BreakpointsProps,
+  HidpiBreakpointsProps,
+  MediaQueryOptionsProps,
+} from '../../../types';
 
 /**
  * A list of named breakpoints. You can use these with the `breakpoint` mixin to quickly create media queries.

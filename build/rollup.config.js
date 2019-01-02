@@ -55,6 +55,8 @@ const EXTENSIONS = ['.js', '.jsx', '.ts', '.tsx'];
 const GLOBALS = {
   react: 'React',
   'styled-components': 'styled',
+  classnames: 'classNames',
+  '@growcss/elaborate': 'elaborate',
 };
 
 const commonPlugins = [
@@ -139,7 +141,7 @@ const commonPlugins = [
       ` */`
     ].join('\n')
   }),
-  env === 'production' && gzip()
+  env === 'production' && gzip(),
 ];
 
 const baseConfig = {

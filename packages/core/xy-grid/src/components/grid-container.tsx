@@ -1,15 +1,9 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { rem } from '@growcss/elaborate';
-import { Gutters as DefaultGutters, GuttersProps } from './gutters';
+import { Gutters as DefaultGutters } from './gutters';
 import { GridContainerElement } from '../styled/grid-container-element';
-
-export interface GridContainerProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode;
-  type?: string;
-  width?: string | number;
-  gutterSizes?: string | number | GuttersProps;
-}
+import { GridContainerProps, GuttersProps } from '../../types';
 
 interface DefaultGridContainerProps {
   width: string;

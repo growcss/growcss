@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { Gutters } from '../utils/gutters';
-import { GuttersProps } from '../components/gutters';
+import { GuttersProps } from '../../types';
 
-export type GridContainerElementProps = {
+type GridContainerElementProps = {
   maxWidth?: string | number;
   gutterSizes: string | number | GuttersProps;
   type: string | undefined;

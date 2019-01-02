@@ -1,6 +1,7 @@
 import { Gutters } from './gutters';
-import { Gutters as DefaultGutters, GuttersProps } from '../components/gutters';
+import { Gutters as DefaultGutters } from '../components/gutters';
 import { CellProperties } from './cell-properties';
+import { GuttersProps } from '../../types';
 
 /**
  * Creates a single breakpoint sized grid.

@@ -1,5 +1,7 @@
 const { dirname, join } = require('path');
 const { ScriptTarget, ModuleResolutionKind, createProgram, getPreEmitDiagnostics, flattenDiagnosticMessageText } = require('typescript');
+const { compiler, beautify } = require('flowgen');
+const fs = require('fs');
 
 // Compiler based on code shown in the official docs:
 // https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API
@@ -54,3 +56,16 @@ extractTypescriptTypes({
   output: 'dist/index.d.ts',
   verbose: true
 });
+
+const flowDefinitions = compiler.compileDefinitionFile(typesFile);
+
+fs.writeFileSync(`${packageDir}/dist/index.flow.js`, beautify(flowDefinitions));
+
+export default function executable () {
+  return {
+    name: 'rollup-plugin-executable',
+    generateBundle: async function (options, bundle, isWrite) {
+      const baseDir = options.dir || path.dirname(options.file);
+    }
+  };
+}

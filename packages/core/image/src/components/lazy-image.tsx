@@ -95,14 +95,22 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
   }
 
   public render() {
-    const { children, previewImage, height, width, alt, crossOrigin, visibleByDefault } = this.props;
+    const {
+      children,
+      previewImage,
+      height,
+      width,
+      alt,
+      crossOrigin,
+      visibleByDefault,
+    } = this.props;
     const { imageLoaded } = this.state;
 
-    const isLoaded = imageLoaded && ! visibleByDefault;
+    const isLoaded = imageLoaded && !visibleByDefault;
 
     const className = classNames({
       loaded: isLoaded,
-      visible: visibleByDefault
+      visible: visibleByDefault,
     });
     let DivSizer = <div />;
 
@@ -113,23 +121,22 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
     return (
       <FigureElement className="gc-image">
         <AspectRatioPlaceholder>
-          { DivSizer }
-          {
-            ! visibleByDefault &&
+          {DivSizer}
+          {!visibleByDefault && (
             <PreviewElement
-              className={ classNames('preview') }
-              src={ previewImage || this.src }
+              className={classNames('preview')}
+              src={previewImage || this.src}
               crossOrigin="anonymous"
-              alt={ alt }
+              alt={alt}
             />
-          }
+          )}
           <ImageElement
-            className={ className }
+            className={className}
             ref={(img: HTMLImageElement) => {
               this.imgElement = img;
             }}
-            alt={ alt }
-            crossOrigin={ crossOrigin }
+            alt={alt}
+            crossOrigin={crossOrigin}
           />
         </AspectRatioPlaceholder>
         {children}
