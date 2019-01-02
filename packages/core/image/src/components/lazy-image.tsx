@@ -6,24 +6,7 @@ import { FigureElement } from '../styled/figure-element';
 import { ImageElement } from '../styled/image-element';
 import { PreviewElement } from '../styled/preview-element';
 import { StateType } from '../states';
-
-export interface ImagesProps {
-  [key: string]: string;
-}
-
-export interface ImageType {
-  backgroundImages: ImagesProps;
-  height?: number;
-  width?: number;
-  alt?: string;
-  crossOrigin?: '' | 'anonymous' | 'use-credentials' | undefined;
-  previewImage?: string;
-  children?: React.ReactNode;
-  scrollPosition?: number;
-  afterLoad?: Function;
-  beforeLoad?: Function;
-  visibleByDefault?: boolean;
-}
+import { ImagesProps, ImageType } from '../../types';
 
 interface DefaultImageProps {
   afterLoad: Function;
@@ -41,7 +24,7 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
   };
 
   /**
-   * @param { HTMLImageElement } imgElement
+   * @param {HTMLImageElement} imgElement
    */
   private imgElement: HTMLImageElement;
 
@@ -112,9 +95,15 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
   }
 
   public render() {
-    const { children, previewImage, height, width, alt, crossOrigin } = this.props;
+    const { children, previewImage, height, width, alt, crossOrigin, visibleByDefault } = this.props;
     const { imageLoaded } = this.state;
-    const className = classNames({ loaded: imageLoaded });
+
+    const isLoaded = imageLoaded && ! visibleByDefault;
+
+    const className = classNames({
+      loaded: isLoaded,
+      visible: visibleByDefault
+    });
     let DivSizer = <div />;
 
     if (height !== undefined && width !== undefined) {
@@ -124,20 +113,23 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
     return (
       <FigureElement className="gc-image">
         <AspectRatioPlaceholder>
-          {DivSizer}
-          <PreviewElement
-            className={classNames('preview')}
-            src={previewImage || this.src}
-            crossOrigin="anonymous"
-            alt={alt}
-          />
+          { DivSizer }
+          {
+            ! visibleByDefault &&
+            <PreviewElement
+              className={ classNames('preview') }
+              src={ previewImage || this.src }
+              crossOrigin="anonymous"
+              alt={ alt }
+            />
+          }
           <ImageElement
-            className={className}
+            className={ className }
             ref={(img: HTMLImageElement) => {
               this.imgElement = img;
             }}
-            alt={alt}
-            crossOrigin={crossOrigin}
+            alt={ alt }
+            crossOrigin={ crossOrigin }
           />
         </AspectRatioPlaceholder>
         {children}

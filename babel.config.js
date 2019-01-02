@@ -38,14 +38,21 @@ const config = {
         loose: true,
       },
     ],
+    // Transform dynamic import to require
+    [
+      'babel-plugin-dynamic-import-node',
+      {
+        noInterop: true,
+      },
+    ],
   ],
   presets: [
     [
       '@babel/typescript',
       {
         allExtensions: true,
-        isTSX: true
-      }
+        isTSX: true,
+      },
     ],
     [
       'airbnb',
@@ -78,8 +85,6 @@ const config = {
 
 if (isEnvTest || isEnvDevelopment) {
   config.plugins.push('@babel/plugin-transform-modules-commonjs');
-  // Transform dynamic import to require
-  config.plugins.push('babel-plugin-dynamic-import-node');
   // Tweak React components in real time. - @see https://github.com/gaearon/react-hot-loader
   config.plugins.push('react-hot-loader/babel');
 }

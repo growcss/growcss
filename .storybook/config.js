@@ -1,9 +1,14 @@
 import * as storybook from '@storybook/react';
-import {withOptions} from '@storybook/addon-options';
-import {checkA11y} from '@storybook/addon-a11y';
-import {withThemes} from 'storybook-styled-components'
-import {storybookGrowCssTheme} from "./theme";
-import {withInfo} from "@storybook/addon-info";
+import { withOptions } from '@storybook/addon-options';
+import { checkA11y } from '@storybook/addon-a11y';
+import { withThemes } from 'storybook-styled-components'
+import { storybookGrowCssTheme } from "./theme";
+import { withInfo } from "@storybook/addon-info";
+import {
+  initScreenshot,
+  setScreenshotOptions,
+  withScreenshot,
+} from 'storybook-chrome-screenshot';
 
 // Option defaults:
 storybook.addDecorator(
@@ -94,6 +99,33 @@ storybook.addDecorator(
     theme: storybookGrowCssTheme,
   })
 );
+
+setScreenshotOptions({
+  viewport: [
+    // Mobile
+    {
+      width: 300,
+      height: 420,
+      isMobile: true,
+      hasTouch: true,
+    },
+    // Tablet
+    {
+      width: 768,
+      height: 800,
+      isMobile: true,
+      hasTouch: true,
+    },
+    // Desktop
+    {
+      width: 1024,
+      height: 768,
+    },
+  ],
+});
+
+storybook.addDecorator(initScreenshot());
+storybook.addDecorator(withScreenshot());
 
 storybook.addDecorator(checkA11y);
 storybook.addDecorator(withInfo({

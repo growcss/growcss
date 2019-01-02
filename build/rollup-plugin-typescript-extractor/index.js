@@ -1,5 +1,5 @@
-import { dirname, join } from "path"
-import { ScriptTarget, ModuleResolutionKind, createProgram, getPreEmitDiagnostics, flattenDiagnosticMessageText } from "typescript";
+const { dirname, join } = require('path');
+const { ScriptTarget, ModuleResolutionKind, createProgram, getPreEmitDiagnostics, flattenDiagnosticMessageText } = require('typescript');
 
 // Compiler based on code shown in the official docs:
 // https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API
@@ -27,7 +27,7 @@ function compile(fileNames, options, verbose) {
   }
 }
 
-export default function extractTypes({ input, root, output, verbose }) {
+function extractTypescriptTypes({ input, root, output, verbose }) {
   return compile([ input ], {
     declarationDir: join(root, dirname(output)),
     declaration: true,
@@ -35,7 +35,22 @@ export default function extractTypes({ input, root, output, verbose }) {
     allowSyntheticDefaultImports: true,
     esModuleInterop: true,
     moduleResolution: ModuleResolutionKind.NodeJs,
-    target: ScriptTarget.ES2017,
-    jsx: "preserve"
+    target: ScriptTarget.ES5,
+    module: 'commonjs',
+    jsx: 'preserve',
+    noImplicitAny: true,
+    noImplicitThis: true,
+    strictNullChecks: true,
+    strictFunctionTypes: true,
   }, verbose)
 }
+
+const packageDir = join(__dirname, `/../packages/${process.env.PACKAGE_PATH}`);
+const typesFile = `${packageDir}/types/index.tsx`;
+
+extractTypescriptTypes({
+  input: typesFile,
+  root: packageDir,
+  output: 'dist/index.d.ts',
+  verbose: true
+});

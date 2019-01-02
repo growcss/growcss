@@ -3,3 +3,4 @@ import '@storybook/addon-actions/register';
 import '@storybook/addon-options/register';
 import 'storybook-addon-specifications/register';
 import 'storybook-styled-components/register'
+import 'storybook-chrome-screenshot/register';
