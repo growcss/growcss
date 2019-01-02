@@ -105,11 +105,8 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
       visibleByDefault,
     } = this.props;
     const { imageLoaded } = this.state;
-
-    const isLoaded = imageLoaded && !visibleByDefault;
-
     const className = classNames({
-      loaded: isLoaded,
+      loaded: imageLoaded && !visibleByDefault,
       visible: visibleByDefault,
     });
     let DivSizer = <div />;

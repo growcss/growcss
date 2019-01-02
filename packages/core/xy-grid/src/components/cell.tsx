@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { Gutters as DefaultGutters } from './gutters';
 import { CellElement } from '../styled/cell-element';
+// eslint-disable-next-line no-unused-vars
 import { CellBreakpointsProps, CellProps, GuttersProps, OffsetProps } from '../../types';
 
 interface DefaultCellProps {

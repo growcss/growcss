@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { Gutters as DefaultGutters } from './gutters';
 import { XYGridElement } from '../styled/xy-grid-element';
+// eslint-disable-next-line no-unused-vars
 import { GridProps, CellProps, GuttersProps } from '../../types';
 
 interface DefaultGridProps {
