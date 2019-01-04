@@ -104,7 +104,6 @@
     "enzyme-adapter-react-16": "1.7.1",
     "enzyme-to-json": "3.3.5",
     "eva-icons": "1.1.1",
-    "extract-react-types": "0.15.1",
     "fast-async": "7.0.6",
     "husky": "1.3.1",
     "istanbul-reports": "2.0.1",
@@ -148,7 +147,6 @@
     "storybook-styled-components": "1.1.3",
     "styled-components": "4.1.3",
     "styled-theming": "2.2.0",
-    "ts-loader": "5.3.2",
     "tslib": "1.9.3",
     "typescript": "3.2.2",
     "warning": "4.0.2"
@@ -187,7 +185,6 @@
     "eslint-plugin-security": "1.4.0",
     "eslint-plugin-typescript": "0.14.0",
     "eslint-plugin-unicorn": "6.0.1",
-    "flowgen": "^1.3.0",
     "license-checker": "24.1.0",
     "npm-audit-resolver": "^1.4.0",
     "npm-check": "5.9.0",

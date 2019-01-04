@@ -73,7 +73,7 @@ const commonPlugins = [
   // nodeResolve makes rollup look for dependencies in the node_modules directory
   nodeResolve({
     // use "module" field for ES6 module if possible
-    module: true, // Default: true
+    module: false, // Default: true
     // use "jsnext:main" if possible
     // – see https://github.com/rollup/rollup/wiki/jsnext:main
     jsnext: false,  // Default: false
@@ -85,7 +85,7 @@ const commonPlugins = [
     // specifies alternative files to load for people bundling
     // for the browser. If that's you, use this option, otherwise
     // pkg.browser will be ignored
-    browser: false,  // Default: false
+    browser: true,  // Default: false
     // whether to prefer built-in modules (e.g. `fs`, `path`) or
     // local ones with the same names
     preferBuiltins: true,  // Default: true
