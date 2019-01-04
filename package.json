@@ -160,6 +160,7 @@
     "@commitlint/prompt": "^7.2.1",
     "@hot-loader/react-dom": "^16.7.0",
     "@lerna/changed": "3.8.1",
+    "@microsoft/api-extractor": "^6.3.0",
     "@semantic-release/changelog": "3.0.2",
     "@semantic-release/commit-analyzer": "6.1.0",
     "@semantic-release/git": "7.0.7",
