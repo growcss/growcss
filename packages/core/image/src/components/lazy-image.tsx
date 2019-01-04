@@ -6,24 +6,25 @@ import { FigureElement } from '../styled/figure-element';
 import { ImageElement } from '../styled/image-element';
 import { PreviewElement } from '../styled/preview-element';
 import { StateType } from '../states';
+import { ImagesProps, ImageType } from '../../types';
 
-export interface ImagesProps {
-  [key: string]: string;
+interface DefaultImageProps {
+  afterLoad: Function;
+  beforeLoad: Function;
+  visibleByDefault: boolean;
 }
 
-export interface ImageType {
-  backgroundImages: ImagesProps;
-  height?: number;
-  width?: number;
-  alt?: string;
-  crossOrigin?: '' | 'anonymous' | 'use-credentials' | undefined;
-  previewImage?: string;
-  children?: React.ReactNode;
-}
+type PropsWithDefaults = ImageType & DefaultImageProps;
 
 export default class LazyImage extends React.Component<ImageType, StateType> {
+  public static defaultProps: DefaultImageProps = {
+    afterLoad: () => ({}),
+    beforeLoad: () => ({}),
+    visibleByDefault: false,
+  };
+
   /**
-   * @param { HTMLImageElement } imgElement
+   * @param {HTMLImageElement} imgElement
    */
   private imgElement: HTMLImageElement;
 
@@ -42,26 +43,50 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
   protected srcSet: string;
 
   /**
-   * @param {ImageType} props
+   * @param {PropsWithDefaults} props
    */
-  public constructor(props: ImageType) {
+  public constructor(props: PropsWithDefaults) {
     super(props);
 
-    const { backgroundImages } = props;
+    const {
+      backgroundImages,
+      afterLoad,
+      beforeLoad,
+      visibleByDefault,
+    } = props as PropsWithDefaults;
     const { src, srcSet } = LazyImage.parseBackgroundImages(backgroundImages);
 
     this.src = src;
     this.srcSet = srcSet;
-    this.state = { imageLoaded: false };
+
+    if (visibleByDefault) {
+      beforeLoad();
+      afterLoad();
+    }
+
+    this.state = { imageLoaded: visibleByDefault };
+  }
+
+  public componentDidUpdate(prevProps, prevState) {
+    const { imageLoaded } = this.state;
+
+    if (prevState.visible !== imageLoaded) {
+      const { afterLoad } = this.props as DefaultImageProps;
+
+      afterLoad();
+    }
   }
 
   public componentDidMount() {
     const imageInstance = new Image();
+    const { beforeLoad } = this.props as DefaultImageProps;
 
     imageInstance.src = this.src;
     imageInstance.srcset = this.srcSet;
 
     imageInstance.addEventListener('load', () => {
+      beforeLoad();
+
       this.setState({ imageLoaded: true });
 
       this.imgElement.src = this.src;
@@ -70,9 +95,20 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
   }
 
   public render() {
-    const { children, previewImage, height, width, alt, crossOrigin } = this.props;
+    const {
+      children,
+      previewImage,
+      height,
+      width,
+      alt,
+      crossOrigin,
+      visibleByDefault,
+    } = this.props;
     const { imageLoaded } = this.state;
-    const className = classNames({ loaded: imageLoaded });
+    const className = classNames({
+      loaded: imageLoaded && !visibleByDefault,
+      visible: visibleByDefault,
+    });
     let DivSizer = <div />;
 
     if (height !== undefined && width !== undefined) {
@@ -83,12 +119,14 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
       <FigureElement className="gc-image">
         <AspectRatioPlaceholder>
           {DivSizer}
-          <PreviewElement
-            className={classNames('preview')}
-            src={previewImage || this.src}
-            crossOrigin="anonymous"
-            alt={alt}
-          />
+          {!visibleByDefault && (
+            <PreviewElement
+              className={classNames('preview')}
+              src={previewImage || this.src}
+              crossOrigin="anonymous"
+              alt={alt}
+            />
+          )}
           <ImageElement
             className={className}
             ref={(img: HTMLImageElement) => {

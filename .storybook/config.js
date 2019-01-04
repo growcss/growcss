@@ -1,9 +1,14 @@
 import * as storybook from '@storybook/react';
-import {withOptions} from '@storybook/addon-options';
-import {checkA11y} from '@storybook/addon-a11y';
-import {withThemes} from 'storybook-styled-components'
-import {storybookGrowCssTheme} from "./theme";
-import {withInfo} from "@storybook/addon-info";
+import { withOptions } from '@storybook/addon-options';
+import { checkA11y } from '@storybook/addon-a11y';
+import { withThemes } from 'storybook-styled-components'
+import { storybookGrowCssTheme } from "./theme";
+import { withInfo } from "@storybook/addon-info";
+import {
+  initScreenshot,
+  setScreenshotOptions,
+  withScreenshot,
+} from 'storybook-chrome-screenshot';
 
 // Option defaults:
 storybook.addDecorator(
@@ -63,18 +68,18 @@ storybook.addDecorator(
      *   /\// - split by `/`
      *   /\./ - split by `.`
      *   /\/|\./ - split by `/` or `.`
-     * @type {Regex}
+     * @type {RegExp}
      */
-    hierarchySeparator: null,
+    hierarchySeparator: /\./,
 
     /**
      * regex for finding the hierarchy root separator
      * @example:
      *   null - turn off mulitple hierarchy roots
      *   /\|/ - split by `|`
-     * @type {Regex}
+     * @type {RegExp}
      */
-    hierarchyRootSeparator: null,
+    hierarchyRootSeparator: /\|/, //,
 
     /**
      * sidebar tree animations
@@ -94,6 +99,43 @@ storybook.addDecorator(
     theme: storybookGrowCssTheme,
   })
 );
+
+setScreenshotOptions({
+  viewport: [
+    // small
+    {
+      width: 300,
+      height: 420,
+      isMobile: true,
+      hasTouch: true,
+    },
+    // medium
+    {
+      width: 768,
+      height: 800,
+      isMobile: true,
+      hasTouch: true,
+    },
+    // large
+    {
+      width: 1024,
+      height: 768,
+    },
+    // xlarge
+    {
+      width: 1200,
+      height: 800,
+    },
+    // xxlarge
+    {
+      width: 1440,
+      height: 900,
+    },
+  ],
+});
+
+storybook.addDecorator(initScreenshot());
+storybook.addDecorator(withScreenshot());
 
 storybook.addDecorator(checkA11y);
 storybook.addDecorator(withInfo({

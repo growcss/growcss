@@ -1,5 +1,8 @@
+import path from 'path';
+import fs from 'fs';
 import nodeResolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
+import progress from 'rollup-plugin-progress';
 import babel from 'rollup-plugin-babel';
 import json from 'rollup-plugin-json';
 import { uglify } from 'rollup-plugin-uglify';
@@ -15,12 +18,53 @@ import licensePlugin from 'rollup-plugin-license';
 import 'airbnb-browser-shims';
 
 const env = process.env.NODE_ENV;
-const pkg = require(`${__dirname}/../packages/${process.env.PACKAGE_PATH}/package.json`);
+const packageDir = path.join(__dirname, `/../packages/${process.env.PACKAGE_PATH}`);
+const pkg = require(`${packageDir}/package.json`);
+
+const commitHash = (function() {
+  try {
+    return fs.readFileSync('.commithash', 'utf-8');
+  } catch (err) {
+    return 'unknown';
+  }
+})();
+
+const now = new Date(
+  process.env.SOURCE_DATE_EPOCH ? process.env.SOURCE_DATE_EPOCH * 1000 : new Date().getTime()
+).toUTCString();
+
+const onwarn = warning => {
+  if (warning.pluginCode === 'ONWRITE_HOOK_DEPRECATED' ||
+    warning.plugin === 'rollup-plugin-license' ||
+    warning.plugin === 'progress'
+  ) {
+    return;
+  }
+
+  // eslint-disable-next-line no-console
+  console.error(
+    'Building Rollup produced warnings that need to be resolved. ' +
+    'Please keep in mind that the browser build may never have external dependencies!'
+  );
+
+  throw new Error(warning.message);
+};
 
 const SOURCEMAP = true;
+const EXTENSIONS = ['.js', '.jsx', '.ts', '.tsx'];
+const GLOBALS = {
+  react: 'React',
+  'styled-components': 'styled',
+  classnames: 'classNames',
+  '@growcss/elaborate': 'elaborate',
+};
 
 const commonPlugins = [
-  peerDepsExternal(),
+  progress(),
+  peerDepsExternal({
+    includeDependencies: false,
+    packageJsonPath: `${packageDir}/package.json`
+  }),
   replace({
     'process.env.NODE_ENV': JSON.stringify(env),
   }),
@@ -48,19 +92,31 @@ const commonPlugins = [
     // If true, inspect resolved files to check that they are
     // ES2015 modules
     modulesOnly: false,  // Default: false
-    extensions: ['.js', '.jsx', '.ts', '.tsx']
+    extensions: EXTENSIONS,
   }),
-  babel({
-    exclude: '**/node_modules/**',
-    babelrc: false,
-    configFile: `${__dirname}/../babel.config.js`,
-    extensions: ['.js', '.jsx', '.ts', '.tsx']
-  }),
-  sourceMaps(),
   commonjs({
     // All of our own sources will be ES6 modules, so only node_modules need to be resolved with cjs
     include: 'node_modules/**',
   }),
+  babel({
+    babelrc: false,
+    configFile: `${__dirname}/../babel.config.js`,
+    // The Babel-Plugin is not using a pre-defined include, but builds up
+    // its include list from the default extensions of Babel-Core.
+    // Default Extensions: [".js", ".jsx", ".es6", ".es", ".mjs"]
+    // We add TypeScript extensions here as well to be able to post-process
+    // any TypeScript sources with Babel. This allows us for using presets
+    // like "react" and plugins like "fast-async" with TypeScript as well.
+    extensions: EXTENSIONS,
+    // Do not transpile external code
+    // https://github.com/rollup/rollup-plugin-babel/issues/48#issuecomment-211025960
+    exclude: [
+      'node_modules/**',
+      '**/*.json'
+    ],
+  }),
+  sourceMaps(),
+  cleanup({}),
   env === 'production' && terser({
     warnings: true,
     ecma: 5,
@@ -73,40 +129,43 @@ const commonPlugins = [
       unsafe_comps: true,
       warnings: false,
     },
+    safari10: true,
   }),
   licensePlugin({
     banner: [
-      `/*!`,
+      `/**`,
       ` * ${pkg.name} v${pkg.version} (c) 2017-${new Date().getFullYear()}`,
+      ` * ${now} - commit ${commitHash}`,
       ` * Released under the MIT License.`,
       ` * Website: https://growcss.com`,
-      `*/`
+      ` */`
     ].join('\n')
   }),
-  env === 'production' && gzip()
+  env === 'production' && gzip(),
 ];
 
 const baseConfig = {
-  input: 'src/index.ts',
+  input: `${packageDir}/src/index.ts`,
+  onwarn,
+  inlineDynamicImports: true,
   external: ['react'].concat(
     Object.keys(pkg.dependencies || {}),
   ),
   plugins: commonPlugins,
 };
 
-const umdConfig = Object.assign({}, baseConfig, {
+const unpkgConfig = Object.assign({}, baseConfig, {
   output: {
-    file: pkg.browser,
-    format: 'cjs',
+    dir: `${packageDir}/dist/umd/`,
+    format: 'umd',
     name: pkg.moduleName,
-    exports: 'named',
     sourcemap: SOURCEMAP,
-    globals: {},
+    globals: GLOBALS,
   },
 });
 
-if (env === 'prod') {
-  umdConfig.plugins.concat(
+if (env === 'production') {
+  unpkgConfig.plugins.concat(
     uglify({
       sourcemap: SOURCEMAP,
       compress: {
@@ -119,36 +178,32 @@ if (env === 'prod') {
   );
 }
 
-umdConfig.plugins.concat(
+unpkgConfig.plugins.concat(
   visualizer({ filename: './bundle-stats.html' }),
-  cleanup(),
 );
 
-const browserEsConfig = Object.assign({}, baseConfig, {
-  output: [
-    {
-      file: pkg.module,
-      format: 'es',
-      sourcemap: SOURCEMAP,
-    }
-  ],
-  plugins: baseConfig.plugins.concat(
-    cleanup(),
-  ),
-});
-
-const browserCjsConfig = Object.assign({}, baseConfig, {
-  output: [
-    {
-      file: pkg.main,
-      format: 'cjs',
-      exports: 'named',
-      sourcemap: true,
-    },
-  ],
-  plugins: baseConfig.plugins.concat(
-    cleanup(),
-  ),
-});
-
-export default [umdConfig, browserEsConfig, browserCjsConfig];
+// CommonJS (for Node) and ES module (for bundlers) build.
+// (We could have three entries in the configuration array
+// instead of two, but it's quicker to generate multiple
+// builds from a single configuration where possible, using
+// an array for the `output` option, where we can specify
+// `file` or `dir` and `format` for each target)
+export default [
+  unpkgConfig,
+  Object.assign({}, baseConfig, {
+    output: [
+      {
+        dir: `${packageDir}/dist/cjs/`,
+        format: 'cjs',
+        sourcemap: SOURCEMAP,
+        globals: GLOBALS,
+      },
+      {
+        dir: `${packageDir}/dist/es/`,
+        format: 'esm',
+        sourcemap: SOURCEMAP,
+        globals: GLOBALS,
+      },
+    ],
+  })
+];

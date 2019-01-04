@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { GridElementAlign } from '../utils/flex-align';
 
-export type XYGridElementProps = {
+type XYGridElementProps = {
   gridDirection?: string;
   wrap: boolean;
   gridHeight?: string;

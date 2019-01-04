@@ -5,8 +5,9 @@ import {
   MediaQueryOptionsProps,
   MediaQueryOptions,
 } from '@growcss/elaborate';
-import { Gutters as DefaultGutters, GuttersProps } from '../components/gutters';
+import { Gutters as DefaultGutters } from '../components/gutters';
 import { CellSize } from './cell-size';
+import { GuttersProps } from '../../types';
 
 /**
  * Creates a single breakpoint sized grid.

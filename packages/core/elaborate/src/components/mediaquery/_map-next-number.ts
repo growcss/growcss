@@ -1,4 +1,4 @@
-import { HidpiBreakpointsProps } from './media-query';
+import { HidpiBreakpointsProps } from '../../../types';
 
 /**
  * Find the next number in object.

@@ -42,7 +42,10 @@ module.exports = {
       'import/no-extraneous-dependencies': [
         'error',
         {
-          devDependencies: ['**/__tests__/**/*.{js,jsx,ts,tsx}', '**/examples/**/*.{js,jsx,ts,tsx}'],
+          devDependencies: [
+            '**/__tests__/**/*.{js,jsx,ts,tsx}',
+            '**/examples/**/*.{js,jsx,ts,tsx}',
+          ],
         },
       ],
       'import/no-unresolved': ['off'],
