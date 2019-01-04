@@ -2,7 +2,7 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Image, Figcaption } from '../src';
 
-storiesOf('Image', module)
+storiesOf('Core.Image', module)
   .add('Simple image', () => (
     <Image
       width={1024}
@@ -65,4 +65,18 @@ storiesOf('Image', module)
         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
       </Figcaption>
     </Image>
+  ))
+  .add('Image with default visible on true', () => (
+    <Image
+      width={1024}
+      height={256}
+      alt="test"
+      visibleByDefault
+      backgroundImages={{
+        small:
+          'https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/300x/mountain.jpg',
+        large:
+          'https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/1024x/mountain.jpg',
+      }}
+    />
   ));

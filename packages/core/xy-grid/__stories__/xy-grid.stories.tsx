@@ -8,7 +8,7 @@ const CustomGridX = styled(GridX)`
   text-align: center;
 `;
 
-storiesOf('XY-Grid', module)
+storiesOf('Core.XY-Grid.Grid', module)
   .add('GridX with a full width cell', () => (
     <GridX>
       <Cell>full width cell</Cell>

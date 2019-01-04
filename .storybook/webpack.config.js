@@ -1,7 +1,7 @@
 module.exports = (baseConfig, env, defaultConfig) => {
   defaultConfig.module.rules.push(
     {
-      test: /\.(ts|tsx)$/,
+      test: /\.(ts|tsx|js|jsx)$/,
       exclude: /node_modules/,
       use: [
         {

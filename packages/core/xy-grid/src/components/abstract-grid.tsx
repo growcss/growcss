@@ -1,18 +1,9 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Gutters as DefaultGutters, GuttersProps } from './gutters';
+import { Gutters as DefaultGutters } from './gutters';
 import { XYGridElement } from '../styled/xy-grid-element';
 // eslint-disable-next-line no-unused-vars
-import { CellProps } from './cell';
-
-export interface GridProps {
-  children: React.ReactNode;
-  height?: string;
-  gutterSizes?: GuttersProps;
-  gutterType?: string;
-  alignX?: string;
-  alignY?: string;
-}
+import { GridProps, CellProps, GuttersProps } from '../../types';
 
 interface DefaultGridProps {
   gutterSizes?: GuttersProps;

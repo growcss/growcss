@@ -32,6 +32,11 @@ export const ImageElement = styled.img`
     opacity: 1;
   }
 
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
   @media only screen and (prefers-reduced-motion: reduce) {
     &.loaded {
       will-change: unset;

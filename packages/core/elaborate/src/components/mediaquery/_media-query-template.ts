@@ -6,7 +6,7 @@ import {
   BreakpointsProps,
   HidpiBreakpointsProps,
   MediaQueryOptionsProps,
-} from './media-query';
+} from '../../../types';
 import em from '../em';
 import getValueAndUnit from '../get-value-and-unit';
 

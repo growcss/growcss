@@ -1,6 +1,4 @@
-export interface GuttersProps {
-  [key: string]: string | number;
-}
+import { GuttersProps } from '../../types';
 
 export const Gutters: GuttersProps = {
   small: '20px',
