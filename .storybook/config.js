@@ -102,24 +102,34 @@ storybook.addDecorator(
 
 setScreenshotOptions({
   viewport: [
-    // Mobile
+    // small
     {
       width: 300,
       height: 420,
       isMobile: true,
       hasTouch: true,
     },
-    // Tablet
+    // medium
     {
       width: 768,
       height: 800,
       isMobile: true,
       hasTouch: true,
     },
-    // Desktop
+    // large
     {
       width: 1024,
       height: 768,
+    },
+    // xlarge
+    {
+      width: 1200,
+      height: 800,
+    },
+    // xxlarge
+    {
+      width: 1440,
+      height: 900,
     },
   ],
 });
