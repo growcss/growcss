@@ -4,9 +4,11 @@
     </a>
     <br>
     <br>
-    <a href="https://gitter.im/growcss/growcss"><img src="https://img.shields.io/gitter/room/nwjs/nw.js.svg?style=flat-square"></a>
-    <a href="http://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square"></a>
-    <a href="https://lernajs.io/"><img src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg?style=flat-square"></a>
+    <a href="https://spectrum.chat/growcss"><img alt="spectrum" src="https://img.shields.io/badge/join%20the%20community-on%20spectrum-7B16FF.svg?style=flat-square"></a>
+    <a href="http://opensource.org/licenses/MIT"><img alt="opensource" src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square"></a>
+    <a href="https://lernajs.io"><img alt="lernajs" src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg?style=flat-square"></a>
+    <a href="https://semantic-release.gitbook.io"><img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6-semantic--release-e10079.svg?style=flat-square"></a>
+    <a href="https://app.netlify.com/sites/infallible-mccarthy-7b24be/deploys"><img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/2fb019d3-79ad-4149-be85-f8a6210d53a6/deploy-status" /></a>
 </p>
 
 [GrowCss][1] is a simple, flexible and extensible modular **frontend framework** for react.

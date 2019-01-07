@@ -24,12 +24,10 @@
     "lint:fix:eslint:source": "       npm run lint:eslint:source -- --fix",
     "lint:fix:eslint:supporting": "   npm run lint:eslint:supporting -- --fix",
     "lint:style": "                   node verify-node-version.js && stylelint-config-prettier-check && stylelint 'packages/*/*/src/**/*.+{js,ts,tsx}'",
-    "publish-canary": "               npm run publish -- --canary --force-publish=\"*\" --canary --exact --yes",
-    "publish-next": "                 npm run publish -- --npm-tag=next --bump=prerelease",
     "sort-package": "                 lerna exec -- sort-package-json",
     "storybook": "                    node verify-node-version.js && cross-env NODE_ENV=development start-storybook -p 6006 -c .storybook",
-    "storybook-build": "              cross-env NODE_ENV=development build-storybook -c .storybook",
-    "storybook-screenshot": "         cross-env NODE_ENV=development storybook-chrome-screenshot -p 9001 -c .storybook",
+    "storybook:build": "              cross-env NODE_ENV=development build-storybook -c .storybook",
+    "storybook:screenshot": "         cross-env NODE_ENV=development storybook-chrome-screenshot -p 9001 -c .storybook",
     "test": "                         node verify-node-version.js && cross-env NODE_ENV=test jest",
     "test:changed": "                 node verify-node-version.js && cross-env NODE_ENV=test CHANGED_PACKAGES=$(node build/ci-scripts/get-changed-packages-since-master.js) COVERAGE_PACKAGES=$(node build/ci-scripts/get-code-threshold-for-changed-packages-since-master.js) jest",
     "test:coverage": "                npm run test -- --coverage",
@@ -41,6 +39,23 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged || node build/on-lint-error.js",
       "postcommit": "git update-index --again"
+    }
+  },
+  "lint-staged": {
+    "ignore": [
+      "**/dist/**",
+      "**/node_modules/**"
+    ],
+    "linters": {
+      "*.{js,jsx,ts,tsx}": [
+        "npm run lint:eslint:source -- --fix --max-warnings=0",
+        "npm run lint:eslint:supporting -- --fix --max-warnings=0",
+        "git add"
+      ],
+      "*.{md}": [
+        "prettier --write",
+        "git add"
+      ]
     }
   },
   "config": {
@@ -65,6 +80,7 @@
     "@babel/polyfill": "7.2.5",
     "@babel/preset-react": "7.0.0",
     "@babel/preset-typescript": "7.1.0",
+    "@popmotion/easing": "1.0.1",
     "@storybook/addon-a11y": "4.1.11",
     "@storybook/addon-actions": "4.1.11",
     "@storybook/addon-info": "4.1.11",
@@ -77,8 +93,8 @@
     "@types/enzyme-adapter-react-16": "1.0.3",
     "@types/jest": "23.3.13",
     "@types/jest-axe": "2.2.2",
-    "@types/node": "10.12.18",
-    "@types/prosemirror-model": "1.5.1",
+    "@types/node": "10.12.21",
+    "@types/prosemirror-model": "1.7.0",
     "@types/react": "16.8.1",
     "@types/react-dom": "16.0.11",
     "@types/storybook__addon-options": "4.0.0",
@@ -87,7 +103,7 @@
     "@types/warning": "3.0.0",
     "airbnb-browser-shims": "3.1.0",
     "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "23.6.0",
+    "babel-jest": "24.0.0",
     "babel-loader": "8.0.5",
     "babel-plugin-external-helpers": "6.22.0",
     "babel-plugin-require-context-hook": "1.0.0",
@@ -107,24 +123,25 @@
     "fast-async": "7.0.6",
     "husky": "1.3.1",
     "istanbul-reports": "2.0.1",
-    "jest": "23.6.0",
+    "jest": "24.0.0",
     "jest-axe": "3.1.0",
     "jest-enzyme": "7.0.1",
     "jest-image-snapshot": "2.7.0",
     "jest-junit": "6.2.1",
-    "jest-snapshot": "23.6.0",
+    "jest-snapshot": "24.0.0",
     "jest-styled-components": "6.3.1",
     "jsdom": "13.2.0",
     "jsdom-global": "3.0.2",
     "lerna": "3.10.8",
-    "lint-staged": "8.1.0",
+    "lint-staged": "8.1.3",
     "prettier": "1.16.4",
-    "prosemirror-model": "1.6.4",
+    "prosemirror-model": "1.7.0",
     "puppeteer": "1.12.1",
     "react": "16.7.0",
     "react-deprecate": "0.1.0",
     "react-docgen-typescript-loader": "3.0.1",
     "react-dom": "16.7.0",
+    "react-pose": "^4.0.6",
     "react-test-renderer": "16.7.0",
     "react-testing-library": "5.4.4",
     "regenerator-runtime": "0.13.1",
@@ -147,17 +164,18 @@
     "storybook-styled-components": "1.1.3",
     "styled-components": "4.1.3",
     "styled-theming": "2.2.0",
+    "terser": "^3.14.1",
     "tslib": "1.9.3",
     "typescript": "3.3.1",
     "warning": "4.0.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "7.3.2",
-    "@commitlint/config-angular": "7.3.1",
-    "@commitlint/config-lerna-scopes": "7.3.1",
-    "@commitlint/prompt": "7.3.1",
-    "@hot-loader/react-dom": "16.7.0",
-    "@lerna/changed": "3.10.6",
+    "@commitlint/cli": "7.5.0",
+    "@commitlint/config-angular": "7.5.0",
+    "@commitlint/config-lerna-scopes": "7.5.0",
+    "@commitlint/prompt": "7.5.0",
+    "@hot-loader/react-dom": "16.8.0-alpha.0",
+    "@lerna/changed": "3.10.8",
     "@microsoft/api-extractor": "6.3.0",
     "@semantic-release/changelog": "3.0.2",
     "@semantic-release/commit-analyzer": "6.1.0",
@@ -172,7 +190,7 @@
     "conventional-changelog-angular": "5.0.2",
     "eslint": "5.13.0",
     "eslint-config-airbnb": "17.1.0",
-    "eslint-config-prettier": "3.3.0",
+    "eslint-config-prettier": "4.0.0",
     "eslint-plugin-compat": "2.6.3",
     "eslint-plugin-import": "2.16.0",
     "eslint-plugin-jest": "22.2.2",
@@ -184,7 +202,7 @@
     "eslint-plugin-react": "7.12.4",
     "eslint-plugin-security": "1.4.0",
     "eslint-plugin-typescript": "0.14.0",
-    "eslint-plugin-unicorn": "6.0.1",
+    "eslint-plugin-unicorn": "7.1.0",
     "license-checker": "25.0.1",
     "npm-audit-resolver": "1.4.0",
     "npm-check": "5.9.0",
@@ -192,16 +210,16 @@
     "prettier-eslint": "8.8.2",
     "react-hot-loader": "4.6.5",
     "rollup-plugin-gzip": "2.2.0",
-    "rollup-plugin-license": "0.7.0",
+    "rollup-plugin-license": "0.8.1",
     "rollup-plugin-progress": "1.0.0",
     "rollup-plugin-sizes": "0.4.2",
-    "semantic-release": "15.13.3",
+    "semantic-release": "16.0.0-beta.18",
     "semantic-release-monorepo": "6.1.1",
     "semantic-release-monorepo-hooks": "2.9.1",
     "semantic-release-plugin-decorators": "2.0.0",
     "sort-package-json": "1.18.0",
     "storybook-chrome-screenshot": "1.4.0",
-    "stylelint": "9.9.0",
+    "stylelint": "9.10.1",
     "stylelint-a11y": "1.1.10",
     "stylelint-config-prettier": "4.0.0",
     "stylelint-config-recommended": "2.1.0",
@@ -210,7 +228,7 @@
     "stylelint-no-unsupported-browser-features": "3.0.2",
     "stylelint-order": "2.0.0",
     "stylelint-processor-styled-components": "1.5.2",
-    "typescript-eslint-parser": "21.0.2"
+    "typescript-eslint-parser": "22.0.0"
   },
   "engines": {
     "node": "^10.14.0 || ^11.3.0",
@@ -218,22 +236,5 @@
   },
   "jest-junit": {
     "output": "test-reports/junit.xml"
-  },
-  "lint-staged": {
-    "linters": {
-      "*.{js,jsx,ts,tsx}": [
-        "npm run lint:eslint:source -- --fix --max-warnings=0",
-        "npm run lint:eslint:supporting -- --fix --max-warnings=0",
-        "git add"
-      ],
-      "*.{md}": [
-        "prettier --write",
-        "git add"
-      ]
-    },
-    "ignore": [
-      "**/dist/**",
-      "**/node_modules/**"
-    ]
   }
 }

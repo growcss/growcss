@@ -37,11 +37,23 @@ module.exports = function(plop) {
       [
         {
           type: `add`,
-          path: `packages/{{package_type}}/{{kebabCase name}}/__stories__/.gitkeep`,
+          path: `packages/{{package_type}}/{{kebabCase name}}/__stories__/{{name}}.stories.tsx`,
         },
         {
           type: `add`,
-          path: `packages/{{package_type}}/{{kebabCase name}}/__tests__/.gitkeep`,
+          path: `packages/{{package_type}}/{{kebabCase name}}/__tests__/{{name}}.tsx`,
+        },
+        {
+          type: `add`,
+          path: `packages/{{package_type}}/{{kebabCase name}}/src/components/.gitkeep`,
+        },
+        {
+          type: `add`,
+          path: `packages/{{package_type}}/{{kebabCase name}}/src/styled/.gitkeep`,
+        },
+        {
+          type: `add`,
+          path: `packages/{{package_type}}/{{kebabCase name}}/types/index.tsx`,
         },
         {
           type: `add`,

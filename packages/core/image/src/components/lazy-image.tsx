@@ -105,10 +105,6 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
       visibleByDefault,
     } = this.props;
     const { imageLoaded } = this.state;
-    const className = classNames({
-      loaded: imageLoaded && !visibleByDefault,
-      visible: visibleByDefault,
-    });
     let DivSizer = <div />;
 
     if (height !== undefined && width !== undefined) {
@@ -121,14 +117,17 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
           {DivSizer}
           {!visibleByDefault && (
             <PreviewElement
-              className={classNames('preview')}
+              className="preview"
               src={previewImage || this.src}
               crossOrigin="anonymous"
               alt={alt}
             />
           )}
           <ImageElement
-            className={className}
+            className={classNames({
+              loaded: imageLoaded && !visibleByDefault,
+              visible: visibleByDefault,
+            })}
             ref={(img: HTMLImageElement) => {
               this.imgElement = img;
             }}
