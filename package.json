@@ -209,7 +209,7 @@
     "stylelint-images": "2.0.0",
     "stylelint-no-unsupported-browser-features": "3.0.2",
     "stylelint-order": "2.0.0",
-    "stylelint-processor-styled-components": "1.5.1",
+    "stylelint-processor-styled-components": "1.5.2",
     "typescript-eslint-parser": "21.0.2"
   },
   "engines": {
