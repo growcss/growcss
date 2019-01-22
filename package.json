@@ -201,7 +201,7 @@
     "semantic-release-plugin-decorators": "2.0.0",
     "sort-package-json": "1.17.1",
     "storybook-chrome-screenshot": "^1.4.0",
-    "stylelint": "9.9.0",
+    "stylelint": "9.10.1",
     "stylelint-a11y": "1.1.9",
     "stylelint-config-prettier": "4.0.0",
     "stylelint-config-recommended": "2.1.0",
