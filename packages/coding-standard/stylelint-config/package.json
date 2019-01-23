@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "styled-components": "4.1.3",
-    "stylelint": "9.9.0"
+    "stylelint": "9.10.1"
   },
   "peerDependencies": {
     "stylelint": "^9.0.0"
