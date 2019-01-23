@@ -126,7 +126,7 @@
     "react-docgen-typescript-loader": "3.0.0",
     "react-dom": "16.7.0",
     "react-test-renderer": "16.7.0",
-    "react-testing-library": "5.4.2",
+    "react-testing-library": "5.4.4",
     "regenerator-runtime": "0.13.1",
     "rimraf": "2.6.2",
     "rollup": "1.0.0",
