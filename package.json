@@ -193,7 +193,7 @@
     "react-hot-loader": "4.6.3",
     "rollup-plugin-gzip": "2.2.0",
     "rollup-plugin-license": "0.7.0",
-    "rollup-plugin-progress": "0.4.0",
+    "rollup-plugin-progress": "1.0.0",
     "rollup-plugin-sizes": "0.4.2",
     "semantic-release": "15.13.3",
     "semantic-release-monorepo": "6.1.1",
