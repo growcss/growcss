@@ -123,7 +123,7 @@
     "puppeteer": "1.11.0",
     "react": "16.7.0",
     "react-deprecate": "0.1.0",
-    "react-docgen-typescript-loader": "3.0.0",
+    "react-docgen-typescript-loader": "3.0.1",
     "react-dom": "16.7.0",
     "react-test-renderer": "16.7.0",
     "react-testing-library": "5.4.4",
