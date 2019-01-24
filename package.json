@@ -184,7 +184,7 @@
     "eslint-plugin-react": "7.12.4",
     "eslint-plugin-security": "1.4.0",
     "eslint-plugin-typescript": "0.14.0",
-    "eslint-plugin-unicorn": "6.0.1",
+    "eslint-plugin-unicorn": "7.1.0",
     "license-checker": "25.0.1",
     "npm-audit-resolver": "1.4.0",
     "npm-check": "5.9.0",
