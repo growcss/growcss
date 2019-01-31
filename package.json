@@ -190,7 +190,7 @@
     "npm-check": "5.9.0",
     "plop": "2.2.0",
     "prettier-eslint": "8.8.2",
-    "react-hot-loader": "4.6.3",
+    "react-hot-loader": "4.6.5",
     "rollup-plugin-gzip": "2.2.0",
     "rollup-plugin-license": "0.7.0",
     "rollup-plugin-progress": "1.0.0",
