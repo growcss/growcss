@@ -116,7 +116,7 @@
     "jest-styled-components": "6.3.1",
     "jsdom": "13.2.0",
     "jsdom-global": "3.0.2",
-    "lerna": "3.8.1",
+    "lerna": "3.10.8",
     "lint-staged": "8.1.0",
     "prettier": "1.16.4",
     "prosemirror-model": "1.6.4",
