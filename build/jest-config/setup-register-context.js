@@ -1,3 +1,3 @@
-import registerRequireContextHook from "babel-plugin-require-context-hook/register";
+const registerRequireContextHook = require('babel-plugin-require-context-hook/register');
 
 registerRequireContextHook();
