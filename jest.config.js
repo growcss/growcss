@@ -72,10 +72,10 @@ if (COVERAGE_PACKAGES) {
   const coveragePackages = JSON.parse(COVERAGE_PACKAGES);
   config.collectCoverage = true;
   config.coveragePathIgnorePatterns = [
-    '/dist/',
-    '/build/',
-    '/node_modules/',
-    '/jest-framework-setup.js',
+    '/dist',
+    '/build',
+    '/node_modules',
+    'jest-framework-setup.js',
   ];
 
   if (
@@ -84,7 +84,12 @@ if (COVERAGE_PACKAGES) {
     coveragePackages.collectCoverageFrom.length > 0 &&
     coveragePackages.coverageThreshold.length > 0
   ) {
-    config.collectCoverageFrom = coveragePackages.collectCoverageFrom;
+    const collectCoverageFrom = coveragePackages.collectCoverageFrom;
+
+    // collectCoverageFrom.push('!**/build/**');
+    // collectCoverageFrom.push('!**/*.{js,jsx}');
+
+    config.collectCoverageFrom = collectCoverageFrom;
     config.coverageThreshold = coveragePackages.coverageThreshold;
   }
 }

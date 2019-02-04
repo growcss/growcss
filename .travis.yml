@@ -19,34 +19,31 @@ before_script:
   - npm run bootstrap
   - npm run build
 
-script:
-  - npm run test:changed --ci --runInBand
-
 jobs:
   include:
-    - stage: Test # test for lts/*
-    - stage: Test
-      node_js:
-        - node
-
-    - stage: Coding standard
-      script:
-        - npm run lint:eslint:source
-        - npm run lint:eslint:supporting
-        - npm run lint:style
+#    - stage: Test # test for lts/*
+#    - stage: Test
+#      node_js:
+#        - node
+#
+#    - stage: Coding standard
+#      script:
+#        - npm run lint:eslint:source
+#        - npm run lint:eslint:supporting
+#        - npm run lint:style
 
     - stage: Coverage
       if: fork = true AND type = pull_request
       script:
         - npm install -g codecov
-        - npm run test:changed --ci --runInBand
+        - npm run test:changed -- --ci --runInBand --debug
         - codecov
 
     - stage: Coverage
       if: fork = false
       script:
         - npm install -g codecov
-        - npm run test:coverage --ci --runInBand
+        - npm run test:coverage -- --ci --runInBand
         - codecov
 
     - stage: Release
@@ -59,7 +56,6 @@ jobs:
           echo "https://$GH_TOKEN:@github.com" > .git/credentials;
       after_success:
         - lerna exec --concurrency 1 "npx --no-install semantic-release -e semantic-release-monorepo" && node -e "require('semantic-release-monorepo-hooks').hookAfterAll()"
-
 
 notifications:
   email:
