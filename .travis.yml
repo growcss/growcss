@@ -21,23 +21,23 @@ before_script:
 
 jobs:
   include:
-#    - stage: Test # test for lts/*
-#    - stage: Test
-#      node_js:
-#        - node
-#
-#    - stage: Coding standard
-#      script:
-#        - npm run lint:eslint:source
-#        - npm run lint:eslint:supporting
-#        - npm run lint:style
+    - stage: Test # test for lts/*
+    - stage: Test
+      node_js:
+        - node
+
+    - stage: Coding standard
+      script:
+        - npm run lint:eslint:source
+        - npm run lint:eslint:supporting
+        - npm run lint:style
 
     - stage: Coverage
       if: fork = true AND type = pull_request
       script:
         - npm install -g codecov
         - mkdir ./coverage
-        - npm run test:changed -- --ci --runInBand --debug
+        - npm run test:changed -- --ci --runInBand
         - codecov
 
     - stage: Coverage

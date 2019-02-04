@@ -10,7 +10,10 @@ const {
 } = process.env;
 
 const config = {
-  cacheDirectory: TRAVIS ? HOME + '/.jest' : '/tmp/',
+  transform: {
+    '^.+\\.(ts|tsx|js|jsx)$': 'babel-jest',
+  },
+  cacheDirectory: TRAVIS ? `${HOME}/.jest` : '/tmp/',
   testMatch: [`${__dirname}/packages/**/**/__tests__/**/*.(ts|tsx)`],
   // NOTE: all options with 'pattern' in the name are javascript regex's that will match if they match
   // anywhere in the string. Where-ever there are an array of patterns, jest simply 'or's all of them
@@ -36,7 +39,7 @@ const config = {
     '<rootDir>/node_modules/regenerator-runtime/runtime',
     '<rootDir>/build/jest-config/index.js',
   ],
-  setupFilesAfterEnv: ['<rootDir>/jest-framework-setup.js'],
+  setupTestFrameworkScriptFile: '<rootDir>/jest-framework-setup.js',
   snapshotSerializers: ['enzyme-to-json/serializer'],
   globals: {
     __DEV__: true,
@@ -74,12 +77,6 @@ if (CHANGED_PACKAGES) {
 if (COVERAGE_PACKAGES) {
   const coveragePackages = JSON.parse(COVERAGE_PACKAGES);
   config.collectCoverage = true;
-  config.coveragePathIgnorePatterns = [
-    '/dist',
-    '/build',
-    '/node_modules',
-    'jest-framework-setup.js',
-  ];
 
   if (
     coveragePackages.collectCoverageFrom !== undefined &&
@@ -87,12 +84,7 @@ if (COVERAGE_PACKAGES) {
     coveragePackages.collectCoverageFrom.length > 0 &&
     coveragePackages.coverageThreshold.length > 0
   ) {
-    const collectCoverageFrom = coveragePackages.collectCoverageFrom;
-
-    // collectCoverageFrom.push('!**/build/**');
-    // collectCoverageFrom.push('!**/*.{js,jsx}');
-
-    config.collectCoverageFrom = collectCoverageFrom;
+    config.collectCoverageFrom = coveragePackages.collectCoverageFrom;
     config.coverageThreshold = coveragePackages.coverageThreshold;
   }
 }
