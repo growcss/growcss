@@ -35,7 +35,7 @@
   },
   "peerDependencies": {
     "react": "^16.8.0-alpha",
-    "react-dom": "^16.8.0",
+    "react-dom": "^16.8.0-alpha",
     "styled-components": "^4.0.1",
     "react-pose": "^4.0.6"
   },
