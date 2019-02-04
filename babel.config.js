@@ -87,6 +87,8 @@ if (isEnvTest || isEnvDevelopment) {
   config.plugins.push('@babel/plugin-transform-modules-commonjs');
   // Tweak React components in real time. - @see https://github.com/gaearon/react-hot-loader
   config.plugins.push('react-hot-loader/babel');
+  config.plugins.push('@babel/plugin-transform-regenerator');
+  config.plugins.push('@babel/plugin-transform-runtime');
 }
 
 module.exports = config;
