@@ -7,7 +7,7 @@ const coverageReducer = (result, { coverage, pkg }) => ({
   ...result,
   collectCoverageFrom: [
     ...result.collectCoverageFrom,
-    `${pkg}/**/*.{js,jsx,ts,tsx}`,
+    `${pkg}/**/*.{ts,tsx}`,
   ],
   coverageThreshold: {
     ...result.coverageThreshold,

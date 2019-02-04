@@ -36,6 +36,14 @@ jobs:
         - npm run lint:style
 
     - stage: Coverage
+      if: branch != master OR branch != next
+      script:
+        - npm install -g codecov
+        - npm run test:changed --ci --runInBand
+        - codecov
+
+    - stage: Coverage
+      if: branch = master OR branch = next
       script:
         - npm install -g codecov
         - npm run test:coverage --ci --runInBand
