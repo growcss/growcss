@@ -1,5 +1,5 @@
-const path = require('path');
-const stylelint = require('stylelint');
+import path from 'path';
+import stylelint from 'stylelint';
 
 describe('flags no warnings with valid css', () => {
   let result;

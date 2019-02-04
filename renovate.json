@@ -1,5 +1,12 @@
 {
   "extends": [
     "config:base"
-  ]
+  ],
+  "enabled": true,
+  "timezone": "UTC",
+  "rebaseStalePrs": true,
+  "lockFileMaintenance": { "enabled": false },
+  "automerge": true,
+  "automergeType": "branch",
+  "recreateClosed": true
 }
