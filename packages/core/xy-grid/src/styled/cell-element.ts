@@ -51,10 +51,6 @@ const BreakpointGutterCss = (props: GutterCssProps): string[] => {
   return breakpoints;
 };
 
-// type CellOffsetCssProps = {
-//   [key: string]: number,
-// } & GutterCssProps
-
 const CellOffsetCss = (props): string[] => {
   const css: string[] = [];
 

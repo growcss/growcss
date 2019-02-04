@@ -34,9 +34,9 @@ const config = {
   transformIgnorePatterns: ['\\/node_modules\\/(?!@growcss|react-syntax-highlighter)'],
   setupFiles: [
     '<rootDir>/node_modules/regenerator-runtime/runtime',
-    './build/jest-config/index.js',
+    '<rootDir>/build/jest-config/index.js',
   ],
-  setupTestFrameworkScriptFile: `${__dirname}/jest-framework-setup.js`,
+  setupFilesAfterEnv: ['<rootDir>/jest-framework-setup.js'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   globals: {
     __DEV__: true,
