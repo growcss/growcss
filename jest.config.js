@@ -8,10 +8,7 @@ const {
 } = process.env;
 
 const config = {
-  transform: {
-    '^.+\\.(ts|tsx|js|jsx)$': 'babel-jest',
-  },
-  testMatch: [`${__dirname}/packages/**/**/__tests__/**/*.(ts|tsx|js|jsx)`],
+  testMatch: [`${__dirname}/packages/**/**/__tests__/**/*.(ts|tsx)`],
   // NOTE: all options with 'pattern' in the name are javascript regex's that will match if they match
   // anywhere in the string. Where-ever there are an array of patterns, jest simply 'or's all of them
   // i.e /\/__tests__\/_.*?|\/__tests__\/.*?\/_.*?|\/__tests__\/integration\//
@@ -49,6 +46,9 @@ const config = {
   coverageReporters: ['lcov', 'html', 'text-summary'],
   coverageDirectory: './coverage/',
   collectCoverage: false,
+  globalSetup: undefined,
+  globalTeardown: undefined,
+  testEnvironment: 'jsdom',
 };
 
 // If the CHANGED_PACKAGES variable is set, we parse it to get an array of changed packages and only
@@ -60,7 +60,7 @@ if (CHANGED_PACKAGES) {
     console.log(changedPackages);
 
     config.testMatch = changedPackages.map(
-      pkgPath => `${__dirname}/${pkgPath}/**/__tests__/**/*.(js|tsx|ts)`,
+      pkgPath => `${__dirname}/${pkgPath}/**/__tests__/**/*.(tsx|ts)`,
     );
   }
 }
@@ -71,18 +71,20 @@ if (CHANGED_PACKAGES) {
 if (COVERAGE_PACKAGES) {
   const coveragePackages = JSON.parse(COVERAGE_PACKAGES);
   config.collectCoverage = true;
+  config.coveragePathIgnorePatterns = [
+    '/dist/',
+    '/build/',
+    '/node_modules/',
+    '/jest-framework-setup.js',
+  ];
 
   if (
     coveragePackages.collectCoverageFrom !== undefined &&
-    coveragePackages.collectCoverageFrom.length > 0
-  ) {
-    config.collectCoverageFrom = coveragePackages.collectCoverageFrom;
-  }
-
-  if (
     coveragePackages.coverageThreshold !== undefined &&
+    coveragePackages.collectCoverageFrom.length > 0 &&
     coveragePackages.coverageThreshold.length > 0
   ) {
+    config.collectCoverageFrom = coveragePackages.collectCoverageFrom;
     config.coverageThreshold = coveragePackages.coverageThreshold;
   }
 }
@@ -102,10 +104,10 @@ if (INTEGRATION_TESTS || VISUAL_REGRESSION) {
     const changedPackages = JSON.parse(CHANGED_PACKAGES);
 
     config.testMatch = changedPackages.map(
-      pkgPath => `${__dirname}/${pkgPath}/**/__tests__/${testPattern}/**/*.(js|tsx|ts)`,
+      pkgPath => `${__dirname}/${pkgPath}/**/__tests__/${testPattern}/**/*.(tsx|ts)`,
     );
   } else {
-    config.testMatch = [`**/__tests__/${testPattern}/**/*.(js|tsx|ts)`];
+    config.testMatch = [`**/__tests__/${testPattern}/**/*.(tsx|ts)`];
   }
 }
 
