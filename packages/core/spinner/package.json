@@ -1,22 +1,19 @@
 {
-  "name": "@growcss/{{kebabCase name}}",
-  "version": "{{version}}",
-  "description": "{{description}}",
+  "name": "@growcss/spinner",
+  "version": "0.0.0",
+  "description": "A React component that displays a spinning icon to show a loading state",
   "keywords": [
-    "reactjs",
     "growcss",
     "react",
-    "react-component",
     "styled-components",
-    "ui",
-    "{{name}}"
+    "ui"
   ],
-  "homepage": "http://growcss.com/packages/{{name}}",
+  "homepage": "http://growcss.com/packages/spinner",
   "repository": "https://github.com/growcss/growcss.git",
   "license": "MIT",
   "author": {
-    "name": "{{author}}",
-    "email": "{{author_email}}"
+    "name": "Daniel Bannert",
+    "email": "d.bannert@anolilab.de"
   },
   "files": [
     "dist",
@@ -33,9 +30,14 @@
     "build": "cross-env PACKAGE_PATH=core/image rollup -c ../../../build/rollup.config.js"
   },
   "browser": "dist/umd/index.js",
+  "dependencies": {
+    "@popmotion/easing": "1.0.1"
+  },
   "peerDependencies": {
-    "react": "^16.0",
-    "styled-components": "^4.0.1"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "styled-components": "^4.0.1",
+    "react-pose": "^4.0.6"
   },
   "engines": {
     "node": "^10.14.0 || ^11.3.0"
@@ -43,5 +45,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "moduleName": "{{name}}"
+  "moduleName": "spinner"
 }

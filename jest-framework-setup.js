@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
-import 'jest-styled-components';
-import { toMatchSnapshot } from 'jest-snapshot';
-import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
-import { createSerializer } from 'enzyme-to-json';
+require('jest-styled-components');
+const { toMatchSnapshot } = require('jest-snapshot');
+const { configureToMatchImageSnapshot } = require('jest-image-snapshot');
+const { createSerializer } = require('enzyme-to-json');
 
 let consoleError;
 let consoleWarn;
@@ -176,17 +176,13 @@ expect.extend({
         ? isExpected(actual.type.schema)
         : isExpected;
 
-    if (
-      !(expected instanceof pmModel.Node) ||
-      !(actual instanceof pmModel.Node)
-    ) {
+    if (!(expected instanceof pmModel.Node) || !(actual instanceof pmModel.Node)) {
       return {
         pass: false,
         actual,
         expected,
         name: 'toEqualDocument',
-        message:
-          'Expected both values to be instance of prosemirror-model Node.',
+        message: 'Expected both values to be instance of prosemirror-model Node.',
       };
     }
 

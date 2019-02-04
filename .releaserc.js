@@ -2,7 +2,11 @@ const hooks = require('semantic-release-monorepo-hooks');
 const output = hooks();
 
 module.exports = {
-  branch: 'master',
+  branches: [
+    'master',
+    { name: 'beta', channel: 'beta', prerelease: 'beta' },
+    { name: 'alpha', channel: 'alpha', prerelease: 'alpha' },
+  ],
   tagFormat: 'v${version}',
   prepare: [
     '@semantic-release/changelog',
