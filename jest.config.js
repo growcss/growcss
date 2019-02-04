@@ -5,9 +5,12 @@ const {
   TEST_ONLY_PATTERN,
   INTEGRATION_TESTS,
   VISUAL_REGRESSION,
+  TRAVIS,
+  HOME,
 } = process.env;
 
 const config = {
+  cacheDirectory: TRAVIS ? HOME + '/.jest' : '/tmp/',
   testMatch: [`${__dirname}/packages/**/**/__tests__/**/*.(ts|tsx)`],
   // NOTE: all options with 'pattern' in the name are javascript regex's that will match if they match
   // anywhere in the string. Where-ever there are an array of patterns, jest simply 'or's all of them

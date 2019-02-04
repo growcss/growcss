@@ -36,6 +36,7 @@ jobs:
       if: fork = true AND type = pull_request
       script:
         - npm install -g codecov
+        - mkdir ./coverage
         - npm run test:changed -- --ci --runInBand --debug
         - codecov
 
