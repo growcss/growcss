@@ -19,9 +19,6 @@ before_script:
   - npm run bootstrap
   - npm run build
 
-script:
-  - npm run test:changed --ci --runInBand
-
 jobs:
   include:
     - stage: Test # test for lts/*
@@ -36,9 +33,18 @@ jobs:
         - npm run lint:style
 
     - stage: Coverage
+      if: fork = true AND type = pull_request
       script:
         - npm install -g codecov
-        - npm run test:coverage --ci --runInBand
+        - mkdir ./coverage
+        - npm run test:changed -- --ci --runInBand
+        - codecov
+
+    - stage: Coverage
+      if: fork = false
+      script:
+        - npm install -g codecov
+        - npm run test:coverage -- --ci --runInBand
         - codecov
 
     - stage: Release
@@ -51,7 +57,6 @@ jobs:
           echo "https://$GH_TOKEN:@github.com" > .git/credentials;
       after_success:
         - lerna exec --concurrency 1 "npx --no-install semantic-release -e semantic-release-monorepo" && node -e "require('semantic-release-monorepo-hooks').hookAfterAll()"
-
 
 notifications:
   email:
