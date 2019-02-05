@@ -13,27 +13,15 @@ storiesOf('Core.Theme', module)
     <React.Fragment>
       <GridContainer>
         <GridX>
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.black }}
-          />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.black }} />
           <ColorCell
             small={12}
             style={{ backgroundColor: GrowCss.colors.greyDarkest }}
           />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.greyDarker }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.greyDark }}
-          />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.greyDarker }} />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.greyDark }} />
           <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.grey }} />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.greyLight }}
-          />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.greyLight }} />
           <ColorCell
             small={12}
             style={{ backgroundColor: GrowCss.colors.greyLighter }}
@@ -42,34 +30,16 @@ storiesOf('Core.Theme', module)
             small={12}
             style={{ backgroundColor: GrowCss.colors.greyLightest }}
           />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.white }}
-          />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.white }} />
           <ColorCell small={12} />
         </GridX>
         <GridX>
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.redDarkest }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.redDarker }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.redDark }}
-          />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.redDarkest }} />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.redDarker }} />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.redDark }} />
           <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.red }} />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.redLight }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.redLighter }}
-          />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.redLight }} />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.redLighter }} />
           <ColorCell
             small={12}
             style={{ backgroundColor: GrowCss.colors.redLightest }}
@@ -85,14 +55,8 @@ storiesOf('Core.Theme', module)
             small={12}
             style={{ backgroundColor: GrowCss.colors.orangeDarker }}
           />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.orangeDark }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.orange }}
-          />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.orangeDark }} />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.orange }} />
           <ColorCell
             small={12}
             style={{ backgroundColor: GrowCss.colors.orangeLight }}
@@ -116,14 +80,8 @@ storiesOf('Core.Theme', module)
             small={12}
             style={{ backgroundColor: GrowCss.colors.yellowDarker }}
           />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.yellowDark }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.yellow }}
-          />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.yellowDark }} />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.yellow }} />
           <ColorCell
             small={12}
             style={{ backgroundColor: GrowCss.colors.yellowLight }}
@@ -147,18 +105,9 @@ storiesOf('Core.Theme', module)
             small={12}
             style={{ backgroundColor: GrowCss.colors.greenDarker }}
           />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.greenDark }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.green }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.greenLight }}
-          />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.greenDark }} />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.green }} />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.greenLight }} />
           <ColorCell
             small={12}
             style={{ backgroundColor: GrowCss.colors.greenLighter }}
@@ -174,19 +123,10 @@ storiesOf('Core.Theme', module)
             small={12}
             style={{ backgroundColor: GrowCss.colors.tealDarkest }}
           />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.tealDarker }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.tealDark }}
-          />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.tealDarker }} />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.tealDark }} />
           <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.teal }} />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.tealLight }}
-          />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.tealLight }} />
           <ColorCell
             small={12}
             style={{ backgroundColor: GrowCss.colors.tealLighter }}
@@ -202,19 +142,10 @@ storiesOf('Core.Theme', module)
             small={12}
             style={{ backgroundColor: GrowCss.colors.blueDarkest }}
           />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.blueDarker }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.blueDark }}
-          />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.blueDarker }} />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.blueDark }} />
           <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.blue }} />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.blueLight }}
-          />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.blueLight }} />
           <ColorCell
             small={12}
             style={{ backgroundColor: GrowCss.colors.blueLighter }}
@@ -234,14 +165,8 @@ storiesOf('Core.Theme', module)
             small={12}
             style={{ backgroundColor: GrowCss.colors.indigoDarker }}
           />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.indigoDark }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.indigo }}
-          />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.indigoDark }} />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.indigo }} />
           <ColorCell
             small={12}
             style={{ backgroundColor: GrowCss.colors.indigoLight }}
@@ -265,14 +190,8 @@ storiesOf('Core.Theme', module)
             small={12}
             style={{ backgroundColor: GrowCss.colors.purpleDarker }}
           />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.purpleDark }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.purple }}
-          />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.purpleDark }} />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.purple }} />
           <ColorCell
             small={12}
             style={{ backgroundColor: GrowCss.colors.purpleLight }}
@@ -292,19 +211,10 @@ storiesOf('Core.Theme', module)
             small={12}
             style={{ backgroundColor: GrowCss.colors.pinkDarkest }}
           />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.pinkDarker }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.pinkDark }}
-          />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.pinkDarker }} />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.pinkDark }} />
           <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.pink }} />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.pinkLight }}
-          />
+          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.pinkLight }} />
           <ColorCell
             small={12}
             style={{ backgroundColor: GrowCss.colors.pinkLighter }}
@@ -542,10 +452,10 @@ storiesOf('Core.Theme', module)
       </p>
     </React.Fragment>
   ))
-  .add('Code/ Pre', () => (
+  .add('Code / Pre', () => (
     <React.Fragment>
       <h2>Preformatted text using {`<pre>`}</h2>
-      <pre> Item | Qty ------------------- Apples | 6 Oranges | 12 Grapes | 998</pre>
+      <pre> Item | Qty | Apples | 5 Oranges | 10 Grapes | 99</pre>
       <h2>Code blocks with {`<pre> and <code>`}</h2>
       <pre>
         <code>

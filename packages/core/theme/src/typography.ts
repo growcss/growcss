@@ -2,7 +2,10 @@ import Shevy from 'shevyjs';
 import { css } from 'styled-components';
 import { colors } from './colors';
 
-const shevy = new Shevy({ baseFontSize: '1em' });
+const shevy = new Shevy({
+  baseFontSize: '1em',
+  baseFontScale: [1.802, 1.602, 1.424, 1.266, 1.125, 1],
+});
 const {
   baseSpacing: bs,
   lineHeightSpacing: ls,

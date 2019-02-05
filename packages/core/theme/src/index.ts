@@ -1,5 +1,15 @@
 import { createGlobalStyle } from 'styled-components';
-import { h1, h2, h3, h4, h5, h6, content } from './typography';
+import {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  content,
+  baseSpacing,
+  lineHeightSpacing,
+} from './typography';
 import { colors } from './colors';
 import normalize from './modern-normalize';
 import blockquote from './blockquote';
@@ -16,6 +26,8 @@ import { ThemeProps } from '../types';
 export const GrowCss: ThemeProps = {
   colors,
   typography: {
+    baseSpacing,
+    lineHeightSpacing,
     baseFontSize: () => '16px',
     fontFamily: () =>
       '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
