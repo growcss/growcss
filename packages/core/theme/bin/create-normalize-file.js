@@ -14,7 +14,7 @@ const cleanedContent = normalizeContent
   .replace(cleanRegexp, '')
   .replace(/^\s*\n/gm, '')
   .replace(/\s+$/gm, '')
-  .replace(/\"/gm, '\'');
+  .replace(/"/gm, "'");
 
 const resultContent = `import { css } from 'styled-components';
 
