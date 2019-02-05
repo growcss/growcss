@@ -1,0 +1,56 @@
+{
+  "name": "@growcss/theme",
+  "version": "1.0.0",
+  "description": "The GrowCss theme framework.",
+  "keywords": [
+    "reactjs",
+    "growcss",
+    "react",
+    "react-component",
+    "styled-components",
+    "ui",
+    "theme",
+    "css"
+  ],
+  "homepage": "http://growcss.com/packages/theme",
+  "repository": "https://github.com/growcss/growcss.git",
+  "license": "MIT",
+  "author": {
+    "name": "Daniel Bannert",
+    "email": "d.bannert@anolilab.de"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "jsnext:main": "dist/es/index.js",
+  "unpkg": "dist/umd/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "cross-env PACKAGE_PATH=core/image rollup -c ../../../build/rollup.config.js",
+    "install": "node bin/create-normalize-file.js"
+  },
+  "browser": "dist/umd/index.js",
+  "dependencies": {
+    "shevyjs": "^1.1.0"
+  },
+  "peerDependencies": {
+    "react": "^16.0",
+    "styled-components": "^4.0.1"
+  },
+  "devDependencies": {
+    "normalize.css": "^8.0.1",
+    "@growcss/xy-grid": "0.0.3"
+  },
+  "engines": {
+    "node": "^10.14.0 || ^11.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "moduleName": "theme"
+}
