@@ -54,13 +54,16 @@ const SOURCEMAP = true;
 const EXTENSIONS = ['.js', '.jsx', '.ts', '.tsx'];
 const GLOBALS = {
   react: 'React',
+  'react-pose': 'pose',
+  '@popmotion/easing': 'easing',
   'styled-components': 'styled',
   classnames: 'classNames',
   '@growcss/elaborate': 'elaborate',
+  'shevyjs': 'Shevy'
 };
 
 const commonPlugins = [
-  progress(),
+  // progress(),
   peerDepsExternal({
     includeDependencies: false,
     packageJsonPath: `${packageDir}/package.json`

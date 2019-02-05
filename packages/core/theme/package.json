@@ -31,7 +31,7 @@
   "unpkg": "dist/umd/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "cross-env PACKAGE_PATH=core/image rollup -c ../../../build/rollup.config.js",
+    "build": "cross-env PACKAGE_PATH=core/theme rollup -c ../../../build/rollup.config.js",
     "install": "node bin/create-normalize-file.js"
   },
   "browser": "dist/umd/index.js",

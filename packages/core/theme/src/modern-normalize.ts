@@ -47,4 +47,14 @@ export default css`
   table:first-child {
     margin-top: 0;
   }
+
+  /* Suppress the ugly broken image styling in Firefox */
+  @-moz-document url-prefix() {
+    img {
+      font-size: 0;
+    }
+    img:-moz-broken {
+      font-size: inherit;
+    }
+  }
 `;
