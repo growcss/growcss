@@ -97,7 +97,7 @@
     "@types/node": "10.12.21",
     "@types/prosemirror-model": "1.7.0",
     "@types/react": "16.8.2",
-    "@types/react-dom": "16.0.11",
+    "@types/react-dom": "16.8.0",
     "@types/storybook__addon-options": "4.0.0",
     "@types/storybook__react": "4.0.0",
     "@types/styled-components": "4.1.8",
