@@ -1,4 +1,9 @@
+var FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+
 module.exports = (baseConfig, env, defaultConfig) => {
+  defaultConfig.plugins.push(
+    new FriendlyErrorsWebpackPlugin(),
+  );
   defaultConfig.module.rules.push(
     {
       test: /\.(ts|tsx|js|jsx)$/,

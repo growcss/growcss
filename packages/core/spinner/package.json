@@ -31,6 +31,7 @@
   },
   "browser": "dist/umd/index.js",
   "dependencies": {
+    "@growcss/theme": "^1.0.0",
     "@popmotion/easing": "1.0.1"
   },
   "peerDependencies": {

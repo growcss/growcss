@@ -35,8 +35,9 @@
     "build": "cross-env PACKAGE_PATH=core/xy-grid rollup -c ../../../build/rollup.config.js"
   },
   "dependencies": {
-    "@growcss/elaborate": "^0.0.3",
-    "classnames": "^2.2.5"
+    "@growcss/theme": "^1.0.0",
+    "@growcss/elaborate": "0.0.3",
+    "classnames": "2.2.6"
   },
   "peerDependencies": {
     "react": "^16.7.0",

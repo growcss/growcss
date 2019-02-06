@@ -18,6 +18,7 @@ import licensePlugin from 'rollup-plugin-license';
 import 'airbnb-browser-shims';
 
 const env = process.env.NODE_ENV;
+const debug = process.env.DEBUG;
 const packageDir = path.join(__dirname, `/../packages/${process.env.PACKAGE_PATH}`);
 const pkg = require(`${packageDir}/package.json`);
 
@@ -59,11 +60,10 @@ const GLOBALS = {
   'styled-components': 'styled',
   classnames: 'classNames',
   '@growcss/elaborate': 'elaborate',
-  'shevyjs': 'Shevy'
 };
 
 const commonPlugins = [
-  // progress(),
+  debug ? progress() : null,
   peerDepsExternal({
     includeDependencies: false,
     packageJsonPath: `${packageDir}/package.json`

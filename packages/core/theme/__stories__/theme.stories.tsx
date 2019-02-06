@@ -486,8 +486,8 @@ storiesOf('Core.Theme', module)
         definition.See also: recursion.
       </p>
       <p>
-        The <abbr title="Atlaskit">AK</abbr> library provides a typography component
-        &mdash; make sure you put a title (or AkTooltip) on your {`<abbr>`} elements.
+        The <abbr title="GrowCss">GC</abbr> library provides a typography component
+        &mdash; make sure you put a title (or Tooltip) on your {`<abbr>`} elements.
       </p>
       <h2>
         {`<ins>`} and {`<del>`}

@@ -83,11 +83,13 @@ export default css`
   html {
     box-sizing: border-box;
   }
+
   *,
   *::before,
   *::after {
     box-sizing: inherit;
   }
+
   :root {
     -moz-tab-size: 4;
     tab-size: 4;
@@ -107,6 +109,34 @@ export default css`
   img,
   fieldset {
     border: 0;
+  }
+
+  img {
+    /* Get rid of gap under images by making them display: inline-block; by default */
+    display: inline-block;
+    vertical-align: middle;
+
+    /* Grid defaults to get images and embeds to work properly */
+    max-width: 100%;
+    height: auto;
+    -ms-interpolation-mode: bicubic;
+  }
+
+  /* Make sure textarea takes on height automatically */
+  textarea {
+    height: auto;
+    min-height: 50px;
+  }
+
+  /* Make select elements are 100% width by default */
+  select {
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* Prevent text overflow on pre */
+  pre {
+    overflow: auto;
   }
 
   p:first-child,

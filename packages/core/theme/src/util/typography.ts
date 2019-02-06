@@ -1,13 +1,15 @@
 import { css, FlattenSimpleInterpolation } from 'styled-components';
 import { mediaquery, stripUnit, em } from '@growcss/elaborate';
+import { MediaQueryOptionsProps } from '@growcss/elaborate/types';
 import { colors } from './colors';
+import { createMediaQueryOptions } from './create-mediaquery-options';
 
 const calcHeading = (
   heading: number,
   fontSize: string,
   lineHeight: number,
   breakpoints: {},
-  mediaQuery: {},
+  mediaQuery: MediaQueryOptionsProps,
 ): FlattenSimpleInterpolation => {
   if (Object.entries(breakpoints).length === 0) {
     throw new Error('Cant be empty @todo error message');
@@ -57,7 +59,7 @@ export const h1 = css`
       props.theme.typography.fontSize,
       props.theme.typography.lineHeight,
       props.theme.typography.breakpoints,
-      props.theme.mediaQuery,
+      createMediaQueryOptions(props.theme),
     )};
   letter-spacing: -0.01em;
 `;
@@ -69,7 +71,7 @@ export const h2 = css`
       props.theme.typography.fontSize,
       props.theme.typography.lineHeight,
       props.theme.typography.breakpoints,
-      props.theme.mediaQuery,
+      createMediaQueryOptions(props.theme),
     )};
   letter-spacing: -0.01em;
 `;
@@ -81,7 +83,7 @@ export const h3 = css`
       props.theme.typography.fontSize,
       props.theme.typography.lineHeight,
       props.theme.typography.breakpoints,
-      props.theme.mediaQuery,
+      createMediaQueryOptions(props.theme),
     )};
   letter-spacing: -0.01em;
 `;
@@ -93,7 +95,7 @@ export const h4 = css`
       props.theme.typography.fontSize,
       props.theme.typography.lineHeight,
       props.theme.typography.breakpoints,
-      props.theme.mediaQuery,
+      createMediaQueryOptions(props.theme),
     )};
   letter-spacing: -0.008em;
 `;
@@ -105,7 +107,7 @@ export const h5 = css`
       props.theme.typography.fontSize,
       props.theme.typography.lineHeight,
       props.theme.typography.breakpoints,
-      props.theme.mediaQuery,
+      createMediaQueryOptions(props.theme),
     )};
   letter-spacing: -0.006em;
 `;
@@ -117,7 +119,7 @@ export const h6 = css`
       props.theme.typography.fontSize,
       props.theme.typography.lineHeight,
       props.theme.typography.breakpoints,
-      props.theme.mediaQuery,
+      createMediaQueryOptions(props.theme),
     )};
   letter-spacing: -0.003em;
 `;

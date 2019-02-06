@@ -50,7 +50,8 @@
     "build": "cross-env PACKAGE_PATH=core/image rollup -c ../../../build/rollup.config.js"
   },
   "dependencies": {
-    "classnames": "^2.2.5"
+    "@growcss/theme": "^1.0.0",
+    "classnames": "2.2.6"
   },
   "peerDependencies": {
     "react": "^16.0",

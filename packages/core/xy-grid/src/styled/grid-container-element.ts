@@ -9,9 +9,9 @@ type GridContainerElementProps = {
 };
 
 export const GridContainerElement = styled.div<GridContainerElementProps>`
-  max-width: ${props => props.maxWidth};
+  max-width: ${props => props.theme.grid.maxWidth || props.maxWidth};
   margin: 0 auto;
 
   ${props => (props.type === 'full' ? 'overflow-x: hidden;' : '')}
-  ${props => Gutters(props.gutterSizes, 'padding')};
+  ${props => Gutters(props.theme.grid.paddingGutters || props.gutterSizes, 'padding')};
 `;

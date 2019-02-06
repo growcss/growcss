@@ -1,12 +1,15 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Breakpoints as DefaultBreakpoints } from './breakpoints';
+// eslint-disable-next-line no-unused-vars
+import { ThemedStyledProps, withTheme } from 'styled-components';
+// eslint-disable-next-line no-unused-vars
+import { GrowCssTheme } from '@growcss/theme';
 import { AspectRatioPlaceholder } from '../styled/aspect-ratio-placeholder';
 import { FigureElement } from '../styled/figure-element';
 import { ImageElement } from '../styled/image-element';
 import { PreviewElement } from '../styled/preview-element';
 import { StateType } from '../states';
-import { ImagesProps, ImageType } from '../../types';
+import { ImageType } from '../../types';
 
 interface DefaultImageProps {
   afterLoad: Function;
@@ -14,9 +17,14 @@ interface DefaultImageProps {
   visibleByDefault: boolean;
 }
 
-type PropsWithDefaults = ImageType & DefaultImageProps;
+type PropsWithDefaults = ImageType &
+  DefaultImageProps &
+  ThemedStyledProps<{}, GrowCssTheme>;
+type BreakpointsProps = {
+  [key: string]: string;
+};
 
-export default class LazyImage extends React.Component<ImageType, StateType> {
+class LazyImage extends React.Component<ImageType, StateType> {
   public static defaultProps: DefaultImageProps = {
     afterLoad: () => ({}),
     beforeLoad: () => ({}),
@@ -49,15 +57,14 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
     super(props);
 
     const {
-      backgroundImages,
       afterLoad,
       beforeLoad,
       visibleByDefault,
+      // src,
+      // srcSet,
     } = props as PropsWithDefaults;
-    const { src, srcSet } = LazyImage.parseBackgroundImages(backgroundImages);
-
-    this.src = src;
-    this.srcSet = srcSet;
+    this.src = '';
+    this.srcSet = '';
 
     if (visibleByDefault) {
       beforeLoad();
@@ -139,30 +146,6 @@ export default class LazyImage extends React.Component<ImageType, StateType> {
       </FigureElement>
     );
   }
-
-  /**
-   * @param {ImagesProps} backgroundImages
-   */
-  private static parseBackgroundImages(backgroundImages: ImagesProps) {
-    const list = backgroundImages;
-    const firstImageKey = Object.keys(list)[0];
-    const src = list[firstImageKey];
-
-    delete list[firstImageKey];
-
-    let srcSet = '';
-
-    for (const image in list) {
-      if (typeof DefaultBreakpoints[image] === 'string') {
-        srcSet += `${list[image]} ${DefaultBreakpoints[image]},`;
-      }
-    }
-
-    srcSet = srcSet.slice(0, -1);
-
-    return {
-      src,
-      srcSet,
-    };
-  }
 }
+
+export default withTheme(LazyImage);

@@ -12,12 +12,7 @@ test('Image load small image if no preview image is set', () => {
   sinon.spy(LazyImage.prototype, 'componentDidMount');
 
   const wrapper = shallow(
-    <LazyImage
-      backgroundImages={{
-        small:
-          'https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/400x/mountain.jpg',
-      }}
-    />,
+    <LazyImage src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/400x/mountain.jpg" />,
   );
 
   expect(wrapper).toMatchSnapshot();
@@ -34,10 +29,7 @@ test('Image load small image if no preview image is set', () => {
 test('Image a11y support', async () => {
   const wrapper = shallow(
     <LazyImage
-      backgroundImages={{
-        small:
-          'https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/400x/mountain.jpg',
-      }}
+      srcSet="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/400x/mountain.jpg"
       alt="test image"
     />,
   );
