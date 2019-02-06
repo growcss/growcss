@@ -1,15 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
-import {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  content,
-  baseSpacing,
-  lineHeightSpacing,
-} from './typography';
+import { em } from '@growcss/elaborate';
+import { h1, h2, h3, h4, h5, h6, content } from './typography';
 import { colors } from './colors';
 import normalize from './modern-normalize';
 import blockquote from './blockquote';
@@ -18,27 +9,45 @@ import tables from './tables';
 import links from './links';
 import { ThemeProps } from '../types';
 
-/**
- * These theme values are expressed as functions so that if we decide to make
- * them dependent on props in the future, it wouldn't require a significant
- * refactor everywhere they are being used.
- */
-export const GrowCss: ThemeProps = {
+const GrowCss: ThemeProps = {
+  printBreakpoint: 'large',
+  // Web standard Pixels per inch. (1ddpx / stdWebDpi) = 1dpi
+  // See https://www.w3.org/TR/css-values-3/#absolute-lengths
+  stdWebDpi: 96,
+  breakpoints: {
+    small: 0,
+    medium: 640,
+    large: 1024,
+    xlarge: 1200,
+    xxlarge: 1440,
+  },
+  hidpiBreakpoints: {
+    'hidpi-1': 1,
+    'hidpi-1-5': 1.5,
+    'hidpi-2': 2,
+    retina: 2,
+    'hidpi-3': 3,
+  },
   colors,
   typography: {
-    baseSpacing,
-    lineHeightSpacing,
-    baseFontSize: () => '16px',
-    fontFamily: () =>
+    fontSize: '16px',
+    lineHeight: 1.45,
+    // Check https://type-scale.com/ for different sizes
+    breakpoints: {
+      small: [2.488, 2.074, 1.728, 1.44, 1.2, 1],
+      large: [3.052, 2.441, 1.953, 1.563, 1.25, 1],
+    },
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    content,
+    fontFamily:
       '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
-    codeFontFamily: () =>
+    codeFontFamily:
       '"SFMono-Medium", "SF Mono", "Segoe UI Mono", "Roboto Mono", "Ubuntu Mono", Menlo, Consolas, Courier, monospace',
-    h1: () => h1,
-    h2: () => h2,
-    h3: () => h3,
-    h4: () => h4,
-    h5: () => h5,
-    h6: () => h6,
   },
   grid: {
     gutterSize: (multiplier: number | undefined = undefined) => 10 * (multiplier || 1),
@@ -65,6 +74,17 @@ export const GrowCss: ThemeProps = {
   image: {},
 };
 
+GrowCss.mediaQuery = {
+  printBreakpoint: GrowCss.printBreakpoint,
+  breakpoints: GrowCss.breakpoints,
+  hidpiBreakpoints: GrowCss.hidpiBreakpoints,
+  // Web standard Pixels per inch. (1ddpx / stdWebDpi) = 1dpi
+  // See https://www.w3.org/TR/css-values-3/#absolute-lengths
+  stdWebDpi: GrowCss.stdWebDpi,
+};
+
+export default GrowCss;
+
 export const GlobalStyle = createGlobalStyle<ThemeProps>`
   ${normalize}
   
@@ -77,8 +97,9 @@ export const GlobalStyle = createGlobalStyle<ThemeProps>`
   body {
     background-color: ${props => props.theme.colors.white};
     font-family: ${props => props.theme.typography.fontFamily};
-    ${content}
-    margin-bottom: 0; // overwrite the font margin
+    font-size: ${props => em(props.theme.fontSize)};
+    line-height: ${props =>
+      props.theme.lineHeight};    margin-bottom: 0; // overwrite the font margin
     font-style: normal;
     font-weight: 400;
     -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -124,7 +145,8 @@ export const GlobalStyle = createGlobalStyle<ThemeProps>`
   }
   
   code,
-  kbd {
+  kbd,
+  samp {
     font-family: ${props => props.theme.typography.codeFontFamily};
   }
 

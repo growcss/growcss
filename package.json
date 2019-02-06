@@ -158,7 +158,6 @@
     "rollup-plugin-terser": "4.0.3",
     "rollup-plugin-uglify": "6.0.2",
     "rollup-plugin-visualizer": "0.9.2",
-    "shevyjs": "^1.1.0",
     "sinon": "7.2.3",
     "storybook-addon-specifications": "2.1.2",
     "styled-components": "4.1.3",

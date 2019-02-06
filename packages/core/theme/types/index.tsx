@@ -1,5 +1,13 @@
 export interface ThemeProps {
-  colors: any;
+  breakpoints: {
+    [key: string]: number
+  };
+  hidpiBreakpoints: {
+    [key: string]: number
+  };
+  colors: {
+    [key: string]: string
+  };
   typography: any;
   grid: any;
   screens: any;

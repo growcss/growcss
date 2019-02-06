@@ -1,71 +1,128 @@
-import Shevy from 'shevyjs';
-import { css } from 'styled-components';
+import { css, FlattenSimpleInterpolation } from 'styled-components';
+import { mediaquery, stripUnit, em } from '@growcss/elaborate';
 import { colors } from './colors';
 
-const shevy = new Shevy({
-  baseFontSize: '1em',
-  baseFontScale: [1.802, 1.602, 1.424, 1.266, 1.125, 1],
-});
-const {
-  baseSpacing: bs,
-  lineHeightSpacing: ls,
-  h1: fontH1,
-  h2: fontH2,
-  h3: fontH3,
-  h4: fontH4,
-  h5: fontH5,
-  h6: fontH6,
-  content: fontContent,
-} = shevy;
+const calcHeading = (
+  heading: number,
+  fontSize: string,
+  lineHeight: number,
+  breakpoints: {},
+  mediaQuery: {},
+): FlattenSimpleInterpolation => {
+  if (Object.entries(breakpoints).length === 0) {
+    throw new Error('Cant be empty @todo error message');
+  }
 
-export const baseSpacing = bs;
-export const lineHeightSpacing = ls;
+  const size = stripUnit(em(fontSize));
+  const lineHeightSpacing = (factor = 1): number => {
+    return size * lineHeight * factor;
+  };
+  const spacingValue = lineHeightSpacing();
+  const mediaqueries: string[] = [];
+
+  for (const key in breakpoints) {
+    if (Array.isArray(breakpoints[key])) {
+      const calcSize = size * breakpoints[key][heading];
+      let calcLineHeight = 0;
+      let multiplier = 1;
+
+      if (calcSize <= spacingValue) {
+        calcLineHeight = spacingValue / calcSize;
+      } else {
+        while (lineHeightSpacing(multiplier) < calcSize) {
+          multiplier += 0.5;
+        }
+
+        calcLineHeight = lineHeightSpacing(multiplier) / calcSize;
+      }
+
+      mediaqueries.push(mediaquery(key, mediaQuery)`
+        font-size: ${em(calcSize, size)};
+        line-height: ${calcLineHeight};
+        font-weight: 700;
+      `);
+    }
+  }
+
+  return css`
+    ${mediaqueries}
+  `;
+};
 
 export const h1 = css`
-  color: ${colors.black};
-  font-size: ${fontH1.fontSize};
-  line-height: ${fontH1.lineHeight};
+  color: ${props => props.theme.colors.black};
+  ${props =>
+    calcHeading(
+      0,
+      props.theme.typography.fontSize,
+      props.theme.typography.lineHeight,
+      props.theme.typography.breakpoints,
+      props.theme.mediaQuery,
+    )};
   letter-spacing: -0.01em;
-  margin-bottom: ${fontH1.marginBottom};
 `;
 export const h2 = css`
   color: ${colors.black};
-  font-size: ${fontH2.fontSize};
-  line-height: ${fontH2.lineHeight};
+  ${props =>
+    calcHeading(
+      1,
+      props.theme.typography.fontSize,
+      props.theme.typography.lineHeight,
+      props.theme.typography.breakpoints,
+      props.theme.mediaQuery,
+    )};
   letter-spacing: -0.01em;
-  margin-bottom: ${fontH2.marginBottom};
 `;
 export const h3 = css`
   color: ${colors.black};
-  font-size: ${fontH3.fontSize};
-  line-height: ${fontH3.lineHeight};
+  ${props =>
+    calcHeading(
+      2,
+      props.theme.typography.fontSize,
+      props.theme.typography.lineHeight,
+      props.theme.typography.breakpoints,
+      props.theme.mediaQuery,
+    )};
   letter-spacing: -0.01em;
-  margin-bottom: ${fontH3.marginBottom};
 `;
 export const h4 = css`
   color: ${colors.black};
-  font-size: ${fontH4.fontSize};
-  line-height: ${fontH4.lineHeight};
+  ${props =>
+    calcHeading(
+      3,
+      props.theme.typography.fontSize,
+      props.theme.typography.lineHeight,
+      props.theme.typography.breakpoints,
+      props.theme.mediaQuery,
+    )};
   letter-spacing: -0.008em;
-  margin-bottom: ${fontH4.marginBottom};
 `;
 export const h5 = css`
   color: ${colors.black};
-  font-size: ${fontH5.fontSize};
-  line-height: ${fontH5.lineHeight};
+  ${props =>
+    calcHeading(
+      4,
+      props.theme.typography.fontSize,
+      props.theme.typography.lineHeight,
+      props.theme.typography.breakpoints,
+      props.theme.mediaQuery,
+    )};
   letter-spacing: -0.006em;
-  margin-bottom: ${fontH5.marginBottom};
 `;
 export const h6 = css`
   color: ${colors.black};
-  font-size: ${fontH6.fontSize};
-  line-height: ${fontH6.lineHeight};
+  ${props =>
+    calcHeading(
+      5,
+      props.theme.typography.fontSize,
+      props.theme.typography.lineHeight,
+      props.theme.typography.breakpoints,
+      props.theme.mediaQuery,
+    )};
   letter-spacing: -0.003em;
-  margin-bottom: ${fontH6.marginBottom};
 `;
 export const content = css`
   color: ${colors.black};
-  font-size: ${fontContent.fontSize};
-  line-height: ${fontContent.lineHeight};
-  margin-bottom: ${fontContent.marginBottom};
+  font-size: ${props => em(props.theme.fontSize)};
+  line-height: ${props => props.theme.lineHeight};
 `;

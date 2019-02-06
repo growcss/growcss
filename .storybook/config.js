@@ -9,7 +9,7 @@ import {
   setScreenshotOptions,
   withScreenshot,
 } from 'storybook-chrome-screenshot';
-import { GrowCss, GlobalStyle } from '../packages/core/theme/src';
+import GrowCss, { GlobalStyle } from '../packages/core/theme/src';
 import { ThemeProvider } from 'styled-components';
 
 

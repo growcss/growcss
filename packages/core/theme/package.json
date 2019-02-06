@@ -36,8 +36,7 @@
   },
   "browser": "dist/umd/index.js",
   "dependencies": {
-    "@growcss/elaborate": "0.0.3",
-    "shevyjs": "^1.1.0"
+    "@growcss/elaborate": "0.0.3"
   },
   "peerDependencies": {
     "react": "^16.0",
