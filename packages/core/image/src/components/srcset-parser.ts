@@ -1,4 +1,6 @@
-type CandidateProps = {
+import { BreakpointsProps } from '../../types';
+
+export type CandidateProps = {
   url?: string;
   width?: string;
   height?: string;
@@ -6,19 +8,19 @@ type CandidateProps = {
 };
 
 /**
- * Srcset Parser
+ * Srcset Parser.
  *
- * By Alex Bell |  MIT License
+ * By Alex Bell |  MIT License.
  *
- * JS Parser for the string value that appears in markup <img srcset="here">
- *
- * @returns Array [{url: _, density: _, width: _, height:_}, ...]
+ * JS Parser for the string value that appears in markup <img srcset="here">.
  *
  * @see https://html.spec.whatwg.org/multipage/embedded-content.html#parse-a-srcset-attribute
+ *
+ * @returns Array [{url: _, density: _, width: _, height:_}, ...].
  */
-export default (input: string): object[] => {
+export default (input: string, breakpoints: BreakpointsProps = {}): object[] => {
   const inputLength = input.length;
-  //
+
   // (Don't use \s, to avoid matching non-breaking space)
   const regexLeadingSpaces = /^[ \t\n\r\u000c]+/; // eslint-disable-line no-control-regex
 
@@ -86,9 +88,9 @@ export default (input: string): object[] => {
   }
 
   /**
-   * Adds descriptor properties to a candidate, pushes to the candidates array
+   * Adds descriptor properties to a candidate, pushes to the candidates array.
    *
-   * @return void
+   * @return Void.
    */
   function parseDescriptors(): void {
     let pError = false;
@@ -113,6 +115,10 @@ export default (input: string): object[] => {
     // from the following list:
     for (i = 0; i < descriptors.length; i++) {
       desc = descriptors[i];
+
+      if (desc in breakpoints) {
+        desc = breakpoints[desc];
+      }
 
       lastChar = desc[desc.length - 1];
       value = desc.substring(0, desc.length - 1);
@@ -197,14 +203,14 @@ export default (input: string): object[] => {
 
       candidates.push(candidate);
     } else {
-      throw new Error(`Invalid srcset descriptor found in '${input}' at '${desc}'.`);
+      throw new Error(`Invalid srcSet descriptor found in '${input}' at '${desc}'.`);
     }
   }
 
   /**
    * Tokenizes descriptor properties prior to parsing.
    *
-   * @return void.
+   * @return Void.
    */
   function tokenize(): void {
     // 8.1. Descriptor tokeniser: Skip whitespace

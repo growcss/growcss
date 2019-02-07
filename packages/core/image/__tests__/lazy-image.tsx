@@ -12,7 +12,7 @@ test('Image load small image if no preview image is set', () => {
   sinon.spy(LazyImage.prototype, 'componentDidMount');
 
   const wrapper = shallow(
-    <LazyImage src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/400x/mountain.jpg" />,
+    <LazyImage srcSet="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/400x/mountain.jpg small" />,
   );
 
   expect(wrapper).toMatchSnapshot();

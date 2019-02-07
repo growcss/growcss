@@ -323,7 +323,7 @@ cases(
   'Parse Srcset',
   opts => {
     const parsed = parseSrcset(he.decode(opts.srcset));
-    const firstCandidate = parsed[0];
+    const firstCandidate: { url?: string } = parsed[0];
 
     const { url } = firstCandidate || { url: null };
     let encodedUrl = '';
