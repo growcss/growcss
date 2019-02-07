@@ -1,4 +1,4 @@
-import { MediaQueryOptionsProps } from '@growcss/elaborate/types';
+import { MediaQueryOptionsProps } from '../../../elaborate/types';
 import { GrowCssTheme } from '../../types';
 
 export const createMediaQueryOptions = (theme: GrowCssTheme): MediaQueryOptionsProps => {

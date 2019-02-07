@@ -3,7 +3,7 @@ import classNames from 'classnames';
 // eslint-disable-next-line no-unused-vars
 import { ThemedStyledProps, withTheme } from 'styled-components';
 // eslint-disable-next-line no-unused-vars
-import { GrowCssTheme } from '@growcss/theme';
+import { GrowCssTheme, getThemeValue } from '@growcss/theme';
 import { AspectRatioPlaceholder } from '../styled/aspect-ratio-placeholder';
 import { FigureElement } from '../styled/figure-element';
 import { ImageElement } from '../styled/image-element';
@@ -15,17 +15,48 @@ import parseSrcset, { CandidateProps } from './srcset-parser';
 interface DefaultImageProps {
   afterLoad: Function;
   beforeLoad: Function;
+  useElementDim: boolean;
+  preload: boolean;
 }
 
 type PropsWithDefaults = ImageType &
   DefaultImageProps &
   ThemedStyledProps<{}, GrowCssTheme>;
 
-class LazyImage extends React.Component<ImageType, StateType> {
+class ExtendedImage extends React.Component<ImageType, StateType> {
   public static defaultProps: DefaultImageProps = {
     afterLoad: () => ({}),
     beforeLoad: () => ({}),
+    useElementDim: false,
+    preload: false,
   };
+
+  /**
+   * @param {Boolean} useElementDim
+   */
+  private readonly useElementDim: boolean;
+
+  /**
+   * @param {Boolean} preload
+   */
+  private readonly preload: boolean;
+
+  /**
+   * @param {Array<CandidateProps>} srcArray
+   */
+  private readonly srcArray: CandidateProps[];
+
+  /**
+   * @param {boolean} hasWebp
+   */
+  private readonly hasWebp: boolean = false;
+
+  /**
+   * The alt of the img.
+   *
+   * @param {string|undefined} src
+   */
+  private readonly alt: string | undefined;
 
   /**
    * @param {HTMLImageElement} imgElement
@@ -33,40 +64,16 @@ class LazyImage extends React.Component<ImageType, StateType> {
   private imgElement: HTMLImageElement;
 
   /**
-   * @param {Array<CandidateProps>} srcArray
-   */
-  private srcArray: CandidateProps[];
-
-  /**
    * @param {RegExp} webpRegex
    */
   private webpRegex;
-
-  /**
-   * @param {boolean} hasWebp
-   */
-  private hasWebp: boolean = false;
 
   /**
    * The first found img url.
    *
    * @param {string|undefined} src
    */
-  protected src: string | undefined;
-
-  /**
-   * The alt of the img.
-   *
-   * @param {string|undefined} src
-   */
-  protected alt: string | undefined;
-
-  /**
-   * A string with breakpoint images.
-   *
-   * @param {string} srcSet
-   */
-  protected srcSet: string;
+  private src: string | undefined;
 
   /**
    * @param {PropsWithDefaults} props
@@ -76,8 +83,17 @@ class LazyImage extends React.Component<ImageType, StateType> {
 
     this.webpRegex = /.+\.webp$/i;
 
-    const { srcSet, src, alt, theme } = props as PropsWithDefaults;
+    const {
+      srcSet,
+      src,
+      alt,
+      useElementDim,
+      preload,
+      theme,
+    } = props as PropsWithDefaults;
 
+    this.useElementDim = useElementDim;
+    this.preload = preload;
     this.alt = alt;
     this.src = src;
     this.srcArray =
@@ -86,8 +102,8 @@ class LazyImage extends React.Component<ImageType, StateType> {
         : [];
 
     this.hasWebp =
-      this.srcArray.filter(srcitem => {
-        return this.webpRegex.test(srcitem.url);
+      this.srcArray.filter(srcItem => {
+        return this.webpRegex.test(srcItem.url);
       }).length > 0;
 
     this.state = { imageLoaded: false };
@@ -120,7 +136,7 @@ class LazyImage extends React.Component<ImageType, StateType> {
       imageInstance.src = this.src;
 
       if (this.srcArray.length !== 0) {
-        imageInstance.srcset = LazyImage.srcSetStringify(this.srcArray);
+        imageInstance.srcset = Image.srcSetStringify(this.srcArray);
       }
 
       imageInstance.addEventListener('load', () => {
@@ -131,7 +147,7 @@ class LazyImage extends React.Component<ImageType, StateType> {
         this.imgElement.src = this.src;
 
         if (this.srcArray.length !== 0) {
-          this.imgElement.srcset = LazyImage.srcSetStringify(this.srcArray);
+          this.imgElement.srcset = Image.srcSetStringify(this.srcArray);
         }
       });
     });
@@ -140,10 +156,9 @@ class LazyImage extends React.Component<ImageType, StateType> {
   public render() {
     const { children, previewImage, height, width, crossOrigin, theme } = this.props;
     const { imageLoaded } = this.state;
-    const defaultSvgPlaceholder = `<svg xmlns='http://www.w3.org/2000/svg' width='1' height='1'><rect width='1' height='1' fill='${(typeof theme.image !==
-      'undefined' &&
-      theme.image.previewBackgroundColor) ||
-      'rgb(241, 245, 248)'}'/></svg>`;
+    const defaultSvgPlaceholder = `<svg xmlns='http://www.w3.org/2000/svg' width='1' height='1'><rect width='1' height='1' fill='${getThemeValue(
+      'image.previewBackgroundColor',
+    )(theme)}'/></svg>`;
 
     return (
       <FigureElement className="gc-image">
@@ -173,6 +188,92 @@ class LazyImage extends React.Component<ImageType, StateType> {
         {children}
       </FigureElement>
     );
+  }
+
+  /**
+   * filter out disqualified items less than the refVal
+   *
+   * @private
+   */
+  public static filterLarge(arr, attr, refVal) {
+    if (arr.length < 2) return arr;
+    let largest = false;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i][attr]) {
+        if (!largest || largest[attr] < arr[i][attr]) {
+          largest = arr[i];
+        }
+      }
+    }
+    if (!largest) return arr;
+
+    const filtered = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (!arr[i][attr] || arr[i][attr] >= refVal) {
+        filtered.push(arr[i]);
+      }
+    }
+    if (filtered.length === 0) {
+      filtered.push(largest);
+    }
+
+    return filtered;
+  }
+
+  /**
+   * filter to the smallest items of a dimension
+   *
+   * @private
+   */
+  public static filterSmall(arr, attr) {
+    if (arr.length < 2) return arr;
+    let smallest = false;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i][attr]) {
+        if (!smallest || smallest[attr] > arr[i][attr]) {
+          smallest = arr[i];
+        }
+      }
+    }
+    if (!smallest) return arr;
+
+    const filtered = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (!arr[i][attr] || arr[i][attr] <= smallest[attr]) filtered.push(arr[i]);
+    }
+
+    return filtered;
+  }
+
+  /**
+   * Converts a srcset array to a srcset string.
+   *
+   * @param arr {Array<Isrcset>} srcset array
+   */
+  public static srcSetStringify(arr) {
+    return arr
+      .map(el => {
+        if (!el.url) {
+          throw new Error('URL is required.');
+        }
+
+        const ret = [el.url];
+
+        if (el.width) {
+          ret.push(`${el.width}w`);
+        }
+
+        if (el.height) {
+          ret.push(`${el.height}h`);
+        }
+
+        if (el.density) {
+          ret.push(`${el.density}x`);
+        }
+
+        return ret.join(' ');
+      })
+      .join(', ');
   }
 
   /**
@@ -267,13 +368,11 @@ class LazyImage extends React.Component<ImageType, StateType> {
     const refDim = this.useElementDim
       ? {
           width:
-            (this.clientWidth ||
-              window.innerWidth ||
-              document.documentElement.clientWidth) * densityMultiplier,
+            (window.innerWidth || document.documentElement.clientWidth) *
+            densityMultiplier,
           height:
-            (this.clientHeight ||
-              window.innerHeight ||
-              document.documentElement.clientHeight) * densityMultiplier,
+            (window.innerHeight || document.documentElement.clientHeight) *
+            densityMultiplier,
           // When no density is provided densityMultiplier is used and density filter can be set to 1, otherwise use devicePixelRatio
           density: !hasDensity ? 1 : window.devicePixelRatio || 1.0,
         }
@@ -287,115 +386,30 @@ class LazyImage extends React.Component<ImageType, StateType> {
           // When no density is provided densityMultiplier is used and density filter can be set to 1, otherwise use devicePixelRatio
           density: !hasDensity ? 1 : window.devicePixelRatio || 1.0,
         };
-    let filtered = this.fallbackSrc
+
+    let filtered = this.src
       ? arr.concat([
           {
-            url: this.fallbackSrc,
+            url: this.src,
           },
         ])
       : arr;
-    filtered = LazyImage.filterLarge(
-      LazyImage.filterLarge(
-        LazyImage.filterLarge(filtered, 'width', refDim.width),
+    filtered = Image.filterLarge(
+      Image.filterLarge(
+        Image.filterLarge(filtered, 'width', refDim.width),
         'height',
         refDim.height,
       ),
       'density',
       refDim.density,
     );
-    filtered = LazyImage.filterSmall(
-      LazyImage.filterSmall(LazyImage.filterSmall(filtered, 'width'), 'height'),
+    filtered = Image.filterSmall(
+      Image.filterSmall(Image.filterSmall(filtered, 'width'), 'height'),
       'density',
     );
 
     return filtered[0].url;
   }
-
-  /**
-   * filter out disqualified items less than the refVal
-   *
-   * @private
-   */
-  private static filterLarge(arr, attr, refVal) {
-    if (arr.length < 2) return arr;
-    let largest = false;
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i][attr]) {
-        if (!largest || largest[attr] < arr[i][attr]) {
-          largest = arr[i];
-        }
-      }
-    }
-    if (!largest) return arr;
-
-    const filtered = [];
-    for (let i = 0; i < arr.length; i++) {
-      if (!arr[i][attr] || arr[i][attr] >= refVal) {
-        filtered.push(arr[i]);
-      }
-    }
-    if (filtered.length === 0) {
-      filtered.push(largest);
-    }
-
-    return filtered;
-  }
-
-  /**
-   * filter to the smallest items of a dimension
-   *
-   * @private
-   */
-  private static filterSmall(arr, attr) {
-    if (arr.length < 2) return arr;
-    let smallest = false;
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i][attr]) {
-        if (!smallest || smallest[attr] > arr[i][attr]) {
-          smallest = arr[i];
-        }
-      }
-    }
-    if (!smallest) return arr;
-
-    const filtered = [];
-    for (let i = 0; i < arr.length; i++) {
-      if (!arr[i][attr] || arr[i][attr] <= smallest[attr]) filtered.push(arr[i]);
-    }
-
-    return filtered;
-  }
-
-  /**
-   * Converts a srcset array to a srcset string.
-   *
-   * @param arr {Array<Isrcset>} srcset array
-   */
-  private static srcSetStringify(arr) {
-    return arr
-      .map(el => {
-        if (!el.url) {
-          throw new Error('URL is required.');
-        }
-
-        const ret = [el.url];
-
-        if (el.width) {
-          ret.push(`${el.width}w`);
-        }
-
-        if (el.height) {
-          ret.push(`${el.height}h`);
-        }
-
-        if (el.density) {
-          ret.push(`${el.density}x`);
-        }
-
-        return ret.join(' ');
-      })
-      .join(', ');
-  }
 }
 
-export default withTheme(LazyImage);
+export default withTheme(ExtendedImage);

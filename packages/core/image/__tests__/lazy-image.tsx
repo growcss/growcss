@@ -2,7 +2,7 @@ import * as React from 'react';
 import 'jest-styled-components';
 import { shallow } from 'enzyme';
 import { axe, toHaveNoViolations } from 'jest-axe';
-import LazyImage from '../src/components/lazy-image';
+import LazyImage from '../src/components/image';
 
 expect.extend(toHaveNoViolations);
 

@@ -2,7 +2,7 @@ import { css, FlattenSimpleInterpolation } from 'styled-components';
 import { mediaquery, stripUnit, em } from '@growcss/elaborate';
 import { MediaQueryOptionsProps } from '@growcss/elaborate/types';
 import { colors } from './colors';
-import { createMediaQueryOptions } from './create-mediaquery-options';
+import { createMediaQueryOptions } from '../utils/create-mediaquery-options';
 
 const calcHeading = (
   heading: number,

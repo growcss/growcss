@@ -60,6 +60,7 @@ const GLOBALS = {
   'styled-components': 'styled',
   classnames: 'classNames',
   '@growcss/elaborate': 'elaborate',
+  '@growcss/theme': 'theme',
 };
 
 const commonPlugins = [

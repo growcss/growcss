@@ -2,16 +2,18 @@
 import { createGlobalStyle, ThemedStyledProps } from 'styled-components';
 import { em, rem } from '@growcss/elaborate';
 import normalize from './modern-normalize';
-import { h1, h2, h3, h4, h5, h6 } from './util/typography';
-import { colors } from './util/colors';
-import blockquote from './util/blockquote';
-import lists from './util/lists';
-import tables from './util/tables';
-import links from './util/links';
+import { h1, h2, h3, h4, h5, h6 } from './css/typography';
+import { colors } from './css/colors';
+import blockquote from './css/blockquote';
+import lists from './css/lists';
+import tables from './css/tables';
+import links from './css/links';
+import image from './components/image';
 import { GrowCssTheme } from '../types';
 
-export { createMediaQueryOptions } from './util/create-mediaquery-options';
-export { h1, h2, h3, h4, h5, h6, content } from './util/typography';
+export { createMediaQueryOptions } from './utils/create-mediaquery-options';
+export { h1, h2, h3, h4, h5, h6, content } from './css/typography';
+export { default as getThemeValue } from './utils/get-theme-value';
 
 export const gutterSize = (multiplier: number | undefined = undefined): number =>
   10 * (multiplier || 1);
@@ -105,14 +107,7 @@ export const GrowCss: GrowCssTheme = {
     columns: 12,
   },
   spinner: {},
-  image: {
-    breakpoints: {
-      medium: '640w',
-      large: '1024w',
-      xlarge: '1200w',
-      xxlarge: '1440w',
-    },
-  },
+  image,
 };
 
 export const GlobalStyle = createGlobalStyle<ThemedStyledProps<{}, GrowCssTheme>>`
