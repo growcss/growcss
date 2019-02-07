@@ -4,8 +4,8 @@ import getValueAndUnit from './get-value-and-unit';
 /**
  * Converts a unitless, pixel, or rem value to em, for use in breakpoints.
  *
- * @param {string | number | Array<string | number>} values One or more values to convert.
- * @param {number | string}                          base   The base value to use when calculating the `em`.
+ * @param {string | number | Array<string | number>} values - One or more values to convert.
+ * @param {number | string}                          base   - The base value to use when calculating the `em`.
  *
  * @return {string}
  */

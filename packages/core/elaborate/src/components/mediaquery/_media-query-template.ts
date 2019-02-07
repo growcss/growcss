@@ -166,10 +166,10 @@ export default class MediaQueryTemplate {
   };
 
   /**
-   * Calculates the size of the min or max with or height of the media query.'(' S* media_feature S* [ ':' S* expr ]? ')' S*
+   * Calculates the size of the min or max with or height of the media query.'(' S* media_feature S* [ ':' S* expr ]? ')' S*.
    *
    * @param {string|number}                          bp
-   * @param {string}                                 direction   Direction of media query (up, down, or only)
+   * @param {string}                                 direction   - Direction of media query (up, down, or only).
    * @param {BreakpointsProps|HidpiBreakpointsProps} breakpoints
    * @param {number}                                 stdWebDpi
    *
@@ -396,7 +396,7 @@ export default class MediaQueryTemplate {
   /**
    * Joints object keys together.
    *
-   * @param {object} object
+   * @param {Object} object
    *
    * @return {string}
    */

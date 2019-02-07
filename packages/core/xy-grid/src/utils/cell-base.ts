@@ -1,7 +1,7 @@
 /**
  * Sets base flex properties for cells.
  *
- * @param {string} size The size of your cell. Accepts `auto`, `shrink` or `grow`.
+ * @param {string} size - The size of your cell. Accepts `auto`, `shrink` or `grow`.
  *
  * @return {string}
  */

@@ -53,7 +53,7 @@ const mediaQueryTemplate = new MediaQueryTemplate(MediaQueryOptions);
  *  - If a rem value is passed, the unit will be changed to em.
  *  - If an em value is passed, the value will be used as-is.
  *
- * @param {string}                 value             Breakpoint name, or px, rem, or em value to process.
+ * @param {string}                 value             - Breakpoint name, or px, rem, or em value to process.
  * @param {MediaQueryOptionsProps} mediaQueryOptions
  *
  * @return {function(...any)} If the breakpoint is "0px and larger", outputs the content as-is. Otherwise, outputs the content wrapped in a media query.

@@ -6,13 +6,13 @@ import { CellProperties } from './cell-properties';
 /**
  * Creates a cell for your grid.
  *
- * @param {string}               size           The size of your cell. Can be `full` (default) for 100% width, `auto` to use up available space and `shrink` to use up only required space.
- * @param {boolean}              outputGutter   Whether or not to output gutters.
- * @param {number | GuttersProps} gutters        array or number value for gutters.
+ * @param {string}               size           - The size of your cell. Can be `full` (default) for 100% width, `auto` to use up available space and `shrink` to use up only required space.
+ * @param {boolean}              outputGutter   - Whether or not to output gutters.
+ * @param {number | GuttersProps} gutters        - Array or number value for gutters.
  * @param {string}               gutterType
- * @param {Array<string>}        gutterPosition The position to apply gutters to. Accepts `top`, `bottom`, `left`, `right` in any combination.
- * @param {string}               breakpoint     The name of the breakpoint size in your gutters array to get the size from.
- * @param {boolean}              vertical       Set to true to output vertical (height) styles rather than widths.
+ * @param {Array<string>}        gutterPosition - The position to apply gutters to. Accepts `top`, `bottom`, `left`, `right` in any combination.
+ * @param {string}               breakpoint     - The name of the breakpoint size in your gutters array to get the size from.
+ * @param {boolean}              vertical       - Set to true to output vertical (height) styles rather than widths.
  *
  * @return {Array<string>}
  */
