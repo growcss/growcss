@@ -26,6 +26,7 @@ module.exports = {
     'jsx-a11y',
     // 'security', @todo check it on the next version
     'typescript',
+    'jsdoc',
   ],
   parser: 'typescript-eslint-parser',
   parserOptions: {
@@ -83,6 +84,7 @@ module.exports = {
     },
     ...require('./rules/prettier-conflicts'),
     ...require('./rules/typescript'),
+    ...require('./rules/jsdoc'),
   },
   env: {
     browser: true,
