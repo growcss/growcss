@@ -64,7 +64,7 @@ export const GrowCss: GrowCssTheme = {
     antialiased: true,
     // Font stack of the body.
     fontFamily:
-      '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
+      '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
     codeFontFamily:
       '"SFMono-Medium", "SF Mono", "Segoe UI Mono", "Roboto Mono", "Ubuntu Mono", Menlo, Consolas, Courier, monospace',
     // Check https://type-scale.com/ for different sizes
@@ -107,7 +107,6 @@ export const GrowCss: GrowCssTheme = {
   spinner: {},
   image: {
     breakpoints: {
-      small: '0',
       medium: '640w',
       large: '1024w',
       xlarge: '1200w',

@@ -1,231 +1,99 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import styled from 'styled-components';
-import { GridContainer, GridX, Cell } from '@growcss/xy-grid';
 import { GrowCss } from '../src';
 
-const ColorCell = styled(Cell)`
+const ColorCell = styled.div`
+  display: block;
+  width: 100%;
   height: 2rem;
 `;
 
 storiesOf('Core.Theme', module)
   .add('Color', () => (
     <React.Fragment>
-      <GridContainer>
-        <GridX>
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.black }} />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.greyDarkest }}
-          />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.greyDarker }} />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.greyDark }} />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.grey }} />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.greyLight }} />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.greyLighter }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.greyLightest }}
-          />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.white }} />
-          <ColorCell small={12} />
-        </GridX>
-        <GridX>
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.redDarkest }} />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.redDarker }} />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.redDark }} />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.red }} />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.redLight }} />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.redLighter }} />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.redLightest }}
-          />
-          <ColorCell small={12} />
-        </GridX>
-        <GridX>
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.orangeDarkest }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.orangeDarker }}
-          />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.orangeDark }} />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.orange }} />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.orangeLight }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.orangeLighter }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.orangeLightest }}
-          />
-          <ColorCell small={12} />
-        </GridX>
-        <GridX>
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.yellowDarkest }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.yellowDarker }}
-          />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.yellowDark }} />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.yellow }} />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.yellowLight }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.yellowLighter }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.yellowLightest }}
-          />
-          <ColorCell small={12} />
-        </GridX>
-        <GridX>
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.greenDarkest }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.greenDarker }}
-          />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.greenDark }} />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.green }} />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.greenLight }} />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.greenLighter }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.greenLightest }}
-          />
-          <ColorCell small={12} />
-        </GridX>
-        <GridX>
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.tealDarkest }}
-          />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.tealDarker }} />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.tealDark }} />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.teal }} />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.tealLight }} />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.tealLighter }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.tealLightest }}
-          />
-          <ColorCell small={12} />
-        </GridX>
-        <GridX>
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.blueDarkest }}
-          />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.blueDarker }} />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.blueDark }} />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.blue }} />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.blueLight }} />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.blueLighter }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.blueLightest }}
-          />
-          <ColorCell small={12} />
-        </GridX>
-        <GridX>
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.indigoDarkest }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.indigoDarker }}
-          />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.indigoDark }} />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.indigo }} />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.indigoLight }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.indigoLighter }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.indigoLightest }}
-          />
-          <ColorCell small={12} />
-        </GridX>
-        <GridX>
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.purpleDarkest }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.purpleDarker }}
-          />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.purpleDark }} />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.purple }} />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.purpleLight }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.purpleLighter }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.purpleLightest }}
-          />
-          <ColorCell small={12} />
-        </GridX>
-        <GridX>
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.pinkDarkest }}
-          />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.pinkDarker }} />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.pinkDark }} />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.pink }} />
-          <ColorCell small={12} style={{ backgroundColor: GrowCss.colors.pinkLight }} />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.pinkLighter }}
-          />
-          <ColorCell
-            small={12}
-            style={{ backgroundColor: GrowCss.colors.pinkLightest }}
-          />
-          <ColorCell small={12} />
-        </GridX>
-      </GridContainer>
+      <ColorCell style={{ backgroundColor: GrowCss.colors.black }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.greyDarkest }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.greyDarker }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.greyDark }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.grey }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.greyLight }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.greyLighter }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.greyLightest }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.white }} />
+      <ColorCell />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.redDarkest }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.redDarker }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.redDark }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.red }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.redLight }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.redLighter }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.redLightest }} />
+      <ColorCell />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.orangeDarkest }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.orangeDarker }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.orangeDark }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.orange }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.orangeLight }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.orangeLighter }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.orangeLightest }} />
+      <ColorCell />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.yellowDarkest }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.yellowDarker }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.yellowDark }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.yellow }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.yellowLight }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.yellowLighter }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.yellowLightest }} />
+      <ColorCell />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.greenDarkest }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.greenDarker }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.greenDark }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.green }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.greenLight }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.greenLighter }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.greenLightest }} />
+      <ColorCell />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.tealDarkest }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.tealDarker }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.tealDark }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.teal }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.tealLight }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.tealLighter }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.tealLightest }} />
+      <ColorCell />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.blueDarkest }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.blueDarker }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.blueDark }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.blue }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.blueLight }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.blueLighter }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.blueLightest }} />
+      <ColorCell />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.indigoDarkest }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.indigoDarker }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.indigoDark }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.indigo }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.indigoLight }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.indigoLighter }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.indigoLightest }} />
+      <ColorCell />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.purpleDarkest }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.purpleDarker }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.purpleDark }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.purple }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.purpleLight }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.purpleLighter }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.purpleLightest }} />
+      <ColorCell />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.pinkDarkest }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.pinkDarker }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.pinkDark }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.pink }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.pinkLight }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.pinkLighter }} />
+      <ColorCell style={{ backgroundColor: GrowCss.colors.pinkLightest }} />
+      <ColorCell />
     </React.Fragment>
   ))
   .add('Font Size', () => (
