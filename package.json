@@ -172,7 +172,7 @@
     "@commitlint/config-angular": "7.5.0",
     "@commitlint/config-lerna-scopes": "7.5.0",
     "@commitlint/prompt": "7.5.0",
-    "@hot-loader/react-dom": "16.8.0-alpha.0",
+    "@hot-loader/react-dom": "16.8.1",
     "@lerna/changed": "3.10.8",
     "@microsoft/api-extractor": "6.3.0",
     "@semantic-release/changelog": "3.0.2",
