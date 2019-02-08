@@ -18,12 +18,15 @@ export const ImageElement = styled.img`
   z-index: 2;
   display: block;
   border: 0 none;
-  visibility: hidden;
-  opacity: 0;
   backface-visibility: hidden;
   width: 100%;
   height: 100%;
   box-sizing: border-box;
+
+  &.preload {
+    visibility: hidden;
+    opacity: 0;
+  }
 
   &.loaded {
     will-change: transform, opacity;

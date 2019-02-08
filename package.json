@@ -25,7 +25,7 @@
     "lint:fix:eslint:supporting": "   npm run lint:eslint:supporting -- --fix",
     "lint:style": "                   node verify-node-version.js && stylelint-config-prettier-check && stylelint 'packages/*/*/src/**/*.+{js,ts,tsx}'",
     "sort-package": "                 lerna exec -- sort-package-json",
-    "storybook": "                    node verify-node-version.js && cross-env NODE_ENV=development start-storybook -p 6006 -c .storybook",
+    "storybook": "                    node verify-node-version.js && lerna bootstrap && npm run build && cross-env NODE_ENV=development start-storybook -p 6006 -c .storybook",
     "storybook:build": "              cross-env NODE_ENV=development build-storybook -c .storybook",
     "storybook:screenshot": "         cross-env NODE_ENV=development storybook-chrome-screenshot -p 9001 -c .storybook",
     "test": "                         node verify-node-version.js && cross-env NODE_ENV=test jest",

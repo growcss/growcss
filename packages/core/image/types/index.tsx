@@ -13,6 +13,6 @@ export interface ImageType extends React.ImgHTMLAttributes<HTMLImageElement> {
   useElementDim: boolean;
   preload: boolean;
   scrollPosition?: number;
-  afterLoad?: Function;
-  beforeLoad?: Function;
+  afterLoad?: () => void;
+  beforeLoad?: () => void;
 }
