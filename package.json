@@ -165,7 +165,7 @@
     "terser": "3.16.1",
     "tslib": "1.9.3",
     "typescript": "3.3.3",
-    "warning": "4.0.2"
+    "warning": "4.0.3"
   },
   "devDependencies": {
     "@commitlint/cli": "7.5.1",
