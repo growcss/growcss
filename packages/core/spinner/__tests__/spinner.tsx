@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {mount, shallow} from 'enzyme';
-import Spinner from '../src';
+import { mount, shallow } from 'enzyme';
 import { GrowCss } from '@growcss/theme';
+import Spinner from '../src';
 
 describe('Spinner', () => {
   it('should be possible to create a component', () => {
@@ -41,11 +41,21 @@ describe('Spinner', () => {
     });
 
     it('should render tee-shirt sizes with the proper heights/widths', () => {
-      const small = mount(<Spinner theme={GrowCss} size="small" animation="fingerprint" />);
-      const medium = mount(<Spinner theme={GrowCss} size="medium" animation="fingerprint" />);
-      const large = mount(<Spinner theme={GrowCss} size="large" animation="fingerprint" />);
-      const xlarge = mount(<Spinner theme={GrowCss} size="xlarge" animation="fingerprint" />);
-      const xxlarge = mount(<Spinner theme={GrowCss} size="xxlarge" animation="fingerprint" />);
+      const small = mount(
+        <Spinner theme={GrowCss} size="small" animation="fingerprint" />,
+      );
+      const medium = mount(
+        <Spinner theme={GrowCss} size="medium" animation="fingerprint" />,
+      );
+      const large = mount(
+        <Spinner theme={GrowCss} size="large" animation="fingerprint" />,
+      );
+      const xlarge = mount(
+        <Spinner theme={GrowCss} size="xlarge" animation="fingerprint" />,
+      );
+      const xxlarge = mount(
+        <Spinner theme={GrowCss} size="xxlarge" animation="fingerprint" />,
+      );
 
       const smallSize = small.find('div.fingerprint-animation').prop('size');
       const mediumSize = medium.find('div.fingerprint-animation').prop('size');
@@ -61,7 +71,9 @@ describe('Spinner', () => {
     });
 
     it('should render the spinner with a custom size', () => {
-      const wrapper = mount(<Spinner theme={GrowCss} size={72} animation="fingerprint" />);
+      const wrapper = mount(
+        <Spinner theme={GrowCss} size={72} animation="fingerprint" />,
+      );
 
       expect(wrapper).not.toBe(undefined);
 
