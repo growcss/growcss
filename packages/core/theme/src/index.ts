@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { createGlobalStyle, ThemedStyledProps } from 'styled-components';
-import { em, rem } from '@growcss/elaborate';
+import { em } from '@growcss/elaborate';
 import normalize from './modern-normalize';
 import { h1, h2, h3, h4, h5, h6 } from './css/typography';
 import { colors } from './css/colors';
@@ -9,14 +9,15 @@ import lists from './css/lists';
 import tables from './css/tables';
 import links from './css/links';
 import image from './components/image';
+import grid from './components/grid';
+import spinner from './components/spinner';
 import { GrowCssTheme } from '../types';
+import { getGutterSize } from './utils/get-gutter-size';
 
 export { createMediaQueryOptions } from './utils/create-mediaquery-options';
 export { h1, h2, h3, h4, h5, h6, content } from './css/typography';
-export { default as getThemeValue } from './utils/get-theme-value';
-
-export const gutterSize = (multiplier: number | undefined = undefined): number =>
-  10 * (multiplier || 1);
+export { getThemeValue } from './utils/get-theme-value';
+export { getGutterSize } from './utils/get-gutter-size';
 
 export const GrowCss: GrowCssTheme = {
   global: {
@@ -93,21 +94,9 @@ export const GrowCss: GrowCssTheme = {
     '40': 40,
     '50': 50,
   },
-  grid: {
-    //  Global width of your site. Used by the grid to determine row width.
-    maxWidth: rem(1200),
-    marginGutters: {
-      small: `${gutterSize(2)}px`,
-      medium: `${gutterSize(3)}px`,
-    },
-    paddingGutters: {
-      small: `${gutterSize(2)}px`,
-      medium: `${gutterSize(3)}px`,
-    },
-    columns: 12,
-  },
-  spinner: {},
+  grid,
   image,
+  spinner,
 };
 
 export const GlobalStyle = createGlobalStyle<ThemedStyledProps<{}, GrowCssTheme>>`
@@ -156,7 +145,7 @@ export const GlobalStyle = createGlobalStyle<ThemedStyledProps<{}, GrowCssTheme>
   pre,
   form,
   table {
-    margin: ${gutterSize(1.5)}px 0 0 0;
+    margin: ${getGutterSize(1.5)}px 0 0 0;
   }
   
   h1 {
@@ -196,7 +185,7 @@ export const GlobalStyle = createGlobalStyle<ThemedStyledProps<{}, GrowCssTheme>
     cursor: help;
   }
   
-  ${blockquote(gutterSize(5))}
+  ${blockquote(getGutterSize(5))}
   
   p,
   ul,
@@ -212,9 +201,9 @@ export const GlobalStyle = createGlobalStyle<ThemedStyledProps<{}, GrowCssTheme>
   pre,
   form,
   table {
-    margin-top: ${gutterSize(1.5)}px;
+    margin-top: ${getGutterSize(1.5)}px;
   }
   
-  ${lists(gutterSize())}
-  ${props => tables(props.theme.typography, 2, gutterSize(), props.theme.colors)}
+  ${lists(getGutterSize())}
+  ${props => tables(props.theme.typography, 2, getGutterSize(), props.theme.colors)}
 `;

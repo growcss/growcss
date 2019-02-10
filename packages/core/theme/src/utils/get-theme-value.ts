@@ -10,8 +10,15 @@ import { DefaultTheme } from 'styled-components';
  * const Button = styled.button`
  *   color: ${getThemeValue("color", "red")};
  * `;
+ *
+ * @param {string} path
+ * @param {any} defaultValue
+ *
+ * @returns {any}
  */
-export default (path: string, defaultValue?: any) => (theme: DefaultTheme = {}) => {
+export const getThemeValue = (path: string, defaultValue?: any): any => (
+  theme: DefaultTheme = {},
+) => {
   if (typeof theme[path] !== 'undefined') {
     return theme[path];
   }

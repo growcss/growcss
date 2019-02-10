@@ -6,9 +6,11 @@ export interface BreakpointsProps {
   [key: string]: string;
 }
 
-export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement>, ThemedStyledProps<{}, GrowCssTheme> {
+export interface ImageProps
+  extends React.ImgHTMLAttributes<HTMLImageElement>,
+    ThemedStyledProps<{}, GrowCssTheme> {
   placeholder?: string;
-  placeholderClassName?:string;
+  placeholderClassName?: string;
   preload?: boolean;
   threshold?: number;
   scrollPosition?: number;

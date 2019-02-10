@@ -15,7 +15,9 @@ export interface GridProps {
   alignY?: string;
 }
 
-export interface CellProps extends React.HTMLAttributes<HTMLDivElement>, ThemedStyledProps<{}, GrowCssTheme> {
+export interface CellProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    ThemedStyledProps<{}, GrowCssTheme> {
   children: React.ReactNode;
   vertical?: boolean;
   gutterSizes?: GuttersProps;
@@ -40,7 +42,9 @@ export interface CellBreakpointsProps {
   xxlarge?: number | string;
 }
 
-export interface GridContainerProps extends React.HTMLAttributes<HTMLDivElement>, ThemedStyledProps<{}, GrowCssTheme> {
+export interface GridContainerProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    ThemedStyledProps<{}, GrowCssTheme> {
   children: React.ReactNode;
   type?: string;
 }

@@ -57,5 +57,6 @@ export interface GrowCssTheme extends DefaultTheme {
     breakpoints: {
       [key: string]: string;
     };
+    previewBackgroundColor: string;
   };
 }
