@@ -73,22 +73,22 @@ storiesOf('Core.Spinner', module)
     <div>
       <div>
         <h1>
-          This &lt;h1&gt; element <Spinner /> is using h800
+          This &lt;h1&gt; element <Spinner /> has a spinner
         </h1>
         <h2>
-          This &lt;h2&gt; element <Spinner /> is using h700
+          This &lt;h2&gt; element <Spinner /> has a spinner
         </h2>
         <h3>
-          This &lt;h3&gt; element <Spinner /> is using h600
+          This &lt;h3&gt; element <Spinner /> has a spinner
         </h3>
         <h4>
-          This &lt;h4&gt; element <Spinner /> is using h500
+          This &lt;h4&gt; element <Spinner /> has a spinner
         </h4>
         <h5>
-          This &lt;h5&gt; element <Spinner /> is using h400
+          This &lt;h5&gt; element <Spinner /> has a spinner
         </h5>
         <h6>
-          This &lt;h6&gt; element <Spinner /> is using h300
+          This &lt;h6&gt; element <Spinner /> has a spinner
         </h6>
         <h6>
           The spinner should be middle-aligned with the text | <Spinner size="small" />
@@ -97,8 +97,10 @@ storiesOf('Core.Spinner', module)
     </div>
   ))
   .add('Stateful spinner', () => <StatefulSpinner />)
-  .add('Base usage', () => [
-    <SpinnerBaseUse />,
-    <SpinnerBaseUse animation="fingerprint" delay={3000} />,
-  ])
+  .add('Base usage', () => (
+    <React.Fragment>
+      <SpinnerBaseUse />,
+      <SpinnerBaseUse animation="fingerprint" delay={3000} />,
+    </React.Fragment>
+  ))
   .add('Lots of spinners', () => <LotsOfSpinner />);
