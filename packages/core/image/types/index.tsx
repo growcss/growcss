@@ -1,18 +1,18 @@
 import * as React from 'react';
+import { ThemedStyledProps } from 'styled-components';
+import { GrowCssTheme } from '@growcss/theme';
 
 export interface BreakpointsProps {
   [key: string]: string;
 }
 
-export interface ImagesProps {
-  [key: string]: string;
-}
-
-export interface ImageType extends React.ImgHTMLAttributes<HTMLImageElement> {
-  previewImage?: string;
-  useElementDim: boolean;
-  preload: boolean;
+export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement>, ThemedStyledProps<{}, GrowCssTheme> {
+  placeholder?: string;
+  placeholderClassName?:string;
+  preload?: boolean;
+  threshold?: number;
   scrollPosition?: number;
-  afterLoad?: () => void;
-  beforeLoad?: () => void;
+  onLoad?: ({}) => void;
+  onError?: () => void;
+  onStartLoad?: () => void;
 }

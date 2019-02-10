@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "@growcss/theme": "^1.0.0",
+    "@growcss/elaborate": "0.0.3",
     "classnames": "2.2.6"
   },
   "peerDependencies": {

@@ -2,13 +2,14 @@ import * as React from 'react';
 import 'jest-styled-components';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
+import { GrowCss } from '@growcss/theme';
 import GridX from '../src/components/grid-x';
 import Cell from '../src/components/cell';
 
 test('the style output of GridX', () => {
   const grid = (
     <GridX>
-      <Cell>test</Cell>
+      <Cell theme={GrowCss}>test</Cell>
     </GridX>
   );
   const tree = renderer.create(grid).toJSON();
@@ -24,7 +25,7 @@ test('the style output of GridX', () => {
 test('the style output of GridX with alignment to right', () => {
   const grid = (
     <GridX gutterType="padding" alignX="right">
-      <Cell>test</Cell>
+      <Cell theme={GrowCss}>test</Cell>
     </GridX>
   );
   const tree = renderer.create(grid).toJSON();
@@ -40,7 +41,7 @@ test('the style output of GridX with alignment to right', () => {
 test('the style output of GridX with alignment to center', () => {
   const grid = (
     <GridX gutterType="padding" alignX="center">
-      <Cell>test</Cell>
+      <Cell theme={GrowCss}>test</Cell>
     </GridX>
   );
   const tree = renderer.create(grid).toJSON();
@@ -56,7 +57,7 @@ test('the style output of GridX with alignment to center', () => {
 test('the style output of GridX with alignment to justify', () => {
   const grid = (
     <GridX gutterType="padding" alignX="justify">
-      <Cell>test</Cell>
+      <Cell theme={GrowCss}>test</Cell>
     </GridX>
   );
   const tree = renderer.create(grid).toJSON();
@@ -72,7 +73,7 @@ test('the style output of GridX with alignment to justify', () => {
 test('the style output of GridX with alignment to spaced', () => {
   const grid = (
     <GridX gutterType="padding" alignX="spaced">
-      <Cell>test</Cell>
+      <Cell theme={GrowCss}>test</Cell>
     </GridX>
   );
   const tree = renderer.create(grid).toJSON();
@@ -88,7 +89,7 @@ test('the style output of GridX with alignment to spaced', () => {
 test('the style output of GridX with alignment to top', () => {
   const grid = (
     <GridX gutterType="padding" alignY="top">
-      <Cell>test</Cell>
+      <Cell theme={GrowCss}>test</Cell>
     </GridX>
   );
   const tree = renderer.create(grid).toJSON();
@@ -104,7 +105,7 @@ test('the style output of GridX with alignment to top', () => {
 test('the style output of GridX with alignment to middle', () => {
   const grid = (
     <GridX gutterType="padding" alignY="middle">
-      <Cell>test</Cell>
+      <Cell theme={GrowCss}>test</Cell>
     </GridX>
   );
   const tree = renderer.create(grid).toJSON();
@@ -120,7 +121,7 @@ test('the style output of GridX with alignment to middle', () => {
 test('the style output of GridX with alignment to bottom', () => {
   const grid = (
     <GridX gutterType="padding" alignY="bottom">
-      <Cell>test</Cell>
+      <Cell theme={GrowCss}>test</Cell>
     </GridX>
   );
   const tree = renderer.create(grid).toJSON();
@@ -136,7 +137,7 @@ test('the style output of GridX with alignment to bottom', () => {
 test('the style output of GridX with alignment to stretch', () => {
   const grid = (
     <GridX gutterType="padding" alignY="stretch">
-      <Cell>test</Cell>
+      <Cell theme={GrowCss}>test</Cell>
     </GridX>
   );
   const tree = renderer.create(grid).toJSON();

@@ -21,7 +21,10 @@ export const ImageElement = styled.img`
   backface-visibility: hidden;
   width: 100%;
   height: 100%;
+  max-width: 100%;
   box-sizing: border-box;
+  object-fit: cover;
+  object-position: center;
 
   &.preload {
     visibility: hidden;

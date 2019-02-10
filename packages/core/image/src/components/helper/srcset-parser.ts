@@ -1,11 +1,11 @@
-import { BreakpointsProps } from '../../types';
+import { BreakpointsProps } from '../../../types';
 
-export type CandidateProps = {
-  url?: string;
+export interface CandidateProps {
+  url: string;
   width?: string;
   height?: string;
   density?: string;
-};
+}
 
 /**
  * Srcset Parser.
@@ -18,7 +18,10 @@ export type CandidateProps = {
  *
  * @returns Array [{url: _, density: _, width: _, height:_}, ...].
  */
-export default (input: string, breakpoints: BreakpointsProps = {}): object[] => {
+export const parseSrcSet = (
+  input: string,
+  breakpoints: BreakpointsProps = {},
+): CandidateProps[] => {
   const inputLength = input.length;
 
   // (Don't use \s, to avoid matching non-breaking space)
@@ -71,7 +74,7 @@ export default (input: string, breakpoints: BreakpointsProps = {}): object[] => 
     ); // carriage return
   }
 
-  function collectCharacters(regEx): string | null {
+  function collectCharacters(regEx: RegExp): string | null {
     let chars;
 
     const match = regEx.exec(input.substring(pos));
@@ -90,26 +93,21 @@ export default (input: string, breakpoints: BreakpointsProps = {}): object[] => 
   /**
    * Adds descriptor properties to a candidate, pushes to the candidates array.
    *
-   * @return Void.
+   * @return void
    */
   function parseDescriptors(): void {
-    let pError = false;
-
-    // 10. Let width be absent.
-    // 11. Let density be absent.
-    // 12. Let future-compat-h be absent. (We're implementing it now as h)
-    let w;
-    let d;
-    let h;
+    let error = false;
     let i;
-
-    const candidate: CandidateProps = {};
-
+    let width;
+    let density;
+    let height;
     let desc;
     let lastChar;
     let value;
     let intVal;
     let floatVal;
+
+    const candidate: CandidateProps = { url: '' };
 
     // 13. For each descriptor in descriptors, run the appropriate set of steps
     // from the following list:
@@ -129,17 +127,15 @@ export default (input: string, breakpoints: BreakpointsProps = {}): object[] => 
       // a U+0077 LATIN SMALL LETTER W character
       if (regexNonNegativeInteger.test(value) && lastChar === 'w') {
         // If width and density are not both absent, then let error be yes.
-        if (w || d) {
-          pError = true;
+        if (width || density) {
+          error = true;
         }
 
         // Apply the rules for parsing non-negative integers to the descriptor.
-        // If the result is zero, let error be yes.
-        // Otherwise, let width be the result.
         if (intVal === 0) {
-          pError = true;
+          error = true;
         } else {
-          w = intVal;
+          width = intVal;
         }
 
         // If the descriptor consists of a valid floating-point number followed by
@@ -147,58 +143,50 @@ export default (input: string, breakpoints: BreakpointsProps = {}): object[] => 
       } else if (regexFloatingPoint.test(value) && lastChar === 'x') {
         // If width, density and future-compat-h are not all absent, then let error
         // be yes.
-        if (w || d || h) {
-          pError = true;
+        if (width || density || height) {
+          error = true;
         }
 
-        // Apply the rules for parsing floating-point number values to the descriptor.
-        // If the result is less than zero, let error be yes. Otherwise, let density
-        // be the result.
         if (floatVal < 0) {
-          pError = true;
+          error = true;
         } else {
-          d = floatVal;
+          density = floatVal;
         }
 
         // If the descriptor consists of a valid non-negative integer followed by
         // a U+0068 LATIN SMALL LETTER H character
       } else if (regexNonNegativeInteger.test(value) && lastChar === 'h') {
         // If height and density are not both absent, then let error be yes.
-        if (h || d) {
-          pError = true;
+        if (height || density) {
+          error = true;
         }
 
-        // Apply the rules for parsing non-negative integers to the descriptor.
-        // If the result is zero, let error be yes. Otherwise, let future-compat-h
-        // be the result.
         if (intVal === 0) {
-          pError = true;
+          error = true;
         } else {
-          h = intVal;
+          height = intVal;
         }
-
-        // Anything else, Let error be yes.
       } else {
-        pError = true;
+        error = true;
       }
     }
 
-    // 15. If error is still no, then append a new image source to candidates whose
+    // If error is still false, then append a new image source to candidates whose
     // URL is url, associated with a width if not absent and a pixel
     // density density if not absent. Otherwise, there is a parse error.
-    if (!pError) {
+    if (!error) {
       candidate.url = url;
 
-      if (w) {
-        candidate.width = w;
+      if (width) {
+        candidate.width = width;
       }
 
-      if (d) {
-        candidate.density = d;
+      if (density) {
+        candidate.density = density;
       }
 
-      if (h) {
-        candidate.height = h;
+      if (height) {
+        candidate.height = height;
       }
 
       candidates.push(candidate);
@@ -360,4 +348,35 @@ export default (input: string, breakpoints: BreakpointsProps = {}): object[] => 
       tokenize();
     }
   }
+};
+
+/**
+ * Converts a srcset array to a srcset string.
+ *
+ * @param {Array<CandidateProps>} array
+ */
+export const srcSetStringify = (array: CandidateProps[]): string => {
+  return array
+    .map(el => {
+      if (!el.url) {
+        throw new Error('URL is required.');
+      }
+
+      const ret = [el.url];
+
+      if (el.width) {
+        ret.push(`${el.width}w`);
+      }
+
+      if (el.height) {
+        ret.push(`${el.height}h`);
+      }
+
+      if (el.density) {
+        ret.push(`${el.density}x`);
+      }
+
+      return ret.join(' ');
+    })
+    .join(', ');
 };

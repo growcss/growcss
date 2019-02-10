@@ -1,15 +1,15 @@
 import styled from 'styled-components';
-import { mediaquery, Breakpoints } from '@growcss/elaborate';
+import { mediaquery } from '@growcss/elaborate';
+import { GrowCssTheme, getThemeValue } from '@growcss/theme';
 import { CellStatic } from '../utils/cell-static';
 import { CellBase } from '../utils/cell-base';
 import { CellOffset } from '../utils/cell-offset';
 import { CellElementAlign } from '../utils/flex-align';
-import { GuttersProps } from '../../types';
 
 type GutterCssProps = {
-  gutterSizes: GuttersProps;
   gutterType: string | undefined;
   vertical: boolean;
+  theme: GrowCssTheme;
 };
 
 /**
@@ -20,25 +20,29 @@ type GutterCssProps = {
 const BreakpointGutterCss = (props: GutterCssProps): string[] => {
   let breakpoints: string[] = [];
   let lastBreakpoint;
+  const { theme, vertical } = props;
+  const gutterType = props.gutterType || 'padding';
+  const gutterSizes = getThemeValue(`grid.${gutterType}Gutters`)(theme);
+  const globalBreakpoints = getThemeValue('global.breakpoints')(theme);
 
-  for (const breakpoint in Breakpoints) {
+  for (const breakpoint in globalBreakpoints) {
     if (
       props[breakpoint] !== undefined &&
       typeof props[breakpoint] === 'number' &&
       props[breakpoint] !== 0
     ) {
-      if (props.gutterSizes[breakpoint] !== undefined) {
+      if (gutterSizes[breakpoint] !== undefined) {
         lastBreakpoint = breakpoint;
       }
 
       breakpoints = breakpoints.concat(
         mediaquery(breakpoint)`${CellStatic(
+          gutterSizes,
           props[breakpoint],
           props.gutterType !== undefined,
-          props.gutterSizes,
-          props.gutterType || 'padding',
+          gutterType,
           lastBreakpoint,
-          props.vertical,
+          vertical,
         )}`,
       );
     }
@@ -53,17 +57,21 @@ const BreakpointGutterCss = (props: GutterCssProps): string[] => {
 
 const CellOffsetCss = (props): string[] => {
   const css: string[] = [];
+  const { theme, vertical } = props;
+  const globalBreakpoints = getThemeValue('global.breakpoints')(theme);
+  const gutterType = props.gutterType || 'padding';
+  const gutterSizes = getThemeValue(`grid.${gutterType}Gutters`)(theme);
 
-  for (const breakpoint in Breakpoints) {
+  for (const breakpoint in globalBreakpoints) {
     if (props[`${breakpoint}Offset`] !== undefined) {
       css.push(
         CellOffset(
           props[`${breakpoint}Offset`],
           breakpoint,
-          props.gutterType || 'padding',
-          props.vertical,
+          gutterSizes,
+          gutterType,
+          vertical,
           false,
-          props.gutterSizes,
         ),
       );
     }
@@ -79,32 +87,37 @@ type ResponsiveCellCssProps = {
 
 const ResponsiveCellCss = (props: ResponsiveCellCssProps): string[] => {
   let css: string[] = [];
+  const { theme, vertical, cellType, gridColumns } = props;
   const types = ['auto', 'full', 'grow', 'shrink'];
   const hasGutterType = props.gutterType !== undefined;
+  const gutterType = props.gutterType || 'padding';
+  const gutterSizes = getThemeValue(`grid.${gutterType}Gutters`)(theme);
+  const globalBreakpoints = getThemeValue('global.breakpoints')(theme);
+  const gutterBreakpoint = getThemeValue('global.gutterBreakpoint')(theme);
 
-  css.push(CellBase(props.cellType || 'full'));
+  css.push(CellBase(cellType || 'full'));
   css = css.concat(
     CellStatic(
-      props.cellType || props.gridColumns,
+      gutterSizes,
+      cellType || gridColumns,
       hasGutterType,
-      props.gutterSizes,
-      props.gutterType || 'padding',
-      'small',
-      props.vertical,
+      gutterType,
+      gutterBreakpoint,
+      vertical,
     ),
   );
 
-  for (const breakpoint in Breakpoints) {
+  for (const breakpoint in globalBreakpoints) {
     if (typeof props[breakpoint] === 'string' && types.includes(props[breakpoint])) {
       css = css.concat(mediaquery(breakpoint)`
         ${CellBase(props[breakpoint])}
         ${CellStatic(
+          gutterSizes,
           props[breakpoint],
           hasGutterType,
-          props.gutterSizes,
-          props.gutterType || 'padding',
-          'small',
-          props.vertical,
+          gutterType,
+          gutterBreakpoint,
+          vertical,
         )}
       `);
     }

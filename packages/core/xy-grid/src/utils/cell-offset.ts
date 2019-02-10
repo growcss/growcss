@@ -5,19 +5,18 @@ import {
   MediaQueryOptionsProps,
   MediaQueryOptions,
 } from '@growcss/elaborate';
-import { Gutters as DefaultGutters } from '../components/gutters';
 import { CellSize } from './cell-size';
 import { GuttersProps } from '../../types';
 
 /**
  * Creates a single breakpoint sized grid.
  *
- * @param {string | number}        size               - The size of your cell. Can be `full` (default) for 100% width, `auto` to use up available space and `shrink` to use up only required space.
- * @param {string}                 breakpoint         - The name of the breakpoint size in your gutters array to get the size from.
- * @param {string}                 gutterType         - The gutter type padding or margin.
- * @param {boolean}                vertical           - Set to true to output vertical (height) styles rather than widths.
- * @param {boolean}                rtl                - - - - - - Array of gutter values.
+ * @param {string | number}        size               The size of your cell. Can be `full` (default) for 100% width, `auto` to use up available space and `shrink` to use up only required space.
+ * @param {string}                 breakpoint         The name of the breakpoint size in your gutters array to get the size from.
  * @param {GuttersProps}           gutters            Array of gutter values.
+ * @param {string}                 gutterType         The gutter type padding or margin.
+ * @param {boolean}                vertical           Set to true to output vertical (height) styles rather than widths.
+ * @param {boolean}                rtl                Array of gutter values.
  * @param {MediaQueryOptionsProps} mediaQueryOptions  Object of media query options.
  *
  * @return {Array<string>}
@@ -25,10 +24,10 @@ import { GuttersProps } from '../../types';
 export const CellOffset = (
   size: number | string,
   breakpoint: string,
+  gutters: GuttersProps,
   gutterType: string = 'margin',
   vertical: boolean = false,
   rtl: boolean = false,
-  gutters: GuttersProps = DefaultGutters,
   mediaQueryOptions: MediaQueryOptionsProps = MediaQueryOptions,
 ): string => {
   let direction;

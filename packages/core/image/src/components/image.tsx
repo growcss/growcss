@@ -1,140 +1,52 @@
 import * as React from 'react';
 import classNames from 'classnames';
 // eslint-disable-next-line no-unused-vars
-import { ThemedStyledProps, withTheme } from 'styled-components';
+import { withTheme } from 'styled-components';
 // eslint-disable-next-line no-unused-vars
-import { GrowCssTheme, getThemeValue } from '@growcss/theme';
+import { getThemeValue } from '@growcss/theme';
+import { stripUnit } from '@growcss/elaborate';
 import { AspectRatioPlaceholder } from '../styled/aspect-ratio-placeholder';
 import { FigureElement } from '../styled/figure-element';
 import { ImageElement } from '../styled/image-element';
-import { PreviewElement } from '../styled/preview-element';
+import { PlaceholderElement } from '../styled/placeholder-element';
 import { StateType } from '../states';
-import { ImageType } from '../../types';
-import parseSrcset, { CandidateProps } from './srcset-parser';
+import { ImageProps } from '../../types';
+import { parseSrcSet, srcSetStringify, CandidateProps } from './helper/srcset-parser';
+import { getDimension } from './helper/get-dimension';
+import { filterLarge } from './helper/filter-large';
+import { filterSmall } from './helper/filter-small';
+import { isNativeConnection } from './helper/is-native-connection';
+
+// Cache if we've seen an image before so we don't both with
+// lazy-loading & fading in on subsequent mounts.
+const imageCache = {};
+
+const inImageCache = props => {
+  const { src } = props;
+
+  return imageCache[src] || false;
+};
+
+const activateCacheForImage = props => {
+  const { src } = props;
+
+  imageCache[src] = true;
+};
 
 interface DefaultImageProps {
-  afterLoad: Function;
-  beforeLoad: Function;
-  useElementDim: boolean;
+  onLoad: () => void;
+  onError: () => void;
+  onStartLoad: ({}) => void;
   preload: boolean;
 }
 
-type PropsWithDefaults = ImageType &
-  DefaultImageProps &
-  ThemedStyledProps<{}, GrowCssTheme>;
+type PropsWithDefaults = ImageProps & DefaultImageProps;
 
-/**
- * Filter out disqualified items less than the refVal.
- *
- * @param arr
- * @param attr
- * @param refVal
- */
-const filterLarge = (arr, attr, refVal): object[] => {
-  if (arr.length < 2) {
-    return arr;
-  }
-
-  let largest = false;
-
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i][attr]) {
-      if (!largest || largest[attr] < arr[i][attr]) {
-        largest = arr[i];
-      }
-    }
-  }
-
-  if (!largest) {
-    return arr;
-  }
-
-  const filtered = [];
-
-  for (let i = 0; i < arr.length; i++) {
-    if (!arr[i][attr] || arr[i][attr] >= refVal) {
-      filtered.push(arr[i]);
-    }
-  }
-
-  if (filtered.length === 0) {
-    filtered.push(largest);
-  }
-
-  return filtered;
-};
-
-/**
- * filter to the smallest items of a dimension
- *
- * @param arr
- * @param attr
- */
-const filterSmall = (arr, attr): object[] => {
-  if (arr.length < 2) {
-    return arr;
-  }
-  let smallest = false;
-
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i][attr]) {
-      if (!smallest || smallest[attr] > arr[i][attr]) {
-        smallest = arr[i];
-      }
-    }
-  }
-
-  if (!smallest) {
-    return arr;
-  }
-
-  const filtered = [];
-
-  for (let i = 0; i < arr.length; i++) {
-    if (!arr[i][attr] || arr[i][attr] <= smallest[attr]) {
-      filtered.push(arr[i]);
-    }
-  }
-
-  return filtered;
-};
-
-/**
- * Converts a srcset array to a srcset string.
- *
- * @param arr {Array<Isrcset>} srcset array
- */
-const srcSetStringify = (arr): string => {
-  return arr
-    .map(el => {
-      if (!el.url) {
-        throw new Error('URL is required.');
-      }
-
-      const ret = [el.url];
-
-      if (el.width) {
-        ret.push(`${el.width}w`);
-      }
-
-      if (el.height) {
-        ret.push(`${el.height}h`);
-      }
-
-      if (el.density) {
-        ret.push(`${el.density}x`);
-      }
-
-      return ret.join(' ');
-    })
-    .join(', ');
-};
-
-class ExtendedImage extends React.Component<ImageType, StateType> {
+class ExtendedImage extends React.Component<ImageProps, StateType> {
   public static defaultProps: DefaultImageProps = {
-    afterLoad: () => ({}),
-    beforeLoad: () => ({}),
-    useElementDim: false,
+    onLoad: () => {},
+    onError: () => {},
+    onStartLoad: () => {},
     preload: false,
   };
 
@@ -151,9 +63,16 @@ class ExtendedImage extends React.Component<ImageType, StateType> {
   /**
    * The alt of the img.
    *
+   * @param {string|undefined} alt
+   */
+  private readonly alt?: string;
+
+  /**
+   * The placeholder img url.
+   *
    * @param {string|undefined} src
    */
-  private readonly alt: string | undefined;
+  private readonly placeholder?: string;
 
   /**
    * @param {HTMLImageElement} imgElement
@@ -166,11 +85,11 @@ class ExtendedImage extends React.Component<ImageType, StateType> {
   private webpRegex;
 
   /**
-   * The first found img url.
+   * The img url.
    *
-   * @param {string|undefined} src
+   * @param {string} src
    */
-  private src: string | undefined;
+  private src: string;
 
   /**
    * @param {PropsWithDefaults} props
@@ -180,53 +99,80 @@ class ExtendedImage extends React.Component<ImageType, StateType> {
 
     this.webpRegex = /.+\.webp$/i;
 
-    const { srcSet, src, alt, theme } = props as PropsWithDefaults;
+    const { srcSet, src, alt, placeholder, theme } = props as PropsWithDefaults;
 
     this.alt = alt;
-    this.src = src;
+    this.src = src || '';
     this.srcArray =
       srcSet && srcSet.length > 1
-        ? parseSrcset(srcSet, theme.image.breakpoints || {})
+        ? parseSrcSet(srcSet, theme.image.breakpoints || {})
         : [];
+
+    this.placeholder = placeholder;
+
+    if (this.placeholder === undefined) {
+      const smallImages = filterSmall(
+        filterSmall(filterSmall(this.srcArray, 'width'), 'height'),
+        'density',
+      );
+      this.placeholder = smallImages.length !== 0 ? smallImages[0].url : undefined;
+    }
+
+    // If this image has already been loaded before then we can assume it's
+    // already in the browser cache so it's cheap to just show directly.
+    const seenBefore = inImageCache(props);
 
     this.hasWebp =
       this.srcArray.filter(srcItem => {
         return this.webpRegex.test(srcItem.url);
       }).length > 0;
 
-    this.state = { imageLoaded: false };
-  }
+    this.state = {
+      loadState: 'initial',
+      possiblySlowNetwork: false,
+      seenBefore,
+    };
 
-  public componentDidUpdate(prevProps, prevState) {
-    const { imageLoaded } = this.state;
-
-    if (prevState.visible !== imageLoaded) {
-      const { afterLoad } = this.props as DefaultImageProps;
-
-      afterLoad();
-    }
+    this.updateConnection = this.updateConnection.bind(this);
+    this.possiblySlowNetworkListener = this.possiblySlowNetworkListener.bind(this);
   }
 
   public componentDidMount() {
-    const { beforeLoad, preload, useElementDim } = this.props as DefaultImageProps;
+    const { onStartLoad, preload, threshold, src } = this.props as DefaultImageProps &
+      ImageProps;
+    const { seenBefore } = this.state;
 
-    if (this.src !== undefined) {
+    if (seenBefore) {
+    }
+
+    if (isNativeConnection) {
+      navigator.connection.addEventListener('onchange', this.updateConnection);
+    } else if (threshold !== undefined) {
+      window.document.addEventListener(
+        'possiblySlowNetwork',
+        this.possiblySlowNetworkListener,
+      );
+    }
+
+    if (this.src !== '') {
       this.srcArray.push({ url: this.src });
     }
 
     // webp filtering promise
     this.checkBrowserWebpSupport(this.srcArray).then(srcArray => {
       const selectedImgUrl =
-        this.srcArray.length > 0
-          ? this.bestMatchingImage(srcArray, useElementDim)
-          : this.src;
+        this.srcArray.length > 0 ? this.bestMatchingImage(srcArray) : this.src;
 
       if (!this.src || this.src !== selectedImgUrl) {
         this.src = selectedImgUrl;
       }
 
+      onStartLoad({ wasCached: inImageCache(src) });
+
+      this.setState({ loadState: 'loading' });
+
       if (preload) {
-        this.preLoad(beforeLoad);
+        this.preLoad();
       } else {
         this.imgElement.src = this.src;
 
@@ -237,32 +183,42 @@ class ExtendedImage extends React.Component<ImageType, StateType> {
     });
   }
 
+  public componentWillUnmount() {
+    const { threshold } = this.props;
+
+    if (isNativeConnection) {
+      navigator.connection.removeEventListener('onchange', this.updateConnection);
+    } else if (threshold) {
+      window.document.removeEventListener(
+        'possiblySlowNetwork',
+        this.possiblySlowNetworkListener,
+      );
+    }
+  }
+
   public render() {
-    const {
-      children,
-      previewImage,
-      height,
-      width,
-      crossOrigin,
-      preload,
-      theme,
-    } = this.props;
-    const { imageLoaded } = this.state;
+    const { children, height, width, crossOrigin, preload, theme } = this.props;
+    const { loadState } = this.state;
     const defaultSvgPlaceholder = `<svg xmlns='http://www.w3.org/2000/svg' width='1' height='1'><rect width='1' height='1' fill='${getThemeValue(
-      'image.previewBackgroundColor',
+      'image.placeholderBackgroundColor',
     )(theme)}'/></svg>`;
+
+    let { height: dHeight, width: dWidth } = getDimension();
+
+    if (height !== undefined && width !== undefined) {
+      dHeight = stripUnit(height);
+      dWidth = stripUnit(width);
+    }
 
     return (
       <FigureElement className="gc-image">
         <AspectRatioPlaceholder>
-          {height !== undefined && width !== undefined && (
-            <div style={{ paddingBottom: `${(height / width) * 100}%` }} />
-          )}
+          <div style={{ paddingBottom: `${(dHeight / dWidth) * 100}%` }} />
           {preload && (
-            <PreviewElement
-              className="preview"
+            <PlaceholderElement
+              className="placeholder"
               src={
-                previewImage ||
+                this.placeholder ||
                 `data:image/svg+xml;base64,${btoa(defaultSvgPlaceholder)}`
               }
               crossOrigin="anonymous"
@@ -271,7 +227,7 @@ class ExtendedImage extends React.Component<ImageType, StateType> {
           )}
           <ImageElement
             className={classNames({
-              loaded: imageLoaded && preload,
+              loaded: loadState === 'loaded' && preload,
               preload,
             })}
             ref={(img: HTMLImageElement) => {
@@ -286,12 +242,45 @@ class ExtendedImage extends React.Component<ImageType, StateType> {
     );
   }
 
+  public updateConnection() {
+    if (!navigator.onLine) {
+      return;
+    }
+
+    const { loadState } = this.state;
+
+    if (loadState === 'initial') {
+      this.setState({
+        connection: {
+          effectiveType: navigator.connection.effectiveType,
+          downlink: navigator.connection.downlink,
+          rtt: navigator.connection.rtt,
+        },
+      });
+    }
+  }
+
+  public possiblySlowNetworkListener(erorr) {
+    const { loadState, possiblySlowNetwork: statePossiblySlowNetwork } = this.state;
+
+    if (loadState !== 'initial') {
+      return;
+    }
+
+    const { possiblySlowNetwork } = erorr.detail;
+
+    if (!statePossiblySlowNetwork && possiblySlowNetwork) {
+      this.setState({ possiblySlowNetwork });
+    }
+  }
+
   /**
+   * When `true`, any change to the `src` property will cause the
+   * `placeholder` image to be shown until the new image has loaded.
    *
-   *
-   * @param {function} beforeLoad
+   * @returns void
    */
-  private preLoad(beforeLoad: () => void): void {
+  private preLoad(): void {
     const imageInstance = new Image();
 
     imageInstance.src = this.src;
@@ -301,15 +290,16 @@ class ExtendedImage extends React.Component<ImageType, StateType> {
     }
 
     imageInstance.addEventListener('load', () => {
-      beforeLoad();
-
-      this.setState({ imageLoaded: true });
+      this.setState({ loadState: 'loaded' });
 
       this.imgElement.src = this.src;
 
       if (this.srcArray.length !== 0) {
         this.imgElement.srcset = srcSetStringify(this.srcArray);
       }
+    });
+    imageInstance.addEventListener('error', () => {
+      this.setState({ loadState: 'error' });
     });
   }
 
@@ -382,9 +372,8 @@ class ExtendedImage extends React.Component<ImageType, StateType> {
    * Get best image from srcset
    *
    * @param {Array<Isrcset>} arr srcset array
-   * @param {boolean} useElementDim srcset array
    */
-  private bestMatchingImage(arr, useElementDim: boolean) {
+  private bestMatchingImage(arr) {
     let densityMultiplier = 1;
 
     // Check if denisty is provided in srcset
@@ -401,28 +390,7 @@ class ExtendedImage extends React.Component<ImageType, StateType> {
       densityMultiplier = window.devicePixelRatio || 1.0;
     }
 
-    // reference dimensions
-    const refDim = useElementDim
-      ? {
-          width:
-            (window.innerWidth || document.documentElement.clientWidth) *
-            densityMultiplier,
-          height:
-            (window.innerHeight || document.documentElement.clientHeight) *
-            densityMultiplier,
-          // When no density is provided densityMultiplier is used and density filter can be set to 1, otherwise use devicePixelRatio
-          density: !hasDensity ? 1 : window.devicePixelRatio || 1.0,
-        }
-      : {
-          width:
-            (window.innerWidth || document.documentElement.clientWidth) *
-            densityMultiplier,
-          height:
-            (window.innerHeight || document.documentElement.clientHeight) *
-            densityMultiplier,
-          // When no density is provided densityMultiplier is used and density filter can be set to 1, otherwise use devicePixelRatio
-          density: !hasDensity ? 1 : window.devicePixelRatio || 1.0,
-        };
+    const refDim = getDimension();
 
     let filtered = this.src
       ? arr.concat([
@@ -432,9 +400,13 @@ class ExtendedImage extends React.Component<ImageType, StateType> {
         ])
       : arr;
     filtered = filterLarge(
-      filterLarge(filterLarge(filtered, 'width', refDim.width), 'height', refDim.height),
+      filterLarge(
+        filterLarge(filtered, 'width', refDim.width * densityMultiplier),
+        'height',
+        refDim.height * densityMultiplier,
+      ),
       'density',
-      refDim.density,
+      !hasDensity ? 1 : window.devicePixelRatio || 1.0, // When no density is provided densityMultiplier is used and density filter can be set to 1, otherwise use devicePixelRatio
     );
     filtered = filterSmall(
       filterSmall(filterSmall(filtered, 'width'), 'height'),
