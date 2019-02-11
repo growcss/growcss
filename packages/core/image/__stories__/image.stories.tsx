@@ -36,6 +36,16 @@ storiesOf('Core.Image', module)
       srcSet="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/150x/mountain.jpg 150w, https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/405x/mountain.jpg 405w, https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/1024x/mountain.jpg 1024w, https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/1024x/mountain.jpg 500w 750h"
     />
   ))
+  .add('Image with srcset with webp', () => (
+    <Image
+      alt="test"
+      width={1024}
+      height={256}
+      preload
+      src={"https://www.gstatic.com/webp/gallery/1.sm.jpg"}
+      srcSet={"https://www.gstatic.com/webp/gallery/1.webp"}
+    />
+  ))
   .add('Image with a preview url', () => (
     <Image
       width={1024}

@@ -16,6 +16,7 @@ import { getDimension } from './helper/get-dimension';
 import { filterLarge } from './helper/filter-large';
 import { filterSmall } from './helper/filter-small';
 import { isNativeConnection } from './helper/is-native-connection';
+import {RefObject} from 'react';
 
 // Cache if we've seen an image before so we don't both with
 // lazy-loading & fading in on subsequent mounts.
@@ -53,7 +54,12 @@ class ExtendedImage extends React.Component<ImageProps, StateType> {
   /**
    * @param {Array<CandidateProps>} srcArray
    */
-  private readonly srcArray: CandidateProps[];
+  private srcArray: CandidateProps[];
+
+  /**
+   * @param {Array<CandidateProps>} srcArray
+   */
+  private srcWebpArray: CandidateProps[];
 
   /**
    * @param {boolean} hasWebp
@@ -75,9 +81,9 @@ class ExtendedImage extends React.Component<ImageProps, StateType> {
   private readonly placeholder?: string;
 
   /**
-   * @param {HTMLImageElement} imgElement
+   * @param {RefObject<HTMLImageElement>} imgElement
    */
-  private imgElement: HTMLImageElement;
+  private imageRef: RefObject<HTMLImageElement>;
 
   /**
    * @param {RegExp} webpRegex
@@ -118,6 +124,8 @@ class ExtendedImage extends React.Component<ImageProps, StateType> {
       this.placeholder = smallImages.length !== 0 ? smallImages[0].url : undefined;
     }
 
+    this.imageRef = React.createRef();
+
     // If this image has already been loaded before then we can assume it's
     // already in the browser cache so it's cheap to just show directly.
     const seenBefore = inImageCache(props);
@@ -131,10 +139,13 @@ class ExtendedImage extends React.Component<ImageProps, StateType> {
       loadState: 'initial',
       possiblySlowNetwork: false,
       seenBefore,
+      // if webp has previously been detected, use the prior detection
+      supportsWebp: typeof window.GCImage !== 'undefined' && window.GCImage.supports,
     };
 
     this.updateConnection = this.updateConnection.bind(this);
     this.possiblySlowNetworkListener = this.possiblySlowNetworkListener.bind(this);
+    this.handleImageLoaded = this.handleImageLoaded.bind(this);
   }
 
   public componentDidMount() {
@@ -154,33 +165,36 @@ class ExtendedImage extends React.Component<ImageProps, StateType> {
       );
     }
 
+    this.checkBrowserWebpSupport();
+
+    this.srcWebpArray = this.filterWebp(this.srcArray, true);
+    this.srcArray     = this.filterWebp(this.srcArray, false);
+
+    const srcArray = this.srcArray;
+
     if (this.src !== '') {
-      this.srcArray.push({ url: this.src });
+      srcArray.push({ url: this.src });
     }
 
-    // webp filtering promise
-    this.checkBrowserWebpSupport(this.srcArray).then(srcArray => {
-      const selectedImgUrl =
-        this.srcArray.length > 0 ? this.bestMatchingImage(srcArray) : this.src;
+    const selectedImgUrl = srcArray.length > 0 ? this.bestMatchingImage(srcArray) : this.src;
 
-      if (!this.src || this.src !== selectedImgUrl) {
-        this.src = selectedImgUrl;
+    if (!this.src || this.src !== selectedImgUrl) {
+      this.src = selectedImgUrl;
+    }
+
+    onStartLoad({ wasCached: inImageCache(src) });
+
+    this.setState({ loadState: 'loading' });
+
+    if (preload) {
+      this.preLoad();
+    } else {
+      this.imgElement.src = this.src;
+
+      if (this.srcArray.length !== 0) {
+        this.imgElement.srcset = srcSetStringify(this.srcArray);
       }
-
-      onStartLoad({ wasCached: inImageCache(src) });
-
-      this.setState({ loadState: 'loading' });
-
-      if (preload) {
-        this.preLoad();
-      } else {
-        this.imgElement.src = this.src;
-
-        if (this.srcArray.length !== 0) {
-          this.imgElement.srcset = srcSetStringify(this.srcArray);
-        }
-      }
-    });
+    }
   }
 
   public componentWillUnmount() {
@@ -196,9 +210,21 @@ class ExtendedImage extends React.Component<ImageProps, StateType> {
     }
   }
 
+  public handleImageLoaded() {
+    activateCacheForImage(this.props);
+
+    this.setState({ loadState: 'loaded' });
+
+    const { onLoad } = this.props;
+
+    if (onLoad !== undefined) {
+      onLoad();
+    }
+  }
+
   public render() {
     const { children, height, width, crossOrigin, preload, theme } = this.props;
-    const { loadState } = this.state;
+    const { loadState, supportsWebp } = this.state;
     const defaultSvgPlaceholder = `<svg xmlns='http://www.w3.org/2000/svg' width='1' height='1'><rect width='1' height='1' fill='${getThemeValue(
       'image.placeholderBackgroundColor',
     )(theme)}'/></svg>`;
@@ -231,16 +257,19 @@ class ExtendedImage extends React.Component<ImageProps, StateType> {
               preload,
             })}
           >
-            <source
+            {supportsWebp && (<source
               type={`image/webp`}
-              srcSet={image.srcSetWebp}
-              sizes={image.sizes}
-            />
-            <source srcSet={image.srcSet} sizes={image.sizes} />
+              srcSet={srcSetStringify(this.srcWebpArray)}
+              // sizes={image.sizes}
+            />)}
+            {this.srcArray.length !== 0 && (<source
+              srcSet={srcSetStringify(this.srcArray)}
+              // sizes={image.sizes}
+            />)}
             <img
-              ref={(img: HTMLImageElement) => {
-                this.imgElement = img;
-              }}
+              src={this.src}
+              ref={this.imageRef}
+              onLoad={this.handleImageLoaded}
               alt={this.alt}
               crossOrigin={crossOrigin}
             />
@@ -317,47 +346,29 @@ class ExtendedImage extends React.Component<ImageProps, StateType> {
    * browser supports webp. Returns a filtered copy of the srcset
    * array depending on support.
    *
-   * @param srcArray
-   *
-   * @return Promise of filtered source set array.
+   * @returns void
    */
-  private checkBrowserWebpSupport(srcArray) {
-    return new Promise(resolve => {
-      // if there are no webp images in the srcArray, we do not need to detect support
-      if (!this.hasWebp) {
-        resolve(srcArray);
-      } else {
-        // if webp has previously been detected, use the prior detection
-        if (typeof window.GCImage !== 'undefined') {
-          resolve(this.filterWebp(srcArray, window.GCImage.supports));
+  private checkBrowserWebpSupport() {
+    // if there are no webp images in the srcArray, we do not need to detect support
+    if (! this.hasWebp || this.state.supportsWebp) {
+      return;
+    }
 
-          return;
-        }
-        // support has not been previously detected so
-        // do a new test for webp support
-        const webpImg = new Image();
+    // support has not been previously detected so
+    // do a new test for webp support
+    const webpImg = new Image();
 
-        webpImg.addEventListener('load', () => {
-          const result = webpImg.width > 0 && webpImg.height > 0;
+    webpImg.src =
+      'data:image/webp;base64,UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==';
 
-          window.GCImage = {
-            supports: result,
-          };
+    webpImg.addEventListener('load', () => {
+      const result = webpImg.width > 0 && webpImg.height > 0;
 
-          resolve(this.filterWebp(srcArray, result));
-        });
+      window.GCImage = {
+        supports: result,
+      };
 
-        webpImg.addEventListener('error', () => {
-          window.GCImage = {
-            supports: false,
-          };
-
-          resolve(this.filterWebp(srcArray, false));
-        });
-
-        webpImg.src =
-          'data:image/webp;base64,UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==';
-      }
+      this.setState({ supportsWebp: result });
     });
   }
 
@@ -366,21 +377,21 @@ class ExtendedImage extends React.Component<ImageProps, StateType> {
    * including only webp images if supports is true,
    * or only non webp images if supports is false.
    *
-   * @param {Array}   srcArray
-   * @param {boolean} supports Indicates if the browser supports webp.
+   * @param {Array<CandidateProps>} srcArray
+   * @param {boolean}               supports Indicates if the browser supports webp.
    *
-   * @returns Filtered source set array.
+   * @returns Array<CandidateProps> filtered source set array.
    */
-  private filterWebp(srcArray, supports) {
-    return srcArray.filter(srcitem => {
-      return this.webpRegex.test(srcitem.url) === supports;
+  private filterWebp(srcArray: Array<CandidateProps>, supports: boolean) {
+    return srcArray.filter(srcItem => {
+      return this.webpRegex.test(srcItem.url) === supports;
     });
   }
 
   /**
    * Get best image from srcset
    *
-   * @param {Array<Isrcset>} arr srcset array
+   * @param {Array<CandidateProps>} arr srcset array
    */
   private bestMatchingImage(arr) {
     let densityMultiplier = 1;

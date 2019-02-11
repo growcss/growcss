@@ -7,4 +7,5 @@ export type StateType = {
   };
   possiblySlowNetwork: boolean;
   seenBefore: boolean;
+  supportsWebp: boolean;
 };

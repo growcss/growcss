@@ -14,7 +14,7 @@ export interface ImageProps
   preload?: boolean;
   threshold?: number;
   scrollPosition?: number;
-  onLoad?: ({}) => void;
+  onLoad?: () => void;
   onError?: () => void;
-  onStartLoad?: () => void;
+  onStartLoad?: ({}) => void;
 }
