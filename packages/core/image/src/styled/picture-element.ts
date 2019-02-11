@@ -11,7 +11,7 @@ const animation = keyframes`
   }
 `;
 
-export const ImageElement = styled.img`
+export const PictureElement = styled.picture`
   position: absolute;
   top: 0;
   left: 0;

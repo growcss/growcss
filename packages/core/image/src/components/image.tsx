@@ -7,7 +7,7 @@ import { getThemeValue } from '@growcss/theme';
 import { stripUnit } from '@growcss/elaborate';
 import { AspectRatioPlaceholder } from '../styled/aspect-ratio-placeholder';
 import { FigureElement } from '../styled/figure-element';
-import { ImageElement } from '../styled/image-element';
+import { PictureElement } from '../styled/picture-element';
 import { PlaceholderElement } from '../styled/placeholder-element';
 import { StateType } from '../states';
 import { ImageProps } from '../../types';
@@ -213,7 +213,7 @@ class ExtendedImage extends React.Component<ImageProps, StateType> {
     return (
       <FigureElement className="gc-image">
         <AspectRatioPlaceholder>
-          <div style={{ paddingBottom: `${(dHeight / dWidth) * 100}%` }} />
+          <div style={{ width: '100%', paddingBottom: `${(dHeight / dWidth) * 100}%` }} />
           {preload && (
             <PlaceholderElement
               className="placeholder"
@@ -225,17 +225,26 @@ class ExtendedImage extends React.Component<ImageProps, StateType> {
               alt={this.alt}
             />
           )}
-          <ImageElement
+          <PictureElement
             className={classNames({
               loaded: loadState === 'loaded' && preload,
               preload,
             })}
-            ref={(img: HTMLImageElement) => {
-              this.imgElement = img;
-            }}
-            alt={this.alt}
-            crossOrigin={crossOrigin}
-          />
+          >
+            <source
+              type={`image/webp`}
+              srcSet={image.srcSetWebp}
+              sizes={image.sizes}
+            />
+            <source srcSet={image.srcSet} sizes={image.sizes} />
+            <img
+              ref={(img: HTMLImageElement) => {
+                this.imgElement = img;
+              }}
+              alt={this.alt}
+              crossOrigin={crossOrigin}
+            />
+          </PictureElement>
         </AspectRatioPlaceholder>
         {children}
       </FigureElement>
