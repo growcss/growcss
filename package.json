@@ -100,7 +100,7 @@
     "@types/react-dom": "16.8.0",
     "@types/storybook__addon-options": "4.0.0",
     "@types/storybook__react": "4.0.0",
-    "@types/styled-components": "4.1.8",
+    "@types/styled-components": "4.1.9",
     "@types/warning": "3.0.0",
     "airbnb-browser-shims": "3.1.0",
     "babel-core": "7.0.0-bridge.0",
