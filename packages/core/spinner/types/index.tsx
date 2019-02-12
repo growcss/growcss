@@ -1,3 +1,6 @@
+import { ThemedStyledProps } from 'styled-components';
+import { GrowCssTheme } from '@growcss/theme';
+
 export interface AnimationProps {
   /**
    * The spinner color.
@@ -23,15 +26,11 @@ export interface AnimationProps {
   isCompleting: boolean;
 }
 
-export interface SpinnerProps {
+export interface SpinnerProps extends ThemedStyledProps<{}, GrowCssTheme> {
   /**
    * Configure a new animation style.
    */
   animation?: string;
-  /**
-   * The spinner color.
-   */
-  color?: string;
   /**
    * Time in milliseconds after component mount before spinner is visible.
    */
@@ -43,7 +42,7 @@ export interface SpinnerProps {
   /**
    * Whether the process is complete and the spinner should leave
    */
-  isCompleting: boolean;
+  isCompleting?: boolean;
 }
 
 export interface SpinnerState {

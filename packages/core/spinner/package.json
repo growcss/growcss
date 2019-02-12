@@ -27,16 +27,17 @@
   "browser": "dist/umd/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "cross-env PACKAGE_PATH=core/image rollup -c ../../../build/rollup.config.js"
+    "build": "cross-env PACKAGE_PATH=core/spinner rollup -c ../../../build/rollup.config.js"
   },
   "dependencies": {
+    "@growcss/theme": "^1.0.0",
     "@popmotion/easing": "1.0.1"
   },
   "peerDependencies": {
-    "react": "^16.8.0-alpha",
-    "react-dom": "^16.8.0-alpha",
-    "react-pose": "^4.0.6",
-    "styled-components": "^4.0.1"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "styled-components": "^4.0.1",
+    "react-pose": "^4.0.6"
   },
   "engines": {
     "node": "^10.14.0 || ^11.3.0"
