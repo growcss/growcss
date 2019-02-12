@@ -3,10 +3,10 @@ import stripUnit from './strip-unit';
 /**
  * Converts a pixel value to matching rem value. *Any* value passed, regardless of unit.
  *
- * @param {number|string|string[] | number[]} value Value to convert.
- * @param {number|string}                     base  Base for pixel conversion.
+ * @param {number|string|string[] | number[]} value - Value to convert.
+ * @param {number|string}                     base  - Base for pixel conversion.
  *
- * @return {string} A number in rems, calculated based on the given value and the base pixel value. rem values are passed through as is.
+ * @return {string} A number in rems, calculated based on the given value and the base pixel value. Rem values are passed through as is.
  */
 export default function(
   value: number | string | string[] | number[],
