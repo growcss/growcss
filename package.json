@@ -173,7 +173,7 @@
     "@commitlint/config-lerna-scopes": "7.5.1",
     "@commitlint/prompt": "7.5.0",
     "@hot-loader/react-dom": "16.8.1",
-    "@lerna/changed": "3.11.0",
+    "@lerna/changed": "3.11.1",
     "@microsoft/api-extractor": "6.3.0",
     "@semantic-release/changelog": "3.0.2",
     "@semantic-release/commit-analyzer": "7.0.0-beta-.2",
