@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { ThemedStyledProps } from 'styled-components';
+import { GrowCssTheme } from '@growcss/theme';
 
 export interface GuttersProps {
   [key: string]: string | number;
@@ -13,9 +15,10 @@ export interface GridProps {
   alignY?: string;
 }
 
-export interface CellProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface CellProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    ThemedStyledProps<{}, GrowCssTheme> {
   children: React.ReactNode;
-  gridColumns?: number;
   vertical?: boolean;
   gutterSizes?: GuttersProps;
   cellType?: string;
@@ -39,9 +42,9 @@ export interface CellBreakpointsProps {
   xxlarge?: number | string;
 }
 
-export interface GridContainerProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface GridContainerProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    ThemedStyledProps<{}, GrowCssTheme> {
   children: React.ReactNode;
   type?: string;
-  width?: string | number;
-  gutterSizes?: string | number | GuttersProps;
 }

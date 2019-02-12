@@ -2,10 +2,11 @@ import * as React from 'react';
 import 'jest-styled-components';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
+import { GrowCss } from '@growcss/theme';
 import Cell from '../src/components/cell';
 
 test('cell base layout', () => {
-  const container = <Cell>test</Cell>;
+  const container = <Cell theme={GrowCss}>test</Cell>;
   const tree = renderer.create(container).toJSON();
 
   expect(shallow(container)).toMatchSnapshot();
@@ -17,7 +18,7 @@ test('cell base layout', () => {
 
 test('cell auto layout with padding gutter', () => {
   const container = (
-    <Cell cellType="auto" gutterType="padding">
+    <Cell theme={GrowCss} cellType="auto" gutterType="padding">
       test
     </Cell>
   );
@@ -33,7 +34,7 @@ test('cell auto layout with padding gutter', () => {
 
 test('cell auto layout with margin gutter', () => {
   const container = (
-    <Cell cellType="auto" gutterType="margin">
+    <Cell theme={GrowCss} cellType="auto" gutterType="margin">
       test
     </Cell>
   );
@@ -47,7 +48,11 @@ test('cell auto layout with margin gutter', () => {
 });
 
 test('cell shrink layout', () => {
-  const container = <Cell cellType="shrink">test</Cell>;
+  const container = (
+    <Cell theme={GrowCss} cellType="shrink">
+      test
+    </Cell>
+  );
   const tree = renderer.create(container).toJSON();
 
   expect(shallow(container)).toMatchSnapshot();
@@ -58,7 +63,11 @@ test('cell shrink layout', () => {
 });
 
 test('cell with 6 small layout', () => {
-  const container = <Cell small={6}>test</Cell>;
+  const container = (
+    <Cell theme={GrowCss} small={6}>
+      test
+    </Cell>
+  );
   const tree = renderer.create(container).toJSON();
 
   expect(shallow(container)).toMatchSnapshot();
@@ -70,7 +79,11 @@ test('cell with 6 small layout', () => {
 });
 
 test('cell align', () => {
-  const container = <Cell align="top">test</Cell>;
+  const container = (
+    <Cell theme={GrowCss} align="top">
+      test
+    </Cell>
+  );
   const tree = renderer.create(container).toJSON();
 
   expect(shallow(container)).toMatchSnapshot();
@@ -82,7 +95,11 @@ test('cell align', () => {
 });
 
 test('cell offset', () => {
-  const container = <Cell smallOffset={1}>test</Cell>;
+  const container = (
+    <Cell theme={GrowCss} smallOffset={1}>
+      test
+    </Cell>
+  );
   const tree = renderer.create(container).toJSON();
 
   expect(shallow(container)).toMatchSnapshot();

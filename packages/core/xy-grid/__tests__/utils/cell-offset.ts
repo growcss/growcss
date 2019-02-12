@@ -1,10 +1,11 @@
+import { GrowCss } from '@growcss/theme';
 import { CellOffset } from '../../src/utils/cell-offset';
 
 test('calculate the cell offset', () => {
-  expect(CellOffset(1, 'small')).toEqual([
+  expect(CellOffset(1, 'small', GrowCss.grid.marginGutters)).toEqual([
     'margin-left: calc(8.333333333333334% + 0.625rem);',
   ]);
-  expect(CellOffset(2, 'large')).toEqual([
+  expect(CellOffset(2, 'large', GrowCss.grid.marginGutters)).toEqual([
     '@media ',
     'only screen and (min-width: 64em)',
     '{',
@@ -12,10 +13,10 @@ test('calculate the cell offset', () => {
     '}',
   ]);
 
-  expect(CellOffset(1, 'small', 'padding')).toEqual([
+  expect(CellOffset(1, 'small', GrowCss.grid.paddingGutters, 'padding')).toEqual([
     'margin-left: 8.333333333333334%;',
   ]);
-  expect(CellOffset(2, 'large', 'padding')).toEqual([
+  expect(CellOffset(2, 'large', GrowCss.grid.paddingGutters, 'padding')).toEqual([
     '@media ',
     'only screen and (min-width: 64em)',
     '{',
@@ -25,10 +26,10 @@ test('calculate the cell offset', () => {
 });
 
 test('calculate the cell offset for vertical', () => {
-  expect(CellOffset(1, 'small', 'margin', true)).toEqual([
+  expect(CellOffset(1, 'small', GrowCss.grid.marginGutters, 'margin', true)).toEqual([
     'margin-top: calc(8.333333333333334% + 0.625rem);',
   ]);
-  expect(CellOffset(2, 'large', 'margin', true)).toEqual([
+  expect(CellOffset(2, 'large', GrowCss.grid.marginGutters, 'margin', true)).toEqual([
     '@media ',
     'only screen and (min-width: 64em)',
     '{',
@@ -36,10 +37,10 @@ test('calculate the cell offset for vertical', () => {
     '}',
   ]);
 
-  expect(CellOffset(1, 'small', 'padding', true)).toEqual([
+  expect(CellOffset(1, 'small', GrowCss.grid.paddingGutters, 'padding', true)).toEqual([
     'margin-top: 8.333333333333334%;',
   ]);
-  expect(CellOffset(2, 'large', 'padding', true)).toEqual([
+  expect(CellOffset(2, 'large', GrowCss.grid.paddingGutters, 'padding', true)).toEqual([
     '@media ',
     'only screen and (min-width: 64em)',
     '{',
@@ -49,10 +50,12 @@ test('calculate the cell offset for vertical', () => {
 });
 
 test('calculate the cell offset for rtl', () => {
-  expect(CellOffset(1, 'small', 'margin', false, true)).toEqual([
-    'margin-right: calc(8.333333333333334% + 0.625rem);',
-  ]);
-  expect(CellOffset(2, 'large', 'margin', false, true)).toEqual([
+  expect(
+    CellOffset(1, 'small', GrowCss.grid.marginGutters, 'margin', false, true),
+  ).toEqual(['margin-right: calc(8.333333333333334% + 0.625rem);']);
+  expect(
+    CellOffset(2, 'large', GrowCss.grid.marginGutters, 'margin', false, true),
+  ).toEqual([
     '@media ',
     'only screen and (min-width: 64em)',
     '{',
@@ -60,10 +63,12 @@ test('calculate the cell offset for rtl', () => {
     '}',
   ]);
 
-  expect(CellOffset(1, 'small', 'padding', false, true)).toEqual([
-    'margin-right: 8.333333333333334%;',
-  ]);
-  expect(CellOffset(2, 'large', 'padding', false, true)).toEqual([
+  expect(
+    CellOffset(1, 'small', GrowCss.grid.paddingGutters, 'padding', false, true),
+  ).toEqual(['margin-right: 8.333333333333334%;']);
+  expect(
+    CellOffset(2, 'large', GrowCss.grid.paddingGutters, 'padding', false, true),
+  ).toEqual([
     '@media ',
     'only screen and (min-width: 64em)',
     '{',

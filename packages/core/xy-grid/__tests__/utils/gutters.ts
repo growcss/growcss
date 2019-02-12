@@ -1,9 +1,9 @@
+import { GrowCss } from '@growcss/theme';
 import { Gutters } from '../../src/utils/gutters';
-import { Gutters as DefaultGutter } from '../../src/components/gutters';
 
 describe('Gutters (margin and padding with breakpoints)', () => {
   it('Converts a gutter named breakpoint to value and a wrapped media-query value', () => {
-    expect(Gutters(DefaultGutter)).toEqual([
+    expect(Gutters(GrowCss.grid.marginGutters)).toEqual([
       ['margin-right: 0.625rem;margin-left: 0.625rem;'],
       [
         '@media ',
@@ -16,7 +16,7 @@ describe('Gutters (margin and padding with breakpoints)', () => {
   });
 
   it('Converts a gutter named breakpoint to value and a wrapped media-query value with changed gutter type', () => {
-    expect(Gutters(DefaultGutter, 'padding')).toEqual([
+    expect(Gutters(GrowCss.grid.marginGutters, 'padding')).toEqual([
       ['padding-right: 0.625rem;padding-left: 0.625rem;'],
       [
         '@media ',
