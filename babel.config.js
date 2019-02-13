@@ -1,3 +1,5 @@
+const browserslist = require('packages/coding-standard/browserslist-config');
+
 const env = process.env.BABEL_ENV || process.env.NODE_ENV;
 
 const isEnvTest = env === 'test';
@@ -66,6 +68,7 @@ const config = {
           // Exclude transforms that make all code slower
           exclude: ['transform-typeof-symbol'],
           development: isEnvTest || isEnvDevelopment,
+          targets: browserslist,
         },
         isEnvTest && {
           targets: {
