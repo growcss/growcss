@@ -3,11 +3,7 @@ export interface BreakpointsProps {
 }
 
 export interface HidpiBreakpointsProps {
-  'hidpi-1': number;
-  'hidpi-1-5': number;
-  'hidpi-2': number;
-  retina: number;
-  'hidpi-3': number;
+  [key: string]: number;
 }
 
 export interface MediaQueryOptionsProps {

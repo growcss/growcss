@@ -1,7 +1,7 @@
 import mediaquery from '../src/components/mediaquery/media-query';
 
 describe('Styled components test', () => {
-  it('Returns a max-width media query with content', () => {
+  it('Returns a min-width media query with content', () => {
     expect(mediaquery()`display:none;`).toEqual(['display:none;']);
     expect(mediaquery('small')`display:none;`).toEqual(['display:none;']);
     expect(mediaquery('medium')`display:none;`).toEqual([
