@@ -1,7 +1,7 @@
 import * as storybook from '@storybook/react';
+import * as React from 'react';
 import { withOptions } from '@storybook/addon-options';
 import { checkA11y } from '@storybook/addon-a11y';
-import { withThemes } from 'storybook-styled-components'
 import { storybookGrowCssTheme } from "./theme";
 import { withInfo } from "@storybook/addon-info";
 import {
@@ -9,6 +9,9 @@ import {
   setScreenshotOptions,
   withScreenshot,
 } from 'storybook-chrome-screenshot';
+import { GrowCss, GlobalStyle } from '../packages/core/theme/src';
+import { ThemeProvider } from 'styled-components';
+
 
 // Option defaults:
 storybook.addDecorator(
@@ -142,10 +145,19 @@ storybook.addDecorator(withInfo({
   inline: true,
   source: false
 }));
-storybook.addDecorator(
-  withThemes({
-  })
-);
+
+function withGlobalStyle(storyFn) {
+  return (
+    <ThemeProvider theme={GrowCss}>
+      <React.Fragment>
+        <GlobalStyle/>
+        {storyFn()}
+      </React.Fragment>
+    </ThemeProvider>
+  );
+}
+
+storybook.addDecorator(withGlobalStyle);
 
 // automatically import all files ending with *.stories.js
 const req = require.context('..', true, /packages\/((?!node_modules).)*__stories__\/[^\/]+\.(js|tsx)+$/);

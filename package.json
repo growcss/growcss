@@ -37,7 +37,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged || node build/on-lint-error.js && npm run sort-package",
+      "pre-commit": "lint-staged || node build/on-lint-error.js",
       "postcommit": "git update-index --again"
     }
   },
@@ -47,6 +47,9 @@
       "**/node_modules/**"
     ],
     "linters": {
+      "package.json": [
+        "npm run sort-package"
+      ],
       "*.{js,jsx,ts,tsx}": [
         "npm run lint:eslint:source -- --fix --max-warnings=0",
         "npm run lint:eslint:supporting -- --fix --max-warnings=0",
@@ -204,6 +207,7 @@
     "eslint-plugin-security": "1.4.0",
     "eslint-plugin-typescript": "0.14.0",
     "eslint-plugin-unicorn": "7.1.0",
+    "friendly-errors-webpack-plugin": "1.7.0",
     "license-checker": "25.0.1",
     "npm-audit-resolver": "1.4.0",
     "npm-check": "5.9.0",

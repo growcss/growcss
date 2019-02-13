@@ -1,4 +1,9 @@
+var FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+
 module.exports = (baseConfig, env, defaultConfig) => {
+  defaultConfig.plugins.push(
+    new FriendlyErrorsWebpackPlugin(),
+  );
   defaultConfig.module.rules.push(
     {
       test: /\.(ts|tsx|js|jsx)$/,
@@ -28,11 +33,11 @@ module.exports = (baseConfig, env, defaultConfig) => {
 
   defaultConfig.resolve.extensions.push('.ts', '.tsx');
   defaultConfig.externals = {
-      'jsdom': 'window',
-      'cheerio': 'window',
-      'react/lib/ExecutionEnvironment': true,
-      'react/lib/ReactContext': 'window',
-      'react/addons': true,
+    'jsdom': 'window',
+    'cheerio': 'window',
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': 'window',
+    'react/addons': true,
   };
 
   return defaultConfig;
