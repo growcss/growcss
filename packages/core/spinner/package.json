@@ -36,8 +36,8 @@
   "peerDependencies": {
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
-    "styled-components": "^4.0.1",
-    "react-pose": "^4.0.6"
+    "react-pose": "^4.0.6",
+    "styled-components": "^4.0.1"
   },
   "engines": {
     "node": "^10.14.0 || ^11.3.0"
