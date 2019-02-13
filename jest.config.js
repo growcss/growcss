@@ -16,16 +16,20 @@ let changedPackages;
 if (CHANGED_PACKAGES !== undefined) {
   changedPackages = JSON.parse(CHANGED_PACKAGES);
 
-  changedPackages.filter(function(file) {
-    fs.readdir(`${file}/__tests__`, function(err, files) {
-      if (err === null && files.length !== 0) {
-        return true;
-      }
+  changedPackages.forEach(function(file, index) {
+    try {
+      fs.readdirSync(`${file}/__tests__`, function (err, files) {
+        if (err !== null || files.length === 0) {
+          console.log('\n' + `No test were found for ${file}.` + '\n');
 
-      console.log('\n' + `No test were found for ${file}.` + '\n');
+          changedPackages.splice(index, 1);
+        }
+      });
+    } catch (err) {
+      console.log('\n' + `No test were found for ${changedPackages[index]}.` + '\n');
 
-      return false;
-    });
+      changedPackages.splice(index, 1);
+    }
   });
 }
 
@@ -80,8 +84,6 @@ const config = {
 // If the CHANGED_PACKAGES variable is set, we parse it to get an array of changed packages and only
 // run the tests for those packages
 if (changedPackages !== undefined && changedPackages.length > 0) {
-  console.log(changedPackages);
-
   config.testMatch = changedPackages.map(
     pkgPath => `${__dirname}/${pkgPath}/**/__tests__/**/*.(tsx|ts)`,
   );
@@ -116,9 +118,7 @@ if (INTEGRATION_TESTS || VISUAL_REGRESSION) {
   );
 
   // If the CHANGED_PACKAGES variable is set, only integration tests from changed packages will run
-  if (CHANGED_PACKAGES) {
-    const changedPackages = JSON.parse(CHANGED_PACKAGES);
-
+  if (changedPackages !== undefined && changedPackages.length > 0) {
     config.testMatch = changedPackages.map(
       pkgPath => `${__dirname}/${pkgPath}/**/__tests__/${testPattern}/**/*.(tsx|ts)`,
     );
