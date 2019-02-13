@@ -29,7 +29,6 @@
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "jsnext:main": "dist/es/index.js",
-  "unpkg": "dist/umd/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "cross-env PACKAGE_PATH=core/xy-grid rollup -c ../../../build/rollup.config.js"
@@ -48,5 +47,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "moduleName": "xy-grid"
+  "moduleName": "xy-grid",
+  "unpkg": "dist/umd/index.js"
 }

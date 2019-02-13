@@ -34,7 +34,6 @@
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "jsnext:main": "dist/es/index.js",
-  "unpkg": "dist/umd/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "cross-env PACKAGE_PATH=core/elaborate rollup -c ../../../build/rollup.config.js"
@@ -51,5 +50,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "moduleName": "elaborate"
+  "moduleName": "elaborate",
+  "unpkg": "dist/umd/index.js"
 }

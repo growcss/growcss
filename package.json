@@ -37,7 +37,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged || node build/on-lint-error.js",
+      "pre-commit": "lint-staged || node build/on-lint-error.js && npm run sort-package",
       "postcommit": "git update-index --again"
     }
   },
