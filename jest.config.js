@@ -1,4 +1,6 @@
 /* eslint-disable no-console */
+const fs = require('fs');
+
 const {
   CHANGED_PACKAGES,
   COVERAGE_PACKAGES,
@@ -8,6 +10,24 @@ const {
   TRAVIS,
   HOME,
 } = process.env;
+
+let changedPackages;
+
+if (CHANGED_PACKAGES !== undefined) {
+  changedPackages = JSON.parse(CHANGED_PACKAGES);
+
+  changedPackages.filter(function(file) {
+    fs.readdir(`${file}/__tests__`, function(err, files) {
+      if (err === null && files.length !== 0) {
+        return true;
+      }
+
+      console.log('\n' + `No test were found for ${file}.` + '\n');
+
+      return false;
+    });
+  });
+}
 
 const config = {
   transform: {
@@ -59,16 +79,12 @@ const config = {
 
 // If the CHANGED_PACKAGES variable is set, we parse it to get an array of changed packages and only
 // run the tests for those packages
-if (CHANGED_PACKAGES) {
-  const changedPackages = JSON.parse(CHANGED_PACKAGES);
+if (changedPackages !== undefined && changedPackages.length > 0) {
+  console.log(changedPackages);
 
-  if (changedPackages.length > 0) {
-    console.log(changedPackages);
-
-    config.testMatch = changedPackages.map(
-      pkgPath => `${__dirname}/${pkgPath}/**/__tests__/**/*.(tsx|ts)`,
-    );
-  }
+  config.testMatch = changedPackages.map(
+    pkgPath => `${__dirname}/${pkgPath}/**/__tests__/**/*.(tsx|ts)`,
+  );
 }
 
 // Adding code coverage thresold configuration for unit test only
