@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "The GrowCss theme framework.",
   "keywords": [
-    "reactjs",
+    "css",
     "growcss",
     "react",
     "react-component",
+    "reactjs",
     "styled-components",
-    "ui",
     "theme",
-    "css"
+    "ui"
   ],
   "homepage": "http://growcss.com/packages/theme",
   "repository": "https://github.com/growcss/growcss.git",
@@ -28,22 +28,21 @@
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "jsnext:main": "dist/es/index.js",
-  "unpkg": "dist/umd/index.js",
+  "browser": "dist/umd/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "cross-env PACKAGE_PATH=core/theme rollup -c ../../../build/rollup.config.js",
     "install": "node bin/create-normalize-file.js"
   },
-  "browser": "dist/umd/index.js",
   "dependencies": {
     "@growcss/elaborate": "0.0.3"
+  },
+  "devDependencies": {
+    "normalize.css": "^8.0.1"
   },
   "peerDependencies": {
     "react": "^16.0",
     "styled-components": "^4.0.1"
-  },
-  "devDependencies": {
-    "normalize.css": "^8.0.1"
   },
   "engines": {
     "node": "^10.14.0 || ^11.3.0"
@@ -51,5 +50,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "moduleName": "theme"
+  "moduleName": "theme",
+  "unpkg": "dist/umd/index.js"
 }
