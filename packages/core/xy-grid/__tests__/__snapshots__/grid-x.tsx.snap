@@ -125,13 +125,13 @@ exports[`the style output of GridX 1`] = `
           },
         },
         "image": Object {
+          "backgroundColor": "#dae1e7",
           "breakpoints": Object {
             "large": "1024w",
             "medium": "640w",
             "xlarge": "1200w",
             "xxlarge": "1440w",
           },
-          "previewBackgroundColor": "#dae1e7",
         },
         "shadows": Object {
           "default": "0 2px 4px 0 rgba(0,0,0,0.10)",
@@ -324,13 +324,13 @@ exports[`the style output of GridX with alignment to bottom 1`] = `
           },
         },
         "image": Object {
+          "backgroundColor": "#dae1e7",
           "breakpoints": Object {
             "large": "1024w",
             "medium": "640w",
             "xlarge": "1200w",
             "xxlarge": "1440w",
           },
-          "previewBackgroundColor": "#dae1e7",
         },
         "shadows": Object {
           "default": "0 2px 4px 0 rgba(0,0,0,0.10)",
@@ -522,13 +522,13 @@ exports[`the style output of GridX with alignment to center 1`] = `
           },
         },
         "image": Object {
+          "backgroundColor": "#dae1e7",
           "breakpoints": Object {
             "large": "1024w",
             "medium": "640w",
             "xlarge": "1200w",
             "xxlarge": "1440w",
           },
-          "previewBackgroundColor": "#dae1e7",
         },
         "shadows": Object {
           "default": "0 2px 4px 0 rgba(0,0,0,0.10)",
@@ -720,13 +720,13 @@ exports[`the style output of GridX with alignment to justify 1`] = `
           },
         },
         "image": Object {
+          "backgroundColor": "#dae1e7",
           "breakpoints": Object {
             "large": "1024w",
             "medium": "640w",
             "xlarge": "1200w",
             "xxlarge": "1440w",
           },
-          "previewBackgroundColor": "#dae1e7",
         },
         "shadows": Object {
           "default": "0 2px 4px 0 rgba(0,0,0,0.10)",
@@ -919,13 +919,13 @@ exports[`the style output of GridX with alignment to middle 1`] = `
           },
         },
         "image": Object {
+          "backgroundColor": "#dae1e7",
           "breakpoints": Object {
             "large": "1024w",
             "medium": "640w",
             "xlarge": "1200w",
             "xxlarge": "1440w",
           },
-          "previewBackgroundColor": "#dae1e7",
         },
         "shadows": Object {
           "default": "0 2px 4px 0 rgba(0,0,0,0.10)",
@@ -1117,13 +1117,13 @@ exports[`the style output of GridX with alignment to right 1`] = `
           },
         },
         "image": Object {
+          "backgroundColor": "#dae1e7",
           "breakpoints": Object {
             "large": "1024w",
             "medium": "640w",
             "xlarge": "1200w",
             "xxlarge": "1440w",
           },
-          "previewBackgroundColor": "#dae1e7",
         },
         "shadows": Object {
           "default": "0 2px 4px 0 rgba(0,0,0,0.10)",
@@ -1315,13 +1315,13 @@ exports[`the style output of GridX with alignment to spaced 1`] = `
           },
         },
         "image": Object {
+          "backgroundColor": "#dae1e7",
           "breakpoints": Object {
             "large": "1024w",
             "medium": "640w",
             "xlarge": "1200w",
             "xxlarge": "1440w",
           },
-          "previewBackgroundColor": "#dae1e7",
         },
         "shadows": Object {
           "default": "0 2px 4px 0 rgba(0,0,0,0.10)",
@@ -1514,13 +1514,13 @@ exports[`the style output of GridX with alignment to stretch 1`] = `
           },
         },
         "image": Object {
+          "backgroundColor": "#dae1e7",
           "breakpoints": Object {
             "large": "1024w",
             "medium": "640w",
             "xlarge": "1200w",
             "xxlarge": "1440w",
           },
-          "previewBackgroundColor": "#dae1e7",
         },
         "shadows": Object {
           "default": "0 2px 4px 0 rgba(0,0,0,0.10)",
@@ -1713,13 +1713,13 @@ exports[`the style output of GridX with alignment to top 1`] = `
           },
         },
         "image": Object {
+          "backgroundColor": "#dae1e7",
           "breakpoints": Object {
             "large": "1024w",
             "medium": "640w",
             "xlarge": "1200w",
             "xxlarge": "1440w",
           },
-          "previewBackgroundColor": "#dae1e7",
         },
         "shadows": Object {
           "default": "0 2px 4px 0 rgba(0,0,0,0.10)",

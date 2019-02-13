@@ -126,13 +126,13 @@ exports[`the style output of GridY 1`] = `
           },
         },
         "image": Object {
+          "backgroundColor": "#dae1e7",
           "breakpoints": Object {
             "large": "1024w",
             "medium": "640w",
             "xlarge": "1200w",
             "xxlarge": "1440w",
           },
-          "previewBackgroundColor": "#dae1e7",
         },
         "shadows": Object {
           "default": "0 2px 4px 0 rgba(0,0,0,0.10)",
