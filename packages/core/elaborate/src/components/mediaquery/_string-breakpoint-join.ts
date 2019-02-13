@@ -4,10 +4,10 @@ import stripUnit from '../strip-unit';
  * Return media query string from the given min and/or max limits.
  * If a limit is equal to `null` or `0`, it is ignored.
  *
- * @param {null | number | string} min     Min media query limit.
- * @param {null | number | string} max     Max media query limit.
- * @param {string}                 minName Name of the min media query limit. Default: min-width
- * @param {string}                 maxName Name of the max media query limit. Default: max-width
+ * @param {null | number | string} min     - Min media query limit.
+ * @param {null | number | string} max     - Max media query limit.
+ * @param {string}                 minName - Name of the min media query limit. Default: min-width.
+ * @param {string}                 maxName - Name of the max media query limit. Default: max-width.
  *
  * @return {string}
  */

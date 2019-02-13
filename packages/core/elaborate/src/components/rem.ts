@@ -4,8 +4,8 @@ import getValueAndUnit from './get-value-and-unit';
 /**
  * Converts one or more pixel values into matching rem values.
  *
- * @param {string | number | Array<string | number>} values One or more values to convert.
- * @param {number | string}                          base   The base value to use when calculating the `rem`.
+ * @param {string | number | Array<string | number>} values - One or more values to convert.
+ * @param {number | string}                          base   - The base value to use when calculating the `rem`.
  *
  * @return {string}
  */
