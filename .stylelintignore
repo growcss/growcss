@@ -6,5 +6,4 @@ coverage
 build
 
 stories
-packages/behaviors/media-queries/src/components/Mediaquery.ts
-
+packages/core/theme/src/normalize.ts
