@@ -31,8 +31,7 @@
   "browser": "dist/umd/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "cross-env PACKAGE_PATH=core/theme rollup -c ../../../build/rollup.config.js",
-    "install": "node bin/create-normalize-file.js"
+    "build": "cross-env PACKAGE_PATH=core/theme rollup -c ../../../build/rollup.config.js"
   },
   "dependencies": {
     "@growcss/elaborate": "0.0.3"
