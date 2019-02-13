@@ -16,16 +16,16 @@ let changedPackages;
 if (CHANGED_PACKAGES !== undefined) {
   changedPackages = JSON.parse(CHANGED_PACKAGES);
 
-  changedPackages.forEach(function(file, index) {
+  changedPackages.forEach((file, index) => {
     try {
-      fs.readdirSync(`${file}/__tests__`, function (err, files) {
+      fs.readdirSync(`${file}/__tests__`, (err, files) => {
         if (err !== null || files.length === 0) {
           console.log('\n' + `No test were found for ${file}.` + '\n');
 
           changedPackages.splice(index, 1);
         }
       });
-    } catch (err) {
+    } catch (error) {
       console.log('\n' + `No test were found for ${changedPackages[index]}.` + '\n');
 
       changedPackages.splice(index, 1);

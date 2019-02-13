@@ -3,32 +3,32 @@
   "version": "0.0.2",
   "description": "Image element with sizing and preloading options.",
   "keywords": [
-    "reactjs",
+    "fallback",
     "growcss",
+    "image",
+    "img",
     "lazy",
     "lazy loading",
-    "react",
-    "react-component",
-    "lazyload",
-    "lazyloading",
     "lazy-loading",
+    "lazyload",
     "lazyload-images",
-    "styled-components",
-    "ui",
-    "img",
-    "image",
+    "lazyloading",
     "loader",
-    "fallback",
+    "placeholder",
+    "placeholders",
+    "react",
     "react image",
-    "react-image",
-    "react img multi",
-    "react-img-multi",
     "react image fallback",
     "react image loader",
     "react image preloader",
     "react images",
-    "placeholder",
-    "placeholders"
+    "react img multi",
+    "react-component",
+    "react-image",
+    "react-img-multi",
+    "reactjs",
+    "styled-components",
+    "ui"
   ],
   "homepage": "http://growcss.com",
   "repository": "https://github.com/growcss/growcss.git",
@@ -44,7 +44,6 @@
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "jsnext:main": "dist/es/index.js",
-  "unpkg": "dist/umd/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "cross-env PACKAGE_PATH=core/image rollup -c ../../../build/rollup.config.js"
@@ -62,5 +61,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "moduleName": "image"
+  "moduleName": "image",
+  "unpkg": "dist/umd/index.js"
 }
