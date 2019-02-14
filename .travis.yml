@@ -33,18 +33,9 @@ jobs:
         - npm run lint:style
 
     - stage: Coverage
-      if: fork = true AND type = pull_request
       script:
         - npm install -g codecov
-        - mkdir ./coverage
-        - npm run test:changed -- --ci --runInBand
-        - codecov
-
-    - stage: Coverage
-      if: fork = false
-      script:
-        - npm install -g codecov
-        - npm run test:coverage -- --ci --runInBand
+        - mkdir ./coverage && npm run test:coverage -- --ci --runInBand
         - codecov
 
     - stage: Release
