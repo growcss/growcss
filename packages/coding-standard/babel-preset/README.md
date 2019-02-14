@@ -76,7 +76,7 @@ module.exports = {
     {
       'targets': Object.assign(
           {},
-          require('@growcss/browserslist-config'),
+          require(browserslist-config-growcss),
           {
             'chrome': 42,
             'explorer': 8

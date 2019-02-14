@@ -1,1 +1,1 @@
-extends packages/coding-standard/browserslist-config
+extends browserslist-config-growcss
