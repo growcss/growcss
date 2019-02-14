@@ -11,7 +11,7 @@ This configuration reflects Growcss's supported browser policy for their UI libr
 
 ## Supported Browsers
 
-[List all supported browsers](https://browserl.ist/?q=last+1+Android+versions%2C+last+1+ChromeAndroid+versions%2C+last+2+Chrome+versions%2C+last+2+Firefox+versions%2C+last+2+Safari+versions%2C+last+2+iOS+versions%2C+last+2+Edge+versions%2C+last+2+Opera+versions%2C+%3E+1%25%2C+ie+%3E%3D+11)
+[List of our supported browsers](https://browserl.ist/?q=last+1+Android+versions%2C+last+1+ChromeAndroid+versions%2C+last+2+Chrome+versions%2C+last+2+Firefox+versions%2C+last+2+Safari+versions%2C+last+2+iOS+versions%2C+last+2+Edge+versions%2C+last+2+Opera+versions%2C+%3E+1%25%2C+ie+%3E%3D+11)
 
 ## Installation
 

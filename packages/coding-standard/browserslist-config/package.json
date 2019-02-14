@@ -1,7 +1,7 @@
 {
   "name": "@growcss/browserslist-config",
   "version": "1.0.0",
-  "description": "Shared GrowCss browserlist config",
+  "description": "Shared GrowCss browserlist config.",
   "keywords": [
     "browserslist",
     "browserslist-config",
