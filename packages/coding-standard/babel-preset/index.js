@@ -1,5 +1,3 @@
-'use strict';
-
 const { declare } = require('@babel/helper-plugin-utils');
 
 module.exports = declare((api, options) => {
@@ -18,14 +16,21 @@ module.exports = declare((api, options) => {
     react = false,
   } = options;
 
-  if (typeof modules !== 'undefined' && typeof modules !== 'boolean' && modules !== 'auto') {
-    throw new TypeError('@growcss/babel-preset only accepts `true`, `false`, or `"auto"` as the value of the "modules" option');
+  if (
+    typeof modules !== 'undefined' &&
+    typeof modules !== 'boolean' &&
+    modules !== 'auto'
+  ) {
+    throw new TypeError(
+      '@growcss/babel-preset only accepts `true`, `false`, or `"auto"` as the value of the "modules" option',
+    );
   }
 
   const debug = typeof options.debug === 'boolean' ? options.debug : false;
-  const development = typeof options.development === 'boolean'
-    ? options.development
-    : api.cache.using(() => process.env.NODE_ENV === 'development');
+  const development =
+    typeof options.development === 'boolean'
+      ? options.development
+      : api.cache.using(() => process.env.NODE_ENV === 'development');
 
   return {
     presets: [
@@ -33,61 +38,70 @@ module.exports = declare((api, options) => {
         require('@babel/preset-env'),
         {
           debug,
-          exclude: [
-            'transform-async-to-generator',
-            'transform-regenerator',
-          ],
+          exclude: ['transform-async-to-generator', 'transform-regenerator'],
           modules: modules === false ? false : 'auto',
           targets: targets || require('@growcss/browserslist-config'),
-        }
-      ],
-      typescript ? [
-        require('@babel/preset-typescript'),
-        {
-          allExtensions: true,
-          isTSX: true,
         },
-      ] : null,
-      react ?[require('@babel/preset-react'), { development }] : null,
+      ],
+      typescript
+        ? [
+            require('@babel/preset-typescript'),
+            {
+              allExtensions: true,
+              isTSX: true,
+            },
+          ]
+        : null,
+      react ? [require('@babel/preset-react'), { development }] : null,
     ].filter(Boolean),
     plugins: [
-      looseClasses ? [
-        require('@babel/plugin-transform-classes'),
-        {
-          loose: true,
-        }
-      ] : null,
+      looseClasses
+        ? [
+            require('@babel/plugin-transform-classes'),
+            {
+              loose: true,
+            },
+          ]
+        : null,
       // https://babeljs.io/docs/en/babel-plugin-transform-computed-properties#loose
-      looseComputedProperties ? [
-        require('@babel/plugin-transform-computed-properties'),
-        {
-          loose: true,
-        }
-      ] : null,
+      looseComputedProperties
+        ? [
+            require('@babel/plugin-transform-computed-properties'),
+            {
+              loose: true,
+            },
+          ]
+        : null,
       // https://babeljs.io/docs/en/babel-plugin-transform-parameters#loose
-      looseParameters ? [
-        require('@babel/plugin-transform-parameters'),
-        {
-          loose: true,
-        }
-      ] : null,
+      looseParameters
+        ? [
+            require('@babel/plugin-transform-parameters'),
+            {
+              loose: true,
+            },
+          ]
+        : null,
       // https://babeljs.io/docs/en/next/babel-plugin-transform-template-literals.html#loose
-      looseTemplateLiterals ? [
-        require('@babel/plugin-transform-template-literals'),
-        {
-          loose: false,
-        }
-      ] : null,
-      removePropTypes ? [
-        require('babel-plugin-transform-react-remove-prop-types'),
-        Object.assign(
-          {
-            mode: 'wrap',
-            ignoreFilenames: ['node_modules'],
-          },
-          removePropTypes
-        )
-      ] : null,
+      looseTemplateLiterals
+        ? [
+            require('@babel/plugin-transform-template-literals'),
+            {
+              loose: false,
+            },
+          ]
+        : null,
+      removePropTypes
+        ? [
+            require('babel-plugin-transform-react-remove-prop-types'),
+            Object.assign(
+              {
+                mode: 'wrap',
+                ignoreFilenames: ['node_modules'],
+              },
+              removePropTypes,
+            ),
+          ]
+        : null,
 
       typescript ? require('@babel/plugin-transform-typescript') : null,
       // Transform dynamic import to require
@@ -106,7 +120,7 @@ module.exports = declare((api, options) => {
         require('@babel/plugin-proposal-object-rest-spread'),
         {
           useBuiltIns: true,
-        }
+        },
       ],
       // https://babeljs.io/docs/en/babel-plugin-syntax-async-generators
       require('@babel/plugin-syntax-async-generators'),
