@@ -31,9 +31,9 @@ if (CHANGED_PACKAGES !== undefined) {
       changedPackages.splice(index, 1);
     }
   });
-}
 
-changedPackages.filter(Boolean);
+  changedPackages.filter(Boolean);
+}
 
 const config = {
   transform: {
@@ -122,7 +122,8 @@ if (INTEGRATION_TESTS || VISUAL_REGRESSION) {
   // If the CHANGED_PACKAGES variable is set, only integration tests from changed packages will run
   if (changedPackages.length > 0) {
     config.testMatch = changedPackages.map(
-      pkgPath => `${__dirname}/${pkgPath}/**/__tests__/${testPattern}/**/*.(tsx|ts|js|jsx)`,
+      pkgPath =>
+        `${__dirname}/${pkgPath}/**/__tests__/${testPattern}/**/*.(tsx|ts|js|jsx)`,
     );
   } else {
     config.testMatch = [`**/__tests__/${testPattern}/**/*.(tsx|ts|js|jsx)`];
