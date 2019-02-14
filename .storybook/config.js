@@ -1,7 +1,6 @@
 import * as storybook from '@storybook/react';
 import { withOptions } from '@storybook/addon-options';
 import { checkA11y } from '@storybook/addon-a11y';
-import { withThemes } from 'storybook-styled-components'
 import { storybookGrowCssTheme } from "./theme";
 import { withInfo } from "@storybook/addon-info";
 import {
@@ -142,10 +141,6 @@ storybook.addDecorator(withInfo({
   inline: true,
   source: false
 }));
-storybook.addDecorator(
-  withThemes({
-  })
-);
 
 // automatically import all files ending with *.stories.js
 const req = require.context('..', true, /packages\/((?!node_modules).)*__stories__\/[^\/]+\.(js|tsx)+$/);

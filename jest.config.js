@@ -11,7 +11,7 @@ const {
   HOME,
 } = process.env;
 
-let changedPackages;
+let changedPackages = [];
 
 if (CHANGED_PACKAGES !== undefined) {
   changedPackages = JSON.parse(CHANGED_PACKAGES);
@@ -33,12 +33,14 @@ if (CHANGED_PACKAGES !== undefined) {
   });
 }
 
+changedPackages.filter(Boolean);
+
 const config = {
   transform: {
     '^.+\\.(ts|tsx|js|jsx)$': 'babel-jest',
   },
   cacheDirectory: TRAVIS ? `${HOME}/.jest` : '/tmp/',
-  testMatch: [`${__dirname}/packages/**/**/__tests__/**/*.(ts|tsx)`],
+  testMatch: [`${__dirname}/packages/**/**/__tests__/**/*.(ts|tsx|js|jsx)`],
   // NOTE: all options with 'pattern' in the name are javascript regex's that will match if they match
   // anywhere in the string. Where-ever there are an array of patterns, jest simply 'or's all of them
   // i.e /\/__tests__\/_.*?|\/__tests__\/.*?\/_.*?|\/__tests__\/integration\//
@@ -83,9 +85,9 @@ const config = {
 
 // If the CHANGED_PACKAGES variable is set, we parse it to get an array of changed packages and only
 // run the tests for those packages
-if (changedPackages !== undefined && changedPackages.length > 0) {
+if (changedPackages.length > 0) {
   config.testMatch = changedPackages.map(
-    pkgPath => `${__dirname}/${pkgPath}/**/__tests__/**/*.(tsx|ts)`,
+    pkgPath => `${__dirname}/${pkgPath}/**/__tests__/**/*.(tsx|ts|js|jsx)`,
   );
 }
 
@@ -118,12 +120,12 @@ if (INTEGRATION_TESTS || VISUAL_REGRESSION) {
   );
 
   // If the CHANGED_PACKAGES variable is set, only integration tests from changed packages will run
-  if (changedPackages !== undefined && changedPackages.length > 0) {
+  if (changedPackages.length > 0) {
     config.testMatch = changedPackages.map(
-      pkgPath => `${__dirname}/${pkgPath}/**/__tests__/${testPattern}/**/*.(tsx|ts)`,
+      pkgPath => `${__dirname}/${pkgPath}/**/__tests__/${testPattern}/**/*.(tsx|ts|js|jsx)`,
     );
   } else {
-    config.testMatch = [`**/__tests__/${testPattern}/**/*.(tsx|ts)`];
+    config.testMatch = [`**/__tests__/${testPattern}/**/*.(tsx|ts|js|jsx)`];
   }
 }
 
