@@ -1,0 +1,34 @@
+dist: trusty
+language: node_js
+
+node_js:
+  - lts/*
+
+env:
+  - SKIP_CHECK=true
+
+before_install:
+  - node --version
+
+install:
+  - npm install -g npm@6.1.0
+  - npm ci
+
+before_script:
+  - npm run bootstrap
+  - npm run build
+
+script:
+  - |
+    git config --global user.email "$GH_USER_EMAIL"
+    git config --global user.name "$GH_USER_NAME"
+    git config credential.helper "store --file=.git/credentials";
+    echo "https://$GH_TOKEN:@github.com" > .git/credentials;
+
+after_success:
+  - npx semantic-release
+
+notifications:
+  email:
+    on_success: never
+    on_failure: change

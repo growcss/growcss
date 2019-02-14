@@ -38,16 +38,26 @@ jobs:
         - mkdir ./coverage && npm run test:coverage -- --ci --runInBand
         - codecov
 
-    - stage: Release
-      if: branch = master AND type = push
-      script:
-        - |
-          git config --global user.email "$GH_USER_EMAIL"
-          git config --global user.name "$GH_USER_NAME"
-          git config credential.helper "store --file=.git/credentials";
-          echo "https://$GH_TOKEN:@github.com" > .git/credentials;
-      after_success:
-        - lerna exec --concurrency 1 "npx --no-install semantic-release -e semantic-release-monorepo" && node -e "require('semantic-release-monorepo-hooks').hookAfterAll()"
+    -   stage: Subsplit
+        if: (branch = master AND type = push) OR (branch = next AND type = push) OR (branch = next-major AND type = push) OR (branch = beta AND type = push) OR (branch = alpha AND type = push)
+        php: 7.3
+        before_install:
+          - echo "skip"
+        install:
+          - echo "skip"
+        before_script:
+          - stty cols 120
+          - wget https://cdn.rawgit.com/prisis/43a2a7b137998ac92e24ee4daaa8e296/raw/681b89b8e156750de46558ead661509c468fb9a2/try_catch.sh -P ./build/travis
+          - wget https://cdn.rawgit.com/prisis/e050c4da44c6ee7fa1519912eac19563/raw/7a72a7df7718af30e703c1ef0379cdf7ff24ce10/tfold.sh -P ./build/travis
+          - |
+            chmod a+x ./build/travis/split.sh
+            chmod a+x ./build/travis/set_up_ssh.sh
+          - openssl aes-256-cbc -K $encrypted_37fd3d207790_key -iv $encrypted_37fd3d207790_iv -in ./build/travis/github_deploy_key.enc -out ./build/travis/github_deploy_key -d
+          - ./build/travis/set_up_ssh.sh
+          - wget https://github.com/dflydev/git-subsplit/archive/master.tar.gz && tar -zxvf master.tar.gz && rm -rf master.tar.gz
+          - cd ./git-subsplit-master && sudo ./install.sh && cd ..
+        script:
+          - ./build/travis/split.sh
 
 notifications:
   email:

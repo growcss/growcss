@@ -85,6 +85,21 @@ module.exports = function(plop) {
           path: `packages/{{package_type}}/{{kebabCase name}}/README.md`,
           templateFile: `plop-templates/package/README.md.hbs`,
         },
+        {
+          type: `add`,
+          path: `packages/{{package_type}}/{{kebabCase name}}/.releaserc.js`,
+          templateFile: `plop-templates/package/.releaserc.js.hbs`,
+        },
+        {
+          type: `add`,
+          path: `packages/{{package_type}}/{{kebabCase name}}/.travis.yml`,
+          templateFile: `plop-templates/package/.travis.yml.hbs`,
+        },
+        {
+          type: `add`,
+          path: `packages/{{package_type}}/{{kebabCase name}}/.travis/install-semantic-release.sh`,
+          templateFile: `plop-templates/package/.travis/install-semantic-release.sh.hbs`,
+        },
       ].filter(Boolean),
   });
 };

@@ -224,8 +224,6 @@
     "rollup-plugin-progress": "1.0.0",
     "rollup-plugin-sizes": "0.4.2",
     "semantic-release": "16.0.0-beta.18",
-    "semantic-release-monorepo": "6.1.1",
-    "semantic-release-monorepo-hooks": "2.9.1",
     "semantic-release-plugin-decorators": "2.0.0",
     "sort-package-json": "1.19.0",
     "storybook-chrome-screenshot": "1.4.0",
