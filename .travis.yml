@@ -6,6 +6,7 @@ node_js:
 
 env:
   - SKIP_CHECK=true
+  - secure: "NcYfP+f2V4eKf7V2BKnO2YmpyGI5UcOgrSOS63uwlnx830IEHVf5uELwUsy/WrWOBkcvscBs3yC88jYU8r//laZA+bmvk8ms7z5gDfgHE4KLbP5G8uktuCaXF0q6Fxa4XX5oGCHrJf8IZYXrlo39X3jITb+t5JECYdm0ptEB1Hg3t0k+zL0+05tTxPlu/Cm+Ppx2OD7T0lYai2xbZ/6J17ThEwHPBhbyXg8qoOBeZCK/PNoI4pWTUCLNhxJwjNbxDWLx3k5Q4+09zIwMEagFMYVHvFhhvWllFo1o2zmz3otgARN3p/q1rBP7fPlMzwDpW0yKAL8QNQq/+kYHrML3pl9uYXJUGCNBbIJ8EYMCIvwn0TD35ZBxxkT0BXXLlEOGmiZjl5AI6Xmw8xETdGn2hl1ONTlpOP6uzB2nm6NpxUQgNHJ0wGN9Y/yZWwsE/3bLmzPe2MhfbPR+cL/2mp3VeZIwskF8/LCr1tH4pyAE6b3Ly3Cqo+ZvMzbUS9FdrTZYYX4GsnWhIY7jNGcxkUbkXIjCO+F4pOF4MfX8HYPBp4+NTNzDpvSFR+3jMBdRmFcsgSs9ePmepIZbZ6AOIK9FQcDIxAvkGpI9vgFaA1eHeaVdCyYDB2LGbu+loQGJDxVdzO1s6QZGXmQCtuM8B+OO3GffAbMdn39mbcGgj85tJWI="
 
 before_install:
   - node --version
@@ -52,7 +53,7 @@ jobs:
         - |
           chmod a+x ./build/travis/split.sh
           chmod a+x ./build/travis/set_up_ssh.sh
-        - openssl aes-256-cbc -K $encrypted_37fd3d207790_key -iv $encrypted_37fd3d207790_iv -in ./build/travis/github_deploy_key.enc -out ./build/travis/github_deploy_key -d
+        - openssl aes-256-cbc -K $encrypted_b72671499881_key -iv $encrypted_b72671499881_iv -in ./build/travis/github_deploy_key.enc -out ./build/travis/github_deploy_key -d
         - ./build/travis/set_up_ssh.sh
         - wget https://github.com/dflydev/git-subsplit/archive/master.tar.gz && tar -zxvf master.tar.gz && rm -rf master.tar.gz
         - cd ./git-subsplit-master && sudo ./install.sh && cd ..
