@@ -28,7 +28,7 @@ $ npm install @growcss/browserslist-config --save-dev
 ```json
 {
   "browserslist": [
-    browserslist-config
+    "extends @growcss/browserslist-config"
   ]
 }
 ```
