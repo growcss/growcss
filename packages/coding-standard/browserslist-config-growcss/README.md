@@ -18,7 +18,7 @@ This configuration reflects Growcss's supported browser policy for their UI libr
 Install the module
 
 ```shell
-$ npm install @growcss/browserslist-config --save-dev
+$ npm install browserslist-config-growcss --save-dev
 ```
 
 ## Usage
@@ -28,7 +28,7 @@ $ npm install @growcss/browserslist-config --save-dev
 ```json
 {
   "browserslist": [
-    "extends @growcss/browserslist-config"
+    "extends browserslist-config-growcss"
   ]
 }
 ```
@@ -36,7 +36,7 @@ $ npm install @growcss/browserslist-config --save-dev
 Alternatively, add this to `.browserslistrc` file:
 
 ```
-extends @growcss/browserslist-config
+extends browserslist-config-growcss
 ```
 
 or when using [babel-preset-env](https://github.com/babel/babel/tree/master/experimental/babel-preset-env) 
@@ -45,7 +45,7 @@ or when using [babel-preset-env](https://github.com/babel/babel/tree/master/expe
   presets: [
     ['env', {
       targets: {
-        browsers: require('@growcss/browserslist-config')
+        browsers: require('browserslist-config-growcss')
       }
     }]
   ]

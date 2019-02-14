@@ -40,7 +40,7 @@ module.exports = declare((api, options) => {
           debug,
           exclude: ['transform-async-to-generator', 'transform-regenerator'],
           modules: modules === false ? false : 'auto',
-          targets: targets || { browsers: require('@growcss/browserslist-config') },
+          targets: targets || { browsers: require('browserslist-config-growcss') },
         },
       ],
       typescript
