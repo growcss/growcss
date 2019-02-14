@@ -42,11 +42,11 @@
     "fast-async": "7.0.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
+    "@babel/core": "7.2.2",
     "@babel/plugin-transform-typescript": "7.3.2",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-react": "7.0.0",
     "@babel/preset-typescript": "7.1.0",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.18"
+    "babel-plugin-transform-react-remove-prop-types": "0.4.24"
   },
   "peerDependencies": {
     "@babel/core": "^7.0.0"
