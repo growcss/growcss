@@ -1,5 +1,4 @@
-const hooks = require('semantic-release-monorepo-hooks');
-const output = hooks();
+const PACKAGE_NAME = process.env.LERNA_PACKAGE_NAME || process.env.npm_package_name;
 
 module.exports = {
   branches: [
@@ -10,13 +9,14 @@ module.exports = {
     { name: 'beta', prerelease: true },
     { name: 'alpha', prerelease: true }
   ],
-  tagFormat: 'v${version}',
+  tagFormat: PACKAGE_NAME + '@v${version}',
   prepare: [
     '@semantic-release/changelog',
     '@semantic-release/npm',
+    'upgrade-dependents/semantic-release',
     {
       'path': '@semantic-release/git',
-      'message': 'chore(' + output.package + '): release ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
+      'message': 'chore(' + PACKAGE_NAME + '): release ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
     }
   ],
   publish: [
@@ -29,10 +29,10 @@ module.exports = {
     .map(x => x.verifyConditions),
   monorepo: {
     analyzeCommits: [
-      '@semantic-release/commit-analyzer'
+      '@semantic-release/commit-analyzer',
     ],
     generateNotes: [
-      '@semantic-release/release-notes-generator'
+      '@semantic-release/release-notes-generator',
     ]
   }
 };
