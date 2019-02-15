@@ -23,10 +23,10 @@ module.exports = {
     '@semantic-release/npm',
     '@semantic-release/github'
   ],
-  verifyConditions: [
-    '@semantic-release/npm',
-    '@semantic-release/git'
-  ],
+  verifyConditions: [],
+  verifyRelease: ['@semantic-release/npm', '@semantic-release/github']
+    .map(require)
+    .map(x => x.verifyConditions),
   monorepo: {
     analyzeCommits: [
       '@semantic-release/commit-analyzer'
