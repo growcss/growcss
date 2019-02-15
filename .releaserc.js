@@ -3,9 +3,12 @@ const output = hooks();
 
 module.exports = {
   branches: [
+    '+([1-9])?(.{+([1-9]),x}).x',
     'master',
-    { name: 'beta', channel: 'beta', prerelease: 'beta' },
-    { name: 'alpha', channel: 'alpha', prerelease: 'alpha' },
+    'next',
+    'next-major',
+    { name: 'beta', prerelease: true },
+    { name: 'alpha', prerelease: true }
   ],
   tagFormat: 'v${version}',
   prepare: [
