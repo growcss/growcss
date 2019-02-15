@@ -32,6 +32,6 @@
     },
     "cacheDir": ".changelog"
   },
-  "version": "1.2.0",
+  "version": "independent",
   "npmClient": "npm"
 }
