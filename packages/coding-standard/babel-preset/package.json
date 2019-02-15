@@ -38,7 +38,7 @@
     "@babel/plugin-transform-property-mutators": "^7.0.0",
     "@babel/plugin-transform-template-literals": "^7.2.0",
     "@babel/preset-env": "^7.0.0",
-    "browserslist-config-growcss": "1.0.0",
+    "browserslist-config-growcss": "1.0.3-alpha.1",
     "fast-async": "7.0.6"
   },
   "devDependencies": {
