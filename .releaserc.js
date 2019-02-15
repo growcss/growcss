@@ -15,6 +15,7 @@ module.exports = {
   prepare: [
     '@semantic-release/changelog',
     '@semantic-release/npm',
+    'upgrade-dependents/semantic-release',
     {
       'path': '@semantic-release/git',
       'message': 'chore(' + output.package + '): release ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
