@@ -39,7 +39,7 @@ jobs:
         - codecov
 
     - stage: Release
-      if: branch = master AND type = push
+      if: (branch = master AND type = push) OR (branch = next AND type = push) OR (branch = next-major AND type = push) OR (branch = beta AND type = push) OR (branch = alpha AND type = push)
       script:
         - |
           git config --global user.email "$GH_USER_EMAIL"

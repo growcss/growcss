@@ -3,9 +3,12 @@ const output = hooks();
 
 module.exports = {
   branches: [
+    '+([1-9])?(.{+([1-9]),x}).x',
     'master',
-    { name: 'beta', channel: 'beta', prerelease: 'beta' },
-    { name: 'alpha', channel: 'alpha', prerelease: 'alpha' },
+    'next',
+    'next-major',
+    { name: 'beta', prerelease: true },
+    { name: 'alpha', prerelease: true }
   ],
   tagFormat: 'v${version}',
   prepare: [
@@ -20,10 +23,10 @@ module.exports = {
     '@semantic-release/npm',
     '@semantic-release/github'
   ],
-  verifyConditions: [
-    '@semantic-release/npm',
-    '@semantic-release/git'
-  ],
+  verifyConditions: [],
+  verifyRelease: ['@semantic-release/npm', '@semantic-release/github']
+    .map(require)
+    .map(x => x.verifyConditions),
   monorepo: {
     analyzeCommits: [
       '@semantic-release/commit-analyzer'
