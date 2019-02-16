@@ -47,7 +47,7 @@ jobs:
           git config credential.helper "store --file=.git/credentials";
           echo "https://$GH_TOKEN:@github.com" > .git/credentials;
       after_success:
-        - lerna exec --concurrency 1 -- npx --no-install semantic-release -e semantic-release-monorepo --tag-format='${LERNA_PACKAGE_NAME}@\\v${version}'
+        - lerna exec --concurrency 1 -- npx --no-install semantic-release -e semantic-release-monorepo
 
 notifications:
   email:
