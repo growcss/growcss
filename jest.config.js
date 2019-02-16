@@ -65,7 +65,7 @@ const config = {
     '<rootDir>/node_modules/regenerator-runtime/runtime',
     '<rootDir>/build/jest-config/index.js',
   ],
-  setupTestFrameworkScriptFile: '<rootDir>/jest-framework-setup.js',
+  setupFilesAfterEnv: ['<rootDir>/jest-framework-setup.js'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   globals: {
     __DEV__: true,

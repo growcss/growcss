@@ -1,5 +1,3 @@
-const hooks = require('semantic-release-monorepo-hooks');
-const output = hooks();
 const PACKAGE_NAME = process.env.LERNA_PACKAGE_NAME || process.env.npm_package_name;
 
 module.exports = {
@@ -18,7 +16,7 @@ module.exports = {
     'upgrade-dependents/semantic-release',
     {
       'path': '@semantic-release/git',
-      'message': 'chore(' + output.package + '): release ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
+      'message': `chore(${PACKAGE_NAME}): release ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}`
     }
   ],
   publish: [
