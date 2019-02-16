@@ -82,7 +82,7 @@ module.exports = {
     { name: 'beta', prerelease: true },
     { name: 'alpha', prerelease: true }
   ],
-  tagFormat: PACKAGE_NAME + '@\\v${version}',
+  tagFormat: PACKAGE_NAME + '@v${version}',
   prepare: [
     '@semantic-release/changelog',
     '@semantic-release/npm',
