@@ -13,7 +13,12 @@ module.exports = {
   prepare: [
     '@semantic-release/changelog',
     '@semantic-release/npm',
-    'upgrade-dependents/semantic-release',
+    [
+      'upgrade-dependents/semantic-release',
+      {
+        'workspaceDir': `${__dirname}/packages`
+      }
+    ],
     {
       'path': '@semantic-release/git',
       'message': 'chore(' + PACKAGE_NAME + '): release ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
