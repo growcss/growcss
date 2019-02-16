@@ -13,7 +13,6 @@
         "**/.rpt2_cache",
         "package.json"
       ],
-      "allowBranch": "master",
       "conventionalCommits": true,
       "npmClientArgs": [
         "--access public"
