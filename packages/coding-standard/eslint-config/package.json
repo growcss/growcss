@@ -1,6 +1,6 @@
 {
   "name": "@growcss/eslint-config",
-  "version": "1.1.0-alpha.1",
+  "version": "1.0.0-alpha.1",
   "private": false,
   "description": "GrowCss Coding Standard for eslint.",
   "keywords": [
