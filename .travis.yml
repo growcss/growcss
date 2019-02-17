@@ -31,12 +31,12 @@ jobs:
         - npm run lint:eslint:source
         - npm run lint:eslint:supporting
         - npm run lint:style
-
-    - stage: Coverage
-      script:
-        - npm install -g codecov
-        - mkdir ./coverage && npm run test:coverage -- --ci --runInBand
-        - codecov
+#
+#    - stage: Coverage
+#      script:
+#        - npm install -g codecov
+#        - mkdir ./coverage && npm run test:coverage -- --ci --runInBand
+#        - codecov
 
     - stage: Release
       if: (branch = master AND type = push) OR (branch = next AND type = push) OR (branch = next-major AND type = push) OR (branch = beta AND type = push) OR (branch = alpha AND type = push)
