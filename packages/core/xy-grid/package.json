@@ -1,6 +1,6 @@
 {
   "name": "@growcss/xy-grid",
-  "version": "0.0.3",
+  "version": "1.0.0-alpha.1",
   "description": "The XY Grid is huge advancement in Grids.",
   "keywords": [
     "flex",
