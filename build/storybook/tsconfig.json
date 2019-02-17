@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "outDir": "lib",
+    "module": "commonjs",
+    "jsx": "react",
+    "declaration": false,
+    "sourceMap": false,
+    "noEmit": false,
+    "experimentalDecorators": true,
+    "noUnusedLocals": false,
+    "forceConsistentCasingInFileNames": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "moduleResolution": "node",
+    "preserveConstEnums": true,
+    "types": [
+      "webpack-env",
+      "screener-storybook",
+      "prop-types"
+    ]
+  },
+  "exclude": [
+    "coverage",
+    "dist",
+    "__tests__",
+    "node_modules"
+  ]
+}

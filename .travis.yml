@@ -1,6 +1,11 @@
 dist: trusty
 language: node_js
 
+cache:
+  directories:
+    - /home/travis/.rush/
+    - /home/travis/config/rush/temp/
+
 node_js:
   - lts/*
 
@@ -9,34 +14,50 @@ env:
 
 before_install:
   - node --version
+  - echo 'Checking for missing change logs...' && echo -en 'travis_fold:start:change\\r'
+  - git fetch origin master:refs/remotes/origin/master -a
+  - node common/scripts/install-run-rush.js change -v
+  - echo -en 'travis_fold:end:change\\r'
+  - echo 'Checking for inconsistent dependency versions' && echo -en 'travis_fold:start:check\\r'
+  - node common/scripts/install-run-rush.js check
+  - echo -en 'travis_fold:end:check\\r'
 
 install:
-  - npm install -g npm@6.1.0
-  - npm ci
-  - resolve-audit
+  - echo 'Installing...' && echo -en 'travis_fold:start:install\\r'
+  - node common/scripts/install-run-rush.js install
+  - echo -en 'travis_fold:end:install\\r'
 
 before_script:
-  - npm run bootstrap
-  - npm run build
+  - echo 'Building...' && echo -en 'travis_fold:start:build\\r'
+  - node common/scripts/install-run-rush.js rebuild --verbose
+  - echo -en 'travis_fold:end:build\\r'
 
 jobs:
   include:
     - stage: Test # test for lts/*
+      script:
+        - node common/scripts/install-run-rush.js test-ci
     - stage: Test
       node_js:
         - node
+      script:
+        - node common/scripts/install-run-rush.js test-ci
 
     - stage: Coding standard
+      before_install:
+        - echo "skip"
+      before_script:
+        - echo "skip"
       script:
-        - npm run lint:eslint:source
-        - npm run lint:eslint:supporting
-        - npm run lint:style
-#
-#    - stage: Coverage
-#      script:
-#        - npm install -g codecov
-#        - mkdir ./coverage && npm run test:coverage -- --ci --runInBand
-#        - codecov
+        - node common/scripts/install-run-rush.js lint
+
+    - stage: Coverage
+      before_install:
+        - echo "skip"
+      script:
+        - npm install -g codecov
+        - node common/scripts/install-run-rush.js test-coverage
+        - codecov
 
     - stage: Release
       if: (branch = master AND type = push) OR (branch = next AND type = push) OR (branch = next-major AND type = push) OR (branch = beta AND type = push) OR (branch = alpha AND type = push)
@@ -47,7 +68,7 @@ jobs:
           git config credential.helper "store --file=.git/credentials";
           echo "https://$GH_TOKEN:@github.com" > .git/credentials;
       after_success:
-        - lerna exec --concurrency 1 -- npx --no-install semantic-release -e semantic-release-monorepo
+        - echo 0
 
 notifications:
   email:

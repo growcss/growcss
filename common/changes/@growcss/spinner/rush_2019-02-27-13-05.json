@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "packageName": "@growcss/spinner",
+      "comment": "style(spinner): cs fixes",
+      "type": "major"
+    }
+  ],
+  "packageName": "@growcss/spinner",
+  "email": "d.bannert@anolilab.de"
+}

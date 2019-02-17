@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "packageName": "@growcss/eslint-config",
+      "comment": "build(eslint-config): updated files key with missing folder",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@growcss/eslint-config",
+  "email": "d.bannert@anolilab.de"
+}

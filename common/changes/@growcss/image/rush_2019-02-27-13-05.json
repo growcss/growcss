@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "packageName": "@growcss/image",
+      "comment": "refactor(image): changed default export to name export and cs fixes",
+      "type": "major"
+    }
+  ],
+  "packageName": "@growcss/image",
+  "email": "d.bannert@anolilab.de"
+}

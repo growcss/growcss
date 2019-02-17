@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "packageName": "@growcss/theme",
+      "comment": "feat(theme): added new theme component",
+      "type": "major"
+    }
+  ],
+  "packageName": "@growcss/theme",
+  "email": "d.bannert@anolilab.de"
+}

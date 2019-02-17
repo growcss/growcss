@@ -1,0 +1,31 @@
+{
+  "name": "@build/extended-babel",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "",
+    "sort": "                      ./node_modules/@build/scripts/node_modules/.bin/sort-package-json"
+  },
+  "dependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@babel/plugin-external-helpers": "^7.2.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
+    "@babel/plugin-transform-react-jsx-source": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/plugin-transform-typescript": "^7.3.2",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@build/scripts": "0.0.0",
+    "@growcss/babel-preset": "^1.1.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-macros": "^2.5.0",
+    "babel-plugin-react-docgen": "^2.0.2",
+    "babel-plugin-react-docgen-typescript": "^1.2.0",
+    "babel-plugin-styled-components": "^1.10.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "faster.js": "^1.1.0"
+  }
+}

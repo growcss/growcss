@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "packageName": "@growcss/image",
+      "comment": "refactor(image): changed dependencies and devDependencies",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@growcss/image",
+  "email": "d.bannert@anolilab.de"
+}

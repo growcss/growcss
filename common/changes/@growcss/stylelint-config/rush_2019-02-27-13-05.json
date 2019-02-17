@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "packageName": "@growcss/stylelint-config",
+      "comment": "build(stylelint-config): updated files key with missing folder",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@growcss/stylelint-config",
+  "email": "d.bannert@anolilab.de"
+}

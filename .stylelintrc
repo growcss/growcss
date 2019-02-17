@@ -1,6 +1,6 @@
 {
   "extends": [
-    "./packages/coding-standard/stylelint-config"
+    "./coding-standard/stylelint-config"
   ],
   "rules": {
   }

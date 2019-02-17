@@ -1,0 +1,40 @@
+{
+  "name": "browserslist-config-growcss",
+  "version": "1.0.0-alpha.1",
+  "description": "Shared GrowCss browserlist config.",
+  "keywords": [
+    "browserslist",
+    "browserslist-config",
+    "growcss"
+  ],
+  "homepage": "http://growcss.com/packages/browserslist-config",
+  "repository": "https://github.com/growcss/growcss.git",
+  "license": "MIT",
+  "author": {
+    "name": "Daniel Bannert",
+    "email": "d.bannert@anolilab.de"
+  },
+  "files": [
+    "index.js",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE.md"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "build": "",
+    "sort": "                      ./node_modules/@build/scripts/node_modules/.bin/sort-package-json"
+  },
+  "devDependencies": {
+    "@build/jest": "0.0.0",
+    "@build/scripts": "0.0.0",
+    "browserslist": "^4.4.1"
+  },
+  "engines": {
+    "node": "^10.14.0 || ^11.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "moduleName": "browserslist-config"
+}

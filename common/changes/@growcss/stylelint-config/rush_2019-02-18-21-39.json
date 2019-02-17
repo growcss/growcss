@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "packageName": "@growcss/stylelint-config",
+      "comment": "refactor(stylelint-config): changed dependencies and devDependencies",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@growcss/stylelint-config",
+  "email": "d.bannert@anolilab.de"
+}
