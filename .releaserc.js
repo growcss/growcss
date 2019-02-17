@@ -11,7 +11,12 @@ module.exports = {
   ],
   tagFormat: PACKAGE_NAME + '@v${version}',
   prepare: [
-    '@semantic-release/changelog',
+    [
+      '@semantic-release/changelog',
+      {
+        changelogTitle: 'Changelog'
+      }
+    ],
     '@semantic-release/npm',
     [
       'upgrade-dependents/semantic-release',
@@ -28,7 +33,9 @@ module.exports = {
     '@semantic-release/npm',
     '@semantic-release/github'
   ],
-  verifyConditions: [],
+  verifyConditions: [
+    '@semantic-release/changelog',
+  ],
   verifyRelease: ['@semantic-release/npm', '@semantic-release/github']
     .map(require)
     .map(x => x.verifyConditions),
@@ -39,5 +46,7 @@ module.exports = {
     generateNotes: [
       '@semantic-release/release-notes-generator',
     ]
-  }
+  },
+  success: false,
+  fail: false,
 };
