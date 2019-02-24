@@ -123,7 +123,7 @@
     "babel-plugin-transform-class-properties": "6.24.1",
     "babel-plugin-transform-dynamic-import": "2.1.0",
     "babel-plugin-transform-runtime": "6.23.0",
-    "browserslist": "4.4.1",
+    "browserslist": "4.4.2",
     "classnames": "2.2.6",
     "cross-env": "5.2.0",
     "enzyme": "3.8.0",
