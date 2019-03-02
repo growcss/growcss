@@ -198,7 +198,7 @@
     "commitizen": "3.0.5",
     "confusing-browser-globals": "1.0.5",
     "conventional-changelog-angular": "5.0.3",
-    "eslint": "5.14.0",
+    "eslint": "5.15.0",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-prettier": "4.0.0",
     "eslint-plugin-compat": "2.7.0",
