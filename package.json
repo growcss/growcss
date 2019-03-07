@@ -184,7 +184,7 @@
     "@commitlint/config-angular": "7.5.0",
     "@commitlint/config-lerna-scopes": "7.5.1",
     "@commitlint/prompt": "7.5.0",
-    "@hot-loader/react-dom": "16.8.1",
+    "@hot-loader/react-dom": "16.8.4",
     "@lerna/changed": "3.13.0",
     "@microsoft/api-extractor": "6.3.0",
     "@semantic-release/changelog": "3.0.2",
