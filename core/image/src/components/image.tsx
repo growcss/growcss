@@ -4,7 +4,6 @@ import { withTheme, DefaultTheme } from 'styled-components';
 // eslint-disable-next-line no-unused-vars
 import { getThemeValue } from '@growcss/theme';
 import { stripUnit } from '@growcss/elaborate';
-import Observer from '@researchgate/react-intersection-observer';
 import { AspectRatioPlaceholder } from '../styled/aspect-ratio-placeholder';
 import { FigureElement } from '../styled/figure-element';
 import { PlaceholderElement } from '../styled/placeholder-element';
@@ -73,7 +72,14 @@ class ExtendedImage extends Component<ImageProps, ImageStateType> {
 
     let inViewport = true;
 
-    const { src, srcSet, placeholder, theme, webpRegex } = props as PropsWithDefaults;
+    const {
+      src,
+      srcSet,
+      placeholder,
+      theme,
+      webpRegex,
+      lazy,
+    } = props as PropsWithDefaults;
     const srcArray =
       srcSet !== undefined
         ? parseSrcSet(srcSet, getThemeValue('image.breakpoints', {})(theme))
@@ -87,12 +93,17 @@ class ExtendedImage extends Component<ImageProps, ImageStateType> {
     const hasSrcSet = srcArray.length > 1;
 
     // browser with Intersection Observer available
-    if (!seenBefore && typeof window !== `undefined` && window.IntersectionObserver) {
+    if (
+      !seenBefore &&
+      lazy &&
+      typeof window !== `undefined` &&
+      window.IntersectionObserver
+    ) {
       inViewport = false;
     }
 
     // Never render image during SSR
-    if (typeof window === `undefined`) {
+    if (typeof window === `undefined` && lazy) {
       inViewport = false;
     }
 
@@ -193,80 +204,33 @@ class ExtendedImage extends Component<ImageProps, ImageStateType> {
    * {@inheritdoc}
    */
   public render(): ReactNode {
-    const {
-      children,
-      height,
-      width,
-      preload,
-      theme,
-      onError,
-      onLoad,
-      onStartLoad,
-      alt,
-      sizes,
-      crossOrigin,
-      observer,
-      ...other
-    } = this.props as PropsWithDefaults;
+    const { observer, lazy } = this.props as PropsWithDefaults;
 
-    const {
-      src,
-      srcSetWebpArray,
-      srcSetArray,
-      placeholder,
-      hasWebp,
-      loadState,
-      inViewport,
-      seenBefore,
-    } = this.state;
-    const fadeIn = preload && !seenBefore;
+    if (lazy) {
+      try {
+        // eslint-disable-next-line global-require
+        const IntersectionObserver = require('@researchgate/react-intersection-observer')
+          .default;
 
-    return (
-      <Observer
-        onChange={this.onEnter}
-        rootMargin={observer.rootMargin || defaultObserver.rootMargin}
-        threshold={observer.threshold || defaultObserver.threshold}
-      >
-        <FigureElement className="gc-image">
-          <AspectRatioPlaceholder>
-            <div
-              style={{
-                width: '100%',
-                paddingBottom: `${ExtendedImage.getDimensionRatio(height, width)}%`,
-              }}
-            />
-            {fadeIn && ExtendedImage.renderPlaceholder(theme, alt, placeholder)}
-            {inViewport &&
-              ExtendedImage.renderPicture(
-                src,
-                loadState,
-                fadeIn,
-                hasWebp,
-                onLoad,
-                onError,
-                onStartLoad,
-                srcSetArray,
-                srcSetWebpArray,
-                alt,
-                crossOrigin,
-                sizes,
-                other,
-              )}
-            {isSsr &&
-              ExtendedImage.renderNoScriptPicture(
-                src,
-                srcSetArray,
-                srcSetWebpArray,
-                alt,
-                crossOrigin,
-                sizes,
-                other,
-              )}
-          </AspectRatioPlaceholder>
-          {children}
-        </FigureElement>
-      </Observer>
-    );
+        return (
+          <IntersectionObserver
+            onChange={this.onEnter}
+            rootMargin={observer.rootMargin || defaultObserver.rootMargin}
+            threshold={observer.threshold || defaultObserver.threshold}
+          >
+            {this.renderImage()}
+          </IntersectionObserver>
+        );
+      } catch (error) {
+        if (error instanceof Error && error.code === 'MODULE_NOT_FOUND') {
+          throw new Error(
+            'Please run "npm install @researchgate/react-intersection-observer@^1.0.0-beta.0" to use the "lazy" feature of the growcss image component.',
+          );
+        }
+      }
+    }
+
+    return this.renderImage();
   }
 
   /**
@@ -349,99 +313,6 @@ class ExtendedImage extends Component<ImageProps, ImageStateType> {
         crossOrigin="anonymous"
         alt={alt}
       />
-    );
-  }
-
-  /**
-   * Render a picture element.
-   *
-   * @param {string}                       src
-   * @param {string}                       loadState
-   * @param {boolean}                      preload
-   * @param {boolean}                      hasWebp
-   * @param {Function}                     onLoad
-   * @param {Function}                     onError
-   * @param {Function}                     onStartLoad
-   * @param {undefined | CandidateProps[]} srcSetArray
-   * @param {undefined | CandidateProps[]} srcSetWebpArray
-   * @param {undefined | string}           alt
-   * @param {undefined | string}           crossOrigin
-   * @param {undefined | string}           sizes
-   * @param {undefined | any}              other
-   *
-   * @returns ReactElement<PictureProps>
-   */
-  public static renderPicture(
-    src: string,
-    loadState: string,
-    preload: boolean,
-    hasWebp: boolean,
-    onLoad: () => void,
-    onError: () => void,
-    onStartLoad: () => void,
-    srcSetArray?: CandidateProps[],
-    srcSetWebpArray?: CandidateProps[],
-    alt?: string,
-    crossOrigin?: '' | 'anonymous' | 'use-credentials',
-    sizes?: string,
-    other?: any, // eslint-disable-line @typescript-eslint/no-explicit-any
-  ): ReactElement<PictureProps> {
-    return (
-      <Picture
-        src={src}
-        state={loadState}
-        preload={preload}
-        srcSetArray={srcSetArray}
-        srcSetWebpArray={srcSetWebpArray}
-        hasWebp={hasWebp}
-        onLoad={onLoad}
-        onError={onError}
-        onStartLoad={onStartLoad}
-        crossOrigin={crossOrigin}
-        sizes={sizes}
-        alt={alt}
-        {...other}
-      />
-    );
-  }
-
-  /**
-   * Render a picture element fot no script.
-   *
-   * @param {string}                       src
-   * @param {undefined | CandidateProps[]} srcSetArray
-   * @param {undefined | CandidateProps[]} srcSetWebpArray
-   * @param {undefined | string}           alt
-   * @param {undefined | string}           crossOrigin
-   * @param {undefined | string}           sizes
-   * @param {undefined | any}              other
-   *
-   * @returns ReactElement<PictureProps>
-   */
-  public static renderNoScriptPicture(
-    src: string,
-    srcSetArray?: CandidateProps[],
-    srcSetWebpArray?: CandidateProps[],
-    alt?: string,
-    crossOrigin?: '' | 'anonymous' | 'use-credentials',
-    sizes?: string,
-    other?: any, // eslint-disable-line @typescript-eslint/no-explicit-any
-  ): ReactNode {
-    return (
-      <noscript>
-        <Picture
-          src={src}
-          state="loaded"
-          preload={false}
-          srcSetArray={srcSetArray}
-          srcSetWebpArray={srcSetWebpArray}
-          hasWebp
-          crossOrigin={crossOrigin}
-          sizes={sizes}
-          alt={alt}
-          {...other}
-        />
-      </noscript>
     );
   }
 
@@ -556,6 +427,89 @@ class ExtendedImage extends Component<ImageProps, ImageStateType> {
     }
 
     return placeholder;
+  }
+
+  /**
+   * Render Image component.
+   *
+   * @returns {ReactElement<PictureProps>}
+   */
+  private renderImage(): ReactElement<PictureProps> {
+    const {
+      children,
+      height,
+      width,
+      preload,
+      theme,
+      onError,
+      onLoad,
+      onStartLoad,
+      alt,
+      sizes,
+      crossOrigin,
+      ...other
+    } = this.props as PropsWithDefaults;
+
+    const {
+      src,
+      srcSetWebpArray,
+      srcSetArray,
+      placeholder,
+      hasWebp,
+      loadState,
+      inViewport,
+      seenBefore,
+    } = this.state;
+
+    const fadeIn = preload && !seenBefore;
+
+    return (
+      <FigureElement className="gc-image">
+        <AspectRatioPlaceholder>
+          <div
+            style={{
+              width: '100%',
+              paddingBottom: `${ExtendedImage.getDimensionRatio(height, width)}%`,
+            }}
+          />
+          {fadeIn && ExtendedImage.renderPlaceholder(theme, alt, placeholder)}
+          {inViewport && (
+            <Picture
+              src={src}
+              state={loadState}
+              preload={preload}
+              srcSetArray={srcSetArray}
+              srcSetWebpArray={srcSetWebpArray}
+              hasWebp={hasWebp}
+              onLoad={onLoad}
+              onError={onError}
+              onStartLoad={onStartLoad}
+              crossOrigin={crossOrigin}
+              sizes={sizes}
+              alt={alt}
+              {...other}
+            />
+          )}
+          {isSsr && (
+            <noscript>
+              <Picture
+                src={src}
+                state="loaded"
+                preload={false}
+                srcSetArray={srcSetArray}
+                srcSetWebpArray={srcSetWebpArray}
+                hasWebp
+                crossOrigin={crossOrigin}
+                sizes={sizes}
+                alt={alt}
+                {...other}
+              />
+            </noscript>
+          )}
+        </AspectRatioPlaceholder>
+        {children}
+      </FigureElement>
+    );
   }
 }
 

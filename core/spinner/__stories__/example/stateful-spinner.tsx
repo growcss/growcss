@@ -31,6 +31,9 @@ class StatefulSpinner extends PureComponent<{}, State> {
       delay: 100,
       state: 'spinning',
     };
+
+    this.handleSpinnerClick = this.handleSpinnerClick.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   public handleSpinnerClick = () => {

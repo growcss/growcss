@@ -14,11 +14,10 @@ export interface CandidateProps {
   media?: string;
 }
 
-
 export interface PictureProps extends ImgHTMLAttributes<HTMLImageElement> {
-  onLoad: () => void;
-  onError: () => void;
-  onStartLoad: () => void;
+  onLoad?: () => void;
+  onError?: () => void;
+  onStartLoad?: () => void;
   preload: boolean;
   srcSetArray?: CandidateProps[],
   srcSetWebpArray?: CandidateProps[],

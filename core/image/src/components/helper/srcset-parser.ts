@@ -39,6 +39,7 @@ const regexNonNegativeInteger = /^\d+$/;
 // https://html.spec.whatwg.org/multipage/infrastructure.html#valid-floating-point-number
 const regexFloatingPoint = /^-?(?:\d+|\d*\.\d+)(?:[eE][+-]?\d+)?$/;
 
+// Regex for finding a media type in srcset.
 const regexMediaQuery = /\([\s\S]+?\)/;
 
 /**
@@ -163,7 +164,10 @@ export const parseSrcSet = (
         } else {
           height = intVal;
         }
-      } else if (regexMediaQuery.test(desc)) {
+      } else if (
+        regexMediaQuery.test(desc) &&
+        (desc.includes('media=') || extendMedia)
+      ) {
         media = (extendMedia ? `${media} and ` : '') + desc.replace('media=', '');
 
         extendMedia = false;

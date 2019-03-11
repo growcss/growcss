@@ -379,3 +379,26 @@ test('Test srcset parser with really images', () => {
   expect(parsed[3]).not.toBeUndefined();
   expect(parsed[4]).toBeUndefined();
 });
+
+test('Test srcset parser with media type', () => {
+  const srcset =
+    'https://res.cloudinary.com/anolilab/image/upload/c_scale,w_150/v1551714118/abenteuer-berg-draussen-1183986.jpg 150w media=(min-width: 1440px), https://res.cloudinary.com/anolilab/image/upload/c_scale,w_150/v1551714118/abenteuer-berg-draussen-1183986.jpg media=(min-width: 960px), , https://res.cloudinary.com/anolilab/image/upload/c_scale,w_150/v1551714118/abenteuer-berg-draussen-1183986.jpg media=(min-width: 960px) and (orientation: portrait)';
+  const parsed = parseSrcSet(srcset);
+
+  expect(parsed).toHaveLength(3);
+
+  expect(parsed[0]).not.toBeUndefined();
+  expect(parsed[0]).toHaveProperty('media');
+  expect(parsed[0]).toHaveProperty('width');
+  expect(parsed[0].media).toBe('(min-width: 1440px)');
+
+  expect(parsed[1]).not.toBeUndefined();
+  expect(parsed[1]).toHaveProperty('media');
+  expect(parsed[1]).not.toHaveProperty('width');
+  expect(parsed[1].media).toBe('(min-width: 960px)');
+
+  expect(parsed[2]).not.toBeUndefined();
+  expect(parsed[2]).toHaveProperty('media');
+  expect(parsed[2]).not.toHaveProperty('width');
+  expect(parsed[2].media).toBe('(min-width: 960px) and (orientation: portrait)');
+});

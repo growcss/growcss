@@ -1,6 +1,13 @@
+require('intersection-observer');
+
 const { JSDOM } = require('jsdom');
 
-const jsdom = new JSDOM();
+const jsdom = new JSDOM(
+  '',
+  {
+    includeNodeLocations: true
+  }
+);
 const { window } = jsdom;
 
 function copyProps(src, target) {

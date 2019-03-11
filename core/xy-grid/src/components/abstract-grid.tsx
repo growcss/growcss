@@ -1,4 +1,4 @@
-import React, { Component, ReactNode, ReactElement, Children } from 'react';
+import React, { PureComponent, ReactNode, ReactElement, Children } from 'react';
 import classNames from 'classnames';
 import { Gutters as DefaultGutters } from './gutters';
 import { XYGridElement } from '../styled/xy-grid-element';
@@ -12,7 +12,7 @@ interface DefaultGridProps {
 
 type PropsWithDefaults = GridProps & DefaultGridProps;
 
-export default class AbstractGrid extends Component<GridProps> {
+export default class AbstractGrid extends PureComponent<GridProps> {
   public static defaultProps: DefaultGridProps = {
     gutterSizes: DefaultGutters,
     alignX: 'left',

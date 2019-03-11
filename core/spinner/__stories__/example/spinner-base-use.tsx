@@ -20,6 +20,8 @@ class SpinnerBaseUse extends React.Component<
     this.state = {
       isCompleting: false,
     };
+
+    this.completeSpinner = this.completeSpinner.bind(this);
   }
 
   public completeSpinner(): void {

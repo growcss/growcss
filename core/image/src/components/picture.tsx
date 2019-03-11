@@ -27,6 +27,7 @@ export class Picture extends PureComponent<PictureProps, PictureStateType> {
         if (typeof filteredMediaObjects[key] === 'object') {
           mediaSrcSetSources.push(
             Picture.createSourceElement(
+              key,
               filteredMediaObjects[key],
               undefined,
               sizes,
@@ -44,6 +45,7 @@ export class Picture extends PureComponent<PictureProps, PictureStateType> {
         if (typeof filteredMediaObjects[key] === 'object') {
           mediaSrcSetWebpSources.push(
             Picture.createSourceElement(
+              key,
               filteredMediaObjects[key],
               'image/webp',
               sizes,
@@ -71,19 +73,31 @@ export class Picture extends PureComponent<PictureProps, PictureStateType> {
   /**
    * Create a source element.
    *
+   * @param {string}             id
    * @param {CandidateProps[]}   srcSetArray
    * @param {undefined | string} type
    * @param {undefined | string} sizes
    * @param {undefined | string} media
    */
   public static createSourceElement(
+    id: string,
     srcSetArray: CandidateProps[],
     type?: string,
     sizes?: string,
     media?: string,
   ): ReactNode {
+    const hashCode = (input: string): number => {
+      return input.split('').reduce((a, b) => {
+        // eslint-disable-next-line no-bitwise, no-param-reassign
+        a = (a << 5) - a + b.charCodeAt(0);
+        // eslint-disable-next-line no-bitwise
+        return a & a;
+      }, 0);
+    };
+
     return (
       <source
+        key={hashCode(id)}
         type={type}
         srcSet={srcSetStringify(srcSetArray)}
         sizes={sizes}
@@ -127,7 +141,9 @@ export class Picture extends PureComponent<PictureProps, PictureStateType> {
 
     const { onStartLoad } = this.props;
 
-    onStartLoad();
+    if (typeof onStartLoad === 'function') {
+      onStartLoad();
+    }
 
     this.setState({ loadState: 'loading' });
   }
@@ -140,7 +156,7 @@ export class Picture extends PureComponent<PictureProps, PictureStateType> {
 
     const { onLoad } = this.props;
 
-    if (onLoad !== undefined) {
+    if (typeof onLoad === 'function') {
       onLoad();
     }
   }
@@ -170,12 +186,17 @@ export class Picture extends PureComponent<PictureProps, PictureStateType> {
         {supportsWebp &&
           srcSetWebpArray !== undefined &&
           srcSetWebpArray.length !== 0 &&
-          Picture.createSourceElement(srcSetWebpArray, 'image/webp', sizes)}
+          Picture.createSourceElement(
+            'image-webp',
+            srcSetWebpArray,
+            'image/webp',
+            sizes,
+          )}
         {supportsWebp && mediaSrcSetWebpSources}
         {mediaSrcSetSources}
         {srcSetArray !== undefined &&
           srcSetArray.length !== 0 &&
-          Picture.createSourceElement(srcSetArray, undefined, sizes)}
+          Picture.createSourceElement('src-set', srcSetArray, undefined, sizes)}
         <img
           src={src}
           onLoad={this.handleImageLoaded}

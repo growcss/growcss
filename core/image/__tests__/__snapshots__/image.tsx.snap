@@ -221,13 +221,241 @@ exports[`Image load small image if no placeholder image is set 1`] = `
             <picture
               className="preload picture-element__PictureElement-sc-5wdao-0 jPicbX"
             >
-              <source
-                srcSet="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/400x/mountain.jpg 640w"
-              />
               <img
                 onError={[Function]}
                 onLoad={[Function]}
                 src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/400x/mountain.jpg"
+              />
+            </picture>
+          </picture-element__PictureElement>
+        </div>
+      </aspect-ratio-placeholder__AspectRatioPlaceholder>
+    </figure>
+  </figure-element__FigureElement>
+</WithTheme(ExtendedImage)>
+`;
+
+exports[`should have correct src, title and alt attributes 1`] = `
+<WithTheme(ExtendedImage)
+  alt="Alt text for the image"
+  srcSet="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/400x/mountain.jpg medium, https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/600x/mountain.jpg large"
+  theme={
+    Object {
+      "body": Object {
+        "backgroundColor": "#ffffff",
+      },
+      "colors": Object {
+        "black": "#22292f",
+        "blue": "#3490dc",
+        "blueDark": "#2779bd",
+        "blueDarker": "#1c3d5a",
+        "blueDarkest": "#12283a",
+        "blueLight": "#6cb2eb",
+        "blueLighter": "#bcdefa",
+        "blueLightest": "#eff8ff",
+        "green": "#38c172",
+        "greenDark": "#1f9d55",
+        "greenDarker": "#1a4731",
+        "greenDarkest": "#0f2f21",
+        "greenLight": "#51d88a",
+        "greenLighter": "#a2f5bf",
+        "greenLightest": "#e3fcec",
+        "grey": "#b8c2cc",
+        "greyDark": "#8795a1",
+        "greyDarker": "#606f7b",
+        "greyDarkest": "#3d4852",
+        "greyLight": "#dae1e7",
+        "greyLighter": "#f1f5f8",
+        "greyLightest": "#f8fafc",
+        "indigo": "#6574cd",
+        "indigoDark": "#5661b3",
+        "indigoDarker": "#2f365f",
+        "indigoDarkest": "#191e38",
+        "indigoLight": "#7886d7",
+        "indigoLighter": "#b2b7ff",
+        "indigoLightest": "#e6e8ff",
+        "orange": "#f6993f",
+        "orangeDark": "#de751f",
+        "orangeDarker": "#613b1f",
+        "orangeDarkest": "#462a16",
+        "orangeLight": "#faad63",
+        "orangeLighter": "#fcd9b6",
+        "orangeLightest": "#fff5eb",
+        "pink": "#f66d9b",
+        "pinkDark": "#eb5286",
+        "pinkDarker": "#6f213f",
+        "pinkDarkest": "#451225",
+        "pinkLight": "#fa7ea8",
+        "pinkLighter": "#ffbbca",
+        "pinkLightest": "#ffebef",
+        "purple": "#9561e2",
+        "purpleDark": "#794acf",
+        "purpleDarker": "#382b5f",
+        "purpleDarkest": "#21183c",
+        "purpleLight": "#a779e9",
+        "purpleLighter": "#d6bbfc",
+        "purpleLightest": "#f3ebff",
+        "red": "#e3342f",
+        "redDark": "#cc1f1a",
+        "redDarker": "#621b18",
+        "redDarkest": "#3b0d0c",
+        "redLight": "#ef5753",
+        "redLighter": "#f9acaa",
+        "redLightest": "#fcebea",
+        "teal": "#4dc0b5",
+        "tealDark": "#38a89d",
+        "tealDarker": "#20504f",
+        "tealDarkest": "#0d3331",
+        "tealLight": "#64d5ca",
+        "tealLighter": "#a0f0ed",
+        "tealLightest": "#e8fffe",
+        "transparent": "transparent",
+        "white": "#ffffff",
+        "yellow": "#ffed4a",
+        "yellowDark": "#f2d024",
+        "yellowDarker": "#684f1d",
+        "yellowDarkest": "#453411",
+        "yellowLight": "#fff382",
+        "yellowLighter": "#fff9c2",
+        "yellowLightest": "#fcfbeb",
+      },
+      "global": Object {
+        "breakpoints": Object {
+          "large": 1024,
+          "medium": 640,
+          "small": 0,
+          "xlarge": 1200,
+          "xxlarge": 1440,
+        },
+        "hidpiBreakpoints": Object {
+          "hidpi-1": 1,
+          "hidpi-1-5": 1.5,
+          "hidpi-2": 2,
+          "hidpi-3": 3,
+          "retina": 2,
+        },
+        "margin": "1rem",
+        "padding": "1rem",
+        "position": "1rem",
+        "printBreakpoint": "large",
+        "stdWebDpi": 96,
+        "textDirection": "ltr",
+      },
+      "grid": Object {
+        "columns": 12,
+        "gutterBreakpoint": "small",
+        "marginGutters": Object {
+          "medium": "30px",
+          "small": "20px",
+        },
+        "maxWidth": "75rem",
+        "paddingGutters": Object {
+          "medium": "30px",
+          "small": "20px",
+        },
+      },
+      "image": Object {
+        "breakpoints": Object {
+          "large": "1024w",
+          "medium": "640w",
+          "xlarge": "1200w",
+          "xxlarge": "1440w",
+        },
+        "previewBackgroundColor": "#dae1e7",
+      },
+      "shadows": Object {
+        "default": "0 2px 4px 0 rgba(0,0,0,0.10)",
+        "inner": "inset 0 2px 4px 0 rgba(0,0,0,0.06)",
+        "lg": "0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)",
+        "md": "0 4px 8px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.08)",
+        "none": "none",
+        "outline": "0 0 0 3px rgba(52,144,220,0.5)",
+      },
+      "spinner": Object {
+        "color": "#22292f",
+        "size": Object {
+          "large": 24,
+          "medium": 16,
+          "small": 8,
+          "xlarge": 48,
+          "xxlarge": 96,
+        },
+      },
+      "typography": Object {
+        "antialiased": true,
+        "breakpoints": Object {
+          "medium": Array [
+            3.052,
+            2.441,
+            1.953,
+            1.563,
+            1.25,
+            1,
+          ],
+          "small": Array [
+            2.488,
+            2.074,
+            1.728,
+            1.44,
+            1.2,
+            1,
+          ],
+        },
+        "codeFontFamily": "\\"SFMono-Medium\\", \\"SF Mono\\", \\"Segoe UI Mono\\", \\"Roboto Mono\\", \\"Ubuntu Mono\\", Menlo, Consolas, Courier, monospace",
+        "color": "#22292f",
+        "fontFamily": "-apple-system, BlinkMacSystemFont, \\"Segoe UI\\", Helvetica, Arial, sans-serif, \\"Apple Color Emoji\\", \\"Segoe UI Emoji\\", \\"Segoe UI Symbol\\"",
+        "fontSize": "16px",
+        "lineHeight": 1.45,
+        "weightBold": "bold",
+        "weightNormal": 600,
+      },
+      "zIndex": Object {
+        "0": 0,
+        "10": 10,
+        "20": 20,
+        "30": 30,
+        "40": 40,
+        "50": 50,
+        "auto": "auto",
+      },
+    }
+  }
+  title="Title for the image"
+>
+  <figure-element__FigureElement
+    className="gc-image"
+  >
+    <figure
+      className="gc-image figure-element__FigureElement-sc-92c2gs-0 gOCodI"
+    >
+      <aspect-ratio-placeholder__AspectRatioPlaceholder>
+        <div
+          className="aspect-ratio-placeholder__AspectRatioPlaceholder-sc-1p97xwn-0 bhPjyK"
+        >
+          <div
+            style={
+              Object {
+                "paddingBottom": "75%",
+                "width": "100%",
+              }
+            }
+          />
+          <picture-element__PictureElement
+            className="visible"
+          >
+            <picture
+              className="visible picture-element__PictureElement-sc-5wdao-0 jPicbX"
+            >
+              <source
+                key="-1954652935"
+                srcSet="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/400x/mountain.jpg 640w, https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/600x/mountain.jpg 1024w"
+              />
+              <img
+                alt="Alt text for the image"
+                onError={[Function]}
+                onLoad={[Function]}
+                src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/600x/mountain.jpg"
+                title="Title for the image"
               />
             </picture>
           </picture-element__PictureElement>

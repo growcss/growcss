@@ -1,16 +1,16 @@
 /* eslint-disable no-console */
-const fs = require('fs');
-
 const {
   INTEGRATION_TESTS,
   VISUAL_REGRESSION,
   CI,
 } = process.env;
 
+const jestDir = __dirname;
 const packageDir = process.cwd();
 
 const config = {
-  roots: [__dirname, packageDir],
+  rootDir: packageDir,
+  testMatch: [`**/__tests__/**/*.{js,tsx,ts}`],
   transform: {
     '^.+\\.(ts|tsx|js|jsx)$': 'babel-jest',
   },
@@ -33,10 +33,10 @@ const config = {
   // uses dynamic imports which are not valid in node)
   transformIgnorePatterns: ['\\/node_modules\\/(?!@growcss|react-syntax-highlighter)'],
   setupFiles: [
-    '<rootDir>/node_modules/regenerator-runtime/runtime',
-    '<rootDir>/config/index.js',
+    `${jestDir}/node_modules/regenerator-runtime/runtime`,
+    `${jestDir}/config/index.js`,
   ],
-  setupFilesAfterEnv: ['<rootDir>/jest-framework-setup.js'],
+  setupFilesAfterEnv: [`${jestDir}/jest-framework-setup.js`],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   globals: {
     __DEV__: true,
@@ -68,9 +68,9 @@ if (INTEGRATION_TESTS || VISUAL_REGRESSION) {
 }
 
 if (VISUAL_REGRESSION) {
-  config.globalSetup = `${__dirname}/visual-regression/config/jest/globalSetup.js`;
-  config.globalTeardown = `${__dirname}/visual-regression/config/jest/globalTeardown.js`;
-  config.testEnvironment = `${__dirname}/visual-regression/config/jest/jsdomEnvironment.js`;
+  config.globalSetup = `${__dirname}/visual-regression/config/globalSetup.js`;
+  config.globalTeardown = `${__dirname}/visual-regression/config/globalTeardown.js`;
+  config.testEnvironment = `${__dirname}/visual-regression/config/jsdomEnvironment.js`;
 
   if (!CI) {
     config.globals.__BASEURL__ = 'http://testing.local.com:9000';

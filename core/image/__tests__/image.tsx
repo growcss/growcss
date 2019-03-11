@@ -4,6 +4,8 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 import { GrowCss } from '@growcss/theme';
 import { StyledImage as Image } from '../src/components/image';
 
+window.IntersectionObserver.prototype.USE_MUTATION_OBSERVER = false;
+
 expect.extend(toHaveNoViolations);
 
 test('Image load small image if no placeholder image is set', () => {
@@ -41,7 +43,7 @@ test('Image a11y support', async () => {
 test(`should have correct src, title and alt attributes`, () => {
   const wrapper = mount(
     <Image
-      srcSet="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/400x/mountain.jpg medium"
+      srcSet="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/400x/mountain.jpg medium, https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/600x/mountain.jpg large"
       title="Title for the image"
       alt="Alt text for the image"
       theme={GrowCss}
@@ -51,12 +53,14 @@ test(`should have correct src, title and alt attributes`, () => {
   expect(wrapper).toMatchSnapshot();
 
   const pictureImage = wrapper.find('.gc-image picture img').html();
-  const sourePictureImage = wrapper.find('.gc-image picture source').html();
+  const sourcePictureImage = wrapper.find('.gc-image picture source').html();
 
-  expect(pictureImage.getAttribute(`src`)).toEqual(`test_image.jpg`);
-  expect(sourePictureImage.getAttribute(`srcSet`)).toEqual(
-    `https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/400x/mountain.jpg`,
+  expect(pictureImage).toContain(
+    `src="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/600x/mountain.jpg"`,
   );
-  expect(pictureImage.getAttribute(`title`)).toEqual(`Title for the image`);
-  expect(pictureImage.getAttribute(`alt`)).toEqual(`Alt text for the image`);
+  expect(sourcePictureImage).toContain(
+    `srcset="https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/400x/mountain.jpg 640w, https://ucarecdn.com/1b73ebf8-b2d6-40cc-abd6-945d4df883c9/-/resize/600x/mountain.jpg 1024w"`,
+  );
+  expect(pictureImage).toContain(`title="Title for the image"`);
+  expect(pictureImage).toContain(`alt="Alt text for the image"`);
 });

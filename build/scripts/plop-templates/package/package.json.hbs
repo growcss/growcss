@@ -30,7 +30,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "                     npm run clear && ./node_modules/.bin/growcss-rollup",
-    "clear": "                     ./node_modules/@build/scripts/node_modules/.bin/rimraf dist",
+    "clear": "                     ./node_modules/@build/scripts/node_modules/.bin/rimraf dist coverage",
     "lint": "                      npm run lint:eslint:source && npm run lint:eslint:supporting && npm run lint:style",
     "lint-fix": "                  npm run lint:fix:eslint:source && npm run lint:fix:eslint:supporting",
     "lint:eslint:source": "        eslint -c ./node_modules/@build/extended-eslint-config/.eslintrc.sources.js --print-config ./node_modules/@build/extended-eslint-config/.eslintrc.sources.js | eslint-config-prettier-check && eslint -c ./node_modules/@build/extended-eslint-config/.eslintrc.sources.js './src/**/*.{js,jsx,ts,tsx}'",

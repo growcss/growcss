@@ -33,21 +33,24 @@ export default class App extends React.Component<{}, State> {
       showSpinners: false,
       size: 20,
     };
+
+    this.onChange = this.onChange.bind(this);
+    this.toggleSpinners = this.toggleSpinners.bind(this);
   }
 
-  public onChange = (e: SyntheticInputEvent<HTMLInputElement>) => {
+  public onChange(e: SyntheticInputEvent<HTMLInputElement>): void {
     this.setState({
       size: +e.target.value,
     });
-  };
+  }
 
-  public toggleSpinners = () => {
+  public toggleSpinners(): void {
     const { showSpinners } = this.state;
 
     this.setState({
       showSpinners: !showSpinners,
     });
-  };
+  }
 
   public render(): React.ReactNode {
     const { size, spinners, showSpinners } = this.state;

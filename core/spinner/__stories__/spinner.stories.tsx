@@ -99,8 +99,8 @@ storiesOf('Core.Spinner', module)
   .add('Stateful spinner', () => <StatefulSpinner />)
   .add('Base usage', () => (
     <React.Fragment>
-      <SpinnerBaseUse />,
-      <SpinnerBaseUse animation="fingerprint" delay={3000} />,
+      <SpinnerBaseUse />
+      <SpinnerBaseUse animation="fingerprint" delay={3000} />
     </React.Fragment>
   ))
   .add('Lots of spinners', () => <LotsOfSpinner />);
