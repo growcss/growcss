@@ -80,7 +80,51 @@ jobs:
           git config --local user.name "$GH_USER_NAME"
           git config credential.helper "store --file=.git/credentials";
           echo "https://$GH_TOKEN:@github.com" > .git/credentials;
-        - node common/scripts/install-run-rush.js publish -b master -p --add-commit-details --npm-auth-token "$NPM_TOKEN" --include-all
+        - set -e
+        - node common/scripts/install-run-rush.js publish -a -b master -p --add-commit-details --npm-auth-token "$NPM_TOKEN"
+        - node build/release/update-release-notes.js --token="$GH_TOKEN" --apply
+      after_success:
+        - echo 0
+
+    - stage: Release
+      if: branch = next AND type = push
+      script:
+        - |
+          git config --local user.email "$GH_USER_EMAIL"
+          git config --local user.name "$GH_USER_NAME"
+          git config credential.helper "store --file=.git/credentials";
+          echo "https://$GH_TOKEN:@github.com" > .git/credentials;
+        - set -e
+        - node common/scripts/install-run-rush.js publish -a -b master -p --add-commit-details --npm-auth-token "$NPM_TOKEN" --prerelease-name=rc
+        - node build/release/update-release-notes.js --token="$GH_TOKEN" --apply
+      after_success:
+        - echo 0
+
+    - stage: Release
+      if: branch = beta AND type = push
+      script:
+        - |
+          git config --local user.email "$GH_USER_EMAIL"
+          git config --local user.name "$GH_USER_NAME"
+          git config credential.helper "store --file=.git/credentials";
+          echo "https://$GH_TOKEN:@github.com" > .git/credentials;
+        - set -e
+        - node common/scripts/install-run-rush.js publish -a -b master -p --add-commit-details --npm-auth-token "$NPM_TOKEN" --prerelease-name=beta
+        - node build/release/update-release-notes.js --token="$GH_TOKEN" --apply
+      after_success:
+        - echo 0
+
+    - stage: Release
+      if: branch = alpha AND type = push
+      script:
+        - |
+          git config --local user.email "$GH_USER_EMAIL"
+          git config --local user.name "$GH_USER_NAME"
+          git config credential.helper "store --file=.git/credentials";
+          echo "https://$GH_TOKEN:@github.com" > .git/credentials;
+        - set -e
+        - node common/scripts/install-run-rush.js publish -a -b master -p --add-commit-details --npm-auth-token "$NPM_TOKEN" --prerelease-name=alpha
+        - node build/release/update-release-notes.js --token="$GH_TOKEN" --apply
       after_success:
         - echo 0
 

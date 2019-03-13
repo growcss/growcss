@@ -334,6 +334,13 @@
       "shouldPublish": false
     },
     {
+      "packageName": "@build/release",
+      "projectFolder": "build/release",
+      "reviewCategory": "tools",
+      "shouldPublish": false,
+      "skipRushCheck": true
+    },
+    {
       "packageName": "@build/rollup",
       "projectFolder": "build/rollup",
       "reviewCategory": "tools",
