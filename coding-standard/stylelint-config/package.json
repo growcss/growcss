@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "stylelint-a11y": "^1.1.9",
-    "stylelint-config-prettier": "^4.0.0",
+    "stylelint-config-prettier": "^5.0.0",
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-images": "^2.0.0",
