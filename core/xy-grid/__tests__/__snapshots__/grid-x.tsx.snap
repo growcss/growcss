@@ -1,0 +1,292 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the style output of GridX 1`] = `
+<xy-grid-element__XYGridElement
+  alignX="left"
+  className="gc-grid-x"
+  flexWrap={true}
+  gridDirection="horizontal"
+>
+  <div
+    className="gc-grid-x xy-grid-element__XYGridElement-sc-76t78x-0 jqHyhp"
+  >
+    <cell-element__CellElement
+      className="gc-cell"
+      gridColumns={12}
+      gutterSizes={
+        Object {
+          "medium": "30px",
+          "small": "20px",
+        }
+      }
+      vertical={false}
+    >
+      <div
+        className="gc-cell cell-element__CellElement-sc-6s0nu0-0 PmlGH"
+      >
+        test
+      </div>
+    </cell-element__CellElement>
+  </div>
+</xy-grid-element__XYGridElement>
+`;
+
+exports[`the style output of GridX with alignment to bottom 1`] = `
+<xy-grid-element__XYGridElement
+  alignX="left"
+  alignY="bottom"
+  className="gc-grid-x"
+  flexWrap={true}
+  gridDirection="horizontal"
+>
+  <div
+    className="gc-grid-x xy-grid-element__XYGridElement-sc-76t78x-0 fYSDDe"
+  >
+    <cell-element__CellElement
+      className="gc-cell"
+      gridColumns={12}
+      gutterSizes={
+        Object {
+          "medium": "30px",
+          "small": "20px",
+        }
+      }
+      gutterType="padding"
+      vertical={false}
+    >
+      <div
+        className="gc-cell cell-element__CellElement-sc-6s0nu0-0 eRyEvK"
+      >
+        test
+      </div>
+    </cell-element__CellElement>
+  </div>
+</xy-grid-element__XYGridElement>
+`;
+
+exports[`the style output of GridX with alignment to center 1`] = `
+<xy-grid-element__XYGridElement
+  alignX="center"
+  className="gc-grid-x"
+  flexWrap={true}
+  gridDirection="horizontal"
+>
+  <div
+    className="gc-grid-x xy-grid-element__XYGridElement-sc-76t78x-0 gSAUKy"
+  >
+    <cell-element__CellElement
+      className="gc-cell"
+      gridColumns={12}
+      gutterSizes={
+        Object {
+          "medium": "30px",
+          "small": "20px",
+        }
+      }
+      gutterType="padding"
+      vertical={false}
+    >
+      <div
+        className="gc-cell cell-element__CellElement-sc-6s0nu0-0 eRyEvK"
+      >
+        test
+      </div>
+    </cell-element__CellElement>
+  </div>
+</xy-grid-element__XYGridElement>
+`;
+
+exports[`the style output of GridX with alignment to justify 1`] = `
+<xy-grid-element__XYGridElement
+  alignX="justify"
+  className="gc-grid-x"
+  flexWrap={true}
+  gridDirection="horizontal"
+>
+  <div
+    className="gc-grid-x xy-grid-element__XYGridElement-sc-76t78x-0 imMcgZ"
+  >
+    <cell-element__CellElement
+      className="gc-cell"
+      gridColumns={12}
+      gutterSizes={
+        Object {
+          "medium": "30px",
+          "small": "20px",
+        }
+      }
+      gutterType="padding"
+      vertical={false}
+    >
+      <div
+        className="gc-cell cell-element__CellElement-sc-6s0nu0-0 eRyEvK"
+      >
+        test
+      </div>
+    </cell-element__CellElement>
+  </div>
+</xy-grid-element__XYGridElement>
+`;
+
+exports[`the style output of GridX with alignment to middle 1`] = `
+<xy-grid-element__XYGridElement
+  alignX="left"
+  alignY="middle"
+  className="gc-grid-x"
+  flexWrap={true}
+  gridDirection="horizontal"
+>
+  <div
+    className="gc-grid-x xy-grid-element__XYGridElement-sc-76t78x-0 beHfpv"
+  >
+    <cell-element__CellElement
+      className="gc-cell"
+      gridColumns={12}
+      gutterSizes={
+        Object {
+          "medium": "30px",
+          "small": "20px",
+        }
+      }
+      gutterType="padding"
+      vertical={false}
+    >
+      <div
+        className="gc-cell cell-element__CellElement-sc-6s0nu0-0 eRyEvK"
+      >
+        test
+      </div>
+    </cell-element__CellElement>
+  </div>
+</xy-grid-element__XYGridElement>
+`;
+
+exports[`the style output of GridX with alignment to right 1`] = `
+<xy-grid-element__XYGridElement
+  alignX="right"
+  className="gc-grid-x"
+  flexWrap={true}
+  gridDirection="horizontal"
+>
+  <div
+    className="gc-grid-x xy-grid-element__XYGridElement-sc-76t78x-0 lbjrIu"
+  >
+    <cell-element__CellElement
+      className="gc-cell"
+      gridColumns={12}
+      gutterSizes={
+        Object {
+          "medium": "30px",
+          "small": "20px",
+        }
+      }
+      gutterType="padding"
+      vertical={false}
+    >
+      <div
+        className="gc-cell cell-element__CellElement-sc-6s0nu0-0 eRyEvK"
+      >
+        test
+      </div>
+    </cell-element__CellElement>
+  </div>
+</xy-grid-element__XYGridElement>
+`;
+
+exports[`the style output of GridX with alignment to spaced 1`] = `
+<xy-grid-element__XYGridElement
+  alignX="spaced"
+  className="gc-grid-x"
+  flexWrap={true}
+  gridDirection="horizontal"
+>
+  <div
+    className="gc-grid-x xy-grid-element__XYGridElement-sc-76t78x-0 gwaiGx"
+  >
+    <cell-element__CellElement
+      className="gc-cell"
+      gridColumns={12}
+      gutterSizes={
+        Object {
+          "medium": "30px",
+          "small": "20px",
+        }
+      }
+      gutterType="padding"
+      vertical={false}
+    >
+      <div
+        className="gc-cell cell-element__CellElement-sc-6s0nu0-0 eRyEvK"
+      >
+        test
+      </div>
+    </cell-element__CellElement>
+  </div>
+</xy-grid-element__XYGridElement>
+`;
+
+exports[`the style output of GridX with alignment to stretch 1`] = `
+<xy-grid-element__XYGridElement
+  alignX="left"
+  alignY="stretch"
+  className="gc-grid-x"
+  flexWrap={true}
+  gridDirection="horizontal"
+>
+  <div
+    className="gc-grid-x xy-grid-element__XYGridElement-sc-76t78x-0 flrYIA"
+  >
+    <cell-element__CellElement
+      className="gc-cell"
+      gridColumns={12}
+      gutterSizes={
+        Object {
+          "medium": "30px",
+          "small": "20px",
+        }
+      }
+      gutterType="padding"
+      vertical={false}
+    >
+      <div
+        className="gc-cell cell-element__CellElement-sc-6s0nu0-0 eRyEvK"
+      >
+        test
+      </div>
+    </cell-element__CellElement>
+  </div>
+</xy-grid-element__XYGridElement>
+`;
+
+exports[`the style output of GridX with alignment to top 1`] = `
+<xy-grid-element__XYGridElement
+  alignX="left"
+  alignY="top"
+  className="gc-grid-x"
+  flexWrap={true}
+  gridDirection="horizontal"
+>
+  <div
+    className="gc-grid-x xy-grid-element__XYGridElement-sc-76t78x-0 kbQcJl"
+  >
+    <cell-element__CellElement
+      className="gc-cell"
+      gridColumns={12}
+      gutterSizes={
+        Object {
+          "medium": "30px",
+          "small": "20px",
+        }
+      }
+      gutterType="padding"
+      vertical={false}
+    >
+      <div
+        className="gc-cell cell-element__CellElement-sc-6s0nu0-0 eRyEvK"
+      >
+        test
+      </div>
+    </cell-element__CellElement>
+  </div>
+</xy-grid-element__XYGridElement>
+`;

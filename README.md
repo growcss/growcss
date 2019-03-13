@@ -6,8 +6,6 @@
     <br>
     <a href="https://spectrum.chat/growcss"><img alt="spectrum" src="https://img.shields.io/badge/join%20the%20community-on%20spectrum-7B16FF.svg?style=flat-square"></a>
     <a href="http://opensource.org/licenses/MIT"><img alt="opensource" src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square"></a>
-    <a href="https://lernajs.io"><img alt="lernajs" src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg?style=flat-square"></a>
-    <a href="https://semantic-release.gitbook.io"><img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6-semantic--release-e10079.svg?style=flat-square"></a>
     <a href="https://app.netlify.com/sites/infallible-mccarthy-7b24be/deploys"><img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/2fb019d3-79ad-4149-be85-f8a6210d53a6/deploy-status" /></a>
 </p>
 
@@ -22,6 +20,32 @@ Branch Status
 ------------
 
 [![Build Status](https://img.shields.io/travis/growcss/growcss.svg?branch=master&style=flat-square)](https://travis-ci.org/growcss/growcss)
+
+Version policy
+------------
+
+GrowCss adheres to [semantic versioning](http://www.semver.org/). However, we only consider constructs directly importable at the package level or from files at the root. Everything else is considered package-internal and may be subjected to changes, moves, renames, etc.
+
+Browser support
+------------
+
+| Browsers list |                        |
+|---------------|------------------------|
+| 1%            | global browser         |
+| ie            | >= 11                  |
+| last 1        | Android versions       |
+| last 1        | ChromeAndroid versions |
+| last 2        | Chrome versions        |
+| last 2        | Firefox versions       |
+| last 2        | Safari versions        |
+| last 2        | iOS versions           |
+| last 2        | Edge versions          |
+| last 2        | Opera versions         |
+
+Right-to-left support
+------------
+
+All components can render in LTR or RTL, depending on the dir attribute set on the html element. (dir="rtl" will flip the direction of everything.
 
 Contributing
 ------------

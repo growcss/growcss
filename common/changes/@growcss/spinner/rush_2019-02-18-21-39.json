@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "packageName": "@growcss/spinner",
+      "comment": "refactor(spinner): changed dependencies and devDependencies",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@growcss/spinner",
+  "email": "d.bannert@anolilab.de"
+}

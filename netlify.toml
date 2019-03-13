@@ -1,0 +1,5 @@
+[build]
+  publish = "netlify-build"
+  command = "bash .github/netlify-build.sh"
+[build.environment]
+  NODE_VERSION = "10.14.2"

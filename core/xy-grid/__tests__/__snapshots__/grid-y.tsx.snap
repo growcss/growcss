@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the style output of GridY 1`] = `
+<xy-grid-element__XYGridElement
+  alignX="left"
+  className="gc-grid-y"
+  flexWrap={true}
+  gridDirection="vertical"
+  gridHeight="500px"
+>
+  <div
+    className="gc-grid-y xy-grid-element__XYGridElement-sc-76t78x-0 kALdId"
+  >
+    <cell-element__CellElement
+      className="gc-cell"
+      gridColumns={12}
+      gutterSizes={
+        Object {
+          "medium": "30px",
+          "small": "20px",
+        }
+      }
+      vertical={true}
+    >
+      <div
+        className="gc-cell cell-element__CellElement-sc-6s0nu0-0 dWLmTp"
+      >
+        test
+      </div>
+    </cell-element__CellElement>
+  </div>
+</xy-grid-element__XYGridElement>
+`;

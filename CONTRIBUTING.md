@@ -31,7 +31,9 @@ If you fixed or added something useful to the project, you can send a pull-reque
 #### Before submitting a PR:
 
 1. Make sure you have tests for your modifications.
-2. Run npm test locally to catch any errors.
+2. Run `nvm use` to use the right npm version.
+3. Run `rush install` to install all dependencies.
+4. Run `rush test` locally to catch any errors.
 
 #### Why did you close my pull request or issue?
 

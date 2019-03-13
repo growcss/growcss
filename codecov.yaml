@@ -1,0 +1,6 @@
+ignore:
+  - "./build/**/*"
+  - ".github/**/*"
+  - "./common/**/*"
+  - "./docs/**/*"
+  - "./typings/**/*"

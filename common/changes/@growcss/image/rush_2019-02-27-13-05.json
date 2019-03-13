@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "packageName": "@growcss/image",
+      "comment": "feat(image): changed default export to name export, extended the image component with more need functions",
+      "type": "major"
+    }
+  ],
+  "packageName": "@growcss/image",
+  "email": "d.bannert@anolilab.de"
+}
