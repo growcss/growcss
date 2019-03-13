@@ -1,6 +1,9 @@
 dist: trusty
 language: node_js
 
+git:
+  depth: 3
+
 cache:
   directories:
     - /home/travis/.rush/
@@ -10,7 +13,8 @@ node_js:
   - lts/*
 
 env:
-  - SKIP_CHECK=true
+  global:
+   - secure: "P7mJnPygO2Qeh3zJZZlKgSs5i4M1LaD+aEVLvlm1KPA7ArK+ijySPVHt6O6REUqCA+yf6RVe04vCeH9rbUV3KGjwR5IrgwONI+oM7BhQHgbGgw8xtHCVxuKZFkdWv9XvHLGtEOE9WbIrUmXT28fqRSu2CSOGkdCCuL8pspdu5L2MdOwr7Zi4foFJFVwLMBB6RcApAnIUE2XW38oWp5NuRMGqIGnpoSulCZPOfdjPrBoLO6XwFyASxlB2LTaC8gspfhKGZ6D92K5DUh+FbQek1kkRTsuENmrgkbJH9ufkgrAsaJOa5VDTuw54FNn3W4X2mrH0uv7p/fScP9F3shQ9nB8roWWjtTejwTuDhwRAlvaK4OZxTZ8VrKWsyG1OOkd96hh0wmogm/281Dc8WQeajlJqBXEYFJwyw8vMiOl0IQWQn33T1zpzv7uwzCEziCJmZpDhBXEDgg82ue4y9Z0Do0ffrZ5rDPU3z7JbVsGtpv2llpcKcUn/SpIp//FEnKnqwZx/kvQEkRhQAOHdB6DSzkUyaNsSBOTiHnlCJoFXUNCW9rc6fqzjRvSl7hzCZPHYU8OH2s5XHA+yzg+Y7D1t9iItmH7tyJloS9pNXk/rEUwTOw1bsbSNjL0yG1rVoT0VDTdhXRDnAfMwxqL1GGpWWsrrbGv6rT+1cdxeAaSnu1g="
 
 before_install:
   - node --version
@@ -63,18 +67,15 @@ jobs:
       before_script:
         - echo skip
       script:
-        - echo 'Checking for missing change logs...' && echo -en 'travis_fold:start:change\\r'
         - git fetch origin master:refs/remotes/origin/master -a
         - node common/scripts/install-run-rush.js change -v
-        - echo -en 'travis_fold:end:change\\r'
-
 
     - stage: Release
       if: (branch = master AND type = push) OR (branch = next AND type = push) OR (branch = next-major AND type = push) OR (branch = beta AND type = push) OR (branch = alpha AND type = push)
       script:
         - |
-          git config --global user.email "$GH_USER_EMAIL"
-          git config --global user.name "$GH_USER_NAME"
+          git config --local user.email "$GH_USER_EMAIL"
+          git config --local user.name "$GH_USER_NAME"
           git config credential.helper "store --file=.git/credentials";
           echo "https://$GH_TOKEN:@github.com" > .git/credentials;
         - node common/scripts/install-run-rush.js publish -b master -p --add-commit-details --npm-auth-token "$NPM_TOKEN" --include-all
