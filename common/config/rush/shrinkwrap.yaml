@@ -39,6 +39,7 @@ dependencies:
   '@rush-temp/extended-eslint-config': 'file:projects/extended-eslint-config.tgz'
   '@rush-temp/image': 'file:projects/image.tgz'
   '@rush-temp/jest': 'file:projects/jest.tgz'
+  '@rush-temp/release': 'file:projects/release.tgz'
   '@rush-temp/rollup': 'file:projects/rollup.tgz'
   '@rush-temp/scripts': 'file:projects/scripts.tgz'
   '@rush-temp/spinner': 'file:projects/spinner.tgz'
@@ -123,6 +124,7 @@ dependencies:
   fast-async: 7.0.6
   faster.js: 1.1.0
   file-loader: 3.0.1
+  github: 14.0.0
   he: 1.2.0
   hey-listen: 1.0.5
   intersection-observer: 0.5.1
@@ -135,7 +137,6 @@ dependencies:
   jest-junit: 6.3.0
   jest-snapshot: 24.4.0
   jest-styled-components: 7.0.0-2
-  jju: 1.4.0
   jsdom: 14.0.0
   jsdom-global: 3.0.2
   lodash: 4.17.11
@@ -198,6 +199,7 @@ dependencies:
   webpack-env: 0.8.0
   webpack-log: 2.0.0
   webpack-sources: 1.3.0
+  yargs: 13.2.2
 packages:
   /@babel/code-frame/7.0.0:
     dependencies:
@@ -8893,6 +8895,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-3t6rVToeoZfYSGd8YoLFR2DJkiQrIiUrGcjvFX2mDw3bn6k2OtwHN0TNCLbBO+w8qTvimhDkv+LSscbJY1vE6w==
+  /get-caller-file/2.0.5:
+    dev: false
+    engines:
+      node: 6.* || 8.* || >= 10.*
+    resolution:
+      integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==
   /get-own-enumerable-property-symbols/2.0.1:
     dev: false
     resolution:
@@ -8935,6 +8943,11 @@ packages:
     dev: false
     resolution:
       integrity: sha1-Xv+OPmhNVprkyysSgmBOi6YhSfo=
+  /github/14.0.0:
+    deprecated: '''github'' has been renamed to ''@octokit/rest'' (https://git.io/vNB11)'
+    dev: false
+    resolution:
+      integrity: sha512-34/VqwhYGeYN0VHBSH49TmRWMF7emy32qjK6POiW47T/QI2u/cpuKsmrWt7a218ew/73dF4dQSJE68/HXdNfPw==
   /glob-base/0.3.0:
     dependencies:
       glob-parent: 2.0.0
@@ -11834,16 +11847,16 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
-  /mem/4.1.0:
+  /mem/4.2.0:
     dependencies:
       map-age-cleaner: 0.1.3
-      mimic-fn: 1.2.0
+      mimic-fn: 2.0.0
       p-is-promise: 2.0.0
     dev: false
     engines:
       node: '>=6'
     resolution:
-      integrity: sha512-I5u6Q1x7wxO0kdOpYBB28xueHADYps5uty/zg936CiG8NTe5sJL8EjrCuLneuDW3PlMdZBGDIn8BirEVdovZvg==
+      integrity: sha512-5fJxa68urlY0Ir8ijatKa3eRz5lwXnRCTvo9+TbTGAuTFJOwpGcY0X05moBd0nW45965Njt4CDI2GFQoG8DvqA==
   /memoize-one/4.0.3:
     dev: false
     resolution:
@@ -12000,6 +12013,12 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-jf84uxzwiuiIVKiOLpfYk7N46TSy8ubTonmneY9vrpHNAnp0QBt2BxWV9dO3/j+BoVAb+a5G6YDPW3M5HOdMWQ==
+  /mimic-fn/2.0.0:
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-jbex9Yd/3lmICXwYT6gA/j2mNQGU48wCh/VzRd+/Y/PjYQtlg1gLMdZqvu9s/xH7qKvngxRObl56XZR609IMbA==
   /min-document/2.19.0:
     dependencies:
       dom-walk: 0.1.1
@@ -12705,7 +12724,7 @@ packages:
     dependencies:
       execa: 1.0.0
       lcid: 2.0.0
-      mem: 4.1.0
+      mem: 4.2.0
     dev: false
     engines:
       node: '>=6'
@@ -14691,6 +14710,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-l/cXtp1IeE9fUmpsWqj/3aBVpNE=
+  /require-main-filename/2.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-NKN5kMDylKuldxYLSUfrbo5Tuzh4hd+2E8NPPX02mZtn1VuREQToYe/ZdlJy+J3uCpfaiGF05e7B8W0iXbQHmg==
   /require-relative/0.8.7:
     dev: false
     resolution:
@@ -17503,6 +17526,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-C6kB/WJDiaxONLJQnF8ccx9SEeoTTLek8RVbaOIsrAUS8VrBEXfmeSnCZxygc+XC2sNMBIwOOnfcxiynjHsVSQ==
+  /yargs-parser/13.0.0:
+    dependencies:
+      camelcase: 5.2.0
+      decamelize: 1.2.0
+    dev: false
+    resolution:
+      integrity: sha512-w2LXjoL8oRdRQN+hOyppuXs+V/fVAYtpcrRxZuF7Kt/Oc+Jr2uAcVntaUTNT6w5ihoWfFDpNY8CPx1QskxZ/pw==
   /yargs/12.0.5:
     dependencies:
       cliui: 4.1.0
@@ -17520,6 +17550,22 @@ packages:
     dev: false
     resolution:
       integrity: sha512-Lhz8TLaYnxq/2ObqHDql8dX8CJi97oHxrjUcYtzKbbykPtVW9WB+poxI+NM2UIzsMgNCZTIf0AQwsjK5yMAqZw==
+  /yargs/13.2.2:
+    dependencies:
+      cliui: 4.1.0
+      find-up: 3.0.0
+      get-caller-file: 2.0.5
+      os-locale: 3.1.0
+      require-directory: 2.1.1
+      require-main-filename: 2.0.0
+      set-blocking: 2.0.0
+      string-width: 3.1.0
+      which-module: 2.0.0
+      y18n: 4.0.0
+      yargs-parser: 13.0.0
+    dev: false
+    resolution:
+      integrity: sha512-WyEoxgyTD3w5XRpAQNYUB9ycVH/PQrToaTXdYXRdOXvEy1l19br+VJsc0vcO8PTGg5ro/l/GY7F/JMEBmI0BxA==
   /yargs/3.10.0:
     dependencies:
       camelcase: 1.2.1
@@ -17749,6 +17795,17 @@ packages:
       integrity: sha512-I9WTU0XDNDMfb/ZV/nSl38EvqfdEwyc4Sem7uM0F/MuoElV/Uicqd/p9z7PeC9/JTsyqjYG+kt1diOkhgp+Xug==
       tarball: 'file:projects/jest.tgz'
     version: 0.0.0
+  'file:projects/release.tgz':
+    dependencies:
+      github: 14.0.0
+      sort-package-json: 1.21.0
+      yargs: 13.2.2
+    dev: false
+    name: '@rush-temp/release'
+    resolution:
+      integrity: sha512-zj3Qgn4E8ytGk6Rpso4enc4bQES8HEbEtPqCn2sPRsiimcldzBDL64X9fxK0UgvbxZUm5daQD14TPuVQ6xHp0g==
+      tarball: 'file:projects/release.tgz'
+    version: 0.0.0
   'file:projects/rollup.tgz':
     dependencies:
       airbnb-browser-shims: 3.2.0
@@ -17777,7 +17834,7 @@ packages:
     dev: false
     name: '@rush-temp/rollup'
     resolution:
-      integrity: sha512-DvKaEQRJVlY5V9OSyBjF8CuNZHmzXE5TXjKDvxB0xgmFAlqlnnYBWEAJxgs2TbUcN7Z59RrM7OI+QWuwVjS/lQ==
+      integrity: sha512-6cSjrb0rbEkTnfaapOIaWPV34+oPQ/I7TH9MFd3xAZrj5meZrc//vAvIC1rZmogsSJ/sHbrjW2qidYej6WcD0Q==
       tarball: 'file:projects/rollup.tgz'
     version: 0.0.0
   'file:projects/scripts.tgz':
@@ -17976,6 +18033,7 @@ specifiers:
   '@rush-temp/extended-eslint-config': 'file:./projects/extended-eslint-config.tgz'
   '@rush-temp/image': 'file:./projects/image.tgz'
   '@rush-temp/jest': 'file:./projects/jest.tgz'
+  '@rush-temp/release': 'file:./projects/release.tgz'
   '@rush-temp/rollup': 'file:./projects/rollup.tgz'
   '@rush-temp/scripts': 'file:./projects/scripts.tgz'
   '@rush-temp/spinner': 'file:./projects/spinner.tgz'
@@ -18060,6 +18118,7 @@ specifiers:
   fast-async: ^7.0.6
   faster.js: ^1.1.0
   file-loader: ^3.0.1
+  github: ^14.0.0
   he: ^1.2.0
   hey-listen: ^1.0.5
   intersection-observer: ^0.5.1
@@ -18072,7 +18131,6 @@ specifiers:
   jest-junit: ^6.3.0
   jest-snapshot: ^24.4.0
   jest-styled-components: ^7.0.0-2
-  jju: ^1.4.0
   jsdom: ^14.0.0
   jsdom-global: ^3.0.2
   lodash: ^4.17.11
@@ -18135,3 +18193,4 @@ specifiers:
   webpack-env: ^0.8.0
   webpack-log: ^2.0.0
   webpack-sources: ^1.3.0
+  yargs: ^13.2.2
