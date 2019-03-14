@@ -163,10 +163,6 @@
       "allowedCategories": [ "tools" ]
     },
     {
-      "name": "@octokit/rest",
-      "allowedCategories": [ "tools" ]
-    },
-    {
       "name": "@popmotion/easing",
       "allowedCategories": [ "production" ]
     },

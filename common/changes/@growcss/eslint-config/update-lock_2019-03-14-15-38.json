@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "comment": "",
+      "packageName": "@growcss/eslint-config",
+      "type": "none"
+    }
+  ],
+  "packageName": "@growcss/eslint-config",
+  "email": "d.bannert@anolilab.de"
+}

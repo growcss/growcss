@@ -2789,19 +2789,6 @@ packages:
       node: '>= 6'
     resolution:
       integrity: sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
-  /@octokit/rest/14.0.9:
-    dependencies:
-      before-after-hook: 1.4.0
-      debug: 3.2.6
-      is-array-buffer: 1.0.1
-      is-stream: 1.1.0
-      lodash: 4.17.11
-      url-template: 2.0.8
-    dev: false
-    engines:
-      node: '>=4'
-    resolution:
-      integrity: sha512-irP9phKfTXEZIcW2R+VNCtGHZJrXMWmSYp6RRfFn4BtAqtDRXF5z9JxCEQlAhNBf6X1koNi5k49tIAAAEJNlVQ==
   /@popmotion/easing/1.0.2:
     dev: false
     resolution:
@@ -2846,6 +2833,20 @@ packages:
       react-dom: 15.x || 16.x || 16.4.0-alpha.0911da3
     resolution:
       integrity: sha512-kTaX08X4g27tzIFQGRukaHmNbtMYDS3LEWIS8+l6OayGIw6Oyo1HIF/JzeuR2FoF9z6oV+x/wJSVSq4v8tcUGQ==
+  /@researchgate/react-intersection-observer/0.7.4/react@16.8.4:
+    dependencies:
+      invariant: 2.2.4
+      prop-types: 15.7.2
+      react: 16.8.4
+      warning: 3.0.0
+    dev: false
+    id: registry.npmjs.org/@researchgate/react-intersection-observer/0.7.4
+    optional: true
+    peerDependencies:
+      react: '>=15'
+      react-dom: '>=15'
+    resolution:
+      integrity: sha512-4F291saKAP9I25Qe1ePflvm1DLLA43GlBIZfpMFYWofph7CAm+19nT8xwkQqSszg4PwZa5BpkaI4tAEJHtlj3w==
   /@researchgate/react-intersection-observer/1.0.0-beta.0:
     dependencies:
       invariant: 2.2.4
@@ -2867,7 +2868,6 @@ packages:
     engines:
       node: ^8.10.0 || >=9.10.0
     id: registry.npmjs.org/@researchgate/react-intersection-observer/1.0.0-beta.0
-    optional: true
     peerDependencies:
       react: ^16.3.2
       react-dom: ^16.3.2
@@ -5316,10 +5316,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-pDAdOJtqQ/m2f/PKEaP2Y342Dp4=
-  /before-after-hook/1.4.0:
-    dev: false
-    resolution:
-      integrity: sha512-l5r9ir56nda3qu14nAXIlyq1MmUSs0meCIaFAh8HwkFwP1F8eToOuS3ah2VAHHcY04jaYD7FpJC5JTXHYRbkzg==
   /big.js/3.2.0:
     dev: false
     resolution:
@@ -9519,10 +9515,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-pyfU/0kHdISIgslFfZN9nfY1Gk3MquQgUm1mJTjdkEPpkAKNWuBTSqFwewOpR7N351VkErCiyV71zX7mlQQqsg==
-  /is-array-buffer/1.0.1:
-    dev: false
-    resolution:
-      integrity: sha512-lj035IqdAwsodoRGs9/8+Kn3HPoz9CTuZbcw63afugWonxigvUVeHY5d6Ve1O+s1N3RCk7txo2TIWQLbU0SuNA==
   /is-arrayish/0.2.1:
     dev: false
     resolution:
@@ -16557,10 +16549,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-/92DTTorg4JjktLNLe6GPS2/RvAd/RGr6LuktmWSMLEOa6rjnlrFXNgSbSmkNvCoL2T028A0a1JaJLzRMlFoHg==
-  /url-template/2.0.8:
-    dev: false
-    resolution:
-      integrity: sha1-/FZaPMy/93MMd19WQflVV5FDnyE=
   /url/0.11.0:
     dependencies:
       punycode: 1.3.2
@@ -17327,6 +17315,7 @@ packages:
     version: 0.0.0
   'file:projects/image.tgz':
     dependencies:
+      '@researchgate/react-intersection-observer': /@researchgate/react-intersection-observer/1.0.0-beta.0/react@16.8.4
       '@types/classnames': 2.2.7
       '@types/node': 11.11.3
       '@types/react': 16.8.8
@@ -17341,9 +17330,9 @@ packages:
     dev: false
     name: '@rush-temp/image'
     optionalDependencies:
-      '@researchgate/react-intersection-observer': /@researchgate/react-intersection-observer/1.0.0-beta.0/react@16.8.4
+      '@researchgate/react-intersection-observer': /@researchgate/react-intersection-observer/0.7.4/react@16.8.4
     resolution:
-      integrity: sha512-wXAn35GevLywh40RzGjjv7zOSSFCsVYQzZJ6w0/S0yvMdusmRT65VmooD3hY5BoBp6ZvnqFa+eNqtj29thtmqA==
+      integrity: sha512-u1rEmkgGsKGkkY2hLVW6lwRl5R1GcSnkGTSZg4AU6D84r0vmOEQllZXLp5f3Yn2DBQRg08OrUQ76nj+8MuBUFg==
       tarball: 'file:projects/image.tgz'
     version: 0.0.0
   'file:projects/jest.tgz':
@@ -17388,7 +17377,6 @@ packages:
     version: 0.0.0
   'file:projects/release.tgz':
     dependencies:
-      '@octokit/rest': 14.0.9
       github: 7.3.2
       sort-package-json: 1.21.0
       yargs: 13.2.2

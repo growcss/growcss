@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "comment": "",
+      "packageName": "@growcss/xy-grid",
+      "type": "none"
+    }
+  ],
+  "packageName": "@growcss/xy-grid",
+  "email": "d.bannert@anolilab.de"
+}
