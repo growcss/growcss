@@ -19,10 +19,6 @@ const isProduction = nodeEnv === 'production';
 const packageDir   = process.cwd();
 const pkg          = require(`${packageDir}/package.json`);
 
-const now = new Date(
-  process.env.SOURCE_DATE_EPOCH ? process.env.SOURCE_DATE_EPOCH * 1000 : new Date().getTime()
-).toUTCString();
-
 const onWarn = warning => {
   if (warning.pluginCode === 'ONWRITE_HOOK_DEPRECATED' ||
     warning.plugin === 'rollup-plugin-license' ||
