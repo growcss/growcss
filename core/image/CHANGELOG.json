@@ -2,6 +2,20 @@
   "name": "@growcss/image",
   "entries": [
     {
+      "version": "1.0.1",
+      "tag": "@growcss/image_v1.0.1",
+      "date": "Thu, 14 Mar 2019 18:19:00 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "fix(image): removed the optionalDependencies key from package.json",
+            "author": "Daniel Bannert <prisis@users.noreply.github.com>",
+            "commit": "e67e50e5edac8adaa8b6cdde25794956c2fc25ff"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.0.0",
       "tag": "@growcss/image_v1.0.0",
       "date": "Thu, 14 Mar 2019 10:41:55 GMT",
