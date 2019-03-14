@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "comment": "",
+      "packageName": "@growcss/babel-preset",
+      "type": "none"
+    }
+  ],
+  "packageName": "@growcss/babel-preset",
+  "email": "d.bannert@anolilab.de"
+}

@@ -208,7 +208,7 @@ class ExtendedImage extends Component<ImageProps, ImageStateType> {
 
     if (lazy) {
       try {
-        // eslint-disable-next-line global-require
+        // eslint-disable-next-line global-require, import/no-extraneous-dependencies
         const IntersectionObserver = require('@researchgate/react-intersection-observer')
           .default;
 

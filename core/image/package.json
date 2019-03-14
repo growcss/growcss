@@ -90,9 +90,6 @@
     "react": "^16.8.0",
     "styled-components": "^4.1.0"
   },
-  "optionalDependencies": {
-    "@researchgate/react-intersection-observer": "^1.0.0-beta.0"
-  },
   "engines": {
     "node": "^10.14.0 || ^11.3.0"
   },
