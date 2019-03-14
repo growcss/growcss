@@ -1,0 +1,26 @@
+{
+  "name": "@growcss/stylelint-config",
+  "entries": [
+    {
+      "version": "1.1.0",
+      "tag": "@growcss/stylelint-config_v1.1.0",
+      "date": "Thu, 14 Mar 2019 10:41:55 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "refactor(stylelint-config): changed dependencies and devDependencies",
+            "author": "Daniel Bannert <prisis@users.noreply.github.com>",
+            "commit": "3b65ea060bfd7c3618b883edc1003d61f6affaa6"
+          }
+        ],
+        "minor": [
+          {
+            "comment": "build(stylelint-config): updated files key with missing folder",
+            "author": "Daniel Bannert <prisis@users.noreply.github.com>",
+            "commit": "3b65ea060bfd7c3618b883edc1003d61f6affaa6"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "@growcss/image",
+  "entries": [
+    {
+      "version": "1.0.0",
+      "tag": "@growcss/image_v1.0.0",
+      "date": "Thu, 14 Mar 2019 10:41:55 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "refactor(image): changed dependencies and devDependencies",
+            "author": "Daniel Bannert <prisis@users.noreply.github.com>",
+            "commit": "3b65ea060bfd7c3618b883edc1003d61f6affaa6"
+          }
+        ],
+        "major": [
+          {
+            "comment": "feat(image): changed default export to name export, extended the image component with more need functions",
+            "author": "Daniel Bannert <prisis@users.noreply.github.com>",
+            "commit": "3b65ea060bfd7c3618b883edc1003d61f6affaa6"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@growcss/elaborate\" from `^0.0.0` to `^1.0.0`"
+          },
+          {
+            "comment": "Updating dependency \"@growcss/theme\" from `^0.0.0` to `^1.0.0`"
+          },
+          {
+            "comment": "Updating dependency \"@growcss/stylelint-config\" from `^1.0.2` to `^1.1.0`"
+          }
+        ]
+      }
+    }
+  ]
+}

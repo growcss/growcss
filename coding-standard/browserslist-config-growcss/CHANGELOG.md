@@ -1,13 +1,11 @@
-# browserslist-config-growcss-v1.0.0-alpha.1 (2019-02-16)
+# Change Log - browserslist-config-growcss
 
+This log was last generated on Thu, 14 Mar 2019 10:41:55 GMT and should not be manually modified.
 
-### Bug Fixes
+## 1.0.0
+Thu, 14 Mar 2019 10:41:55 GMT
 
-* **deps:** update dependency @types/react to v16.8.3 ([8144e31](https://github.com/growcss/growcss/commit/8144e31))
+### Patches
 
-# [browserslist-config-growcss-v1.0.3-alpha.1](https://github.com/growcss/growcss/compare/v1.0.2...v1.0.3-alpha.1@alpha) (2019-02-15)
+- refactor(browserslist-config-growcss): changed devDependencies
 
-
-### Bug Fixes
-
-* **deps:** update dependency @types/react to v16.8.3 ([8144e31](https://github.com/growcss/growcss/commit/8144e31))

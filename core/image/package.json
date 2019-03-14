@@ -1,6 +1,6 @@
 {
   "name": "@growcss/image",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Image element with sizing and preloading options.",
   "keywords": [
     "fallback",
@@ -63,8 +63,8 @@
     "test-snapshot-update": "      cross-env NODE_ENV=test jest --config=./node_modules/@build/jest/jest.config.js -u"
   },
   "dependencies": {
-    "@growcss/elaborate": "^0.0.0",
-    "@growcss/theme": "^0.0.0",
+    "@growcss/elaborate": "^1.0.0",
+    "@growcss/theme": "^1.0.0",
     "classnames": "^2.2.5"
   },
   "devDependencies": {
@@ -73,7 +73,7 @@
     "@build/jest": "0.0.0",
     "@build/rollup": "0.0.0",
     "@build/scripts": "0.0.0",
-    "@growcss/stylelint-config": "^1.0.2",
+    "@growcss/stylelint-config": "^1.1.0",
     "@researchgate/react-intersection-observer": "^1.0.0-beta.0",
     "@types/classnames": "^2.2.7",
     "@types/node": "^11.9.4",

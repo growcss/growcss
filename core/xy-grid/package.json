@@ -1,6 +1,6 @@
 {
   "name": "@growcss/xy-grid",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "The XY Grid is huge advancement in Grids.",
   "keywords": [
     "flex",
@@ -48,7 +48,7 @@
     "test-snapshot-update": "      cross-env NODE_ENV=test jest --config=./node_modules/@build/jest/jest.config.js -u"
   },
   "dependencies": {
-    "@growcss/elaborate": "^0.0.0",
+    "@growcss/elaborate": "^1.0.0",
     "classnames": "^2.2.5"
   },
   "devDependencies": {
@@ -57,7 +57,7 @@
     "@build/jest": "0.0.0",
     "@build/rollup": "0.0.0",
     "@build/scripts": "0.0.0",
-    "@growcss/stylelint-config": "^1.0.2",
+    "@growcss/stylelint-config": "^1.1.0",
     "@types/classnames": "^2.2.7",
     "@types/node": "^11.9.4",
     "@types/react": "^16.8.3",

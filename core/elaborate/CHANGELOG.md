@@ -1,14 +1,15 @@
-Changelog
+# Change Log - @growcss/elaborate
 
-# @growcss/elaborate-v1.0.0-alpha.1 (2019-02-17)
+This log was last generated on Thu, 14 Mar 2019 10:41:55 GMT and should not be manually modified.
 
+## 1.0.0
+Thu, 14 Mar 2019 10:41:55 GMT
 
-### Bug Fixes
+### Breaking changes
 
-* added missing key to package.json ([9edaf18](https://github.com/growcss/growcss/commit/9edaf18))
+- refactor(elaborate): changed default export to name export and cs fixes
 
+### Patches
 
-### Features
+- refactor(elaborate): changed dependencies and devDependencies
 
-* adding release workflow ([#24](https://github.com/growcss/growcss/issues/24)) ([296ae2a](https://github.com/growcss/growcss/commit/296ae2a))
-* updated eslint config ([#25](https://github.com/growcss/growcss/issues/25)) ([1d56dd8](https://github.com/growcss/growcss/commit/1d56dd8))

@@ -1,6 +1,6 @@
 {
   "name": "@growcss/elaborate",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A lightweight toolset for writing styles in Javascript.",
   "keywords": [
     "behavior",
@@ -61,7 +61,7 @@
     "@build/jest": "0.0.0",
     "@build/rollup": "0.0.0",
     "@build/scripts": "0.0.0",
-    "@growcss/stylelint-config": "^1.0.2",
+    "@growcss/stylelint-config": "^1.1.0",
     "@types/node": "^11.9.4",
     "@types/react": "^16.8.3",
     "@types/react-dom": "^16.8.2",

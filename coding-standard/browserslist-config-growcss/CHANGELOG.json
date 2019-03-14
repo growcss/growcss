@@ -1,0 +1,19 @@
+{
+  "name": "browserslist-config-growcss",
+  "entries": [
+    {
+      "version": "1.0.0",
+      "tag": "browserslist-config-growcss_v1.0.0",
+      "date": "Thu, 14 Mar 2019 10:41:55 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "refactor(browserslist-config-growcss): changed devDependencies",
+            "author": "Daniel Bannert <prisis@users.noreply.github.com>",
+            "commit": "3b65ea060bfd7c3618b883edc1003d61f6affaa6"
+          }
+        ]
+      }
+    }
+  ]
+}

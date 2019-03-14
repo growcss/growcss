@@ -1,0 +1,24 @@
+{
+  "name": "@growcss/babel-preset",
+  "entries": [
+    {
+      "version": "2.0.0",
+      "tag": "@growcss/babel-preset_v2.0.0",
+      "date": "Thu, 14 Mar 2019 10:41:55 GMT",
+      "comments": {
+        "major": [
+          {
+            "comment": "refactor(babel-preset): changed dependencies and devDependencies",
+            "author": "Daniel Bannert <prisis@users.noreply.github.com>",
+            "commit": "3b65ea060bfd7c3618b883edc1003d61f6affaa6"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"browserslist-config-growcss\" from `^1.0.0-alpha.1` to `^1.0.0`"
+          }
+        ]
+      }
+    }
+  ]
+}
