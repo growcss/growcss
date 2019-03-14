@@ -91,15 +91,17 @@ async function getMarkdownForEntry(entry) {
  * From a comment array, conditionally returns a section of markdown.
  */
 async function getChangeComments(title, commentsArray) {
-  var comments = '';
+  let comments = '';
+
   if (commentsArray) {
     comments = '# ' + title + (EOL + EOL);
 
     for (let i = 0; i < commentsArray.length; i++) {
-      var comment = commentsArray[i];
-      var searchResult;
+      let comment = commentsArray[i];
+      let searchResult;
 
       comments += `- ${comment.comment}`;
+
       if (comment.commit) {
         comments += ` ([commit](https://github.com/${REPO_DETAILS.owner}/${REPO_DETAILS.repo}/commit/${comment.commit})`;
         searchResult = await getPullRequest(comment.commit);
@@ -110,10 +112,13 @@ async function getChangeComments(title, commentsArray) {
 
         comments += `)`;
       }
+
       comments += EOL;
     }
+
     comments += EOL;
   }
+
   return comments;
 };
 
@@ -122,7 +127,7 @@ function getPullRequest(commitHash) {
 
     github.search.issues({ q: commitHash }, (response, result) => {
       if (result && result.items && result.items.length >= 1) {
-        var item = result.items.find(
+        let item = result.items.find(
           item => item.repository_url === `https://api.github.com/repos/${REPO_DETAILS.owner}/${REPO_DETAILS.repo}`
         );
 
@@ -152,6 +157,7 @@ function getChangelogTagMap() {
 
   forEachFileRecursive(undefined, 'CHANGELOG.json', (result) => {
     let changelog = JSON.parse(result.content);
+
     changelog.entries.forEach(entry => {
       entry.name = changelog.name;
       map.set(entry.tag, entry);
@@ -218,6 +224,7 @@ function getReleases(cb) {
 function updateReleaseNotes(shouldPatchChangelog) {
   let changelogEntries = getChangelogTagMap();
   let publishedTags = getTags();
+
   getReleases((releases) => {
     let count = 0;
 
@@ -234,21 +241,19 @@ function updateReleaseNotes(shouldPatchChangelog) {
           'prerelease': false
         });
 
-        if (!hasBeenReleased) {
+        if (!hasBeenReleased && SHOULD_APPLY && !SHOULD_PATCH) {
           console.log(`Creating release notes for ${entry.name} ${entry.version}`);
           count++;
 
           releaseDetails.body = await getMarkdownForEntry(entry);
 
-          if (SHOULD_APPLY) {
-            github.repos.createRelease(releaseDetails, (err, cb) => {
-              if (err) {
-                throw new Error(`Failed to commit release notes for ${entry.name} ${entry.version}.${EOL}${err}`);
-              }
+          github.repos.createRelease(releaseDetails, (err, cb) => {
+            if (err) {
+              throw new Error(`Failed to commit release notes for ${entry.name} ${entry.version}.${EOL}${err}`);
+            }
 
-              console.log(`Successfully created release notes for ${entry.name} ${entry.version}`);
-            });
-          }
+            console.log(`Successfully created release notes for ${entry.name} ${entry.version}`);
+          });
         } else if (SHOULD_PATCH) {
           console.log(`Patching release notes for ${entry.name} ${entry.version}`);
           count++;

@@ -3,16 +3,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/approved-packages.schema.json",
   "packages": [
     {
-      "name": "@babel/cli",
-      "allowedCategories": [ "tools" ]
-    },
-    {
       "name": "@babel/core",
-      "allowedCategories": [ "libraries", "production", "tools" ]
+      "allowedCategories": [ "production", "tools" ]
     },
     {
       "name": "@babel/helper-plugin-utils",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "@babel/plugin-external-helpers",
@@ -20,7 +16,7 @@
     },
     {
       "name": "@babel/plugin-proposal-class-properties",
-      "allowedCategories": [ "production", "tools" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "@babel/plugin-proposal-decorators",
@@ -28,43 +24,35 @@
     },
     {
       "name": "@babel/plugin-proposal-object-rest-spread",
-      "allowedCategories": [ "libraries", "production" ]
-    },
-    {
-      "name": "@babel/plugin-syntax-async-generators",
-      "allowedCategories": [ "libraries", "production" ]
-    },
-    {
-      "name": "@babel/plugin-syntax-class-properties",
       "allowedCategories": [ "production" ]
     },
     {
-      "name": "@babel/plugin-syntax-decorators",
+      "name": "@babel/plugin-syntax-async-generators",
       "allowedCategories": [ "production" ]
     },
     {
       "name": "@babel/plugin-syntax-dynamic-import",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "@babel/plugin-transform-classes",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "@babel/plugin-transform-computed-properties",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "@babel/plugin-transform-exponentiation-operator",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "@babel/plugin-transform-jscript",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "@babel/plugin-transform-member-expression-literals",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "@babel/plugin-transform-modules-commonjs",
@@ -72,15 +60,15 @@
     },
     {
       "name": "@babel/plugin-transform-parameters",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "@babel/plugin-transform-property-literals",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "@babel/plugin-transform-property-mutators",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "@babel/plugin-transform-react-jsx-source",
@@ -92,11 +80,11 @@
     },
     {
       "name": "@babel/plugin-transform-template-literals",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "@babel/plugin-transform-typescript",
-      "allowedCategories": [ "libraries", "production", "tools" ]
+      "allowedCategories": [ "production", "tools" ]
     },
     {
       "name": "@babel/polyfill",
@@ -104,15 +92,15 @@
     },
     {
       "name": "@babel/preset-env",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "@babel/preset-react",
-      "allowedCategories": [ "libraries", "production", "tools" ]
+      "allowedCategories": [ "production", "tools" ]
     },
     {
       "name": "@babel/preset-typescript",
-      "allowedCategories": [ "libraries", "production", "tools" ]
+      "allowedCategories": [ "production", "tools" ]
     },
     {
       "name": "@babel/runtime",
@@ -139,14 +127,6 @@
       "allowedCategories": [ "production", "tools" ]
     },
     {
-      "name": "@build/storybook",
-      "allowedCategories": [ "production" ]
-    },
-    {
-      "name": "@build/typescript",
-      "allowedCategories": [ "production" ]
-    },
-    {
       "name": "@emotion/core",
       "allowedCategories": [ "tools" ]
     },
@@ -164,7 +144,7 @@
     },
     {
       "name": "@growcss/elaborate",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "@growcss/eslint-config",
@@ -176,10 +156,6 @@
     },
     {
       "name": "@growcss/theme",
-      "allowedCategories": [ "production", "tools" ]
-    },
-    {
-      "name": "@growcss/xy-grid",
       "allowedCategories": [ "production" ]
     },
     {
@@ -187,12 +163,12 @@
       "allowedCategories": [ "tools" ]
     },
     {
-      "name": "@microsoft/api-extractor",
+      "name": "@octokit/rest",
       "allowedCategories": [ "tools" ]
     },
     {
       "name": "@popmotion/easing",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "@researchgate/react-intersection-observer",
@@ -212,10 +188,6 @@
     },
     {
       "name": "@storybook/addon-jest",
-      "allowedCategories": [ "production", "tools" ]
-    },
-    {
-      "name": "@storybook/addon-options",
       "allowedCategories": [ "tools" ]
     },
     {
@@ -263,14 +235,6 @@
       "allowedCategories": [ "tools" ]
     },
     {
-      "name": "acorn-dynamic-import",
-      "allowedCategories": [ "tools" ]
-    },
-    {
-      "name": "acron",
-      "allowedCategories": [ "tools" ]
-    },
-    {
       "name": "airbnb-browser-shims",
       "allowedCategories": [ "tools" ]
     },
@@ -296,7 +260,7 @@
     },
     {
       "name": "babel-plugin-dynamic-import-node",
-      "allowedCategories": [ "production", "tools" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "babel-plugin-external-helpers",
@@ -319,28 +283,8 @@
       "allowedCategories": [ "tools" ]
     },
     {
-      "name": "babel-plugin-syntax-decorators",
-      "allowedCategories": [ "tools" ]
-    },
-    {
-      "name": "babel-plugin-transform-class-properties",
-      "allowedCategories": [ "tools" ]
-    },
-    {
-      "name": "babel-plugin-transform-dynamic-import",
-      "allowedCategories": [ "tools" ]
-    },
-    {
-      "name": "babel-plugin-transform-react-jsx-source",
-      "allowedCategories": [ "tools" ]
-    },
-    {
       "name": "babel-plugin-transform-react-remove-prop-types",
-      "allowedCategories": [ "libraries", "production", "tools" ]
-    },
-    {
-      "name": "babel-plugin-transform-runtime",
-      "allowedCategories": [ "tools" ]
+      "allowedCategories": [ "production", "tools" ]
     },
     {
       "name": "babel-register",
@@ -348,31 +292,27 @@
     },
     {
       "name": "browserslist",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "browserslist-config-growcss",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "classnames",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "confusing-browser-globals",
-      "allowedCategories": [ "libraries", "production" ]
-    },
-    {
-      "name": "crosenv",
-      "allowedCategories": [ "production", "tools" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "cross-env",
-      "allowedCategories": [ "production", "tools" ]
+      "allowedCategories": [ "tools" ]
     },
     {
       "name": "deepmerge",
-      "allowedCategories": [ "production", "tools" ]
+      "allowedCategories": [ "tools" ]
     },
     {
       "name": "emotion-theming",
@@ -396,11 +336,11 @@
     },
     {
       "name": "eslint-config-airbnb",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "eslint-config-prettier",
-      "allowedCategories": [ "libraries", "production", "tools" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "eslint-import-resolver-node",
@@ -408,59 +348,51 @@
     },
     {
       "name": "eslint-plugin-compat",
-      "allowedCategories": [ "libraries", "production", "tools" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "eslint-plugin-import",
-      "allowedCategories": [ "libraries", "production", "tools" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "eslint-plugin-jest",
-      "allowedCategories": [ "libraries", "production", "tools" ]
+      "allowedCategories": [ "production", "tools" ]
     },
     {
       "name": "eslint-plugin-jsdoc",
-      "allowedCategories": [ "libraries", "production", "tools" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "eslint-plugin-jsx-a11y",
-      "allowedCategories": [ "libraries", "production", "tools" ]
+      "allowedCategories": [ "production", "tools" ]
     },
     {
       "name": "eslint-plugin-prefer-object-spread",
-      "allowedCategories": [ "libraries", "production", "tools" ]
+      "allowedCategories": [ "production", "tools" ]
     },
     {
       "name": "eslint-plugin-prettier",
-      "allowedCategories": [ "libraries", "production", "tools" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "eslint-plugin-promise",
-      "allowedCategories": [ "libraries", "production", "tools" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "eslint-plugin-react",
-      "allowedCategories": [ "libraries", "production", "tools" ]
+      "allowedCategories": [ "production", "tools" ]
     },
     {
       "name": "eslint-plugin-security",
-      "allowedCategories": [ "libraries", "production", "tools" ]
-    },
-    {
-      "name": "eslint-plugin-typescript",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production", "tools" ]
     },
     {
       "name": "eslint-plugin-unicorn",
-      "allowedCategories": [ "libraries", "production", "tools" ]
-    },
-    {
-      "name": "execa",
-      "allowedCategories": [ "tools" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "fast-async",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "faster.js",
@@ -484,7 +416,7 @@
     },
     {
       "name": "intersection-observer",
-      "allowedCategories": [ "production", "tools" ]
+      "allowedCategories": [ "tools" ]
     },
     {
       "name": "jest",
@@ -520,10 +452,6 @@
     },
     {
       "name": "jest-styled-components",
-      "allowedCategories": [ "production", "tools" ]
-    },
-    {
-      "name": "jju",
       "allowedCategories": [ "tools" ]
     },
     {
@@ -535,20 +463,8 @@
       "allowedCategories": [ "tools" ]
     },
     {
-      "name": "lint-staged",
-      "allowedCategories": [ "tools" ]
-    },
-    {
       "name": "lodash",
       "allowedCategories": [ "tools" ]
-    },
-    {
-      "name": "lodash.isfunction",
-      "allowedCategories": [ "tools" ]
-    },
-    {
-      "name": "lodash.merge",
-      "allowedCategories": [ "production" ]
     },
     {
       "name": "memory-fs",
@@ -561,10 +477,6 @@
     {
       "name": "normalize.css",
       "allowedCategories": [ "production" ]
-    },
-    {
-      "name": "npm-check-updates",
-      "allowedCategories": [ "tools" ]
     },
     {
       "name": "plop",
@@ -584,7 +496,7 @@
     },
     {
       "name": "prettier-eslint",
-      "allowedCategories": [ "libraries", "production", "tools" ]
+      "allowedCategories": [ "production", "tools" ]
     },
     {
       "name": "prop-types",
@@ -615,16 +527,8 @@
       "allowedCategories": [ "production", "tools" ]
     },
     {
-      "name": "react-hot-loader",
-      "allowedCategories": [ "tools" ]
-    },
-    {
       "name": "react-inspector",
       "allowedCategories": [ "tools" ]
-    },
-    {
-      "name": "react-intersection-observer",
-      "allowedCategories": [ "production" ]
     },
     {
       "name": "react-pose",
@@ -660,7 +564,7 @@
     },
     {
       "name": "rimraf",
-      "allowedCategories": [ "production", "tools" ]
+      "allowedCategories": [ "tools" ]
     },
     {
       "name": "rollup",
@@ -703,10 +607,6 @@
       "allowedCategories": [ "tools" ]
     },
     {
-      "name": "rollup-plugin-peer-deps-external",
-      "allowedCategories": [ "tools" ]
-    },
-    {
       "name": "rollup-plugin-progress",
       "allowedCategories": [ "tools" ]
     },
@@ -727,14 +627,6 @@
       "allowedCategories": [ "tools" ]
     },
     {
-      "name": "rollup-plugin-visualizer",
-      "allowedCategories": [ "tools" ]
-    },
-    {
-      "name": "rules",
-      "allowedCategories": [ "tools" ]
-    },
-    {
       "name": "sinon",
       "allowedCategories": [ "tools" ]
     },
@@ -743,56 +635,44 @@
       "allowedCategories": [ "tools" ]
     },
     {
-      "name": "stealthy-require",
-      "allowedCategories": [ "tools" ]
-    },
-    {
-      "name": "storybook",
-      "allowedCategories": [ "tools" ]
-    },
-    {
-      "name": "storybook-addon-specifications",
-      "allowedCategories": [ "tools" ]
-    },
-    {
       "name": "styled-components",
-      "allowedCategories": [ "libraries", "production", "tools" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "stylelint",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "stylelint-a11y",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "stylelint-config-prettier",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "stylelint-config-recommended",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "stylelint-config-styled-components",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "stylelint-images",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "stylelint-no-unsupported-browser-features",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "stylelint-order",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "stylelint-processor-styled-components",
-      "allowedCategories": [ "libraries", "production" ]
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "stylis",
@@ -803,20 +683,12 @@
       "allowedCategories": [ "tools" ]
     },
     {
-      "name": "tough-cookie",
-      "allowedCategories": [ "tools" ]
-    },
-    {
       "name": "tslib",
       "allowedCategories": [ "tools" ]
     },
     {
       "name": "typescript",
       "allowedCategories": [ "tools" ]
-    },
-    {
-      "name": "typescript-eslint-parser",
-      "allowedCategories": [ "libraries", "production" ]
     },
     {
       "name": "webpack",

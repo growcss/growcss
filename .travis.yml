@@ -72,7 +72,7 @@ jobs:
         - git fetch origin master:refs/remotes/origin/master -a
         - node common/scripts/install-run-rush.js change -v
 
-    - stage: Release
+    - stage: Release Master
       if: branch = master AND type = push
       script:
         - |
@@ -86,7 +86,7 @@ jobs:
       after_success:
         - echo 0
 
-    - stage: Release
+    - stage: Release RC
       if: branch = next AND type = push
       script:
         - |
@@ -100,7 +100,7 @@ jobs:
       after_success:
         - echo 0
 
-    - stage: Release
+    - stage: Release Beta
       if: branch = beta AND type = push
       script:
         - |
@@ -114,7 +114,7 @@ jobs:
       after_success:
         - echo 0
 
-    - stage: Release
+    - stage: Release Alpha
       if: branch = alpha AND type = push
       script:
         - |
