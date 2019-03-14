@@ -59,7 +59,8 @@ jobs:
       after_success:
         - codecov
 
-    - stage: Check Changelog
+    - stage: Checking for missing change logs...
+      if: type = pull_request
       before_install:
         - echo skip
       install:
@@ -67,11 +68,12 @@ jobs:
       before_script:
         - echo skip
       script:
+        - set -e
         - git fetch origin master:refs/remotes/origin/master -a
         - node common/scripts/install-run-rush.js change -v
 
     - stage: Release
-      if: (branch = master AND type = push) OR (branch = next AND type = push) OR (branch = next-major AND type = push) OR (branch = beta AND type = push) OR (branch = alpha AND type = push)
+      if: branch = master AND type = push
       script:
         - |
           git config --local user.email "$GH_USER_EMAIL"
