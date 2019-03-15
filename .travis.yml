@@ -18,9 +18,6 @@ env:
 
 before_install:
   - node --version
-  - echo 'Checking for inconsistent dependency versions' && echo -en 'travis_fold:start:check\\r'
-  - node common/scripts/install-run-rush.js check
-  - echo -en 'travis_fold:end:check\\r'
 
 install:
   - echo 'Installing...' && echo -en 'travis_fold:start:install\\r'
