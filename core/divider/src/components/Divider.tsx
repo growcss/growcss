@@ -1,14 +1,15 @@
-import React, { PureComponent, ReactNode, ReactElement } from 'react';
-import classnames from 'classnames'
+import React, { PureComponent, ReactNode } from 'react';
+import classNames from 'classnames'
 // eslint-disable-next-line no-unused-vars
-import { withTheme, DefaultTheme } from 'styled-components';
+import { withTheme } from 'styled-components';
 import { DividerElement } from '../styled/DividerElement';
+import { DividerProps } from '../../types';
 
-class Divider extends PureComponent<{}> {
+class Divider extends PureComponent<DividerProps> {
   /**
    * {@inheritDoc}
    */
-  public render(): React.ReactNode {
+  public render(): ReactNode {
     const {
       children,
       className,
@@ -19,10 +20,11 @@ class Divider extends PureComponent<{}> {
       inverted,
       section,
       vertical,
+      theme,
     } = this.props;
 
     return (
-      <DividerElement>
+      <DividerElement theme={theme} className={classNames('gc-divider', className, clearing, fitted, hidden, horizontal, inverted, section, vertical)}>
         {children}
       </DividerElement>
     );
