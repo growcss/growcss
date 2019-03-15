@@ -189,14 +189,12 @@ class ExtendedImage extends Component<ImageProps, ImageStateType> {
       return;
     }
 
-    const { lazy } = this.props;
-
-    if (event.isIntersecting || lazy === false) {
+    if (event.isIntersecting) {
       unobserve();
     }
 
     this.setState({
-      inViewport: !lazy ? true : event.isIntersecting,
+      inViewport: event.isIntersecting,
     });
   }
 
