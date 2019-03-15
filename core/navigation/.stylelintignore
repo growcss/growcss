@@ -1,7 +1,9 @@
 node_modules
 
 dist
+__tests__
 coverage
 build
-test-reports
-__fixture__
+
+stories
+

@@ -20,14 +20,17 @@ storybook.addParameters({
   }
 });
 
+const divider = require.context('./../../../core/divider/__stories__', true);
 const image = require.context('./../../../core/image/__stories__', true);
+const navigation = require.context('./../../../core/navigation/__stories__', true);
 const spinner = require.context('./../../../core/spinner/__stories__', true);
 const theme = require.context('./../../../core/theme/__stories__', true);
 const xy = require.context('./../../../core/xy-grid/__stories__', true);
 
-
 function loadStories() {
+  divider.keys().forEach(filename => divider(filename));
   image.keys().forEach(filename => image(filename));
+  navigation.keys().forEach(filename => navigation(filename));
   spinner.keys().forEach(filename => spinner(filename));
   theme.keys().forEach(filename => theme(filename));
   xy.keys().forEach(filename => xy(filename));

@@ -169,7 +169,7 @@
      * you might configure your system's trigger to look for a special string such as "[skip-ci]"
      * in the commit message, and then customize Rush's message to contain that string.
      */
-    "versionBumpCommitMessage": "Applying package updates. [skip-ci]"
+    "versionBumpCommitMessage": "Applying package updates. [skip travis]"
   },
 
   "repository": {
@@ -403,6 +403,12 @@
       "shouldPublish": true
     },
     {
+      "packageName": "@growcss/divider",
+      "projectFolder": "core/divider",
+      "reviewCategory": "production",
+      "shouldPublish": true
+    },
+    {
       "packageName": "@growcss/elaborate",
       "projectFolder": "core/elaborate",
       "reviewCategory": "production",
@@ -411,6 +417,12 @@
     {
       "packageName": "@growcss/image",
       "projectFolder": "core/image",
+      "reviewCategory": "production",
+      "shouldPublish": true
+    },
+    {
+      "packageName": "@growcss/navigation",
+      "projectFolder": "core/navigation",
       "reviewCategory": "production",
       "shouldPublish": true
     },

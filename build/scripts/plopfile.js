@@ -35,6 +35,7 @@ module.exports = function(plop) {
         {
           type: `add`,
           path: `${rootDir}/{{package_type}}/{{kebabCase name}}/__stories__/{{name}}.stories.tsx`,
+          templateFile: `plop-templates/package/stories.tsx.hbs`,
         },
         {
           type: `add`,
@@ -56,16 +57,6 @@ module.exports = function(plop) {
           type: `add`,
           path: `${rootDir}/{{package_type}}/{{kebabCase name}}/src/index.ts`,
           templateFile: `plop-templates/package/src/index.ts.hbs`,
-        },
-        {
-          type: `add`,
-          path: `${rootDir}/{{package_type}}/{{kebabCase name}}/.browserslistrc`,
-          templateFile: `plop-templates/package/.browserslistrc.hbs`,
-        },
-        {
-          type: `add`,
-          path: `${rootDir}/{{package_type}}/{{kebabCase name}}/.eslintignore`,
-          templateFile: `plop-templates/package/.eslintignore.hbs`,
         },
         {
           type: `add`,
