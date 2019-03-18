@@ -1,14 +1,15 @@
 import { css, FlattenSimpleInterpolation } from 'styled-components';
 import { mediaquery, stripUnit, em } from '@growcss/elaborate';
 import { MediaQueryOptionsProps } from '@growcss/elaborate/types';
-import { colors } from './colors';
+import colors from './colors';
 import { createMediaQueryOptions } from '../utils/create-mediaquery-options';
+import { TypographyBreakpointsProps } from '../../types';
 
 const calcHeading = (
   heading: number,
   fontSize: string,
   lineHeight: number,
-  breakpoints: {},
+  breakpoints: TypographyBreakpointsProps,
   mediaQuery: MediaQueryOptionsProps,
 ): FlattenSimpleInterpolation => {
   if (Object.entries(breakpoints).length === 0) {
@@ -128,3 +129,28 @@ export const content = css`
   font-size: ${props => em(props.theme.fontSize)};
   line-height: ${props => props.theme.lineHeight};
 `;
+
+export const typography = {
+  // Text color
+  color: colors.black,
+  // Font size attribute applied to `<html>` and `<body>`.
+  fontSize: '16px',
+  // Default line height for all type. "lineHeight" is 24px while fontSize is 16px
+  lineHeight: 1.45,
+  // Font weight used for normal type
+  weightNormal: 600,
+  // Font weight used for bold type
+  weightBold: 'bold',
+  // Set to `true` to enable antialiased type, using the `-webkit-font-smoothing` and `-moz-osx-font-smoothing` CSS properties.
+  antialiased: true,
+  // Font stack of the body.
+  fontFamily:
+  '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+  codeFontFamily:
+  '"SFMono-Medium", "SF Mono", "Segoe UI Mono", "Roboto Mono", "Ubuntu Mono", Menlo, Consolas, Courier, monospace',
+  // Check https://type-scale.com/ for different sizes
+  breakpoints: {
+    small: [2.488, 2.074, 1.728, 1.44, 1.2, 1],
+    medium: [3.052, 2.441, 1.953, 1.563, 1.25, 1],
+  },
+};

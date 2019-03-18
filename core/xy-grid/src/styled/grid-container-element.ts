@@ -11,6 +11,7 @@ interface GridContainerElementProps {
 export const GridContainerElement = styled.div<GridContainerElementProps>`
   max-width: ${props => props.maxWidth};
   margin: 0 auto;
+  position: relative;
 
   ${props => (props.type === 'full' ? 'overflow-x: hidden;' : '')}
   ${props => Gutters(props.gutterSizes, 'padding')};

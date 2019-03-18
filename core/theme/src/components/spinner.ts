@@ -1,4 +1,4 @@
-import { colors } from '../css/colors';
+import colors from '../css/colors';
 
 export default {
   size: {

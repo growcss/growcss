@@ -159,6 +159,10 @@
       "allowedCategories": [ "production" ]
     },
     {
+      "name": "@growcss/xy-grid",
+      "allowedCategories": [ "production" ]
+    },
+    {
       "name": "@hot-loader/react-dom",
       "allowedCategories": [ "tools" ]
     },

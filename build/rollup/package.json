@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "",
-    "sort": "                      ./node_modules/@build/scripts/node_modules/.bin/sort-package-json"
+    "sort": "./node_modules/@build/scripts/node_modules/.bin/sort-package-json"
   },
   "dependencies": {
     "@build/scripts": "0.0.0",

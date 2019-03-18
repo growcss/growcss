@@ -1,30 +1,49 @@
 import { DefaultTheme, FlattenSimpleInterpolation } from 'styled-components';
 
-export interface Colors {
-  [key: string]: string;
+export interface ColorsProps {
+  [key: string]: { [key: number]: string } | string;
 }
 
-export interface GlobalBreakpoints {
+export interface GlobalBreakpointsProps {
   [key: string]: number;
 }
 
-export interface ImageBreakpoints {
+export interface ImageBreakpointsProps {
   [key: string]: string;
 }
 
-export interface TypographyBreakpoints {
+export interface TypographyBreakpointsProps {
   [key: string]: number[];
+}
+
+export interface TypographyProps {
+  color: string;
+  fontSize: string;
+  lineHeight: number;
+  weightNormal: string | number;
+  weightBold: string;
+  antialiased: boolean;
+  fontFamily: string;
+  codeFontFamily: string;
+  breakpoints: TypographyBreakpointsProps;
+  h1?: FlattenSimpleInterpolation;
+  h2?: FlattenSimpleInterpolation;
+  h3?: FlattenSimpleInterpolation;
+  h4?: FlattenSimpleInterpolation;
+  h5?: FlattenSimpleInterpolation;
+  h6?: FlattenSimpleInterpolation;
 }
 
 export interface GrowCssTheme extends DefaultTheme {
   global: {
+    borderColor: string;
     margin: string;
     padding: string;
     position: string;
     textDirection: string;
     printBreakpoint: string;
     stdWebDpi: number;
-    breakpoints: GlobalBreakpoints;
+    breakpoints: GlobalBreakpointsProps;
     hidpiBreakpoints: {
       [key: string]: number;
     };
@@ -32,23 +51,34 @@ export interface GrowCssTheme extends DefaultTheme {
   body: {
     backgroundColor: string;
   };
-  colors: Colors;
-  typography: {
-    color: string;
-    fontSize: string;
-    lineHeight: number;
-    weightNormal: string | number;
-    weightBold: string;
-    antialiased: boolean;
-    fontFamily: string;
-    codeFontFamily: string;
-    breakpoints: TypographyBreakpoints;
-    h1?: FlattenSimpleInterpolation;
-    h2?: FlattenSimpleInterpolation;
-    h3?: FlattenSimpleInterpolation;
-    h4?: FlattenSimpleInterpolation;
-    h5?: FlattenSimpleInterpolation;
-    h6?: FlattenSimpleInterpolation;
+  colors: ColorsProps;
+  typography: TypographyProps;
+  shadows: any;
+  zIndex: any;
+  divider: {
+    margin: string;
+    breakpoint: string;
+    typography: {
+      color: string;
+      transform: string;
+      weight: string;
+    };
+    vertical: {
+      margin: string;
+      height?: string;
+    };
+    horizontal: {
+      margin: string;
+      height?: string;
+    };
+    highlight: {
+      width: string;
+      color: string;
+    };
+    shadow: {
+      width: string;
+      color: string;
+    };
   };
   grid: {
     maxWidth: string;
@@ -60,11 +90,9 @@ export interface GrowCssTheme extends DefaultTheme {
     };
     columns: number;
   };
-  shadows: any;
-  zIndex: any;
-  spinner: any;
   image: {
-    breakpoints: ImageBreakpoints;
+    breakpoints: ImageBreakpointsProps;
     previewBackgroundColor: string;
   };
+  spinner: any;
 }

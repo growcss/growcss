@@ -1,4 +1,4 @@
-import { colors } from '../css/colors';
+import colors from '../css/colors';
 
 export default {
   breakpoints: {
@@ -7,5 +7,5 @@ export default {
     xlarge: '1200w',
     xxlarge: '1440w',
   },
-  previewBackgroundColor: colors.greyLight,
+  previewBackgroundColor: colors.gray[700],
 };

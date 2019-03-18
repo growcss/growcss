@@ -1,11 +1,11 @@
 import { css } from 'styled-components';
-import { Colors } from '../../types';
+import { ColorsProps, TypographyProps } from '../../types';
 
 export default (
-  typography,
+  typography: TypographyProps,
   tableBorderWidth: number,
   gutterSize: number,
-  colors: Colors,
+  colors: ColorsProps,
 ) => css`
   table {
     border-collapse: collapse;
@@ -15,7 +15,7 @@ export default (
   thead,
   tbody,
   tfoot {
-    border-bottom: ${tableBorderWidth}px solid ${colors.greyLighter};
+    border-bottom: ${tableBorderWidth}px solid ${colors.gray[700]};
   }
 
   td,

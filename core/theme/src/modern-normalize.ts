@@ -1,15 +1,36 @@
 import { css } from 'styled-components';
 import normalize from './normalize';
 
-export default css`
+/**
+ * 1. Prevent padding and border from affecting element width
+ * https://goo.gl/pYtbK7
+ * 2. Change the default font family in all browsers (opinionated)
+ */
+
+export default (
+  borderColor: string,
+) => css`
   html {
-    box-sizing: border-box;
+    box-sizing: border-box; /* 1 */
+    font-family: sans-serif; /* 2 */
   }
 
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
+  /* Removes the default spacing and border for appropriate elements. */
+  blockquote,
+  dl,
+  dd,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  figure,
+  p,
+  pre,
+  ul,
+  ol {
+    margin: 0;
   }
 
   :root {
@@ -42,6 +63,7 @@ export default css`
     max-width: 100%;
     height: auto;
     -ms-interpolation-mode: bicubic;
+    border-style: solid;
   }
 
   /* Make sure textarea takes on height automatically */
@@ -95,6 +117,17 @@ export default css`
     opacity: 0.5;
   }
 
+  button {
+    background: transparent;
+    padding: 0;
+  }
+
+  /* Work around a Firefox/IE bug where the transparent \`button\` background results in a loss of the default \`button\` focus styles. */
+  button:focus {
+    outline: 1px dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+  }
+
   button,
   [role='button'] {
     cursor: pointer;
@@ -102,5 +135,18 @@ export default css`
 
   table {
     border-collapse: collapse;
+  }
+
+  iframe {
+    border: 0;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+    border-width: 0;
+    border-style: solid;
+    border-color: ${borderColor};
   }
 `;

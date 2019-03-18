@@ -1,20 +1,20 @@
 import { css } from 'styled-components';
-import { Colors } from '../../types';
+import { ColorsProps } from '../../types';
 
-export default (colors: Colors) => css`
+export default (colors: ColorsProps) => css`
   a {
-    color: ${colors.blue};
+    color: ${colors.blue[500]};
     text-decoration: none;
   }
   a:hover {
-    color: ${colors.blueLight};
+    color: ${colors.blue[700]};
     text-decoration: underline;
   }
   a:active {
-    color: ${colors.blueDark};
+    color: ${colors.blue[300]};
   }
   a:focus {
-    outline: 2px solid ${colors.blueLighter};
+    outline: 2px solid ${colors.blue[700]};
     outline-offset: 2px;
   }
 `;

@@ -14,18 +14,34 @@ class Divider extends PureComponent<DividerProps> {
       children,
       className,
       clearing,
-      fitted,
       hidden,
       horizontal,
-      inverted,
       section,
       vertical,
       theme,
     } = this.props;
 
     return (
-      <DividerElement theme={theme} className={classNames('gc-divider', className, clearing, fitted, hidden, horizontal, inverted, section, vertical)}>
-        {children}
+      <DividerElement
+        theme={theme}
+        clearing={clearing}
+        hidden={hidden}
+        horizontal={horizontal}
+        section={section}
+        vertical={vertical}
+        className={classNames(
+          'gc-divider',
+          className,
+          {
+            clearing,
+            hidden,
+            horizontal,
+            section,
+            vertical
+          }
+        )}
+        >
+        { horizontal ? <div>{children}</div> : children }
       </DividerElement>
     );
   }
