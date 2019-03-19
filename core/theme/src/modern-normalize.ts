@@ -7,9 +7,7 @@ import normalize from './normalize';
  * 2. Change the default font family in all browsers (opinionated)
  */
 
-export default (
-  borderColor: string,
-) => css`
+export default (borderColor: string) => css`
   html {
     box-sizing: border-box; /* 1 */
     font-family: sans-serif; /* 2 */

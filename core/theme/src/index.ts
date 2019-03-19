@@ -100,7 +100,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    font-size: ${props => em(props.theme.typography.fontSize)};
+    font-size: ${props => props.theme.typography.fontSize};
   }
 
   body {

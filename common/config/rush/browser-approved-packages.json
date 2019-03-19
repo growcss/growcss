@@ -112,11 +112,11 @@
     },
     {
       "name": "@build/extended-eslint-config",
-      "allowedCategories": [ "production" ]
+      "allowedCategories": [ "production", "tools" ]
     },
     {
       "name": "@build/jest",
-      "allowedCategories": [ "production" ]
+      "allowedCategories": [ "production", "tools" ]
     },
     {
       "name": "@build/rollup",
@@ -251,6 +251,10 @@
       "allowedCategories": [ "tools" ]
     },
     {
+      "name": "babel-jest",
+      "allowedCategories": [ "tools" ]
+    },
+    {
       "name": "babel-loader",
       "allowedCategories": [ "tools" ]
     },
@@ -312,6 +316,10 @@
     },
     {
       "name": "deepmerge",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "dotenv",
       "allowedCategories": [ "tools" ]
     },
     {
@@ -403,6 +411,90 @@
       "allowedCategories": [ "tools" ]
     },
     {
+      "name": "gatsby",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "gatsby-image",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "gatsby-plugin-catch-links",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "gatsby-plugin-emotion",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "gatsby-plugin-feed",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "gatsby-plugin-google-analytics",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "gatsby-plugin-manifest",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "gatsby-plugin-offline",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "gatsby-plugin-react-helmet",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "gatsby-plugin-sharp",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "gatsby-plugin-sitemap",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "gatsby-remark-copy-linked-files",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "gatsby-remark-emojis",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "gatsby-remark-external-links",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "gatsby-remark-images",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "gatsby-remark-prismjs",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "gatsby-remark-responsive-iframe",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "gatsby-remark-smartypants",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "gatsby-source-filesystem",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "gatsby-transformer-remark",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "gatsby-transformer-sharp",
+      "allowedCategories": [ "tools" ]
+    },
+    {
       "name": "github",
       "allowedCategories": [ "tools" ]
     },
@@ -413,6 +505,10 @@
     {
       "name": "hey-listen",
       "allowedCategories": [ "production" ]
+    },
+    {
+      "name": "identity-obj-proxy",
+      "allowedCategories": [ "tools" ]
     },
     {
       "name": "intersection-observer",
@@ -452,6 +548,10 @@
     },
     {
       "name": "jest-styled-components",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "js-yaml",
       "allowedCategories": [ "tools" ]
     },
     {
@@ -525,6 +625,10 @@
     {
       "name": "react-dom",
       "allowedCategories": [ "production", "tools" ]
+    },
+    {
+      "name": "react-helmet",
+      "allowedCategories": [ "tools" ]
     },
     {
       "name": "react-inspector",
@@ -704,6 +808,10 @@
     },
     {
       "name": "webpack-sources",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "yaml-loader",
       "allowedCategories": [ "tools" ]
     },
     {

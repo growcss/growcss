@@ -5,7 +5,12 @@ import { ThemeProvider } from 'styled-components';
 
 export default function (storyFn) {
   return (
-    <ThemeProvider theme={GrowCss}>{storyFn()}</ThemeProvider>
+    <ThemeProvider theme={GrowCss}>
+      <React.Fragment>
+        <GlobalStyle/>
+        {storyFn()}
+      </React.Fragment>
+    </ThemeProvider>
   );
 }
 

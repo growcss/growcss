@@ -1,0 +1,52 @@
+{
+  "name": "@growcss/docs",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "scripts": {
+    "build": "",
+    "build-": " gatsby build",
+    "develop": "gatsby develop",
+    "serve": "  gatsby serve",
+    "sort": "   ./node_modules/.bin/sort-package-json",
+    "test": "   jest --coverage"
+  },
+  "dependencies": {
+    "gatsby": "^2.1.38",
+    "gatsby-image": "^2.0.34",
+    "gatsby-plugin-catch-links": "^2.0.13",
+    "gatsby-plugin-emotion": "^4.0.6",
+    "gatsby-plugin-feed": "^2.0.15",
+    "gatsby-plugin-google-analytics": "^2.0.17",
+    "gatsby-plugin-manifest": "^2.0.24",
+    "gatsby-plugin-offline": "^2.0.25",
+    "gatsby-plugin-react-helmet": "^3.0.10",
+    "gatsby-plugin-sharp": "^2.0.29",
+    "gatsby-plugin-sitemap": "^2.0.10",
+    "gatsby-remark-copy-linked-files": "^2.0.11",
+    "gatsby-remark-emojis": "^0.3.1",
+    "gatsby-remark-external-links": "^0.0.4",
+    "gatsby-remark-images": "^3.0.10",
+    "gatsby-remark-prismjs": "^3.2.6",
+    "gatsby-remark-responsive-iframe": "^2.1.1",
+    "gatsby-remark-smartypants": "^2.0.9",
+    "gatsby-source-filesystem": "^2.0.27",
+    "gatsby-transformer-remark": "^2.3.5",
+    "gatsby-transformer-sharp": "^2.1.17",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-helmet": "^5.2.0"
+  },
+  "devDependencies": {
+    "@build/extended-babel": "0.0.0",
+    "@build/extended-eslint-config": "0.0.0",
+    "@build/jest": "0.0.0",
+    "babel-jest": "^24.5.0",
+    "dotenv": "^7.0.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.5.0",
+    "js-yaml": "^3.12.0",
+    "sort-package-json": "^1.19.0",
+    "yaml-loader": "^0.5.0"
+  }
+}

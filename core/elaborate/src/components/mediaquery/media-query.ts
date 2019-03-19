@@ -1,4 +1,4 @@
-import { css, FlattenSimpleInterpolation } from 'styled-components';
+import { css, ThemedCssFunction } from 'styled-components';
 import { MediaQueryTemplate } from './_media-query-template';
 import {
   BreakpointsProps,
@@ -61,7 +61,7 @@ const mediaQueryTemplate = new MediaQueryTemplate(MediaQueryOptions);
 export const mediaquery = (
   value: string = 'small',
   mediaQueryOptions: MediaQueryOptionsProps | null = null,
-): FlattenSimpleInterpolation => {
+): ThemedCssFunction<{}> => {
   if (mediaQueryOptions !== null) {
     const options = { ...MediaQueryOptions, ...mediaQueryOptions };
 

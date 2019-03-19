@@ -9,7 +9,7 @@
     "storybook:build": "     cross-env NODE_ENV=production build-storybook -c ./.storybook --quiet"
   },
   "dependencies": {
-    "@babel/core": "^7.3.0",
+    "@babel/core": "^7.3.4",
     "@babel/plugin-proposal-decorators": "^7.3.0",
     "@build/extended-babel": "0.0.0",
     "@build/scripts": "0.0.0",
@@ -56,9 +56,9 @@
     "prop-types": "^15.7.2",
     "puppeteer": "^1.12.2",
     "range-parser": "^1.2.0",
-    "react": "^16.8.2",
+    "react": "^16.8.4",
     "react-docgen-typescript-loader": "^3.0.1",
-    "react-dom": "^16.8.2",
+    "react-dom": "^16.8.4",
     "react-inspector": "^2.3.1",
     "tslib": "^1.9.3",
     "typescript": "^3.3.3333",

@@ -28,9 +28,6 @@
    */
   "pnpmVersion": "2.19.2",
 
-  // "npmVersion": "6.1.0",
-  // "yarnVersion": "1.9.4",
-
   /**
    * Options that are only used when the PNPM package manager is selected
    */
@@ -95,7 +92,7 @@
    * To remove these restrictions, you could set projectFolderMinDepth=1
    * and set projectFolderMaxDepth to a large number.
    */
-  "projectFolderMinDepth": 2,
+  "projectFolderMinDepth": 1,
   "projectFolderMaxDepth": 2,
 
   /**
@@ -374,6 +371,12 @@
     {
       "packageName": "@build/storybook",
       "projectFolder": "build/storybook",
+      "reviewCategory": "tools",
+      "shouldPublish": false
+    },
+    {
+      "packageName": "@growcss/docs",
+      "projectFolder": "docs",
       "reviewCategory": "tools",
       "shouldPublish": false
     },

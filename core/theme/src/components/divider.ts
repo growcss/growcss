@@ -6,6 +6,7 @@ export default {
     color: colors.black,
     transform: 'uppercase',
     weight: typography.weightBold,
+    size: typography.fontSize,
   },
   highlight: {
     width: '1px',
@@ -26,4 +27,4 @@ export default {
   horizontal: {
     margin: '1em',
   },
-}
+};
