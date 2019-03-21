@@ -51,7 +51,7 @@ export const CellOffset = (
     lastBreakpointName = breakpoint;
   }
 
-  let lastBreakpoint: number = gutters[lastBreakpointName];
+  const lastBreakpoint: number = gutters[lastBreakpointName];
 
   const gutter = rem(lastBreakpoint / 2);
   const gutterSize =

@@ -68,7 +68,10 @@ export interface GrowCssTheme extends DefaultTheme {
   zIndex: any;
   divider: {
     margin: number;
-    breakpoint: string;
+    breakpoint: {
+      mobile: string;
+      tablet: string;
+    };
     typography: {
       color: string;
       transform: string;

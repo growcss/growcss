@@ -24,6 +24,7 @@ storiesOf('Core.divider', module).add(
         <br />
         <br />
       </GridContainer>
+      <h4>Grid 1</h4>
       <GridContainer>
         <Divider vertical>and</Divider>
         <GridX gutterType="padding">
@@ -69,7 +70,7 @@ storiesOf('Core.divider', module).add(
           </Cell>
         </GridX>
       </GridContainer>
-      <br/>
+      <h4>Grid 2</h4>
       <GridContainer>
         <Divider vertical>and</Divider>
         <GridX gutterType="padding">

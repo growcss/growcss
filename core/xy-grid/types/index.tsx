@@ -45,7 +45,7 @@ export interface CellBreakpointsProps {
 }
 
 export interface GridContainerProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends HTMLAttributes<HTMLDivElement>,
     ThemedStyledProps<{}, GrowCssTheme> {
   type?: string;
 }

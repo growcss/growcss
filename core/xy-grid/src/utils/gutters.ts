@@ -19,7 +19,7 @@ const cssBuilder = (
 ): string => {
   let negativeBoolean = negative;
   let operator = negativeBoolean ? '-' : '';
-  let gutterSize = gutter;
+  const gutterSize = gutter;
 
   const remValue = rem(+gutterSize / 2);
 

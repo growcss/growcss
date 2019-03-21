@@ -1,82 +1,89 @@
-import { Children, ReactNode } from 'react';
-import {mediaquery, rem} from '@growcss/elaborate';
-import { getThemeValue, styled, css } from '@growcss/theme';
+import { mediaquery, rem } from '@growcss/elaborate';
+import { styled, css, GrowCssTheme } from '@growcss/theme';
+import { BaseThemedCssFunction } from 'styled-components';
 // eslint-disable-next-line no-unused-vars
 import { GridContainerProps } from '../../types';
 import { Gutters } from '../utils/gutters';
 
-const dividerSupport = (props: GridContainerProps) => {
-  const gutters = getThemeValue('grid.gutters.padding')(props.theme);
-  const gutterBreakpoint = getThemeValue('grid.gutterBreakpoint')(props.theme);
-  let childrenCount = 0;
+type ExtendedGridContainerProps = GridContainerProps & { childrenCount: number };
 
-  Children.toArray(props.children).forEach((child: ReactNode) => {
-    if (child.type !== undefined && ['GridX', 'GridY'].includes(child.type.displayName) && child.props.children !== undefined) {
-      childrenCount = Children.count(child.props.children);
-    }
-  });
+const dividerSupport = (props: ExtendedGridContainerProps): BaseThemedCssFunction<GrowCssTheme>[] => {
+  const gutters = props.theme.grid.gutters.padding;
+  const gutterBreakpoint = props.theme.grid.gutterBreakpoint;
+  const childrenCount = props.childrenCount;
 
-  const strings: string[] = [];
+  const cssCollection: BaseThemedCssFunction<GrowCssTheme>[] = [];
 
   for (const key in gutters) {
-    if (key !== gutterBreakpoint && (typeof gutters[key] === 'number' || typeof gutters[key] === 'string')) {
-      strings.push(
+    if (
+      key !== gutterBreakpoint &&
+      (typeof gutters[key] === 'number' || typeof gutters[key] === 'string')
+    ) {
+      cssCollection.push(
         mediaquery(key)`
           & .gc-divider.vertical {
             height: calc(50% - (${rem(gutters[key])} / 2));
           }
-            
-          & .gc-divider + .gc-grid-x .gc-cell${childrenCount < 2 ? `:nth-child(${childrenCount} / 2)` : ''} {
+
+          & .gc-divider + .gc-grid-x .gc-cell${
+            childrenCount > 2 ? `:nth-child(${childrenCount / 2})` : ':first-child'
+          } {
             padding-right: ${rem(gutters[key])};
+            padding-bottom: 0;
           }
 
-          & .gc-divider + .gc-grid-x .gc-cell${childrenCount < 2 ? `:nth-child(${childrenCount} / 2)` : ''} + .gc-cell {
+          & .gc-divider + .gc-grid-x .gc-cell${
+            childrenCount > 2 ? `:nth-child(${childrenCount / 2})` : ':first-child'
+          } + .gc-cell {
             padding-left: ${rem(gutters[key])};
+            padding-top: 0;
           }
         `,
       );
     } else {
-      strings.push(
-        mediaquery(key)`            
-          & .gc-divider + .gc-grid-x .gc-cell${childrenCount < 2 ? `:nth-child(${childrenCount} / 2)` : ''} {
-            padding-top: ${rem(gutters[key])};
+      cssCollection.push(
+        mediaquery(key + ' down')`
+          & .gc-divider.vertical {
+            margin-left: ${rem(props.theme.divider.vertical.margin - gutters[key])};
+          }
+          
+          & .gc-divider + .gc-grid-x .gc-cell${
+            childrenCount > 2 ? `:nth-child(${childrenCount / 2})` : ':first-child'
+          } {
+            padding-bottom: ${rem(gutters[key])};
           }
 
-          & .gc-divider + .gc-grid-x .gc-cell${childrenCount < 2 ? `:nth-child(${childrenCount} / 2)` : ''} + .gc-cell {
-            padding-bottom: ${rem(gutters[key])};
+          & .gc-divider + .gc-grid-x .gc-cell${
+            childrenCount > 2 ? `:nth-child(${childrenCount / 2})` : ':first-child'
+          } + .gc-cell {
+            padding-top: ${rem(gutters[key])};
           }
         `,
       );
     }
   }
 
-  return css`
-  & .gc-divider {
-    flex-grow: 1;
-  }
-
-  ${strings}
-`;
+  return cssCollection
 };
 
-const GridContainerElement = styled.div.attrs({ className: 'gc-grid-container' })<
-  GridContainerProps
->`
+const GridContainerElement = styled.div.attrs(() => ({
+  className: 'gc-grid-container',
+}))<ExtendedGridContainerProps>`
   position: relative;
-  max-width: ${(props: GridContainerProps) =>
+  max-width: ${(props: ExtendedGridContainerProps) =>
     props.type === 'fluid' || props.type === 'full'
       ? '100%'
-      : rem(getThemeValue('grid.maxWidth')(props.theme))};
+      : rem(props.theme.grid.maxWidth)};
   margin: 0 auto;
 
-  ${(props: GridContainerProps) => (props.type === 'full' ? 'overflow-x: hidden;' : '')}
-  ${(props: GridContainerProps) =>
+  ${(props: ExtendedGridContainerProps) => (props.type === 'full' ? 'overflow-x: hidden;' : '')}
+  ${(props: ExtendedGridContainerProps) =>
     Gutters(
-      props.type === 'full' ? '0' : getThemeValue('grid.gutters.padding')(props.theme),
+      props.type === 'full' ? '0' : props.theme.grid.gutters.padding,
       'padding',
     )};
-    
-  ${(props: GridContainerProps) => dividerSupport(props)}
+
+  ${(props: ExtendedGridContainerProps) => dividerSupport(props)}
 `;
 
 GridContainerElement.displayName = 'GridContainer';

@@ -16,7 +16,10 @@ export default {
     width: 1,
     color: colors.gray[300],
   },
-  breakpoint: 'small down',
+  breakpoint: {
+    mobile: 'small down',
+    tablet: 'medium',
+  },
   margin: '1rem 0rem',
   vertical: {
     margin: 16,
