@@ -1,11 +1,12 @@
-import { mediaquery } from '@growcss/elaborate';
+import { mediaquery, rem } from '@growcss/elaborate';
 import { styled, css, GrowCssTheme } from '@growcss/theme';
 import { ThemedCssFunction } from 'styled-components';
 import { DividerProps } from '../../types';
+import classNames from 'classnames';
 
 const lineSvg = (theme: GrowCssTheme): string => {
   return `<svg style="width: 100%" xmlns="http://www.w3.org/2000/svg" height="${
-    theme.divider.shadow.width
+    rem(theme.divider.shadow.width)
   }" preserveAspectRatio="xMidYMin slice">
     <rect x="0" y="0" width="100%" height="1" fill="${
       theme.divider.shadow.color
@@ -14,7 +15,7 @@ const lineSvg = (theme: GrowCssTheme): string => {
 };
 
 const basicDivider = css<DividerProps>`
-  margin: ${props => props.theme.divider.margin};
+  margin: ${(props: DividerProps) => props.theme.divider.margin};
   line-height: 1;
   height: 0em;
 `;
@@ -38,15 +39,15 @@ const verticalDivider = css`
     left: 50%;
     content: '';
     z-index: 3;
-    border-left: ${props => props.theme.divider.shadow.width} solid
-      ${props => props.theme.divider.shadow.color};
-    border-right: ${props => props.theme.divider.highlight.width} solid
-      ${props => props.theme.divider.highlight.color};
+    border-left: ${(props: DividerProps) => rem(props.theme.divider.shadow.width)} solid
+      ${(props: DividerProps) => props.theme.divider.shadow.color};
+    border-right: ${(props: DividerProps) => rem(props.theme.divider.highlight.width)} solid
+      ${(props: DividerProps) => props.theme.divider.highlight.color};
     width: 0%;
-    height: ${props =>
-      props.theme.divider.vertical.height
-        ? props.theme.divider.vertical.height
-        : `calc(100% - ${props.theme.divider.vertical.margin})`};
+    height: ${(props: DividerProps) =>
+      props.theme.divider.vertical.height !== undefined
+        ? rem(props.theme.divider.vertical.height)
+        : `calc(100% - ${rem(props.theme.divider.vertical.margin)})`};
   }
 
   &:before {
@@ -61,7 +62,7 @@ const verticalDivider = css`
 const horizontalDivider = css`
   display: table;
   white-space: nowrap;
-  margin: ${props => props.theme.divider.horizontal.margin};
+  margin: ${(props: DividerProps) => rem(props.theme.divider.horizontal.margin)};
   line-height: 1;
   text-align: center;
 
@@ -73,15 +74,15 @@ const horizontalDivider = css`
     top: 50%;
     width: 50%;
     background-repeat: no-repeat;
-    background-image: url(${props =>
+    background-image: url(${(props: DividerProps) =>
       `data:image/svg+xml;base64,${btoa(lineSvg(props.theme))}`});
   }
 
   &:before {
-    background-position: right ${props => props.theme.divider.horizontal.margin} top 50%;
+    background-position: right ${(props: DividerProps) => rem(props.theme.divider.horizontal.margin)} top 50%;
   }
   &:after {
-    background-position: left ${props => props.theme.divider.horizontal.margin} top 50%;
+    background-position: left ${(props: DividerProps) => rem(props.theme.divider.horizontal.margin)} top 50%;
   }
 `;
 
@@ -95,38 +96,39 @@ const hiddenDivider = css`
   }
 `;
 
-const getDividerStyle = (props: DividerProps): ThemedCssFunction<DividerProps> => {
-  if (props.vertical) {
-    return verticalDivider;
-  }
+const DividerElement = styled.div.attrs({
+  className: (props: DividerProps) => classNames('gc-divider', props.className, {
+    hidden: props.hidden || false,
+    horizontal: props.horizontal || false,
+    vertical: props.vertical || false,
+  })
+})<DividerProps>`
+  ${(props: DividerProps) => props.horizontal ? horizontalDivider : basicDivider}
 
-  if (props.horizontal) {
-    return horizontalDivider;
-  }
-
-  return basicDivider;
-};
-
-export const DividerElement = styled.div<DividerProps>`
-  ${props => getDividerStyle(props)}
-
-  font-weight: ${props => props.theme.divider.typography.weight};
-  text-transform: ${props => props.theme.divider.typography.transform};
-  color: ${props => props.theme.divider.typography.color};
+  font-weight: ${(props: DividerProps) => props.theme.divider.typography.weight};
+  text-transform: ${(props: DividerProps) => props.theme.divider.typography.transform};
+  color: ${(props: DividerProps) => props.theme.divider.typography.color};
   user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   
-  ${props =>
+  ${(props: DividerProps) =>
     !props.vertical && !props.horizontal
-      ? `border-top: ${props.theme.divider.shadow.width} solid ${
+      ? `border-top: ${rem(props.theme.divider.shadow.width)} solid ${
           props.theme.divider.shadow.color
-        }; border-bottom: ${props.theme.divider.highlight.width} solid ${
+        }; border-bottom: ${rem(props.theme.divider.highlight.width)} solid ${
           props.theme.divider.highlight.color
         };`
       : ''}
-  ${props =>
+
+  ${(props: DividerProps) =>
     props.vertical
-      ? mediaquery(props.theme.divider.breakpoint)`${horizontalDivider}`
+      ? mediaquery('small down')`${horizontalDivider}` + mediaquery('small up')`${verticalDivider}`
       : ''}
-  ${props => (props.hidden ? hiddenDivider : '')}
+
+  ${(props: DividerProps) => (props.hidden ? hiddenDivider : '')}
 `;
+
+
+DividerElement.displayName = 'Divider';
+
+export default DividerElement;

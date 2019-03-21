@@ -1,1 +1,1 @@
-export { StyledDivider as Divider } from './components/divider';
+export { default as Divider } from './styled/divider-element';

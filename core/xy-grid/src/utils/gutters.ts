@@ -1,36 +1,30 @@
-import { rem, stripUnit, mediaquery } from '@growcss/elaborate';
-import { GuttersProps } from '../../types';
+import { rem, mediaquery } from '@growcss/elaborate';
+import { GuttersProps, GutterType } from '../../types';
 
 /**
  * Builds the css for gutters.
  *
- * @param {string | number} gutter
- * @param {boolean}         negative
- * @param {string}          gutterType
- * @param {Array<string>}   gutterPosition
+ * @param {number}        gutter
+ * @param {boolean}       negative
+ * @param {GutterType}    gutterType
+ * @param {Array<string>} gutterPosition
  *
  * @return {string}
  */
 const cssBuilder = (
-  gutter: string | number,
+  gutter: number,
   negative: boolean,
-  gutterType: string,
+  gutterType: GutterType,
   gutterPosition: string[],
 ): string => {
   let negativeBoolean = negative;
   let operator = negativeBoolean ? '-' : '';
-  let isString = false;
   let gutterSize = gutter;
-
-  if (typeof gutterSize === 'string') {
-    isString = true;
-    gutterSize = stripUnit(gutterSize);
-  }
 
   const remValue = rem(+gutterSize / 2);
 
   // If the value is already negative, remove the operator and set negative to true.
-  if (!isString && gutterSize < 0) {
+  if (gutterSize < 0) {
     negativeBoolean = true;
     operator = '';
   }
@@ -50,16 +44,16 @@ const cssBuilder = (
 /**
  * Create gutters for a cell/container.
  *
- * @param {string | number | GuttersProps} gutters
- * @param {string}                         gutterType
- * @param {Array<string>}                  gutterPosition
- * @param {boolean}                        negative
+ * @param {number | GuttersProps} gutters
+ * @param {GutterType}            gutterType
+ * @param {Array<string>}         gutterPosition
+ * @param {boolean}               negative
  *
  * @return {Array<string>}
  */
 export const Gutters = (
-  gutters: string | number | GuttersProps,
-  gutterType: string = 'margin',
+  gutters: number | GuttersProps,
+  gutterType: GutterType = 'margin',
   gutterPosition: string[] = ['right', 'left'],
   negative: boolean = false,
 ): string[] => {

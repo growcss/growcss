@@ -293,9 +293,9 @@
     //    * locally linked because it would create a cyclic dependency; instead, the last published
     //    * version will be installed in the Common folder.
     //    */
-    //   "cyclicDependencyProjects": [
-    //     // "my-toolchain"
-    //   ],
+    //  "cyclicDependencyProjects": [
+    //    "@growcss/xy-grid",
+    //  ],
     //
     //   /**
     //    * If true, then this project will be ignored by the "rush check" command.
@@ -328,7 +328,7 @@
     //   "packageName": "my-toolchain",
     //   "projectFolder": "tools/my-toolchain",
     //   "reviewCategory": "tools"
-    // }
+    // },
     {
       "packageName": "@build/extended-babel",
       "projectFolder": "build/extended-babel",
@@ -371,12 +371,6 @@
     {
       "packageName": "@build/storybook",
       "projectFolder": "build/storybook",
-      "reviewCategory": "tools",
-      "shouldPublish": false
-    },
-    {
-      "packageName": "@growcss/docs",
-      "projectFolder": "docs",
       "reviewCategory": "tools",
       "shouldPublish": false
     },

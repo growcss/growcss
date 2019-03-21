@@ -8,7 +8,7 @@ const CustomGridX = styled(GridX)`
   text-align: center;
 `;
 
-storiesOf('Core.XY-Grid.Grid', module)
+storiesOf('Core.XY-Grid.GridX', module)
   .add('GridX with a full width cell', () => (
     <GridX>
       <Cell>full width cell</Cell>
@@ -30,16 +30,6 @@ storiesOf('Core.XY-Grid.Grid', module)
         12/6/8 cells
       </Cell>
     </GridX>
-  ))
-  .add('GridX with 6/8/2 and 6/4/10 cells', () => (
-    <GridY height="500px">
-      <Cell small={6} medium={8} large={2}>
-        6/8/2 cells
-      </Cell>
-      <Cell small={6} medium={8} large={10}>
-        6/4/10 cells
-      </Cell>
-    </GridY>
   ))
   .add('GridX gutter type with margin', () => (
     <GridX gutterType="margin">
@@ -195,3 +185,14 @@ storiesOf('Core.XY-Grid.Grid', module)
       </GridX>
     ),
   );
+
+storiesOf('Core.XY-Grid.GridY', module).add('GridY with 6/8/2 and 6/4/10 cells', () => (
+  <GridY height="500px">
+    <Cell small={6} medium={8} large={2}>
+      6/8/2 cells
+    </Cell>
+    <Cell small={6} medium={8} large={10}>
+      6/4/10 cells
+    </Cell>
+  </GridY>
+));

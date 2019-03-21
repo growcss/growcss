@@ -31,7 +31,10 @@ export const GrowCss: GrowCssTheme = {
     position: '1rem',
     // Sets the text direction of the CSS. Can be either `ltr` or `rtl`.
     textDirection: 'ltr',
-    printBreakpoint: 'large',
+    breakpoint: {
+      print: 'large',
+      mobile: 'small',
+    },
     // Web standard Pixels per inch. (1ddpx / stdWebDpi) = 1dpi
     // See https://www.w3.org/TR/css-values-3/#absolute-lengths
     stdWebDpi: 96,
@@ -53,6 +56,14 @@ export const GrowCss: GrowCssTheme = {
   },
   body: {
     backgroundColor: colors.white,
+  },
+  link: {
+    color: {
+      main: colors.blue[500],
+      hover: colors.blue[700],
+      active: colors.blue[300],
+      focus: colors.blue[300],
+    },
   },
   typography,
   colors,
@@ -120,7 +131,7 @@ export const GlobalStyle = createGlobalStyle`
         : null}
   }
 
-  ${props => links(props.theme.colors)}
+  ${props => links(props.theme.link.color)}
 
   p,
   ul,

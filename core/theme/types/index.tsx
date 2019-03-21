@@ -41,7 +41,10 @@ export interface GrowCssTheme extends DefaultTheme {
     padding: string;
     position: string;
     textDirection: string;
-    printBreakpoint: string;
+    breakpoint: {
+      print: string;
+      mobile: string;
+    };
     stdWebDpi: number;
     breakpoints: GlobalBreakpointsProps;
     hidpiBreakpoints: {
@@ -51,12 +54,20 @@ export interface GrowCssTheme extends DefaultTheme {
   body: {
     backgroundColor: string;
   };
+  link: {
+    color: {
+      main: string;
+      hover: string;
+      active: string;
+      focus: string;
+    }
+  };
   colors: ColorsProps;
   typography: TypographyProps;
   shadows: any;
   zIndex: any;
   divider: {
-    margin: string;
+    margin: number;
     breakpoint: string;
     typography: {
       color: string;
@@ -64,29 +75,31 @@ export interface GrowCssTheme extends DefaultTheme {
       weight: string;
     };
     vertical: {
-      margin: string;
-      height?: string;
+      margin: number;
+      height?: number;
     };
     horizontal: {
-      margin: string;
-      height?: string;
+      margin: number;
+      height?: number;
     };
     highlight: {
-      width: string;
+      width: number;
       color: string;
     };
     shadow: {
-      width: string;
+      width: number;
       color: string;
     };
   };
   grid: {
-    maxWidth: string;
-    marginGutters: {
-      [key: string]: string;
-    };
-    paddingGutters: {
-      [key: string]: string;
+    maxWidth: number;
+    gutters: {
+      margin: {
+        [key: string]: string;
+      };
+      padding: {
+        [key: string]: string;
+      };
     };
     columns: number;
   };

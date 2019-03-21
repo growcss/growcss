@@ -1,23 +1,21 @@
 import {
   rem,
-  stripUnit,
   mediaquery,
   MediaQueryOptionsProps,
   MediaQueryOptions,
 } from '@growcss/elaborate';
-import { Gutters as DefaultGutters } from '../components/gutters';
 import { CellSize } from './cell-size';
-import { GuttersProps } from '../../types';
+import { GuttersProps, GutterType } from '../../types';
 
 /**
  * Creates a single breakpoint sized grid.
  *
  * @param {string | number}        size               The size of your cell. Can be `full` (default) for 100% width, `auto` to use up available space and `shrink` to use up only required space.
- * @param {string}                 breakpoint         The name of the breakpoint size in your gutters array to get the size from.
+ * @param {GutterType}             breakpoint         The name of the breakpoint size in your gutters array to get the size from.
+ * @param {GuttersProps}           gutters            Array of gutter values.
  * @param {string}                 gutterType         The gutter type padding or margin.
  * @param {boolean}                vertical           Set to true to output vertical (height) styles rather than widths.
  * @param {boolean}                rtl                Array of gutter values.
- * @param {GuttersProps}           gutters            Array of gutter values.
  * @param {MediaQueryOptionsProps} mediaQueryOptions  Object of media query options.
  *
  * @return {Array<string>}
@@ -25,10 +23,10 @@ import { GuttersProps } from '../../types';
 export const CellOffset = (
   size: number | string,
   breakpoint: string,
-  gutterType: string = 'margin',
+  gutters: GuttersProps,
+  gutterType: GutterType = 'margin',
   vertical: boolean = false,
   rtl: boolean = false,
-  gutters: GuttersProps = DefaultGutters,
   mediaQueryOptions: MediaQueryOptionsProps = MediaQueryOptions,
 ): string => {
   let direction;
@@ -53,13 +51,7 @@ export const CellOffset = (
     lastBreakpointName = breakpoint;
   }
 
-  let lastBreakpoint: number;
-
-  if (typeof gutters[lastBreakpointName] === 'string') {
-    lastBreakpoint = +stripUnit(`${gutters[lastBreakpointName]}`);
-  } else {
-    lastBreakpoint = +gutters[lastBreakpointName];
-  }
+  let lastBreakpoint: number = gutters[lastBreakpointName];
 
   const gutter = rem(lastBreakpoint / 2);
   const gutterSize =

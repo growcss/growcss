@@ -143,6 +143,10 @@
       "allowedCategories": [ "tools" ]
     },
     {
+      "name": "@growcss/divider",
+      "allowedCategories": [ "production" ]
+    },
+    {
       "name": "@growcss/elaborate",
       "allowedCategories": [ "production" ]
     },

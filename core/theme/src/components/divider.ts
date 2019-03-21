@@ -9,22 +9,19 @@ export default {
     size: typography.fontSize,
   },
   highlight: {
-    width: '1px',
+    width: 1,
     color: colors.white,
   },
   shadow: {
-    width: '1px',
+    width: 1,
     color: colors.gray[300],
   },
   breakpoint: 'small down',
   margin: '1rem 0rem',
-  section: {
-    margin: '2rem',
-  },
   vertical: {
-    margin: '1rem',
+    margin: 16,
   },
   horizontal: {
-    margin: '1em',
+    margin: 16,
   },
 };

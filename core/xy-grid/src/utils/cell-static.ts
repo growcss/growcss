@@ -1,25 +1,24 @@
 import { Gutters } from './gutters';
-import { Gutters as DefaultGutters } from '../components/gutters';
 import { CellProperties } from './cell-properties';
-import { GuttersProps } from '../../types';
+import { GuttersProps, GutterType } from '../../types';
 
 /**
  * Creates a single breakpoint sized grid.
  *
- * @param {string | number}      size           The size of your cell. Can be `full` (default) for 100% width, `auto` to use up available space and `shrink` to use up only required space.
- * @param {boolean}              outputGutter   Whether or not to output gutters.
- * @param {GuttersProps}         gutters        Array of gutter values.
- * @param {string}               gutterType     The gutter type padding or margin.
- * @param {string}               breakpoint     The name of the breakpoint size in your gutters array to get the size from.
- * @param {boolean}              vertical       Set to true to output vertical (height) styles rather than widths.
+ * @param {string | number}       size           - The size of your cell. Can be `full` (default) for 100% width, `auto` to use up available space and `shrink` to use up only required space.
+ * @param {boolean}               outputGutter   - Whether or not to output gutters.
+ * @param {number | GuttersProps} gutters        - Array of gutter values.
+ * @param {GutterType}            gutterType     - The gutter type padding or margin.
+ * @param {string}                breakpoint     - The name of the breakpoint size in your gutters array to get the size from.
+ * @param {boolean}               vertical       - Set to true to output vertical (height) styles rather than widths.
  *
  * @return {Array<string>}
  */
 export const CellStatic = (
+  gutters: number | GuttersProps,
   size: string | number = 'full',
   outputGutter: boolean = true,
-  gutters: number | GuttersProps = DefaultGutters,
-  gutterType: string = 'margin',
+  gutterType: GutterType = 'margin',
   breakpoint: string = 'small',
   vertical: boolean = false,
 ): string[] => {

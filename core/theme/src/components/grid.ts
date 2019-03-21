@@ -1,16 +1,17 @@
-import { rem } from '@growcss/elaborate';
 import { getGutterSize } from '../utils/get-gutter-size';
 
 const gutters = {
-  small: `${getGutterSize(2)}px`,
-  medium: `${getGutterSize(3)}px`,
+  small: getGutterSize(2),
+  medium: getGutterSize(3),
 };
 
 export default {
   //  Global width of your site. Used by the grid to determine row width.
-  maxWidth: rem(1200),
+  maxWidth: 1200,
   gutterBreakpoint: 'small',
-  marginGutters: gutters,
-  paddingGutters: gutters,
+  gutters: {
+    margin: gutters,
+    padding: gutters,
+  },
   columns: 12,
 };

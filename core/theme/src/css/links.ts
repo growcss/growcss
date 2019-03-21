@@ -1,20 +1,23 @@
 import { css } from 'styled-components';
-import { ColorsProps } from '../../types';
 
-export default (colors: ColorsProps) => css`
+interface LinkColors {
+  [key: string]: string;
+}
+
+export default (linkColors: LinkColors) => css`
   a {
-    color: ${colors.blue[500]};
+    color: ${linkColors.main};
     text-decoration: none;
   }
   a:hover {
-    color: ${colors.blue[700]};
+    color: ${linkColors.hover};
     text-decoration: underline;
   }
   a:active {
-    color: ${colors.blue[300]};
+    color: ${linkColors.active};
   }
+
   a:focus {
-    outline: 2px solid ${colors.blue[700]};
-    outline-offset: 2px;
+    color: ${linkColors.focus};
   }
 `;

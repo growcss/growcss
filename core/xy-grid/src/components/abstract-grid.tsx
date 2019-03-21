@@ -1,12 +1,10 @@
 import React, { PureComponent, ReactNode, ReactElement, Children } from 'react';
 import classNames from 'classnames';
-import { Gutters as DefaultGutters } from './gutters';
 import { XYGridElement } from '../styled/xy-grid-element';
 // eslint-disable-next-line no-unused-vars
-import { GridProps, CellProps, GuttersProps } from '../../types';
+import { GridProps, CellProps } from '../../types';
 
 interface DefaultGridProps {
-  gutterSizes?: GuttersProps;
   alignX?: string;
 }
 
@@ -14,7 +12,6 @@ type PropsWithDefaults = GridProps & DefaultGridProps;
 
 export default class AbstractGrid extends PureComponent<GridProps> {
   public static defaultProps: DefaultGridProps = {
-    gutterSizes: DefaultGutters,
     alignX: 'left',
   };
 
@@ -29,7 +26,7 @@ export default class AbstractGrid extends PureComponent<GridProps> {
    * @inheritdoc
    */
   public render(): ReactNode {
-    const { children, gutterSizes, gutterType, alignX, alignY, height, ...other } = this
+    const { children, gutterType, alignX, alignY, height, ...other } = this
       .props as PropsWithDefaults;
     const className = classNames(`gc-grid-${this.vertical ? 'y' : 'x'}`);
     const direction = this.vertical ? 'vertical' : 'horizontal';
@@ -50,7 +47,7 @@ export default class AbstractGrid extends PureComponent<GridProps> {
         flexWrap
         {...other}
       >
-        {this.renderCellChildren(children, gutterType, gutterSizes)}
+        {this.renderCellChildren(children, gutterType)}
       </XYGridElement>
     );
   }
@@ -58,21 +55,18 @@ export default class AbstractGrid extends PureComponent<GridProps> {
   /**
    * Renders the child elements.
    *
-   * @param {Component<CellProps>[]}   children
-   * @param {undefined | string}       gutterType
-   * @param {undefined | GuttersProps} gutterSizes
+   * @param {ReactElement<CellProps>[]} children
+   * @param {undefined | string}        gutterType
    *
    * @returns {ReactNode[]}
    */
   private renderCellChildren(
-    children: ReactNode,
+    children: ReactElement<CellProps>[],
     gutterType?: string,
-    gutterSizes?: GuttersProps,
   ): ReactNode[] {
     return Children.map(children, (thisArg: ReactElement<CellProps>) => {
       return React.cloneElement(thisArg, {
         gutterType,
-        gutterSizes,
         vertical: this.vertical,
       });
     });

@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "@growcss/elaborate": "^1.0.0",
+    "@growcss/theme": "^1.0.0",
     "classnames": "^2.2.5"
   },
   "devDependencies": {
@@ -66,7 +67,8 @@
     "@types/styled-components": "^4.1.10",
     "react": "^16.8.4",
     "styled-components": "^4.1.3",
-    "stylis": "^3.5.4"
+    "stylis": "^3.5.4",
+    "@growcss/divider": "^0.0.0"
   },
   "peerDependencies": {
     "react": "^16.8.0",

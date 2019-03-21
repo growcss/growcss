@@ -64,6 +64,12 @@ export default (borderColor: string) => css`
     border-style: solid;
   }
 
+  /* Reset links to optimize for opt-in styling instead of opt-out. */
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
   /* Make sure textarea takes on height automatically */
   textarea {
     height: auto;

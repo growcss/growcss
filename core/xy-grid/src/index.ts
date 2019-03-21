@@ -1,5 +1,4 @@
-export { GridContainer } from './components/grid-container';
-export { Cell } from './components/cell';
+export { default as GridContainer } from './styled/grid-container-element';
+export { default as Cell } from './components/cell';
 export { GridX } from './components/grid-x';
 export { GridY } from './components/grid-y';
-export { Gutters } from './components/gutters';
