@@ -2,6 +2,20 @@
   "name": "@growcss/image",
   "entries": [
     {
+      "version": "1.0.2",
+      "tag": "@growcss/image_v1.0.2",
+      "date": "Fri, 15 Mar 2019 10:52:21 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "refactor(image): removed old lazy check in observer",
+            "author": "Daniel Bannert <prisis@users.noreply.github.com>",
+            "commit": "30ffd1913726dc3cf488b2945fc4f6ff870d75e6"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.0.1",
       "tag": "@growcss/image_v1.0.1",
       "date": "Thu, 14 Mar 2019 18:19:00 GMT",
