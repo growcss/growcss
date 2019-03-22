@@ -2,7 +2,7 @@ import AbstractGrid from './abstract-grid';
 
 export class GridY extends AbstractGrid {
   /**
-   * @inheritdoc
+   * {@inheritdoc}
    */
   protected vertical: boolean = true;
 }

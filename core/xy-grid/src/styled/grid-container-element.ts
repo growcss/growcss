@@ -1,5 +1,6 @@
 import { mediaquery, rem } from '@growcss/elaborate';
-import { styled, css, GrowCssTheme } from '@growcss/theme';
+import { styled, GrowCssTheme } from '@growcss/theme';
+import classNames from 'classnames';
 import { BaseThemedCssFunction } from 'styled-components';
 // eslint-disable-next-line no-unused-vars
 import { GridContainerProps } from '../../types';
@@ -7,10 +8,12 @@ import { Gutters } from '../utils/gutters';
 
 type ExtendedGridContainerProps = GridContainerProps & { childrenCount: number };
 
-const dividerSupport = (props: ExtendedGridContainerProps): BaseThemedCssFunction<GrowCssTheme>[] => {
+const dividerSupport = (
+  props: ExtendedGridContainerProps,
+): BaseThemedCssFunction<GrowCssTheme>[] => {
   const gutters = props.theme.grid.gutters.padding;
-  const gutterBreakpoint = props.theme.grid.gutterBreakpoint;
-  const childrenCount = props.childrenCount;
+  const { gutterBreakpoint } = props.theme.grid;
+  const { childrenCount } = props;
 
   const cssCollection: BaseThemedCssFunction<GrowCssTheme>[] = [];
 
@@ -42,7 +45,7 @@ const dividerSupport = (props: ExtendedGridContainerProps): BaseThemedCssFunctio
       );
     } else {
       cssCollection.push(
-        mediaquery(key + ' down')`
+        mediaquery(`${key} down`)`
           & .gc-divider.vertical {
             margin-left: ${rem(props.theme.divider.vertical.margin - gutters[key])};
           }
@@ -63,11 +66,11 @@ const dividerSupport = (props: ExtendedGridContainerProps): BaseThemedCssFunctio
     }
   }
 
-  return cssCollection
+  return cssCollection;
 };
 
-const GridContainerElement = styled.div.attrs(() => ({
-  className: 'gc-grid-container',
+const GridContainerElement = styled.div.attrs((props: GridContainerProps) => ({
+  className: classNames('gc-grid-container', props.className),
 }))<ExtendedGridContainerProps>`
   position: relative;
   max-width: ${(props: ExtendedGridContainerProps) =>
@@ -76,12 +79,10 @@ const GridContainerElement = styled.div.attrs(() => ({
       : rem(props.theme.grid.maxWidth)};
   margin: 0 auto;
 
-  ${(props: ExtendedGridContainerProps) => (props.type === 'full' ? 'overflow-x: hidden;' : '')}
   ${(props: ExtendedGridContainerProps) =>
-    Gutters(
-      props.type === 'full' ? '0' : props.theme.grid.gutters.padding,
-      'padding',
-    )};
+    props.type === 'full' ? 'overflow-x: hidden;' : ''}
+  ${(props: ExtendedGridContainerProps) =>
+    Gutters(props.type === 'full' ? '0' : props.theme.grid.gutters.padding, 'padding')};
 
   ${(props: ExtendedGridContainerProps) => dividerSupport(props)}
 `;

@@ -647,6 +647,10 @@
       "allowedCategories": [ "production" ]
     },
     {
+      "name": "react-router",
+      "allowedCategories": [ "production" ]
+    },
+    {
       "name": "react-test-renderer",
       "allowedCategories": [ "tools" ]
     },

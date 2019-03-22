@@ -1,15 +1,21 @@
-import React, {Children, PureComponent, ReactNode} from 'react';
+import React, { Children, PureComponent, ReactNode } from 'react';
+import { withTheme } from 'styled-components';
 import GridContainerElement from '../styled/grid-container-element';
 import { GridContainerProps } from '../../types';
-import { withTheme } from 'styled-components';
 
-class GridContainer extends PureComponent<GridContainerProps, { childrenCount:  number }> {
+class GridContainer extends PureComponent<
+  GridContainerProps,
+  { childrenCount: number }
+> {
+  /**
+   * @param {GridContainerProps} props
+   */
   public constructor(props: GridContainerProps) {
     super(props);
 
     this.state = {
       childrenCount: 0,
-    }
+    };
   }
 
   /**
@@ -25,22 +31,24 @@ class GridContainer extends PureComponent<GridContainerProps, { childrenCount:  
         child.props.children !== undefined
       ) {
         this.setState({
-          childrenCount: Children.count(child.props.children)
+          childrenCount: Children.count(child.props.children),
         });
       }
     });
-
-
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public render(): ReactNode {
-    const { type, children, ...other } = this.props;
+    const { type, children, className, ...other } = this.props;
     const { childrenCount } = this.state;
 
     return (
       <GridContainerElement
         type={type}
         childrenCount={childrenCount}
+        className={className}
         {...other}
       >
         {children}

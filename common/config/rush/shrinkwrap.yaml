@@ -160,6 +160,7 @@ dependencies:
   react-dom: 16.8.4
   react-inspector: 2.3.1
   react-pose-core: 0.5.0
+  react-router: 5.0.0
   react-test-renderer: 16.8.4
   react-testing-library: 6.0.1
   regenerator-runtime: 0.13.1
@@ -2475,6 +2476,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-/eftZ45kD0OfOFHAmN02WP6N1NVphY+lBf8c2Q/P9VW3tj+N5NlBBAWfqOLOl96YDGMqpIBO5O/hQNx4A/lAng==
+  /@babel/runtime/7.4.2:
+    dependencies:
+      regenerator-runtime: 0.13.2
+    dev: false
+    resolution:
+      integrity: sha512-7Bl2rALb7HpvXFL7TETNzKSAeBVCPHELzc0C//9FCxN8nsiueWSJBqaF+2oIJScyILStASR/Cx5WMkXGYTiJFA==
   /@babel/template/7.4.0:
     dependencies:
       '@babel/code-frame': 7.0.0
@@ -13833,6 +13840,42 @@ packages:
       react: ^16.0.0
     resolution:
       integrity: sha512-T96I8Iqa1hGWyooeFA2Sl6FdPoMhXWINfEKg2/EJLxhP37+/94VNuyuyz9CRqpmApD83IWRR+lbB3r0ADMoKJg==
+  /react-router/5.0.0:
+    dependencies:
+      '@babel/runtime': 7.4.2
+      create-react-context: /create-react-context/0.2.3/prop-types@15.7.2
+      history: 4.9.0
+      hoist-non-react-statics: 3.3.0
+      loose-envify: 1.4.0
+      path-to-regexp: 1.7.0
+      prop-types: 15.7.2
+      react-is: 16.8.4
+      tiny-invariant: 1.0.3
+      tiny-warning: 1.0.2
+    dev: false
+    peerDependencies:
+      react: '>=15'
+    resolution:
+      integrity: sha512-6EQDakGdLG/it2x9EaCt9ZpEEPxnd0OCLBHQ1AcITAAx7nCnyvnzf76jKWG1s2/oJ7SSviUgfWHofdYljFexsA==
+  /react-router/5.0.0/react@16.8.4:
+    dependencies:
+      '@babel/runtime': 7.4.2
+      create-react-context: /create-react-context/0.2.3/prop-types@15.7.2+react@16.8.4
+      history: 4.9.0
+      hoist-non-react-statics: 3.3.0
+      loose-envify: 1.4.0
+      path-to-regexp: 1.7.0
+      prop-types: 15.7.2
+      react: 16.8.4
+      react-is: 16.8.4
+      tiny-invariant: 1.0.3
+      tiny-warning: 1.0.2
+    dev: false
+    id: registry.npmjs.org/react-router/5.0.0
+    peerDependencies:
+      react: '>=15'
+    resolution:
+      integrity: sha512-6EQDakGdLG/it2x9EaCt9ZpEEPxnd0OCLBHQ1AcITAAx7nCnyvnzf76jKWG1s2/oJ7SSviUgfWHofdYljFexsA==
   /react-syntax-highlighter/8.1.0/react@16.8.4:
     dependencies:
       babel-runtime: 6.26.0
@@ -17219,8 +17262,12 @@ packages:
       '@babel/plugin-transform-property-literals': /@babel/plugin-transform-property-literals/7.2.0/@babel!core@7.4.0
       '@babel/plugin-transform-property-mutators': /@babel/plugin-transform-property-mutators/7.2.0/@babel!core@7.4.0
       '@babel/plugin-transform-template-literals': /@babel/plugin-transform-template-literals/7.2.0/@babel!core@7.4.0
+      '@babel/plugin-transform-typescript': 7.4.0
       '@babel/preset-env': /@babel/preset-env/7.4.1/@babel!core@7.4.0
+      '@babel/preset-react': 7.0.0
+      '@babel/preset-typescript': 7.3.3
       babel-plugin-dynamic-import-node: 2.2.0
+      babel-plugin-transform-react-remove-prop-types: 0.4.24
       fast-async: 7.0.6
     dev: false
     name: '@rush-temp/babel-preset'
@@ -17258,7 +17305,7 @@ packages:
     dev: false
     name: '@rush-temp/divider'
     resolution:
-      integrity: sha512-7o1DJBWjEOGxT9wg7HLHiJSvw20Oj9UPmkSs2duHkW35lUguYsto27rhqhtFuCmS2QnEf7YjtLtkaAc2npNQkg==
+      integrity: sha512-b0H49racK0TwZJmuQBGrsipzEYK4xlrJ89HsyamNzAGOOGtxgJjBZTWmbUlzcNONc/SerWJjCmztgpNESsEURw==
       tarball: 'file:projects/divider.tgz'
     version: 0.0.0
   'file:projects/elaborate.tgz':
@@ -17281,6 +17328,8 @@ packages:
     version: 0.0.0
   'file:projects/eslint-config.tgz':
     dependencies:
+      '@typescript-eslint/eslint-plugin': 1.4.2
+      '@typescript-eslint/parser': 1.4.2
       confusing-browser-globals: 1.0.6
       eslint: 5.15.3
       eslint-config-airbnb: /eslint-config-airbnb/17.1.0/58060e25ce1e15fca831050a64a177db
@@ -17288,10 +17337,13 @@ packages:
       eslint-import-resolver-node: 0.3.2
       eslint-plugin-compat: /eslint-plugin-compat/2.7.0/eslint@5.15.3
       eslint-plugin-import: /eslint-plugin-import/2.16.0/eslint@5.15.3
+      eslint-plugin-jest: 22.4.1
       eslint-plugin-jsdoc: /eslint-plugin-jsdoc/4.4.3/eslint@5.15.3
+      eslint-plugin-jsx-a11y: 6.2.1
       eslint-plugin-prefer-object-spread: /eslint-plugin-prefer-object-spread/1.2.1/eslint@5.15.3
       eslint-plugin-prettier: /eslint-plugin-prettier/3.0.1/eslint@5.15.3+prettier@1.16.4
       eslint-plugin-promise: 4.0.1
+      eslint-plugin-react: 7.12.4
       eslint-plugin-security: 1.4.0
       eslint-plugin-unicorn: /eslint-plugin-unicorn/7.1.0/eslint@5.15.3
       prettier: 1.16.4
@@ -17424,12 +17476,13 @@ packages:
       classnames: 2.2.6
       react: 16.8.4
       react-dom: /react-dom/16.8.4/react@16.8.4
+      react-router: /react-router/5.0.0/react@16.8.4
       styled-components: /styled-components/4.1.3/17ed3de711cd8154ba7a4c46ca43ecae
       stylis: 3.5.4
     dev: false
     name: '@rush-temp/navigation'
     resolution:
-      integrity: sha512-gAPlck3GSuLzvALcD6Dg+D4EITqS6iJC4tftVlHCQIqT3OidlG/YjaLZZkm+ok5rL/Mue5yzsNMpTDMsYX3Xow==
+      integrity: sha512-jg2W4GunQZwN2XM/Txc1rHudwtbwOC0rPPoHQz3rZfuM7WKzDSOs3mVEpsAb5sBV8L3uKrjpoy6FuJqaUtWqLg==
       tarball: 'file:projects/navigation.tgz'
     version: 0.0.0
   'file:projects/release.tgz':
@@ -17619,7 +17672,7 @@ packages:
     dev: false
     name: '@rush-temp/xy-grid'
     resolution:
-      integrity: sha512-N5aYL5KFzjWrN2puLf0Yqzu+j8w6it9F+LZkabRCmF4WHhzytw8k7VHLHoBp7OtObp0wlM09eVdZVN0EAMudFg==
+      integrity: sha512-ASlL5G25DYBNPI96Bf5yhZomgQ084MQJ3AOP61ORo8FqjySdjmzLuwpLQqsh+SPo3natSqCKxrimV6qexMie9A==
       tarball: 'file:projects/xy-grid.tgz'
     version: 0.0.0
 registry: 'https://registry.npmjs.org/'
@@ -17787,6 +17840,7 @@ specifiers:
   react-dom: ^16.8.4
   react-inspector: ^2.3.1
   react-pose-core: ^0.5.0
+  react-router: ^5.0.0
   react-test-renderer: ^16.8.4
   react-testing-library: ^6.0.0
   regenerator-runtime: ^0.13.1

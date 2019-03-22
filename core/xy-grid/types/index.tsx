@@ -15,6 +15,7 @@ export interface GridProps {
   gutterType?: string;
   alignX?: string;
   alignY?: string;
+  className?: string;
 }
 
 export interface CellProps
@@ -26,6 +27,7 @@ export interface CellProps
   cellType?: string;
   gutterType?: string;
   align?: string;
+  className?: string;
 }
 
 export interface OffsetProps {
@@ -48,4 +50,5 @@ export interface GridContainerProps
   extends HTMLAttributes<HTMLDivElement>,
     ThemedStyledProps<{}, GrowCssTheme> {
   type?: string;
+  className?: string;
 }

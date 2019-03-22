@@ -11,6 +11,9 @@ interface DefaultGridProps {
 type PropsWithDefaults = GridProps & DefaultGridProps;
 
 export default class AbstractGrid extends PureComponent<GridProps> {
+  /**
+   * {@inheritdoc}
+   */
   public static defaultProps: DefaultGridProps = {
     alignX: 'left',
   };
@@ -23,12 +26,11 @@ export default class AbstractGrid extends PureComponent<GridProps> {
   protected vertical: boolean;
 
   /**
-   * @inheritdoc
+   * {@inheritdoc}
    */
   public render(): ReactNode {
-    const { children, gutterType, alignX, alignY, height, ...other } = this
+    const { children, gutterType, alignX, alignY, height, className, ...other } = this
       .props as PropsWithDefaults;
-    const className = classNames(`gc-grid-${this.vertical ? 'y' : 'x'}`);
     const direction = this.vertical ? 'vertical' : 'horizontal';
 
     if (this.vertical && height === undefined) {
@@ -39,7 +41,7 @@ export default class AbstractGrid extends PureComponent<GridProps> {
 
     return (
       <XYGridElement
-        className={className}
+        className={classNames(`gc-grid-${this.vertical ? 'y' : 'x'}`, className)}
         gridDirection={direction}
         alignX={alignX}
         alignY={alignY}

@@ -11,6 +11,7 @@ import colors from './css/colors';
 import divider from './components/divider';
 import grid from './components/grid';
 import image from './components/image';
+import navigation from './components/navigation';
 import spinner from './components/spinner';
 import { GrowCssTheme } from '../types';
 import { getGutterSize } from './utils/get-gutter-size';
@@ -87,6 +88,7 @@ export const GrowCss: GrowCssTheme = {
   divider,
   grid,
   image,
+  navigation,
   spinner,
 };
 

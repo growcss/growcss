@@ -1,4 +1,5 @@
 import React, { PureComponent, ReactNode } from 'react';
+import classNames from 'classnames';
 import { getThemeValue } from '@growcss/theme';
 import { withTheme } from 'styled-components';
 import { CellElement } from '../styled/cell-element';
@@ -12,17 +13,31 @@ interface DefaultCellProps {
 type PropsWithDefaults = CellProps & DefaultCellProps;
 
 class Cell extends PureComponent<CellProps & CellBreakpointsProps & OffsetProps> {
+  /**
+   * {@inheritdoc}
+   */
   public static defaultProps: DefaultCellProps = {
     vertical: false,
   };
 
+  /**
+   * {@inheritdoc}
+   */
   public render(): ReactNode {
-    const { children, cellType, gutterType, vertical, align, theme, ...other } = this
-      .props as PropsWithDefaults;
+    const {
+      children,
+      cellType,
+      gutterType,
+      vertical,
+      align,
+      theme,
+      className,
+      ...other
+    } = this.props as PropsWithDefaults;
 
     return (
       <CellElement
-        className="gc-cell"
+        className={classNames('gc-cell', className)}
         gridColumns={getThemeValue('grid.columns')(theme)}
         cellType={cellType}
         gutterType={gutterType}

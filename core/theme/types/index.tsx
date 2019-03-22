@@ -67,23 +67,11 @@ export interface GrowCssTheme extends DefaultTheme {
   shadows: any;
   zIndex: any;
   divider: {
-    margin: number;
-    breakpoint: {
-      mobile: string;
-      tablet: string;
-    };
     typography: {
       color: string;
       transform: string;
       weight: string;
-    };
-    vertical: {
-      margin: number;
-      height?: number;
-    };
-    horizontal: {
-      margin: number;
-      height?: number;
+      size: string;
     };
     highlight: {
       width: number;
@@ -93,15 +81,28 @@ export interface GrowCssTheme extends DefaultTheme {
       width: number;
       color: string;
     };
+    breakpoint: {
+      mobile: string;
+      tablet: string;
+    };
+    margin: string;
+    vertical: {
+      margin: number;
+      height?: number;
+    };
+    horizontal: {
+      margin: number;
+      height?: number;
+    };
   };
   grid: {
     maxWidth: number;
     gutters: {
       margin: {
-        [key: string]: string;
+        [key: string]: number;
       };
       padding: {
-        [key: string]: string;
+        [key: string]: number;
       };
     };
     columns: number;

@@ -52,7 +52,7 @@ const basicDivider = css<DividerProps>`
 const verticalDivider = css`
   position: absolute;
   z-index: 2;
-  
+
   ${(props: DividerProps) => mediaquery(props.theme.divider.breakpoint.mobile)`
     ${horizontalDivider}
     top: calc(50% - ${rem(props.theme.divider.vertical.margin + 10)});
@@ -75,17 +75,16 @@ const verticalDivider = css`
       left: 50%;
       content: '';
       z-index: 3;
-      border-left: ${(props: DividerProps) =>
-        rem(props.theme.divider.shadow.width)} solid
-        ${(props: DividerProps) => props.theme.divider.shadow.color};
-      border-right: ${(props: DividerProps) =>
-        rem(props.theme.divider.highlight.width)} solid
-        ${(props: DividerProps) => props.theme.divider.highlight.color};
+      border-left: ${rem(props.theme.divider.shadow.width)} solid
+        ${props.theme.divider.shadow.color};
+      border-right: ${rem(props.theme.divider.highlight.width)} solid
+        ${props.theme.divider.highlight.color};
       width: 0%;
-      height: ${(props: DividerProps) =>
+      height: ${
         props.theme.divider.vertical.height !== undefined
           ? rem(props.theme.divider.vertical.height)
-          : `calc(100% - ${rem(props.theme.divider.vertical.margin)})`};
+          : `calc(100% - ${rem(props.theme.divider.vertical.margin)})`
+      };
     }
   
     &:before {
