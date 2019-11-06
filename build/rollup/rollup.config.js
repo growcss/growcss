@@ -4,7 +4,7 @@ import progress from 'rollup-plugin-progress';
 import babel from 'rollup-plugin-babel';
 import json from 'rollup-plugin-json';
 import { uglify } from 'rollup-plugin-uglify';
-import replace from 'rollup-plugin-replace';
+import replace from '@rollup/plugin-replace';
 import sourceMaps from 'rollup-plugin-sourcemaps';
 import globals from 'rollup-plugin-node-globals';
 import cleanup from 'rollup-plugin-cleanup';
@@ -12,7 +12,7 @@ import { terser } from 'rollup-plugin-terser';
 import gzip from 'rollup-plugin-gzip';
 import licensePlugin from 'rollup-plugin-license';
 import 'airbnb-browser-shims';
-import { dts } from 'rollup-plugin-dts';
+import dts from 'rollup-plugin-dts';
 
 const nodeEnv      = process.env.NODE_ENV;
 const isProduction = nodeEnv === 'production';
@@ -59,20 +59,20 @@ const commonPlugins = [
   globals(),
   // nodeResolve makes rollup look for dependencies in the node_modules directory
   nodeResolve({
-    // use 'module' field for ES6 module if possible
-    module: false, // Default: true
     // use 'jsnext:main' if possible
     // – see https://github.com/rollup/rollup/wiki/jsnext:main
-    jsnext: false,  // Default: false
+
+    // use 'module' field for ES6 module if possible
+
     // use 'main' field or index.js, even if it's not an ES6 module
     // (needs to be converted from CommonJS to ES6
     // – see https://github.com/rollup/rollup-plugin-commonjs
-    main: true,  // Default: true
+
     // some package.json files have a `browser` field which
     // specifies alternative files to load for people bundling
     // for the browser. If that's you, use this option, otherwise
     // pkg.browser will be ignored
-    browser: true,  // Default: false
+    mainFields: ['main', 'jsnext', 'browser'],
     // whether to prefer built-in modules (e.g. `fs`, `path`) or
     // local ones with the same names
     preferBuiltins: true,  // Default: true

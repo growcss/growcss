@@ -12,8 +12,7 @@ import { getValueAndUnit } from './get-value-and-unit';
 export const em = (
   values: string | number | (string | number)[],
   base: number | string = 16,
-): string => {
-  if (typeof values === 'string') {
+): string => {  if (typeof values === 'string') {
     const match = getValueAndUnit(values);
 
     if (match[1] === 'em') {
