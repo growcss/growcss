@@ -7,8 +7,8 @@
     "sort": "./node_modules/.bin/sort-package-json"
   },
   "dependencies": {
-    "github": "^7.0.0",
-    "sort-package-json": "^1.19.0",
-    "yargs": "^13.2.2"
+    "github": "^14.0.0",
+    "sort-package-json": "^1.22.1",
+    "yargs": "^14.2.0"
   }
 }

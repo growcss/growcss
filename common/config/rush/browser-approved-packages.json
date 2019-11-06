@@ -179,6 +179,10 @@
       "allowedCategories": [ "production" ]
     },
     {
+      "name": "@rollup/plugin-replace",
+      "allowedCategories": [ "tools" ]
+    },
+    {
       "name": "@storybook/addon-a11y",
       "allowedCategories": [ "tools" ]
     },
@@ -224,6 +228,10 @@
     },
     {
       "name": "@storybook/ui",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "@testing-library/react",
       "allowedCategories": [ "tools" ]
     },
     {

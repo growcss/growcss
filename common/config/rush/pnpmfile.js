@@ -35,5 +35,9 @@ function readPackage(packageJson, context) {
   //  packageJson.dependencies['log4js'] = '0.6.38';
   // }
 
+  if (packageJson.optionalDependencies) {
+    packageJson.optionalDependencies = {};
+  }
+
   return packageJson;
 }
