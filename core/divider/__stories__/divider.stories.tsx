@@ -2,7 +2,7 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Divider } from '../src';
 
-storiesOf('Core.divider', module)
+storiesOf('Core.Divider', module)
   .add('A  standard divider', () => (
     <div style={{ padding: '2rem' }}>
       <Divider />

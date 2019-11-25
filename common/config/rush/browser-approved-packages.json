@@ -179,6 +179,14 @@
       "allowedCategories": [ "production" ]
     },
     {
+      "name": "@rollup/plugin-jso",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "@rollup/plugin-json",
+      "allowedCategories": [ "tools" ]
+    },
+    {
       "name": "@rollup/plugin-replace",
       "allowedCategories": [ "tools" ]
     },
@@ -800,6 +808,10 @@
     },
     {
       "name": "terser",
+      "allowedCategories": [ "tools" ]
+    },
+    {
+      "name": "themeprovider-storybook",
       "allowedCategories": [ "tools" ]
     },
     {

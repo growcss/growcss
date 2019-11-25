@@ -2,7 +2,7 @@ import nodeResolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import progress from 'rollup-plugin-progress';
 import babel from 'rollup-plugin-babel';
-import json from 'rollup-plugin-json';
+import json from '@rollup/plugin-json';
 import { uglify } from 'rollup-plugin-uglify';
 import replace from '@rollup/plugin-replace';
 import sourceMaps from 'rollup-plugin-sourcemaps';
